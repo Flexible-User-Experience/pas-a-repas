@@ -1,13 +1,28 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
+{% block main %}
     <div class="menu" id="menu">
-        <ul class="nav nav-tabs" role="tablist">
-            <li><a href="#courses">classes de repàs</a></li>
-            <li><a href="#about">sobre mi</a></li>
-            <li><a href="#contact">contacte</a></li>
-            <li><a href="#location">localització</a></li>
-        </ul>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Pas a Repàs</a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#courses">classes de repàs</a></li>
+                        <li><a href="#about">sobre mi</a></li>
+                        <li><a href="#contact">contacte</a></li>
+                        <li><a href="#location">localització</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </div>
     <div id="courses" class="courses text-center">
         <h2>CLASSES DE REPÀS</h2>
