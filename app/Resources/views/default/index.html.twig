@@ -1,10 +1,15 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="menu">
-        <h1>PAS A REPÀS</h1>
+    <div class="menu" id="menu">
+        <ul class="nav nav-tabs" role="tablist">
+            <li><a href="#courses">classes de repàs</a></li>
+            <li><a href="#about">sobre mi</a></li>
+            <li><a href="#contact">contacte</a></li>
+            <li><a href="#location">localització</a></li>
+        </ul>
     </div>
-    <div class="courses text-center">
+    <div id="courses" class="courses text-center">
         <h2>CLASSES DE REPÀS</h2>
         <ul class="nav nav-pills" role="tablist">
             <li role="presentation" class="active"><a href="#">Primària</a></li>
@@ -14,15 +19,15 @@
             <li role="presentation"><a href="#">Universitat</a></li>
         </ul>
     </div>
-    <div class="about text-center">
+    <div id="about" class="about text-center">
         <h2>SOBRE MI</h2>
         <p>{{ sentences(4) }}</p>
     </div>
-    <div class="contact text-center">
+    <div id="contact" class="contact text-center">
         <h2>CONTACTE</h2>
         <p>{{ sentences(2) }}</p>
     </div>
-    <div class="location text-center">
+    <div id="location" class="location text-center">
         <h2>LOCALITZACIÓ</h2>
     </div>
     <div class="footer">
