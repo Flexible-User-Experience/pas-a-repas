@@ -19,7 +19,7 @@
         "sensio/framework-extra-bundle": "^3.0.2",
         "apoutchika/loremipsum-bundle": "dev-master",
         "incenteev/composer-parameter-handler": "~2.0",
-        "happyr/google-api-bundle": "~2.1"
+        "egeloen/google-map-bundle": "~2.1"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"
