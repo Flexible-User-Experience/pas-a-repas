@@ -36,10 +36,25 @@ class DefaultController extends Controller
         $contactType = new ContactType();
         $form = $this->createForm($contactType);
 
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            // ... perform some action, such as saving the task to the database
+
+            return $this->redirectToRoute('congratulations');
+        }
 
         return $this->render('default/index.html.twig', array(
             'mapView' => $mapObject,
             'contactForm' => $form->createView(),
         ));
+    }
+
+    /**
+     * @Route("/congratulations", name="congratulations")
+     */
+    public function congratulationsAction(Request $request)
+    {
+        return $this->render('default/congratulations.html.twig');
     }
 }
