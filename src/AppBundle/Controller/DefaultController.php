@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Form\Type\ContactType;
 use Ivory\GoogleMapBundle\Entity\Map;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -31,9 +32,14 @@ class DefaultController extends Controller
         //$mapObject->setBound(-2.1, -3.9, 2.6, 1.4, true, true);
         $mapObject->addMarker($marker);
 
+        /** @var ContactType $contactType */
+        $contactType = new ContactType();
+        $form = $this->createForm($contactType);
+
 
         return $this->render('default/index.html.twig', array(
             'mapView' => $mapObject,
+            'contactForm' => $form->createView(),
         ));
     }
 }
