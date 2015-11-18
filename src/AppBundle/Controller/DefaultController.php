@@ -40,6 +40,13 @@ class DefaultController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             // ... perform some action, such as saving the task to the database
+            $message = \Swift_Message::newInstance()
+                ->setSubject('Pas a repàs contact form')
+                ->setFrom($form->get('email')->getData())
+                ->setTo('david@flux.cat')
+                ->setBody('Has rebut un formulari de contacte de: '. $form->get('name')->getData() . " " . $form->get('phone')->getData() . " " . $form->get('message')->getData())
+            ;
+            $this->get('mailer')->send($message);
 
             return $this->redirectToRoute('congratulations');
         }
