@@ -21,7 +21,8 @@
         "incenteev/composer-parameter-handler": "~2.0",
         "egeloen/google-map-bundle": "~2.1",
         "cypresslab/gitelephant-bundle": "dev-develop",
-        "egulias/email-validator": "1.*"
+        "egulias/email-validator": "1.*",
+        "twbs/bootstrap": "3.*"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"
