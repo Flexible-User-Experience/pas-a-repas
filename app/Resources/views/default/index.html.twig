@@ -1,79 +1,48 @@
 {% extends 'base.html.twig' %}
 
 {% block main %}
-    <div class="menu" id="menu">
-        <nav class="navbar navbar-default navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">Pas a Repàs</a>
-                </div>
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li><a href="#courses">classes de repàs</a></li>
-                        <li><a href="#about">sobre mi</a></li>
-                        <li><a href="#contact">contacte</a></li>
-                        <li><a href="#location">localització</a></li>
-                    </ul>
-                </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <img src="{{ asset('bundles/app/images/head.jpg') }}" class="img-responsive" alt="imatge principal pas a repas">
             </div>
-        </nav>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <img src="{{ asset('bundles/app/images/head.jpg') }}" class="img-responsive" alt="imatge principal pas a repas">
         </div>
-    </div>
-    <div id="courses" class="courses text-center row">
-        <div class="col-md-12">
-            <h2>CLASSES DE REPÀS</h2>
-            <ul class="nav nav-pills" role="tablist">
-                <li role="presentation" class="active"><a href="#">Primària</a></li>
-                <li role="presentation"><a href="#">ESO</a></li>
-                <li role="presentation"><a href="#">Batxillerat</a></li>
-                <li role="presentation"><a href="#">Selectivitat</a></li>
-                <li role="presentation"><a href="#">Universitat</a></li>
-            </ul>
+        <div id="courses" class="courses text-center row">
+            <div class="col-md-12">
+                <h2>CLASSES DE REPÀS</h2>
+                <ul class="nav nav-pills" role="tablist">
+                    <li role="presentation" class="active"><a href="#">Primària</a></li>
+                    <li role="presentation"><a href="#">ESO</a></li>
+                    <li role="presentation"><a href="#">Batxillerat</a></li>
+                    <li role="presentation"><a href="#">Selectivitat</a></li>
+                    <li role="presentation"><a href="#">Universitat</a></li>
+                </ul>
+            </div>
         </div>
-    </div>
-    <div id="about" class="about text-center row">
-        <div class="col-md-12">
-            <h2>SOBRE MI</h2>
-            <p>{{ sentences(4) }}</p>
+        <div id="about" class="about text-center row">
+            <div class="col-md-12">
+                <h2>SOBRE MI</h2>
+                <p>{{ sentences(4) }}</p>
+            </div>
         </div>
-    </div>
-    <div id="contact" class="contact text-center row">
-        <div class="col-md-12">
-            <h2>CONTACTE</h2>
-            <p>{{ sentences(2) }}</p>
-            <div class="form_row">
-                <div class="col-md-6">
-                    {{ form(contactForm) }}
+        <div id="contact" class="contact text-center row">
+            <div class="col-md-12">
+                <h2>CONTACTE</h2>
+                <p>{{ sentences(2) }}</p>
+                <div class="form_row">
+                    <div class="col-md-6">
+                        {{ form(contactForm) }}
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div id="location" class="location text-center row">
-        <div class="col-md-12">
-            <h2>LOCALITZACIÓ</h2>
-            <div class="container">
-                    {{ google_map(mapView) }}
-                </div>
-        </div>
-    </div>
-    <div class="footer row">
-        <div class="col-md-12">
-            <ul class="list-unstyled">
-                <li class="col-xs-3"></li>
-                <li class="col-xs-3">CONTACTE</li>
-                <li class="col-xs-3">ADREÇA</li>
-                <li class="col-xs-3"></li>
-            </ul>
+        <div id="location" class="location text-center row">
+            <div class="col-md-12">
+                <h2>LOCALITZACIÓ</h2>
+                <div class="container">
+                        {{ google_map(mapView) }}
+                    </div>
+            </div>
         </div>
     </div>
 {% endblock %}

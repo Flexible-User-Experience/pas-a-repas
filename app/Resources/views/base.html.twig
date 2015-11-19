@@ -16,6 +16,7 @@
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     </head>
     <body {% block bodyattr %}{% endblock %} data-spy="scroll" data-target="#menu">
+        {#<!-- Browser Happy -->#}
         <!--[if lt IE 10]>
         <div class="container">
             <div class="row">
@@ -28,9 +29,47 @@
             </div>
         </div>
         <![endif]-->
-        <div class="container">
-            {% block main %}{% endblock %}
-        </div>
+        {#<!-- Fixed top menu -->#}
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" data-aria-expanded="false" data-aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="{{ path('homepage') }}"><img src="{{ asset('bundles/app/images/logo-ff.png') }}" alt="Finques Farnós"/></a>
+                    <p class="navbar-text text-hide">Pas a Repàs</p>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#courses">classes de repàs</a></li>
+                        <li><a href="#about">sobre mi</a></li>
+                        <li><a href="#contact">contacte</a></li>
+                        <li><a href="#location">localització</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        {#<!-- Main content -->#}
+        {% block main %}{% endblock %}
+        {#<!-- Footer -->#}
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <ul class="list-unstyled">
+                            <li class="col-xs-3"></li>
+                            <li class="col-xs-3">CONTACTE</li>
+                            <li class="col-xs-3">ADREÇA</li>
+                            <li class="col-xs-3"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        {#<!-- Javascripts -->#}
         {% block javascripts %}
             <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
         {% endblock %}
