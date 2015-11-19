@@ -40,6 +40,8 @@ class DefaultController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             // ... perform some action, such as saving the task to the database
+            $em = $this->getDoctrine()->getManager();
+
             $message = \Swift_Message::newInstance()
                 ->setSubject('Pas a repàs contact form')
                 ->setFrom($form->get('email')->getData())
