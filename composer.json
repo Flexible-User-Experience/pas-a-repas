@@ -18,7 +18,13 @@
         "sensio/distribution-bundle": "~4.0",
         "sensio/framework-extra-bundle": "^3.0.2",
         "apoutchika/loremipsum-bundle": "dev-master",
-        "incenteev/composer-parameter-handler": "~2.0"
+        "incenteev/composer-parameter-handler": "~2.0",
+        "egeloen/google-map-bundle": "~2.1",
+        "cypresslab/gitelephant-bundle": "dev-develop",
+        "egulias/email-validator": "1.*",
+        "twbs/bootstrap": "3.*",
+        "components/font-awesome": "4.*",
+        "components/jquery": "2.*"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

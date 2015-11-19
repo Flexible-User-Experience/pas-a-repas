@@ -41,8 +41,18 @@ monolog:
         #    type:   chromephp
         #    level:  info
 
+twig:
+    globals:
+        google_analytics_enabled: false
+
 assetic:
     use_controller: true
 
-#swiftmailer:
-#    delivery_address: me@example.com
+swiftmailer:
+    delivery_address: "%mailer_delivery_dev%"
+
+cypress_git_elephant:
+    enable_profiler: false
+    profiler_repository_path: "%kernel.root_dir%/../"
+    repositories:
+        "PasaRepas": "%kernel.root_dir%/../"
