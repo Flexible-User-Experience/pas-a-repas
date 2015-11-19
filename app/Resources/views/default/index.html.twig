@@ -2,7 +2,7 @@
 
 {% block main %}
     <div class="menu" id="menu">
-        <nav class="navbar navbar-inverse navbar-fixed-top">
+        <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -23,6 +23,11 @@
                 </div>
             </div>
         </nav>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <img src="{{ asset('bundles/app/images/head.jpg') }}" class="img-responsive" alt="imatge principal pas a repas">
+        </div>
     </div>
     <div id="courses" class="courses text-center row">
         <div class="col-md-12">
@@ -61,7 +66,14 @@
                 </div>
         </div>
     </div>
-    <div class="footer">
-        FOOTER
+    <div class="footer row">
+        <div class="col-md-12">
+            <ul class="list-unstyled">
+                <li class="col-xs-3"></li>
+                <li class="col-xs-3">CONTACTE</li>
+                <li class="col-xs-3">ADREÇA</li>
+                <li class="col-xs-3"></li>
+            </ul>
+        </div>
     </div>
 {% endblock %}
