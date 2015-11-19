@@ -16,6 +16,18 @@
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     </head>
     <body {% block bodyattr %}{% endblock %} data-spy="scroll" data-target="#menu">
+        <!--[if lt IE 10]>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="alert alert-warning alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h5><span class="fa fa-warning"></span>&nbsp;{{ 'frontend.layout.browser.happy' | trans | raw }}</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <![endif]-->
         <div class="container">
             {% block main %}{% endblock %}
         </div>
