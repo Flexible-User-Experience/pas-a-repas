@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "28dd7f9aa85aec2adea3e1c6db7eab6d",
-    "content-hash": "6c298e73ba05fe70183db699fb34a25e",
+    "hash": "ed9e8567f8b83152d01269bd29e3639b",
+    "content-hash": "3e582311fc00e39086071395f6f695bd",
     "packages": [
         {
             "name": "apoutchika/loremipsum-bundle",
@@ -1076,6 +1076,59 @@
                 "json"
             ],
             "time": "2014-11-08 10:51:34"
+        },
+        {
+            "name": "egulias/email-validator",
+            "version": "1.2.11",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/egulias/EmailValidator.git",
+                "reference": "04c6cdf9871140b80947c87db7770c0dd9c75c7c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/04c6cdf9871140b80947c87db7770c0dd9c75c7c",
+                "reference": "04c6cdf9871140b80947c87db7770c0dd9c75c7c",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/lexer": "~1.0,>=1.0.1",
+                "php": ">= 5.3.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.4",
+                "satooshi/php-coveralls": "dev-master"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Egulias\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Eduardo Gulias Davis"
+                }
+            ],
+            "description": "A library for validating emails",
+            "homepage": "https://github.com/egulias/EmailValidator",
+            "keywords": [
+                "email",
+                "emailvalidation",
+                "emailvalidator",
+                "validation",
+                "validator"
+            ],
+            "time": "2015-11-11 03:28:32"
         },
         {
             "name": "incenteev/composer-parameter-handler",
