@@ -13,3 +13,4 @@
 /app/database/data.db3
 /web/assetic/*
 /web/css/*
+/web/js/*

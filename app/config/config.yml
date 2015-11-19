@@ -39,7 +39,7 @@ twig:
 assetic:
     debug:          "%kernel.debug%"
     use_controller: false
-    bundles:        [ ]
+    #bundles:        [ ]
     java:           "%assetic_path_java%"
     node:           "%assetic_path_node%"
     filters:
@@ -51,6 +51,10 @@ assetic:
         mycss:
             inputs:
                 - "@AppBundle/Resources/public/css/main.less"
+        myjs:
+            inputs:
+                - "%kernel.root_dir%/../vendor/components/jquery/jquery.js"
+                - "%kernel.root_dir%/../vendor/twbs/bootstrap/dist/js/bootstrap.js"
 
 # Doctrine Configuration
 doctrine:
