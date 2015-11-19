@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Contact;
 use AppBundle\Form\Type\ContactType;
 use Ivory\GoogleMapBundle\Entity\Map;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -34,21 +35,29 @@ class DefaultController extends Controller
 
         /** @var ContactType $contactType */
         $contactType = new ContactType();
-        $form = $this->createForm($contactType);
+        /** @var Contact $contactEntity */
+        $contactEntity = new Contact();
+
+        $form = $this->createForm($contactType, $contactEntity);
 
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             // ... perform some action, such as saving the task to the database
-            $em = $this->getDoctrine()->getManager();
 
             $message = \Swift_Message::newInstance()
                 ->setSubject('Pas a repàs contact form')
-                ->setFrom($form->get('email')->getData())
+                ->setFrom($contactEntity->getEmail())
                 ->setTo('david@flux.cat')
-                ->setBody('Has rebut un formulari de contacte de: '. $form->get('name')->getData() . " " . $form->get('phone')->getData() . " " . $form->get('message')->getData())
+                ->setBody('Has rebut un formulari de contacte de: '. $contactEntity->getName() . " " . $contactEntity->getPhone() . " " . $contactEntity->getMessage())
             ;
+
             $this->get('mailer')->send($message);
+
+            $em = $this->getDoctrine()->getManager();
+
+            $em->persist($contactEntity);
+            $em->flush();
 
             return $this->redirectToRoute('congratulations');
         }
@@ -65,5 +74,9 @@ class DefaultController extends Controller
     public function congratulationsAction(Request $request)
     {
         return $this->render('default/congratulations.html.twig');
+    }
+
+    private function getCurrentRequest()
+    {
     }
 }
