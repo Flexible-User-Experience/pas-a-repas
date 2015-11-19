@@ -11,3 +11,5 @@
 /web/bundles/
 /.idea
 /app/database/data.db3
+/web/assetic/*
+/web/css/*

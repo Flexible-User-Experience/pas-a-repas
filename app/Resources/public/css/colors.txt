@@ -1,5 +1,0 @@
-Magenta    #CD5599
-Cian       #40B4E5
-Blau fosc  #62259D
-Lila fosc  #8B3579
-Lila       #955E9B

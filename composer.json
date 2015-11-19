@@ -22,7 +22,8 @@
         "egeloen/google-map-bundle": "~2.1",
         "cypresslab/gitelephant-bundle": "dev-develop",
         "egulias/email-validator": "1.*",
-        "twbs/bootstrap": "3.*"
+        "twbs/bootstrap": "3.*",
+        "fortawesome/font-awesome": "4.*"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"
