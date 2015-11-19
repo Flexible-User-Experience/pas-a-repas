@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d510e725a41ca9744b58855bec12bf16",
-    "content-hash": "118c41325af9fdda84bcff94b434044c",
+    "hash": "834f6e52096aa59c7e23e73e18f654f4",
+    "content-hash": "244ddbef09afee2bd016cef7d7e0e59d",
     "packages": [
         {
             "name": "apoutchika/loremipsum-bundle",
@@ -55,6 +55,43 @@
                 "lorem"
             ],
             "time": "2014-10-05 19:11:51"
+        },
+        {
+            "name": "components/font-awesome",
+            "version": "4.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/components/font-awesome.git",
+                "reference": "7dffacc72e566e5db6272244effc06f64fe9f185"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/components/font-awesome/zipball/7dffacc72e566e5db6272244effc06f64fe9f185",
+                "reference": "7dffacc72e566e5db6272244effc06f64fe9f185",
+                "shasum": ""
+            },
+            "type": "component",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.4.x-dev"
+                },
+                "component": {
+                    "styles": [
+                        "css/font-awesome.css"
+                    ],
+                    "files": [
+                        "css/font-awesome.min.css",
+                        "fonts/*"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT",
+                "OFL-1.1"
+            ],
+            "description": "The iconic font designed for use with Twitter Bootstrap.",
+            "time": "2015-07-30 02:38:45"
         },
         {
             "name": "components/jquery",
@@ -1171,54 +1208,6 @@
                 "validator"
             ],
             "time": "2015-11-11 03:28:32"
-        },
-        {
-            "name": "fortawesome/font-awesome",
-            "version": "v4.4.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/FortAwesome/Font-Awesome.git",
-                "reference": "e554555d73a44e0a7d11b0361ad7a5325a5f551c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/FortAwesome/Font-Awesome/zipball/e554555d73a44e0a7d11b0361ad7a5325a5f551c",
-                "reference": "e554555d73a44e0a7d11b0361ad7a5325a5f551c",
-                "shasum": ""
-            },
-            "require-dev": {
-                "jekyll": "1.0.2",
-                "lessc": "1.4.2"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "4.0.x-dev"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "OFL-1.1",
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Dave Gandy",
-                    "email": "dave@fontawesome.io",
-                    "homepage": "http://twitter.com/davegandy",
-                    "role": "Developer"
-                }
-            ],
-            "description": "The iconic font and CSS framework",
-            "homepage": "http://fontawesome.io/",
-            "keywords": [
-                "FontAwesome",
-                "awesome",
-                "bootstrap",
-                "font",
-                "icon"
-            ],
-            "time": "2015-07-28 21:55:03"
         },
         {
             "name": "incenteev/composer-parameter-handler",

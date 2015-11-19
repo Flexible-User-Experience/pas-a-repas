@@ -23,7 +23,7 @@
         "cypresslab/gitelephant-bundle": "dev-develop",
         "egulias/email-validator": "1.*",
         "twbs/bootstrap": "3.*",
-        "fortawesome/font-awesome": "4.*",
+        "components/font-awesome": "4.*",
         "components/jquery": "2.*"
     },
     "require-dev": {
