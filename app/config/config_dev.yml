@@ -46,3 +46,9 @@ assetic:
 
 swiftmailer:
     delivery_address: "%mailer_delivery_dev%"
+
+cypress_git_elephant:
+    enable_profiler: false
+    profiler_repository_path: "%kernel.root_dir%/../"
+    repositories:
+        "PasaRepas": "%kernel.root_dir%/../"
