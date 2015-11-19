@@ -55,6 +55,8 @@ class DefaultController extends Controller
             $this->get('mailer')->send($message);
 
             $em = $this->getDoctrine()->getManager();
+//automatitzem la data actual a la entitat
+            $contactEntity->setDate(new \DateTime());
 
             $em->persist($contactEntity);
             $em->flush();
