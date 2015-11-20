@@ -44,41 +44,27 @@ class DefaultController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             // ... perform some action, such as saving the task to the database
-
             $message = \Swift_Message::newInstance()
                 ->setSubject('Pas a repàs contact form')
                 ->setFrom($contactEntity->getEmail())
                 ->setTo('david@flux.cat')
                 ->setBody('Has rebut un formulari de contacte de: '. $contactEntity->getName() . " " . $contactEntity->getPhone() . " " . $contactEntity->getMessage())
             ;
-
             $this->get('mailer')->send($message);
 
             $em = $this->getDoctrine()->getManager();
-//automatitzem la data actual a la entitat
+            //automatitzem la data actual a la entitat
             $contactEntity->setDate(new \DateTime());
-
             $em->persist($contactEntity);
             $em->flush();
 
-            return $this->redirectToRoute('congratulations');
+            //Add flash message
+            $this->addFlash('notice', 'ENVIAT!');
         }
 
         return $this->render('default/index.html.twig', array(
             'mapView' => $mapObject,
             'contactForm' => $form->createView(),
         ));
-    }
-
-    /**
-     * @Route("/congratulations", name="congratulations")
-     */
-    public function congratulationsAction(Request $request)
-    {
-        return $this->render('default/congratulations.html.twig');
-    }
-
-    private function getCurrentRequest()
-    {
     }
 }

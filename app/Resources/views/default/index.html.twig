@@ -32,6 +32,11 @@
                 <div class="form_row">
                     <div class="col-md-6">
                         {{ form(contactForm) }}
+                            {% for flashMessage in app.session.flashbag.get('notice') %}
+                                <div class="alert alert-success">
+                                    {{ flashMessage }}
+                                </div>
+                            {% endfor %}
                     </div>
                 </div>
             </div>
