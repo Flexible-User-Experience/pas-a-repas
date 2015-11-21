@@ -7,3 +7,5 @@ frontend:
       navigation: mostrar menú
     main:
       title: pas a repàs
+    menu:
+      courses: classes de repàs

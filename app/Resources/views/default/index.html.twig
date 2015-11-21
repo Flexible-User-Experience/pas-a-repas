@@ -9,7 +9,7 @@
         </div>
         <div id="courses" class="courses text-center row">
             <div class="col-md-12">
-                <h2>CLASSES DE REPÀS</h2>
+                <h2>{{ 'frontend.layout.menu.courses' | trans }}</h2>
                 <ul class="nav nav-pills" role="tablist">
                     <li role="presentation" class="active"><a href="#"><i class="icon-pencil"></i> Primària</a></li>
                     <li role="presentation"><a href="#"><i class="icon-ruler"></i> ESO</a></li>
@@ -21,13 +21,13 @@
         </div>
         <div id="about" class="about text-center row">
             <div class="col-md-12">
-                <h2>SOBRE MI</h2>
+                <h2>{{ 'frontend.layout.menu.about' | trans }}</h2>
                 <p>{{ sentences(4) }}</p>
             </div>
         </div>
         <div id="contact" class="contact text-center row">
             <div class="col-md-12">
-                <h2>CONTACTE</h2>
+                <h2>{{ 'frontend.layout.menu.contact' | trans }}</h2>
                 <p>{{ sentences(2) }}</p>
                 <div class="form_row">
                     <div class="col-md-6">
@@ -43,7 +43,7 @@
         </div>
         <div id="location" class="location text-center row">
             <div class="col-md-12">
-                <h2>LOCALITZACIÓ</h2>
+                <h2>{{ 'frontend.layout.menu.location' | trans }}</h2>
                 <div class="container">
                         {{ google_map(mapView) }}
                     </div>
