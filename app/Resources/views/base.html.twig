@@ -8,7 +8,7 @@
         <meta name="author" content="www.flux.cat" />
         <meta charset="UTF-8" />
         <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
-        <title>{% block title %}{{ 'frontend.layout.main.title' | trans }}{% endblock %}</title>
+        <title>{% block title %}{{ 'frontend.layout.main.title' | trans | title }}{% endblock %}</title>
         {% block stylesheets %}
             {% stylesheets filter="cssrewrite,less" '@mycss' %}
                 <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
@@ -40,15 +40,15 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="{{ path('homepage') }}"><img src="{{ asset('bundles/app/images/menu.png') }}" alt="{{ 'frontend.layout.main.title' | trans }}"/></a>
-                    <p class="navbar-text text-hide">{{ 'frontend.layout.main.title' | trans }}</p>
+                    <a class="navbar-brand" href="{{ path('homepage') }}"><img src="{{ asset('bundles/app/images/menu.png') }}" alt="{{ 'frontend.layout.main.title' | trans | capitalize }}"/></a>
+                    <p class="navbar-text text-hide">{{ 'frontend.layout.main.title' | trans | capitalize }}</p>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#courses">{{ 'frontend.layout.menu.courses' | trans }}</a></li>
-                        <li><a href="#about">{{ 'frontend.layout.menu.about' | trans }}</a></li>
-                        <li><a href="#contact">{{ 'frontend.layout.menu.contact' | trans }}</a></li>
-                        <li><a href="#location">{{ 'frontend.layout.menu.location' | trans }}</a></li>
+                        <li><a href="#courses">{{ 'frontend.layout.menu.courses' | trans | upper }}</a></li>
+                        <li><a href="#about">{{ 'frontend.layout.menu.about' | trans | upper }}</a></li>
+                        <li><a href="#contact">{{ 'frontend.layout.menu.contact' | trans | upper }}</a></li>
+                        <li><a href="#location">{{ 'frontend.layout.menu.location' | trans | upper }}</a></li>
                     </ul>
                 </div>
             </div>
