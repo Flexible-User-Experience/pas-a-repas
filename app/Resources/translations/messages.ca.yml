@@ -13,3 +13,6 @@ frontend:
   index:
     main:
       image: el pas definitiu
+    contact:
+      form:
+        name: nom
