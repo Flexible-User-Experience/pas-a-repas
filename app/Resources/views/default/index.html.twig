@@ -29,16 +29,27 @@
             <div class="col-md-12">
                 <h2 class="text-center">{{ 'frontend.layout.menu.contact' | trans | upper }}</h2>
                 <p class="text-center">{{ sentences(2) }}</p>
-                <div class="form_row">
-                    <div class="col-md-6">
-                        {{ form(contactForm) }}
-                            {% for flashMessage in app.session.flashbag.get('notice') %}
-                                <div class="alert alert-success">
-                                    {{ flashMessage }}
-                                </div>
-                            {% endfor %}
+                {% for flashMessage in app.session.flashbag.get('notice') %}
+                    <div class="alert alert-success">
+                        {{ flashMessage }}
                     </div>
-                </div>
+                {% endfor %}
+                {{ form_start(contactForm) }}
+                    <div class="row">
+                        <div class="col-xs-2"></div>
+                        <div class="col-xs-4">
+                            {{ form_errors(contactForm) }}
+                            {{ form_row(contactForm.name) }}
+                            {{ form_row(contactForm.email) }}
+                            {{ form_row(contactForm.phone) }}
+                        </div>
+                        <div class="col-xs-4">
+                            {{ form_row(contactForm.message) }}
+                            {{ form_rest(contactForm) }}
+                        </div>
+                        <div class="col-xs-2"></div>
+                    </div>
+                {{ form_end(contactForm) }}
             </div>
         </div>
         <div id="location" class="row">
