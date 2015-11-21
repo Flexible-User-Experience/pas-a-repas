@@ -13,6 +13,8 @@ frontend:
   index:
     main:
       image: el pas definitiu
+    courses:
+      primary: primària
     contact:
       form:
         name: nom
