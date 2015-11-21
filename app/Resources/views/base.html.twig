@@ -8,7 +8,7 @@
         <meta name="author" content="www.flux.cat" />
         <meta charset="UTF-8" />
         <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
-        <title>{% block title %}Pas a repàs{% endblock %}</title>
+        <title>{% block title %}{{ 'frontend.layout.main.title' | trans | title }}{% endblock %}</title>
         {% block stylesheets %}
             {% stylesheets filter="cssrewrite,less" '@mycss' %}
                 <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
@@ -31,24 +31,24 @@
         </div>
         <![endif]-->
         {#<!-- Fixed top menu -->#}
-        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <nav class="navbar navbar-default navbar-fixed-top my-nav" role="navigation">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" data-aria-expanded="false" data-aria-controls="navbar">
-                        <span class="sr-only">Toggle navigation</span>
+                        <span class="sr-only">{{ 'frontend.layout.toggle.navigation' | trans }}</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="{{ path('homepage') }}">{#<img src="{{ asset('bundles/app/images/logo-ff.png') }}" alt="Pas a Repàs"/>#}Pas a Repàs</a>
-                    <p class="navbar-text text-hide">Pas a Repàs</p>
+                    <a class="navbar-brand" href="{{ path('homepage') }}"><img src="{{ asset('bundles/app/images/menu.png') }}" alt="{{ 'frontend.layout.main.title' | trans | capitalize }}"/></a>
+                    <p class="navbar-text text-hide">{{ 'frontend.layout.main.title' | trans | capitalize }}</p>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#courses">classes de repàs</a></li>
-                        <li><a href="#about">sobre mi</a></li>
-                        <li><a href="#contact">contacte</a></li>
-                        <li><a href="#location">localització</a></li>
+                        <li><a href="#courses">{{ 'frontend.layout.menu.courses' | trans | upper }}</a></li>
+                        <li><a href="#about">{{ 'frontend.layout.menu.about' | trans | upper }}</a></li>
+                        <li><a href="#contact">{{ 'frontend.layout.menu.contact' | trans | upper }}</a></li>
+                        <li><a href="#location">{{ 'frontend.layout.menu.location' | trans | upper }}</a></li>
                     </ul>
                 </div>
             </div>
@@ -62,8 +62,8 @@
                     <div class="col-xs-12">
                         <ul class="list-unstyled">
                             <li class="col-xs-3"></li>
-                            <li class="col-xs-3">CONTACTE</li>
-                            <li class="col-xs-3">ADREÇA</li>
+                            <li class="col-xs-3">{{ 'frontend.layout.footer.contact' | trans | upper }}</li>
+                            <li class="col-xs-3">{{ 'frontend.layout.footer.address' | trans | upper }}</li>
                             <li class="col-xs-3"></li>
                         </ul>
                     </div>

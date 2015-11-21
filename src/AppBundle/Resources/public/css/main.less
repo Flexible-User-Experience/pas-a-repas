@@ -10,21 +10,78 @@
 @lviolet: #955E9B;
 @grey:    #666666;
 @white:   #FFFFFF;
+@black:   #222222;
 
 // Fonts
 @fa-font-path: "/bundles/app/fonts";
 
 // Navbar
-@navbar-height: 70px;
-@navbar-default-border: transparent;
+@navbar-height: 90px;
+@navbar-default-border: @grey;
 @navbar-default-color: transparent;
 @navbar-default-bg: @white;
 @navbar-default-brand-color: @grey;
 @navbar-default-link-color: @grey;
 @navbar-default-link-hover-color: @magenta;
-@navbar-default-link-active-bg: transparent;
+@navbar-default-link-active-bg: @cian;
+nav.my-nav {
+  a.navbar-brand { margin-top: -20px; }
+}
+
+// Link
+@link-color: @magenta;
+@link-hover-color: darken(@link-color, 15%);
+
+// Textarea
+textarea { resize: vertical; }
 
 // Body
 body.my-body {
-  margin-top: 50px;
+  margin-top: 70px;
+}
+
+// Scroll to top helper
+.scroll-top-wrapper {
+  position: fixed;
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+  text-align: center;
+  z-index: 2000;
+  background-color: @grey;
+  color: @white;
+  width: 50px;
+  height: 48px;
+  line-height: 48px;
+  right: 15px;
+  bottom: 15px;
+  padding-top: 2px;
+  border-radius: 4px;
+  .transition (all 0.5s ease-in-out);
+  &.show {
+    visibility: visible;
+    cursor: pointer;
+    opacity: 0.85;
+  }
+  i.fa {
+    line-height: inherit;
+  }
+}
+
+// Footer
+footer {
+  color: @white;
+  background-color: @black;
+  padding: 40px 0;
+  a {
+    color: @white;
+    text-decoration: none;
+    &:hover {
+      color: @white;
+      text-decoration: underline;
+    }
+  }
+  a.btn {
+    text-decoration: none;
+  }
 }

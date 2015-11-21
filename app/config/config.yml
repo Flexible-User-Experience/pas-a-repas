@@ -82,3 +82,6 @@ swiftmailer:
     encryption: ssl
     auth_mode:  login
     spool:     { type: memory }
+
+cypress_git_elephant:
+    enable_profiler: false

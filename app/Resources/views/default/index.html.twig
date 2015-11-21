@@ -4,45 +4,68 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <img src="{{ asset('bundles/app/images/head.jpg') }}" class="img-responsive" alt="imatge principal pas a repas">
+                <img src="{{ asset('bundles/app/images/head.jpg') }}" class="img-responsive" alt="{{ 'frontend.index.main.image' | trans | capitalize }}">
             </div>
         </div>
-        <div id="courses" class="courses text-center row">
+        <div id="courses" class="row">
             <div class="col-md-12">
-                <h2><i class="icon-arrow"></i> CLASSES DE REPÀS</h2>
+                <h2 class="text-center">{{ 'frontend.layout.menu.courses' | trans | upper }}</h2>
                 <ul class="nav nav-pills" role="tablist">
-                    <li role="presentation" class="active"><a href="#">Primària</a></li>
-                    <li role="presentation"><a href="#">ESO</a></li>
-                    <li role="presentation"><a href="#">Batxillerat</a></li>
-                    <li role="presentation"><a href="#">Selectivitat</a></li>
-                    <li role="presentation"><a href="#">Universitat</a></li>
+                    <li role="presentation" class="active"><a href="#"><i class="icon-pencil"></i> {{ 'frontend.index.courses.primary' | trans | upper }}</a></li>
+                    <li role="presentation"><a href="#"><i class="icon-ruler"></i> {{ 'frontend.index.courses.eso' | trans | upper }}</a></li>
+                    <li role="presentation"><a href="#"><i class="icon-book"></i> {{ 'frontend.index.courses.school' | trans | upper }}</a></li>
+                    <li role="presentation"><a href="#"><i class="icon-check"></i> {{ 'frontend.index.courses.selectivity' | trans | upper }}</a></li>
+                    <li role="presentation"><a href="#"><i class="icon-hat"></i> {{ 'frontend.index.courses.university' | trans | upper }}</a></li>
                 </ul>
             </div>
         </div>
-        <div id="about" class="about text-center row">
+        <div id="about" class="row">
             <div class="col-md-12">
-                <h2>SOBRE MI</h2>
-                <p>{{ sentences(4) }}</p>
+                <h2 class="text-center">{{ 'frontend.layout.menu.about' | trans | upper }}</h2>
+                <p class="text-center">{{ sentences(4) }}</p>
             </div>
         </div>
-        <div id="contact" class="contact text-center row">
+        <div id="contact" class="row">
             <div class="col-md-12">
-                <h2>CONTACTE</h2>
-                <p>{{ sentences(2) }}</p>
-                <div class="form_row">
-                    <div class="col-md-6">
-                        {{ form(contactForm) }}
+                <h2 class="text-center">{{ 'frontend.layout.menu.contact' | trans | upper }}</h2>
+                <p class="text-center">{{ sentences(2) }}</p>
+                {% for flashMessage in app.session.flashbag.get('notice') %}
+                    <div class="alert alert-success">
+                        {{ flashMessage }}
                     </div>
+                {% endfor %}
+                {{ form_start(contactForm) }}
+                    <div class="row">
+                        <div class="col-xs-2"></div>
+                        <div class="col-xs-4">
+                            {{ form_errors(contactForm) }}
+                            {{ form_row(contactForm.name) }}
+                            {{ form_row(contactForm.email) }}
+                            {{ form_row(contactForm.phone) }}
+                        </div>
+                        <div class="col-xs-4">
+                            {{ form_row(contactForm.message) }}
+                            {{ form_rest(contactForm) }}
+                        </div>
+                        <div class="col-xs-2"></div>
+                    </div>
+                {{ form_end(contactForm) }}
+            </div>
+        </div>
+        <div id="location" class="row">
+            <div class="col-md-12">
+                <h2 class="text-center">{{ 'frontend.layout.menu.location' | trans | upper }}</h2>
+                <div class="container">
+                    {{ google_map(mapView) }}
                 </div>
             </div>
         </div>
-        <div id="location" class="location text-center row">
-            <div class="col-md-12">
-                <h2>LOCALITZACIÓ</h2>
-                <div class="container">
-                        {{ google_map(mapView) }}
-                    </div>
-            </div>
-        </div>
     </div>
+    {# Scroll-Top effect #}
+    <div class="scroll-top-wrapper"><span class="scroll-top-inner"><i class="fa fa-2x fa-arrow-circle-up"></i></span></div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {% include 'fragments/scroll-to-top-js.html.twig' %}
 {% endblock %}

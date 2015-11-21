@@ -9,11 +9,7 @@ class DefaultControllerTest extends WebTestCase
     public function testIndex()
     {
         $client = static::createClient();
-
         $client->request('GET', '/');
-        $this->assertEquals(200, $client->getResponse()->getStatusCode());
-
-        $client->request('GET', '/congratulations');
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
     }
 }
