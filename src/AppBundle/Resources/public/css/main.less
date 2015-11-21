@@ -10,6 +10,7 @@
 @lviolet: #955E9B;
 @grey:    #666666;
 @white:   #FFFFFF;
+@black:   #222222;
 
 // Fonts
 @fa-font-path: "/bundles/app/fonts";
@@ -64,5 +65,23 @@ body.my-body {
   }
   i.fa {
     line-height: inherit;
+  }
+}
+
+// Footer
+footer {
+  color: @white;
+  background-color: @black;
+  padding: 40px 0;
+  a {
+    color: @white;
+    text-decoration: none;
+    &:hover {
+      color: @white;
+      text-decoration: underline;
+    }
+  }
+  a.btn {
+    text-decoration: none;
   }
 }
