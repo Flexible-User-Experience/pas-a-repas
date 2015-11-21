@@ -10,3 +10,6 @@ frontend:
     menu:
       courses: classes de repàs
       about: sobre mi
+  index:
+    main:
+      image: el pas definitiu
