@@ -16,7 +16,7 @@
         {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
-    <body class="my-body" data-spy="scroll" data-target="#menu">
+    <body class="my-body" data-spy="scroll" data-target="#navbar">
         {#<!-- Browser Happy -->#}
         <!--[if lt IE 10]>
         <div class="container">
@@ -43,7 +43,7 @@
                     <a class="navbar-brand" href="{{ path('homepage') }}"><img src="{{ asset('bundles/app/images/menu.png') }}" alt="{{ 'frontend.layout.main.title' | trans | capitalize }}"/></a>
                     <p class="navbar-text text-hide">{{ 'frontend.layout.main.title' | trans | capitalize }}</p>
                 </div>
-                <div id="navbar" class="navbar-collapse collapse">
+                <div id="navbar" class="navbar-collapse collapse" data-offset="100">
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#courses">{{ 'frontend.layout.menu.courses' | trans | upper }}</a></li>
                         <li><a href="#about">{{ 'frontend.layout.menu.about' | trans | upper }}</a></li>
