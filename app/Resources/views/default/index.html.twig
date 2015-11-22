@@ -10,13 +10,16 @@
         <div id="courses" class="row">
             <div class="col-md-12">
                 <h2 class="my-h2 text-center">{{ 'frontend.layout.menu.courses' | trans | upper }}</h2>
-                <ul class="nav nav-pills" role="tablist">
-                    <li role="presentation" class="active"><a href="#"><i class="icon-pencil"></i> {{ 'frontend.index.courses.primary' | trans | upper }}</a></li>
-                    <li role="presentation"><a href="#"><i class="icon-ruler"></i> {{ 'frontend.index.courses.eso' | trans | upper }}</a></li>
-                    <li role="presentation"><a href="#"><i class="icon-book"></i> {{ 'frontend.index.courses.school' | trans | upper }}</a></li>
-                    <li role="presentation"><a href="#"><i class="icon-check"></i> {{ 'frontend.index.courses.selectivity' | trans | upper }}</a></li>
-                    <li role="presentation"><a href="#"><i class="icon-hat"></i> {{ 'frontend.index.courses.university' | trans | upper }}</a></li>
-                </ul>
+                <div class="navbar">
+                    <ul class="nav nav-justified" role="tablist">
+                        <li><a href="#" class="c-magenta"><i class="icon-pencil fa-3x"></i><br>{{ 'frontend.index.courses.primary' | trans | upper }}</a></li>
+                        <li><a href="#" class="c-wine"><i class="icon-ruler fa-3x"></i><br>{{ 'frontend.index.courses.eso' | trans | upper }}</a></li>
+                        <li><a href="#" class="c-violet"><i class="icon-book fa-3x"></i><br>{{ 'frontend.index.courses.school' | trans | upper }}</a></li>
+                        <li><a href="#" class="c-lviolet"><i class="icon-check fa-3x"></i><br>{{ 'frontend.index.courses.selectivity' | trans | upper }}</a></li>
+                        <li><a href="#" class="c-cyan"><i class="icon-hat fa-3x"></i><br>{{ 'frontend.index.courses.university' | trans | upper }}</a></li>
+                    </ul>
+                </div>
+
             </div>
         </div>
         <div id="about" class="row">

@@ -4,10 +4,10 @@
 
 // Variables
 @magenta: #CD5599;
-@cian:    #40B4E5;
-@dviolet: #62259D;
-@violet:  #8B3579;
-@lviolet: #955E9B;
+@cyan:    #40B4E5;
+@wine:    #782C63;
+@violet:  #62259D;
+@lviolet: #8E64A7;
 @grey:    #666666;
 @white:   #FFFFFF;
 @black:   #222222;
@@ -22,8 +22,8 @@
 @navbar-default-bg: @white;
 @navbar-default-brand-color: @grey;
 @navbar-default-link-color: @grey;
-@navbar-default-link-active-color: @dviolet;
-@navbar-default-link-hover-color: @violet;
+@navbar-default-link-active-color: @cyan;
+@navbar-default-link-hover-color: @magenta;
 @navbar-default-link-active-bg: transparent;
 nav.my-nav {
   a.navbar-brand { margin-top: -20px; }
@@ -32,6 +32,16 @@ nav.my-nav {
 // Link
 @link-color: @magenta;
 @link-hover-color: darken(@link-color, 15%);
+
+// Colors
+.c-magenta { color: @magenta }
+.c-cyan    { color: @cyan }
+.c-wine    { color: @wine }
+.c-violet  { color: @violet }
+.c-lviolet { color: @lviolet }
+.c-grey    { color: @grey }
+.c-white   { color: @white }
+.c-black   { color: @black }
 
 // Textarea
 textarea { resize: vertical; }
