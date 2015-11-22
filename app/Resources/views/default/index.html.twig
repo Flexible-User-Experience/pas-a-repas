@@ -92,18 +92,18 @@
                 {% endfor %}
                 {{ form_start(contactForm) }}
                     <div class="row">
-                        <div class="col-xs-2"></div>
-                        <div class="col-xs-4">
+                        <div class="col-sm-2 col-xs-1"></div>
+                        <div class="col-sm-4 col-xs-5">
                             {{ form_errors(contactForm) }}
                             {{ form_row(contactForm.name) }}
                             {{ form_row(contactForm.email) }}
                             {{ form_row(contactForm.phone) }}
                         </div>
-                        <div class="col-xs-4">
+                        <div class="col-sm-4 col-xs-5">
                             {{ form_row(contactForm.message) }}
                             {{ form_rest(contactForm) }}
                         </div>
-                        <div class="col-xs-2"></div>
+                        <div class="col-sm-2 col-xs-1"></div>
                     </div>
                 {{ form_end(contactForm) }}
             </div>
