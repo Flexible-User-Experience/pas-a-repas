@@ -27,6 +27,7 @@ class DefaultController extends Controller
         /** @var Map $mapObject */
         $mapObject = $this->get('ivory_google_map.map');
         $mapObject->setStylesheetOption('width', '100%');
+        $mapObject->setStylesheetOption('height', '100%');
         $mapObject->setLanguage('es');
         $mapObject->setCenter(40.7061278, 0.5817055555555556, true);
         $mapObject->setMapOption('zoom', 15);

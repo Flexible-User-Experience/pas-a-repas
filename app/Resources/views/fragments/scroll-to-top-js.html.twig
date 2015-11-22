@@ -9,9 +9,9 @@
     jQuery('.scroll-top-wrapper').on('click', scrollToTop);
     function scrollToTop() {
         verticalOffset = typeof(verticalOffset) != 'undefined' ? verticalOffset : 0;
-        element = jQuery('body');
-        offset = element.offset();
-        offsetTop = offset.top;
+        var element = jQuery('body');
+        var offset = element.offset();
+        var offsetTop = offset.top;
         jQuery('html, body').animate({scrollTop: offsetTop}, 1000, 'swing');
     }
 </script>
