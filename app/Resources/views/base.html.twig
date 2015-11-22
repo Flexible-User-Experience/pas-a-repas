@@ -55,6 +55,8 @@
         </nav>
         {#<!-- Main content -->#}
         {% block main %}{% endblock %}
+        {#<!-- Scroll-Top effect -->#}
+        <div class="scroll-top-wrapper"><span class="scroll-top-inner"><i class="fa fa-2x fa-arrow-circle-up"></i></span></div>
         {#<!-- Footer -->#}
         <footer>
             <div class="container">
@@ -76,6 +78,8 @@
                 <script type="text/javascript" src="{{ asset_url }}"></script>
             {% endjavascripts %}
         {% endblock %}
+        {#<!-- Scroll-Top effect JS -->#}
+        {% include 'fragments/scroll-to-top-js.html.twig' %}
         {#<!-- Google Analytics -->#}
         {% if google_analytics_enabled %}
             <script type="text/javascript">
