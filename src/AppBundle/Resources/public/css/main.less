@@ -64,8 +64,16 @@ body.my-body {
 h2.my-h2 {
   margin-top: 100px;
   color: @grey;
+  &.c-white { color: @white; }
 }
 div.google-maps-container { height: 400px; }
+div#sobre-mi div.col-md-12 {
+  background-image: url('/bundles/app/images/about.jpg');
+  background-size: cover;
+  background-clip: content-box;
+  min-height: 400px;
+  color: @white;
+}
 
 // Scroll to top helper
 .scroll-top-wrapper {
