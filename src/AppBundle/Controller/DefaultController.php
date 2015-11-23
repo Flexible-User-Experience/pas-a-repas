@@ -75,7 +75,7 @@ class DefaultController extends Controller
     /**
      * @Route("/blog", name="blog")
      */
-    public function PostsListAction()
+    public function postsListAction()
     {
         $postsManager = $this->getDoctrine()
             ->getRepository('AppBundle:Post');
@@ -92,8 +92,25 @@ class DefaultController extends Controller
     /**
      * @Route("/blog/{year}/{month}/{day}/{slug})
      */
-    public function PostsDetailAction()
+    public function postsDetailAction()
     {
 
+    }
+
+    /**
+     * @Route("/blog/categories", name="categories")
+     */
+    public function categoriesListAction()
+    {
+        $categoriesManager = $this->getDoctrine()
+            ->getRepository('AppBundle:Category');
+
+        $query = $categoriesManager->createQueryBuilder('c')
+            ->where('c.enabled = :enabled')
+            ->setParameter('enabled', true)
+            ->orderBy('c.title', 'DESC')
+            ->getQuery();
+
+        $categories = $query->getResult();
     }
 }

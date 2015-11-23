@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Post
  *
  * @ORM\Table()
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\PostRepository")
  */
 class Post
 {
@@ -57,12 +57,16 @@ class Post
     private $description;
 
     /**
-     * @var \stdClass
+     * @var string
      *
-     * @ORM\Column(name="image", type="string")
+     * @ORM\Column(type="boolean")
      */
-    private $image;
+    protected $enabled;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="Category", inversedBy="posts")
+     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
+     */
     protected $category;
 
     /**
@@ -196,27 +200,74 @@ class Post
     }
 
     /**
-     * Set image
+     * @return mixed
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * @param mixed $category
+     */
+    public function setCategory($category)
+    {
+        $this->category = $category;
+    }
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->category = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Set enabled
      *
-     * @param \stdClass $image
+     * @param boolean $enabled
      *
      * @return Post
      */
-    public function setImage($image)
+    public function setEnabled($enabled)
     {
-        $this->image = $image;
+        $this->enabled = $enabled;
 
         return $this;
     }
 
     /**
-     * Get image
+     * Get enabled
      *
-     * @return \stdClass
+     * @return boolean
      */
-    public function getImage()
+    public function getEnabled()
     {
-        return $this->image;
+        return $this->enabled;
+    }
+
+    /**
+     * Add category
+     *
+     * @param \AppBundle\Entity\Category $category
+     *
+     * @return Post
+     */
+    public function addCategory(\AppBundle\Entity\Category $category)
+    {
+        $this->category[] = $category;
+
+        return $this;
+    }
+
+    /**
+     * Remove category
+     *
+     * @param \AppBundle\Entity\Category $category
+     */
+    public function removeCategory(\AppBundle\Entity\Category $category)
+    {
+        $this->category->removeElement($category);
     }
 }
-

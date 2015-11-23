@@ -187,4 +187,3 @@ class Contact
         return $this->date;
     }
 }
-
