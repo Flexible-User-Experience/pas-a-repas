@@ -87,14 +87,8 @@ class DefaultController extends Controller
             ->getQuery();
 
         $posts = $query->getResult();
-    }
 
-    /**
-     * @Route("/blog/{year}/{month}/{day}/{slug})
-     */
-    public function postsDetailAction()
-    {
-
+        return $this->render('AppBundle:default:blog.html.twig');
     }
 
     /**
