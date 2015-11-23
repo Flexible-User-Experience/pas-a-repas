@@ -2,17 +2,13 @@
 
 namespace AppBundle\Entity;
 
-use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * Post
  *
  * @ORM\Table()
- * @ORM\Entity
- * @UniqueEntity("created date", "title", "slug")
-
+ * @ORM\Entity()
  */
 class Post
 {
@@ -28,22 +24,21 @@ class Post
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="created date", type="datetime")
+     * @ORM\Column(type="datetime")
      */
     private $createdDate;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="published date", type="datetime")
+     * @ORM\Column(type="datetime")
      */
     private $publishedDate;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="title", type="string", length=255)
-     * @Assert\Title()
+     * @ORM\Column(name="title", type="string", length=255, unique=true)
      */
     private $title;
 
@@ -51,7 +46,6 @@ class Post
      * @var string
      *
      * @ORM\Column(name="slug", type="string", length=255)
-     * @Assert\Slug()
      */
     protected $slug;
 
@@ -65,10 +59,11 @@ class Post
     /**
      * @var \stdClass
      *
-     * @ORM\Column(name="image", type="object")
+     * @ORM\Column(name="image", type="string")
      */
     private $image;
 
+    protected $category;
 
     /**
      * Get id

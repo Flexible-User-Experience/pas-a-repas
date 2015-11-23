@@ -10,6 +10,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Ivory\GoogleMap\Overlays\Animation;
 use Ivory\GoogleMap\Overlays\Marker;
+use AppBundle\Entity\Category;
+use AppBundle\Entity\Post;
+
 
 class DefaultController extends Controller
 {
@@ -67,5 +70,30 @@ class DefaultController extends Controller
             'mapView' => $mapObject,
             'contactForm' => $form->createView(),
         ));
+    }
+
+    /**
+     * @Route("/blog", name="blog")
+     */
+    public function PostsListAction()
+    {
+        $postsManager = $this->getDoctrine()
+            ->getRepository('AppBundle:Post');
+
+        $query = $postsManager->createQueryBuilder('p')
+            ->where('p.enabled = :enabled')
+            ->setParameter('enabled', true)
+            ->orderBy('p.publishedDate', 'DESC')
+            ->getQuery();
+
+        $posts = $query->getResult();
+    }
+
+    /**
+     * @Route("/blog/{year}/{month}/{day}/{slug})
+     */
+    public function PostsDetailAction()
+    {
+
     }
 }

@@ -2,15 +2,14 @@
 
 namespace AppBundle\Entity;
 
-use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Category
  *
  * @ORM\Table()
- * @ORM\Entity
+ * @ORM\Entity()
  */
 class Category
 {
@@ -26,14 +25,14 @@ class Category
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="created date", type="datetime")
+     * @ORM\Column(name="", type="datetime")
      */
     private $createdDate;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="title", type="string", length=255)
+     * @ORM\Column(name="title", type="string", length=255, unique=true)
      */
     private $title;
 
