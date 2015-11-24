@@ -77,16 +77,7 @@ class DefaultController extends Controller
      */
     public function postsListAction()
     {
-        $postsManager = $this->getDoctrine()
-            ->getRepository('AppBundle:Post');
-
-        $query = $postsManager->createQueryBuilder('p')
-            ->where('p.enabled = :enabled')
-            ->setParameter('enabled', true)
-            ->orderBy('p.publishedDate', 'DESC')
-            ->getQuery();
-
-        $posts = $query->getResult();
+        $posts = $this->getDoctrine()->getRepository('AppBundle:Post')->getAllEnabledSortedByPublishedDate();
 
         return $this->render('AppBundle:default:blog.html.twig', array ('posts' => $posts));
     }
@@ -96,15 +87,8 @@ class DefaultController extends Controller
      */
     public function categoriesListAction()
     {
-        $categoriesManager = $this->getDoctrine()
-            ->getRepository('AppBundle:Category');
+        $categories = $this->getDoctrine()->getRepository('AppBundle:Category')->getAllEnabledSortedByTitle();
 
-        $query = $categoriesManager->createQueryBuilder('c')
-            ->where('c.enabled = :enabled')
-            ->setParameter('enabled', true)
-            ->orderBy('c.title', 'DESC')
-            ->getQuery();
-
-        $categories = $query->getResult();
+        return $this->render('AppBundle:default:categories.html.twig');
     }
 }
