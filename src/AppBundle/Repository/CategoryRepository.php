@@ -16,4 +16,14 @@ class CategoryRepository extends EntityRepository
 
         return $query->getResult();
     }
+
+    public function getDetailBySlug()
+    {
+        $query = $this->createQueryBuilder('c')
+            ->where('c.title = :slug')
+            ->setParameter('slug')
+            ->getQuery();
+
+        return $query->getResult();
+    }
 }

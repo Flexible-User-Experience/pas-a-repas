@@ -52,8 +52,7 @@ class DefaultController extends Controller
                 ->setSubject('Pas a repàs contact form')
                 ->setFrom($contactEntity->getEmail())
                 ->setTo('david@flux.cat')
-                ->setBody('Has rebut un formulari de contacte de: '. $contactEntity->getName() . " " . $contactEntity->getPhone() . " " . $contactEntity->getMessage())
-            ;
+                ->setBody('Has rebut un formulari de contacte de: ' . $contactEntity->getName() . " " . $contactEntity->getPhone() . " " . $contactEntity->getMessage());
             $this->get('mailer')->send($message);
 
             $em = $this->getDoctrine()->getManager();
@@ -79,7 +78,7 @@ class DefaultController extends Controller
     {
         $posts = $this->getDoctrine()->getRepository('AppBundle:Post')->getAllEnabledSortedByPublishedDate();
 
-        return $this->render('default/blog.html.twig', array ('posts' => $posts));
+        return $this->render('default/blog.html.twig', array('posts' => $posts));
     }
 
     /**
@@ -88,6 +87,16 @@ class DefaultController extends Controller
     public function categoriesListAction()
     {
         $categories = $this->getDoctrine()->getRepository('AppBundle:Category')->getAllEnabledSortedByTitle();
+
+        return $this->render('default/categories.html.twig', array('categories' => $categories));
+    }
+
+    /**
+     * @Route("/blog/categories/{slug}", name="detail")
+     */
+    public function categoriesDetailAction()
+    {
+        $categories = $this->getDoctrine()->getRepository('AppBundle:Category')->getDetailBySlug();
 
         return $this->render('default/categories.html.twig');
     }
