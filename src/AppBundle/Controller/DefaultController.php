@@ -88,7 +88,7 @@ class DefaultController extends Controller
 
         $posts = $query->getResult();
 
-        return $this->render('AppBundle:default:blog.html.twig');
+        return $this->render('AppBundle:default:blog.html.twig', array ('posts' => $posts));
     }
 
     /**

@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -67,7 +68,7 @@ class Post
      * @ORM\ManyToMany(targetEntity="Category", inversedBy="posts")
      * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
      */
-    protected $category;
+    protected $categories;
 
     /**
      * Get id
@@ -200,27 +201,11 @@ class Post
     }
 
     /**
-     * @return mixed
-     */
-    public function getCategory()
-    {
-        return $this->category;
-    }
-
-    /**
-     * @param mixed $category
-     */
-    public function setCategory($category)
-    {
-        $this->category = $category;
-    }
-
-    /**
      * Constructor
      */
     public function __construct()
     {
-        $this->category = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->category = new ArrayCollection();
     }
 
     /**
@@ -250,11 +235,11 @@ class Post
     /**
      * Add category
      *
-     * @param \AppBundle\Entity\Category $category
+     * @param Category $category
      *
      * @return Post
      */
-    public function addCategory(\AppBundle\Entity\Category $category)
+    public function addCategory(Category $category)
     {
         $this->category[] = $category;
 
@@ -264,10 +249,20 @@ class Post
     /**
      * Remove category
      *
-     * @param \AppBundle\Entity\Category $category
+     * @param Category $category
      */
-    public function removeCategory(\AppBundle\Entity\Category $category)
+    public function removeCategory(Category $category)
     {
         $this->category->removeElement($category);
+    }
+
+    /**
+     * Get categories
+     *
+     * @return ArrayCollection
+     */
+    public function getCategories()
+    {
+        return $this->categories;
     }
 }

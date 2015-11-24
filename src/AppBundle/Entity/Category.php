@@ -48,12 +48,12 @@ class Category
      *
      * @ORM\Column(type="boolean")
      */
-    protected $enabled;
+    private $enabled;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Post", mappedBy="category")
+     * @ORM\ManyToMany(targetEntity="Post", mappedBy="categories")
      */
-    protected $posts;
+    private $posts;
 
     public function __construct()
     {

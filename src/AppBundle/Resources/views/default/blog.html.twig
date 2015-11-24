@@ -1,10 +1,9 @@
 
 {% block title %}List of Posts{% endblock %}
+
 {% block body %}
     <h1>List of Posts</h1>
-    <ul>
-        {% for post in posts %}
-            <li>{{ post.enabled }}</li>
-        {% endfor %}
-    </ul>
+    {% for post in posts %}
+        {{ post.enabled }}
+    {% endfor %}
 {% endblock %}
