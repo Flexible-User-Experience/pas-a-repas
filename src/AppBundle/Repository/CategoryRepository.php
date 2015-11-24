@@ -8,9 +8,7 @@ class CategoryRepository extends EntityRepository
 {
     public function getAllEnabledSortedByTitle()
     {
-        $em = $this->getEntityManager();
-
-        $query = $em->createQueryBuilder('c')
+        $query = $this->createQueryBuilder('c')
             ->where('c.enabled = :enabled')
             ->setParameter('enabled', true)
             ->orderBy('c.title', 'DESC')

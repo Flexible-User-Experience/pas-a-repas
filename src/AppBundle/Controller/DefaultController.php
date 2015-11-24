@@ -79,7 +79,7 @@ class DefaultController extends Controller
     {
         $posts = $this->getDoctrine()->getRepository('AppBundle:Post')->getAllEnabledSortedByPublishedDate();
 
-        return $this->render('AppBundle:default:blog.html.twig', array ('posts' => $posts));
+        return $this->render('default/blog.html.twig', array ('posts' => $posts));
     }
 
     /**
@@ -89,6 +89,6 @@ class DefaultController extends Controller
     {
         $categories = $this->getDoctrine()->getRepository('AppBundle:Category')->getAllEnabledSortedByTitle();
 
-        return $this->render('AppBundle:default:categories.html.twig');
+        return $this->render('default/categories.html.twig');
     }
 }
