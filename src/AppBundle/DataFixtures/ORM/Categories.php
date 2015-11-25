@@ -21,7 +21,11 @@ class Categories implements FixtureInterface
 
         foreach ($categories as $title) {
             $category = new Category();
-            $category->setTitle($title);
+            $category
+                ->setTitle($title)
+                ->setSlug($title)
+                ->setEnabled(1)
+                ->setCreatedDate(new \DateTime());
 
             $manager->persist($category);
         }

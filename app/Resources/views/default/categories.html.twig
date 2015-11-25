@@ -1,10 +1,10 @@
+{#{% extends 'base.html.twig' %}#}
 
 {% block title %}List of Titles{% endblock %}
 
 {% block body %}
     <h1>List of Titles</h1>
     {% for category in categories %}
-       <h2>{{ category.title }}</h2>
        <h2>{{ category.title }}</h2>
     {% endfor %}
 {% endblock %}
