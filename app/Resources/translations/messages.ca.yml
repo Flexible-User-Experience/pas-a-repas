@@ -12,6 +12,7 @@ frontend:
       about: sobre mi
       contact: contacte
       location: localització
+      blog: blog
     footer:
       contact: contacte
       address: adreça
