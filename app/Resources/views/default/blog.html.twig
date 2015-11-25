@@ -1,0 +1,13 @@
+
+{% block title %}List of Posts{% endblock %}
+
+{% block body %}
+    <h1>List of Posts</h1>
+    {% for post in posts %}
+        {{ post.title }}
+            <br>
+        {{ post.description }}
+
+
+    {% endfor %}
+{% endblock %}

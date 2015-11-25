@@ -10,11 +10,24 @@ frontend:
     menu:
       courses: classes de repàs
       about: sobre mi
+      contact: contacte
+      location: localització
+    footer:
+      contact: contacte
+      address: adreça
   index:
     main:
       image: el pas definitiu
     courses:
       primary: primària
+      eso: eso
+      school: batxillerat
+      selectivity: selectivitat
+      university: universitat
     contact:
       form:
         name: nom
+        email: email
+        phone: telèfon
+        message: missatge
+        submit: enviar
