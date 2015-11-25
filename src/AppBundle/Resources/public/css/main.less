@@ -92,7 +92,6 @@ div#sobre-mi div.col-md-12 {
 }
 div.navbar ul.nav.nav-justified {
   li {
-    &:focus a { background-color: transparent; }
     .current-mark {
       visibility: hidden;
       margin-top: 20px;
@@ -103,6 +102,7 @@ div.navbar ul.nav.nav-justified {
     a.c-wine:hover,    a.c-wine:focus    { color: @wine }
     a.c-violet:hover,  a.c-violet:focus  { color: @violet }
     a.c-lviolet:hover, a.c-lviolet:focus { color: @lviolet }
+    &.active a:focus { background-color: transparent; }
     &.active, & a:hover {
       background-color: transparent;
       .current-mark {
