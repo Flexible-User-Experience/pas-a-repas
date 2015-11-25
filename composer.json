@@ -24,7 +24,8 @@
         "egulias/email-validator": "1.*",
         "twbs/bootstrap": "3.*",
         "components/font-awesome": "4.*",
-        "components/jquery": "2.*"
+        "components/jquery": "2.*",
+        "doctrine/doctrine-fixtures-bundle": "^2.3"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"
