@@ -128,3 +128,17 @@
         </div>
     </div>
 {% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+            var offset = 90;
+            jQuery('div#navbar li a').click(function(event) {
+                event.preventDefault();
+                jQuery(jQuery(this).attr('href'))[0].scrollIntoView();
+                scrollBy(0, -offset);
+            });
+        });
+    </script>
+{% endblock %}
