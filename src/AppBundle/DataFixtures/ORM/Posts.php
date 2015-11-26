@@ -19,19 +19,32 @@ class Posts implements FixtureInterface
             'Post5',
         );
 
+        $now = new \DateTime();
+
         foreach ($posts as $title) {
+            $value = rand(0,1) == 1;
             $post = new Post();
             $post
                 ->setTitle($title)
                 ->setSlug($title)
-                ->setEnabled(1)
-                ->setCreatedDate(new \DateTime())
-                ->setPublishedDate(new \DateTime())
-                ->setDescription('Hello');
+                ->setEnabled($value)
+                ->setCreatedDate($now)
+                ->setPublishedDate($now)
+                ->setDescription($this->generateRandomString(1000));
 
             $manager->persist($post);
         }
 
         $manager->flush();
+    }
+
+    private function generateRandomString($length) {
+        $characters = '0 123 456789abcd efghijklmn opqrstuvw xyzABCDEF GHIJKLMNO PQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        return $randomString;
     }
 }
