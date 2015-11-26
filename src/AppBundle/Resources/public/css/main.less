@@ -73,7 +73,7 @@ body.my-body {
 
 // Customs
 h2.my-h2 {
-  margin-top: 100px;
+  margin: 60px 0;
   color: @grey;
   &.c-white { color: @white; }
 }
@@ -82,7 +82,7 @@ div#sobre-mi div.col-md-12 {
   background-image: url('/bundles/app/images/about.jpg');
   background-size: cover;
   background-clip: content-box;
-  min-height: 400px;
+  min-height: 500px;
   color: @white;
 }
 .banner-service {
@@ -92,7 +92,6 @@ div#sobre-mi div.col-md-12 {
 }
 div.navbar ul.nav.nav-justified {
   li {
-    &:focus a { background-color: transparent; }
     .current-mark {
       visibility: hidden;
       margin-top: 20px;
@@ -103,6 +102,7 @@ div.navbar ul.nav.nav-justified {
     a.c-wine:hover,    a.c-wine:focus    { color: @wine }
     a.c-violet:hover,  a.c-violet:focus  { color: @violet }
     a.c-lviolet:hover, a.c-lviolet:focus { color: @lviolet }
+    &.active a:focus { background-color: transparent; }
     &.active, & a:hover {
       background-color: transparent;
       .current-mark {

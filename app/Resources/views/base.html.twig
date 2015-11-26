@@ -16,7 +16,7 @@
         {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
     </head>
-    <body class="my-body" data-spy="scroll" data-target="#navbar">
+    <body class="my-body" data-spy="scroll" data-target="#navbar" data-offset="200">
         {#<!-- Browser Happy -->#}
         <!--[if lt IE 10]>
         <div class="container">
@@ -49,6 +49,7 @@
                         <li><a href="#sobre-mi">{{ 'frontend.layout.menu.about' | trans | upper }}</a></li>
                         <li><a href="#contacte">{{ 'frontend.layout.menu.contact' | trans | upper }}</a></li>
                         <li><a href="#localitzacio">{{ 'frontend.layout.menu.location' | trans | upper }}</a></li>
+                        {# <li><a href="{{ path('blog') }}">{{ 'frontend.layout.menu.blog' | trans | upper }}</a></li> #}
                     </ul>
                 </div>
             </div>
