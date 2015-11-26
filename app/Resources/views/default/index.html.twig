@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <img src="{{ asset('bundles/app/images/head.jpg') }}" class="img-responsive" alt="{{ 'frontend.index.main.image' | trans | capitalize }}">
+                <img src="{{ asset('bundles/app/images/head.png') }}" class="img-responsive" alt="{{ 'frontend.index.main.image' | trans | capitalize }}">
             </div>
         </div>
         <div id="classes-de-repas" class="row">
@@ -13,11 +13,11 @@
                 {#<!-- Nav tabs -->#}
                 <div class="navbar">
                     <ul class="nav nav-justified" role="tablist">
-                        <li role="presentation" class="active"><a href="#primaria" class="c-magenta" aria-controls="primaria" role="tab" data-toggle="tab"><i class="icon-pencil fa-3x"></i><br>{{ 'frontend.index.courses.primary' | trans | upper }}</a></li>
-                        <li role="presentation"><a href="#eso" class="c-wine" aria-controls="eso" role="tab" data-toggle="tab"><i class="icon-ruler fa-3x"></i><br>{{ 'frontend.index.courses.eso' | trans | upper }}</a></li>
-                        <li role="presentation"><a href="#batxillerat" class="c-violet" aria-controls="batxillerat" role="tab" data-toggle="tab"><i class="icon-book fa-3x"></i><br>{{ 'frontend.index.courses.school' | trans | upper }}</a></li>
-                        <li role="presentation"><a href="#selectivitat" class="c-lviolet" aria-controls="selectivitat" role="tab" data-toggle="tab"><i class="icon-check fa-3x"></i><br>{{ 'frontend.index.courses.selectivity' | trans | upper }}</a></li>
-                        <li role="presentation"><a href="#universitat" class="c-cyan" aria-controls="universitat" role="tab" data-toggle="tab"><i class="icon-hat fa-3x"></i><br>{{ 'frontend.index.courses.university' | trans | upper }}</a></li>
+                        <li role="presentation" class="active"><a href="#primaria" class="c-magenta" aria-controls="primaria" role="tab" data-toggle="tab"><i class="icon-pencil fa-3x"></i><br>{{ 'frontend.index.courses.primary' | trans | upper }}<br><i class="current-mark icon-arrow fa-3x"></i></a></li>
+                        <li role="presentation"><a href="#eso" class="c-wine" aria-controls="eso" role="tab" data-toggle="tab"><i class="icon-ruler fa-3x"></i><br>{{ 'frontend.index.courses.eso' | trans | upper }}<br><i class="current-mark icon-arrow fa-3x"></i></a></li>
+                        <li role="presentation"><a href="#batxillerat" class="c-violet" aria-controls="batxillerat" role="tab" data-toggle="tab"><i class="icon-book fa-3x"></i><br>{{ 'frontend.index.courses.school' | trans | upper }}<br><i class="current-mark icon-arrow fa-3x"></i></a></li>
+                        <li role="presentation"><a href="#selectivitat" class="c-lviolet" aria-controls="selectivitat" role="tab" data-toggle="tab"><i class="icon-check fa-3x"></i><br>{{ 'frontend.index.courses.selectivity' | trans | upper }}<br><i class="current-mark icon-arrow fa-3x"></i></a></li>
+                        <li role="presentation"><a href="#universitat" class="c-cyan" aria-controls="universitat" role="tab" data-toggle="tab"><i class="icon-hat fa-3x"></i><br>{{ 'frontend.index.courses.university' | trans | upper }}<br><i class="current-mark icon-arrow fa-3x"></i></a></li>
                     </ul>
                 </div>
                 {#<!-- Tab panes -->#}
@@ -28,14 +28,18 @@
                                 <img class="img-responsive" src="{{ asset('bundles/app/images/c1-primary.jpg') }}" alt="{# TODO set alt img #}"/>
                             </div>
                             <div class="col-sm-7 text-center c-white">
-                                {{ paragraphs(1) }}
+                                <div class="banner-service">
+                                    {{ words(70) }}
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div role="tabpanel" class="tab-pane fade bc-wine" id="eso">
                         <div class="row">
                             <div class="col-sm-7 text-center c-white">
-                                {{ paragraphs(1) }}
+                                <div class="banner-service">
+                                    {{ words(70) }}
+                                </div>
                             </div>
                             <div class="col-sm-5">
                                 <img class="img-responsive" src="{{ asset('bundles/app/images/c2-eso.jpg') }}" alt="{# TODO set alt img #}"/>
@@ -48,14 +52,18 @@
                                 <img class="img-responsive" src="{{ asset('bundles/app/images/c3-school.jpg') }}" alt="{# TODO set alt img #}"/>
                             </div>
                             <div class="col-sm-7 text-center c-white">
-                                {{ paragraphs(1) }}
+                                <div class="banner-service">
+                                    {{ words(70) }}
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div role="tabpanel" class="tab-pane fade bc-lviolet" id="selectivitat">
                         <div class="row">
                             <div class="col-sm-7 text-center c-white">
-                                {{ paragraphs(1) }}
+                                <div class="banner-service">
+                                    {{ words(70) }}
+                                </div>
                             </div>
                             <div class="col-sm-5">
                                 <img class="img-responsive" src="{{ asset('bundles/app/images/c4-selectivity.jpg') }}" alt="{# TODO set alt img #}"/>
@@ -68,7 +76,9 @@
                                 <img class="img-responsive" src="{{ asset('bundles/app/images/c5-university.jpg') }}" alt="{# TODO set alt img #}"/>
                             </div>
                             <div class="col-sm-7 text-center c-white">
-                                {{ paragraphs(1) }}
+                                <div class="banner-service">
+                                    {{ words(70) }}
+                                </div>
                             </div>
                         </div>
                     </div>

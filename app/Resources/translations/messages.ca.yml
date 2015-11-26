@@ -30,5 +30,4 @@ frontend:
         email: email
         phone: telèfon
         message: missatge
-        submit: envia
-
+        submit: enviar
