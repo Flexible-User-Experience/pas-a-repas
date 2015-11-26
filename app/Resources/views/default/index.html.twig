@@ -88,7 +88,7 @@
         <div id="sobre-mi" class="row">
             <div class="col-md-12">
                 <h2 class="my-h2 c-white text-center">{{ 'frontend.layout.menu.about' | trans | upper }}</h2>
-                <p class="text-center">{{ sentences(4) }}</p>
+                <p class="text-center banner-service">{{ sentences(4) }}</p>
             </div>
         </div>
         <div id="contacte" class="row">
@@ -127,4 +127,18 @@
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+            var offset = 90;
+            jQuery('div#navbar li a').click(function(event) {
+                event.preventDefault();
+                jQuery(jQuery(this).attr('href'))[0].scrollIntoView();
+                scrollBy(0, -offset);
+            });
+        });
+    </script>
 {% endblock %}

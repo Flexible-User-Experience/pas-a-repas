@@ -1,7 +1,9 @@
 /app/bootstrap.php.cache
+/app/config/parameters.yml
+/app/config/deploy.rb
 /app/cache/*
 !app/cache/.gitkeep
-/app/config/parameters.yml
+/app/database/data.db3
 /app/logs/*
 !app/logs/.gitkeep
 /app/phpunit.xml
@@ -9,8 +11,9 @@
 /composer.phar
 /vendor/
 /web/bundles/
-/.idea
-/app/database/data.db3
 /web/assetic/*
 /web/css/*
 /web/js/*
+!/web/media/.gitkeep
+/.idea
+/Capfile
