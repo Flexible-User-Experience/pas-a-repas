@@ -5,6 +5,8 @@ namespace AppBundle\DataFixtures\ORM;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use AppBundle\Entity\Post;
+use GitElephant\Objects\Object;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 
 class Posts implements FixtureInterface
@@ -22,7 +24,7 @@ class Posts implements FixtureInterface
         $now = new \DateTime();
 
         foreach ($posts as $title) {
-            $value = rand(0,1) == 1;
+            $value = rand(0, 1) == 1;
             $post = new Post();
             $post
                 ->setTitle($title)
@@ -38,7 +40,8 @@ class Posts implements FixtureInterface
         $manager->flush();
     }
 
-    private function generateRandomString($length) {
+    private function generateRandomString($length)
+    {
         $characters = '0 123 456789abcd efghijklmn opqrstuvw xyzABCDEF GHIJKLMNO PQRSTUVWXYZ';
         $charactersLength = strlen($characters);
         $randomString = '';
@@ -47,4 +50,6 @@ class Posts implements FixtureInterface
         }
         return $randomString;
     }
+
+
 }

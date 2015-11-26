@@ -9,9 +9,17 @@
                 <h1>List of Posts</h1>
                 {% for post in posts %}
                     <h3>{{ post.title }}</h3>
+                    {#<h3>{{ post.publishedDate }}</h3>#}
                     <p>{{ post.description | truncate(50) }}</p>
+                    <img class="thumbnail" src="{{ asset('bundles/app/images/head.jpg') }}&amp;w=150&amp;h=150&amp;zc=1" alt="prova" title="Prova">
                 {% endfor %}
             </div>
         </div>
+    </div>
+    <div>
+        <h1>List of Categories</h1>
+        {% for post in posts %}
+            {#<h3>{{ post.category_id }}</h3>#}
+        {% endfor %}
     </div>
 {% endblock %}
