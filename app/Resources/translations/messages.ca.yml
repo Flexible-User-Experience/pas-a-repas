@@ -32,3 +32,6 @@ frontend:
         phone: telèfon
         message: missatge
         submit: enviar
+#blog:
+#  main:
+#    keep_reading: seguir llegint

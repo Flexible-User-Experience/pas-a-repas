@@ -12,14 +12,13 @@
                     <div class="thumbnail">
                         <img src="{{ asset('bundles/app/images/650_1200.jpg') }}" alt="...">
                         {#{% for post in posts %}#}
-                        {#{{ categories.title }}#}
-                        {#{{ post.categories }}#}
+                            {#{{ posts.categories }}#}
                         {#{% endfor %}#}
                         <div class="caption">
                             <h2>{{ post.title }}</h2>
                             <h6>{{ post.publishedDate | date('Y-m-d H:i:s') }}</h6>
                             <p>{{ post.description | truncate(50) }}</p>
-                            <p><a href="#" class="btn btn-primary" role="button">Seguir llegint</a></p>
+                            <p><a href="#" class="btn btn-primary" role="button">{{ 'frontend.layout.menu.blog.main.keep reading' }}</a></p>
                         </div>
                     </div>
                 </div>
