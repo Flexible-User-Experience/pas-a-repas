@@ -21,7 +21,7 @@
         "incenteev/composer-parameter-handler": "~2.0",
         "egeloen/google-map-bundle": "~2.1",
         "cypresslab/gitelephant-bundle": "dev-develop",
-        "egulias/email-validator": "1.*",
+        "egulias/email-validator": "^1.2",
         "twbs/bootstrap": "3.*",
         "components/font-awesome": "4.*",
         "components/jquery": "2.*",
