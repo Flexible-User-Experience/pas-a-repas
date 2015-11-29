@@ -51,6 +51,10 @@ assetic:
 swiftmailer:
     delivery_address: "%mailer_delivery_dev%"
 
+doctrine:
+    dbal:
+        path:     "%database_path%"
+
 cypress_git_elephant:
     enable_profiler: false
     profiler_repository_path: "%kernel.root_dir%/../"
