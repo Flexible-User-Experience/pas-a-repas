@@ -43,19 +43,21 @@
                     <a class="navbar-brand" href="{{ path('homepage') }}"><img src="{{ asset('bundles/app/images/menu.png') }}" alt="{{ 'frontend.layout.main.title' | trans | capitalize }}"/></a>
                     <p class="navbar-text text-hide">{{ 'frontend.layout.main.title' | trans | capitalize }}</p>
                 </div>
-                <div class="navbar-collapse collapse float-right">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="{{ path('blog') }}">{{ 'frontend.layout.menu.blog' | trans | upper }}</a></li>
-                    </ul>
-                </div>
-                <div id="navbar" class="navbar-collapse collapse float-right">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#classes-de-repas">{{ 'frontend.layout.menu.courses' | trans | upper }}</a></li>
-                        <li><a href="#sobre-mi">{{ 'frontend.layout.menu.about' | trans | upper }}</a></li>
-                        <li><a href="#contacte">{{ 'frontend.layout.menu.contact' | trans | upper }}</a></li>
-                        {#<li><a href="#localitzacio">{{ 'frontend.layout.menu.location' | trans | upper }}</a></li>#}
-                    </ul>
-                </div>
+                {% block menu %}
+                    <div class="navbar-collapse collapse float-right">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="{{ path('blog') }}">{{ 'frontend.layout.menu.blog' | trans | upper }}</a></li>
+                        </ul>
+                    </div>
+                    <div id="navbar" class="navbar-collapse collapse float-right">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="#classes-de-repas">{{ 'frontend.layout.menu.courses' | trans | upper }}</a></li>
+                            <li><a href="#sobre-mi">{{ 'frontend.layout.menu.about' | trans | upper }}</a></li>
+                            <li><a href="#contacte">{{ 'frontend.layout.menu.contact' | trans | upper }}</a></li>
+                            {#<li><a href="#localitzacio">{{ 'frontend.layout.menu.location' | trans | upper }}</a></li>#}
+                        </ul>
+                    </div>
+                {% endblock %}
             </div>
         </nav>
         {#<!-- Main content -->#}
