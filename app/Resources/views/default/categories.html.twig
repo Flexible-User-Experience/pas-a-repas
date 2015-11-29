@@ -1,10 +1,17 @@
-{#{% extends 'base.html.twig' %}#}
+{% extends 'base.html.twig' %}
 
 {% block title %}List of Titles{% endblock %}
 
-{% block body %}
-    <h1>List of Titles</h1>
-    {% for category in categories %}
-       <h2>{{ category.title }}</h2>
-    {% endfor %}
+{% block main %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>List of Categories</h1>
+            {% for category in categories %}
+                <h3>{{ category.title }}</h3>
+                {#<h3>{{ category.posts }}</h3>#}
+            {% endfor %}
+        </div>
+    </div>
+</div>
 {% endblock %}

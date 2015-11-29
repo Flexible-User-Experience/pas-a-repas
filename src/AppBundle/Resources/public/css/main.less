@@ -25,6 +25,7 @@
   font-style: normal;
 }
 @font-family-sans-serif: "pluto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+@text-color: @grey;
 
 // Navbar
 @navbar-height: 90px;
@@ -38,6 +39,8 @@
 @navbar-default-link-active-bg: transparent;
 nav.my-nav {
   a.navbar-brand { margin-top: -20px; }
+  div.navbar-collapse.collapse.float-right { float: right; }
+  div#navbar { padding-right: 15px; }
 }
 
 // Link
@@ -74,7 +77,6 @@ body.my-body {
 // Customs
 h2.my-h2 {
   margin: 60px 0;
-  color: @grey;
   &.c-white { color: @white; }
 }
 .google-maps-container { height: 400px; }
@@ -102,7 +104,6 @@ div.navbar ul.nav.nav-justified {
     a.c-wine:hover,    a.c-wine:focus    { color: @wine }
     a.c-violet:hover,  a.c-violet:focus  { color: @violet }
     a.c-lviolet:hover, a.c-lviolet:focus { color: @lviolet }
-    &.active a:focus { background-color: transparent; }
     &.active, & a:hover {
       background-color: transparent;
       .current-mark {

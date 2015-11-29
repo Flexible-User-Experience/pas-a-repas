@@ -12,11 +12,11 @@ class Categories implements FixtureInterface
     public function load(ObjectManager $manager)
     {
         $categories = array(
-            'Prova1',
-            'Prova2',
-            'Prova3',
-            'Prova4',
-            'Prova5',
+            'Mòbils',
+            'Ordinadors',
+            'Teclats',
+            'Pantalles',
+            'Altaveus',
         );
 
         foreach ($categories as $title) {
@@ -26,6 +26,7 @@ class Categories implements FixtureInterface
                 ->setSlug($title)
                 ->setEnabled(1)
                 ->setCreatedDate(new \DateTime());
+//                ->setPosts($title);
 
             $manager->persist($category);
         }

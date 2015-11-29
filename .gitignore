@@ -4,6 +4,7 @@
 /app/cache/*
 !app/cache/.gitkeep
 /app/database/data.db3
+!/app/database/.gitkeep
 /app/logs/*
 !app/logs/.gitkeep
 /app/phpunit.xml

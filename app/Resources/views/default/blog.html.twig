@@ -1,13 +1,45 @@
+{% extends 'base.html.twig' %}
 
 {% block title %}List of Posts{% endblock %}
 
-{% block body %}
-    <h1>List of Posts</h1>
-    {% for post in posts %}
-        {{ post.title }}
-            <br>
-        {{ post.description }}
+{% block menu %}
+    <div class="navbar-collapse collapse float-right">
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="{{ path('blog') }}">{{ 'frontend.layout.menu.blog' | trans | upper }}</a></li>
+        </ul>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse float-right">
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="{{ path('homepage') }}#classes-de-repas">{{ 'frontend.layout.menu.courses' | trans | upper }}</a></li>
+            <li><a href="{{ path('homepage') }}#sobre-mi">{{ 'frontend.layout.menu.about' | trans | upper }}</a></li>
+            <li><a href="{{ path('homepage') }}#contacte">{{ 'frontend.layout.menu.contact' | trans | upper }}</a></li>
+            {#<li><a href="{{ path('homepage') }}#localitzacio">{{ 'frontend.layout.menu.location' | trans | upper }}</a></li>#}
+        </ul>
+    </div>
+{% endblock %}
 
-
-    {% endfor %}
+{% block main %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h1>List of Posts</h1>
+                {% for post in posts %}
+                <div class="col-sm-3">
+                    <div class="thumbnail">
+                        <img src="{{ asset('bundles/app/images/650_1200.jpg') }}" alt="...">
+                        {#{% for post in posts %}#}
+                           {#<li><h4>{{ posts.categories }}</h4></li>#}
+                        {#{% endfor %}#}
+                        <div class="caption">
+                            <h2>{{ post.title }}</h2>
+                            <h6>{{ post.publishedDate | date('d-m-Y') }}</h6>
+                            <p>{{ post.description | truncate(50) }}</p>
+                            <p><a href="#" class="btn btn-primary" role="button">{{ 'frontend.blog.main.keep_reading' | trans | upper }}</a></p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 {% endblock %}
