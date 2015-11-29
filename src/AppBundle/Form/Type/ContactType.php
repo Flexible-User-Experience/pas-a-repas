@@ -41,7 +41,7 @@ class ContactType extends AbstractType
                     'label'    => 'frontend.index.contact.form.message',
                     'required' => false,
                     'attr'     => array(
-                        'rows' => 9,
+                        'rows' => 6,
                     ),
                 )
             )
