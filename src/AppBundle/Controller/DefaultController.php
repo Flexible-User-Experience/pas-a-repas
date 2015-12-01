@@ -50,8 +50,8 @@ class DefaultController extends Controller
             // ... perform some action, such as saving the task to the database
             $message = \Swift_Message::newInstance()
                 ->setSubject('Pas a repàs contact form')
-                ->setFrom($contactEntity->getEmail())
-                ->setTo('david@flux.cat')
+                ->setFrom($contactEntity->getEmail());
+                $this->container->getParameter('my_parameters_yml_key')
                 ->setBody('Has rebut un formulari de contacte de: ' . $contactEntity->getName() . " " . $contactEntity->getPhone() . " " . $contactEntity->getMessage());
             $this->get('mailer')->send($message);
 
