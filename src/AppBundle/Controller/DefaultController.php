@@ -93,12 +93,12 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/blog/categories/{slug}", name="detail")
+     * @Route("/blog/category/{slug}", name="category_detail")
      */
-    public function categoriesDetailAction()
+    public function categoryDetailAction($slug)
     {
-        $categories = $this->getDoctrine()->getRepository('AppBundle:Category')->getDetailBySlug();
+        $category = $this->getDoctrine()->getRepository('AppBundle:Category')->findOneBySlug($slug);
 
-        return $this->render('default/categories.html.twig');
+        return $this->render('default/category_detail.html.twig', array('category' => $category));
     }
 }
