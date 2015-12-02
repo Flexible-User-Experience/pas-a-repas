@@ -205,7 +205,7 @@ class Post
      */
     public function __construct()
     {
-        $this->category = new ArrayCollection();
+        $this->categories = new ArrayCollection();
     }
 
     /**
@@ -241,7 +241,8 @@ class Post
      */
     public function addCategory(Category $category)
     {
-        $this->category[] = $category;
+        $category->addPost($this);
+        $this->categories[] = $category;
 
         return $this;
     }
@@ -253,7 +254,7 @@ class Post
      */
     public function removeCategory(Category $category)
     {
-        $this->category->removeElement($category);
+        $this->categories->removeElement($category);
     }
 
     /**

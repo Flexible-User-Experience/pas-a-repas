@@ -27,10 +27,11 @@
                 <div class="col-sm-3">
                     <div class="thumbnail">
                         <img src="{{ asset('bundles/app/images/650_1200.jpg') }}" alt="...">
-                        {#{% for post in posts %}#}
-                           {#<li><h4>{{ posts.categories }}</h4></li>#}
-                        {#{% endfor %}#}
                         <div class="caption">
+                            {% for category in post.categories %}
+                                <h4>{{ category.title }}</h4>
+                            {% endfor %}
+                            <h2>{{ post.categories |length }}</h2>
                             <h2>{{ post.title }}</h2>
                             <h6>{{ post.publishedDate | date('d-m-Y') }}</h6>
                             <p>{{ post.description | truncate(50) }}</p>

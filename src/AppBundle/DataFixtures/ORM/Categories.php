@@ -11,7 +11,7 @@ class Categories implements FixtureInterface
 {
     public function load(ObjectManager $manager)
     {
-        $categories = array(
+        $titles = array(
             'Mòbils',
             'Ordinadors',
             'Teclats',
@@ -19,7 +19,7 @@ class Categories implements FixtureInterface
             'Altaveus',
         );
 
-        foreach ($categories as $title) {
+        foreach ($titles as $title) {
             $category = new Category();
             $category
                 ->setTitle($title)
