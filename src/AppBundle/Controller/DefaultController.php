@@ -83,6 +83,16 @@ class DefaultController extends Controller
     }
 
     /**
+     * @Route("/blog/{year}/{month}/{day}/{slug}", name="blog_detail")
+     */
+    public function postsDetailAction($slug)
+    {
+        $posts = $this->getDoctrine()->getRepository('AppBundle:Post')->findOneBySlug($slug);
+
+        return $this->render('default/blog_detail.html.twig', array('posts' => $posts));
+    }
+
+    /**
      * @Route("/blog/categories", name="categories")
      */
     public function categoriesListAction()
