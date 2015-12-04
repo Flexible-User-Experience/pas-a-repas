@@ -53,7 +53,9 @@ class DefaultController extends Controller
                 ->setFrom($contactEntity->getEmail())
                 ->setTo($this->container->getParameter('mailer_destination'))
             //$this->container->getParameter('my_parameters_yml_key')
-                ->setBody('Has rebut un formulari de contacte de: ' . $contactEntity->getName() . " " . $contactEntity->getPhone() . " " . $contactEntity->getMessage());
+                ->setBody($this->render('default/email.html.twig', array(
+                'contactEntity' => $contactEntity,
+            )));
             $this->get('mailer')->send($message);
 
             $em = $this->getDoctrine()->getManager();
@@ -85,11 +87,11 @@ class DefaultController extends Controller
     /**
      * @Route("/blog/{year}/{month}/{day}/{slug}", name="blog_detail")
      */
-    public function postsDetailAction($slug)
+    public function postDetailAction($slug)
     {
-        $posts = $this->getDoctrine()->getRepository('AppBundle:Post')->findOneBySlug($slug);
+        $post = $this->getDoctrine()->getRepository('AppBundle:Post')->findOneBySlug($slug);
 
-        return $this->render('default/blog_detail.html.twig', array('posts' => $posts));
+        return $this->render('default/blog_detail.html.twig', array('post' => $post));
     }
 
     /**
