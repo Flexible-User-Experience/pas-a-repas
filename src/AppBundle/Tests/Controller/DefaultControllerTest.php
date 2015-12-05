@@ -2,18 +2,29 @@
 
 namespace AppBundle\Tests\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Liip\FunctionalTestBundle\Test\WebTestCase;
 
 class DefaultControllerTest extends WebTestCase
 {
+    /**
+     * Set up tests
+     */
+    public function setUp()
+    {
+        $this->loadFixtures(array(
+            'AppBundle\DataFixtures\ORM\Categories',
+            'AppBundle\DataFixtures\ORM\Posts',
+        ));
+    }
+
     public function testIndex()
     {
-        $client = static::createClient();
+        $client = static::makeClient();
         $client->request('GET', '/');
-        $this->assertEquals(200, $client->getResponse()->getStatusCode());
+        $this->assertStatusCode(200, $client);
         $client->request('GET', '/blog');
-        $this->assertEquals(200, $client->getResponse()->getStatusCode());
+        $this->assertStatusCode(200, $client);
         $client->request('GET', '/blog/categories');
-        $this->assertEquals(200, $client->getResponse()->getStatusCode());
+        $this->assertStatusCode(200, $client);
     }
 }
