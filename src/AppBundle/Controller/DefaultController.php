@@ -52,10 +52,11 @@ class DefaultController extends Controller
                 ->setSubject('Pas a repàs contact form')
                 ->setFrom($contactEntity->getEmail())
                 ->setTo($this->container->getParameter('mailer_destination'))
-            //$this->container->getParameter('my_parameters_yml_key')
                 ->setBody($this->render('default/email.html.twig', array(
-                'contactEntity' => $contactEntity,
-            )));
+                    'contactEntity' => $contactEntity,
+                )))
+                ->setCharset('UTF-8')
+                ->setContentType('text/html');
             $this->get('mailer')->send($message);
 
             $em = $this->getDoctrine()->getManager();
