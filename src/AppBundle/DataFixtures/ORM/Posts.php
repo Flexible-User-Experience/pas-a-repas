@@ -2,18 +2,17 @@
 
 namespace AppBundle\DataFixtures\ORM;
 
+use AppBundle\Entity\Category;
+use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use AppBundle\Entity\Post;
-use GitElephant\Objects\Object;
-use Symfony\Component\Validator\Constraints\DateTime;
 
-
-class Posts implements FixtureInterface
+class Posts extends AbstractFixture implements FixtureInterface
 {
     public function load(ObjectManager $manager)
     {
-        $posts = array(
+        $titles = array(
             'Post1',
             'Post2',
             'Post3',
@@ -24,10 +23,12 @@ class Posts implements FixtureInterface
             'Post8',
             'Post9',
         );
-
         $now = new \DateTime();
 
-        foreach ($posts as $title) {
+        $category1 = $manager->getRepository('AppBundle:Category')->find(1);
+        $this->setReference('first-category', $category1);
+
+        foreach ($titles as $title) {
             $value = rand(0, 1) == 1;
             $post = new Post();
             $post
@@ -36,10 +37,12 @@ class Posts implements FixtureInterface
                 ->setEnabled($value)
                 ->setCreatedDate($now)
                 ->setPublishedDate($now)
-                ->setDescription($this->generateRandomString(1000));
+                ->setDescription($this->generateRandomString(1000))
+                ->addCategory($category1);
 
             $manager->persist($post);
         }
+        $this->setReference('last-post', $post);
 
         $manager->flush();
     }

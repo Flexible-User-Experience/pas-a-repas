@@ -51,8 +51,11 @@ class DefaultController extends Controller
             $message = \Swift_Message::newInstance()
                 ->setSubject('Pas a repàs contact form')
                 ->setFrom($contactEntity->getEmail())
-                ->setTo('david@flux.cat')
-                ->setBody('Has rebut un formulari de contacte de: ' . $contactEntity->getName() . " " . $contactEntity->getPhone() . " " . $contactEntity->getMessage());
+                ->setTo($this->container->getParameter('mailer_destination'))
+            //$this->container->getParameter('my_parameters_yml_key')
+                ->setBody($this->render('default/email.html.twig', array(
+                'contactEntity' => $contactEntity,
+            )));
             $this->get('mailer')->send($message);
 
             $em = $this->getDoctrine()->getManager();
@@ -82,6 +85,16 @@ class DefaultController extends Controller
     }
 
     /**
+     * @Route("/blog/{year}/{month}/{day}/{slug}", name="blog_detail")
+     */
+    public function postDetailAction($slug)
+    {
+        $post = $this->getDoctrine()->getRepository('AppBundle:Post')->findOneBySlug($slug);
+
+        return $this->render('default/blog_detail.html.twig', array('post' => $post));
+    }
+
+    /**
      * @Route("/blog/categories", name="categories")
      */
     public function categoriesListAction()
@@ -92,12 +105,12 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/blog/categories/{slug}", name="detail")
+     * @Route("/blog/category/{slug}", name="category_detail")
      */
-    public function categoriesDetailAction()
+    public function categoryDetailAction($slug)
     {
-        $categories = $this->getDoctrine()->getRepository('AppBundle:Category')->getDetailBySlug();
+        $category = $this->getDoctrine()->getRepository('AppBundle:Category')->findOneBySlug($slug);
 
-        return $this->render('default/categories.html.twig');
+        return $this->render('default/category_detail.html.twig', array('category' => $category));
     }
 }

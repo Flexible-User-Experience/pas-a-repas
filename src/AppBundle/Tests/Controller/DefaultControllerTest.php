@@ -2,18 +2,54 @@
 
 namespace AppBundle\Tests\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Liip\FunctionalTestBundle\Test\WebTestCase;
 
 class DefaultControllerTest extends WebTestCase
 {
-    public function testIndex()
+    /** @var mixed */
+    protected $fixtures;
+
+    /**
+     * Set up tests
+     */
+    public function setUp()
     {
-        $client = static::createClient();
+        $this->fixtures = $this->loadFixtures(array(
+            'AppBundle\DataFixtures\ORM\Categories',
+            'AppBundle\DataFixtures\ORM\Posts',
+        ))->getReferenceRepository();
+    }
+
+    public function testSuccessfullPaths()
+    {
+        $client = static::makeClient();
         $client->request('GET', '/');
-        $this->assertEquals(200, $client->getResponse()->getStatusCode());
+        $this->assertStatusCode(200, $client);
         $client->request('GET', '/blog');
-        $this->assertEquals(200, $client->getResponse()->getStatusCode());
+        $this->assertStatusCode(200, $client);
+        $postSlug = $this->fixtures->getReference('last-post')->getSlug();
+        $client->request('GET', "/blog/0000/00/00/$postSlug");
+        $this->assertStatusCode(200, $client);
         $client->request('GET', '/blog/categories');
-        $this->assertEquals(200, $client->getResponse()->getStatusCode());
+        $this->assertStatusCode(200, $client);
+        $categorySlug = $this->fixtures->getReference('first-category')->getSlug();
+        $client->request('GET', "/blog/category/$categorySlug");
+        $this->assertStatusCode(200, $client);
+        $categorySlug = $this->fixtures->getReference('last-category')->getSlug();
+        $client->request('GET', "/blog/category/$categorySlug");
+        $this->assertStatusCode(200, $client);
+    }
+
+    public function testWrongPaths()
+    {
+        $client = static::makeClient();
+        $client->request('GET', '/this-is-a-broken-route');
+        $this->assertStatusCode(404, $client);
+        $client->request('GET', '/blog/this-is-a-broken-route');
+        $this->assertStatusCode(404, $client);
+        $client->request('GET', '/blog/categories/this-is-a-broken-route');
+        $this->assertStatusCode(404, $client);
+        $client->request('GET', '/blog/category/this-is-a-broken-route');
+        $this->assertStatusCode(500, $client);
     }
 }

@@ -185,11 +185,11 @@ class Category
     /**
      * Add post
      *
-     * @param \AppBundle\Entity\Post $post
+     * @param Post $post
      *
      * @return Category
      */
-    public function addPost(\AppBundle\Entity\Post $post)
+    public function addPost(Post $post)
     {
         $this->posts[] = $post;
 
@@ -199,9 +199,9 @@ class Category
     /**
      * Remove post
      *
-     * @param \AppBundle\Entity\Post $post
+     * @param Post $post
      */
-    public function removePost(\AppBundle\Entity\Post $post)
+    public function removePost(Post $post)
     {
         $this->posts->removeElement($post);
     }

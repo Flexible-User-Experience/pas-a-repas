@@ -3,7 +3,7 @@
 /app/config/deploy.rb
 /app/cache/*
 !app/cache/.gitkeep
-/app/database/data.db3
+/app/database/*
 !/app/database/.gitkeep
 /app/logs/*
 !app/logs/.gitkeep

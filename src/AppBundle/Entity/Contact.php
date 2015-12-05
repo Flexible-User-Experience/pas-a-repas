@@ -189,4 +189,19 @@ class Contact
     {
         return $this->date;
     }
+
+    /**
+     * @param $array
+     *
+     * @return Contact
+     */
+    public static function fromArray($array) {
+        $object = new Contact();
+        foreach ($array as $key => $value)
+        {
+            $object->$key = $value;
+        }
+
+        return $object;
+    }
 }

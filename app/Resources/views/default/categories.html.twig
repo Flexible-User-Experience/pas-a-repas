@@ -8,8 +8,7 @@
         <div class="col-md-12">
             <h1>List of Categories</h1>
             {% for category in categories %}
-                <h3>{{ category.title }}</h3>
-                {#<h3>{{ category.posts }}</h3>#}
+                <a href="{{ path('category_detail', {slug: category.slug}) }}">{{ category.title }}</a>
             {% endfor %}
         </div>
     </div>
