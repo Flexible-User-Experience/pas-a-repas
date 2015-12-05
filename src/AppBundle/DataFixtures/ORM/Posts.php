@@ -3,11 +3,12 @@
 namespace AppBundle\DataFixtures\ORM;
 
 use AppBundle\Entity\Category;
+use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use AppBundle\Entity\Post;
 
-class Posts implements FixtureInterface
+class Posts extends AbstractFixture implements FixtureInterface
 {
     public function load(ObjectManager $manager)
     {
@@ -24,8 +25,8 @@ class Posts implements FixtureInterface
         );
         $now = new \DateTime();
 
-        $categories = $manager->getRepository('AppBundle:Category')->findAll();
         $category1 = $manager->getRepository('AppBundle:Category')->find(1);
+        $this->setReference('first-category', $category1);
 
         foreach ($titles as $title) {
             $value = rand(0, 1) == 1;
@@ -41,6 +42,7 @@ class Posts implements FixtureInterface
 
             $manager->persist($post);
         }
+        $this->setReference('last-post', $post);
 
         $manager->flush();
     }

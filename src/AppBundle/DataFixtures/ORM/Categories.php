@@ -2,12 +2,12 @@
 
 namespace AppBundle\DataFixtures\ORM;
 
+use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use AppBundle\Entity\Category;
 
-
-class Categories implements FixtureInterface
+class Categories extends AbstractFixture implements FixtureInterface
 {
     public function load(ObjectManager $manager)
     {
@@ -26,10 +26,10 @@ class Categories implements FixtureInterface
                 ->setSlug($title)
                 ->setEnabled(1)
                 ->setCreatedDate(new \DateTime());
-//                ->setPosts($title);
 
             $manager->persist($category);
         }
+        $this->setReference('last-category', $category);
 
         $manager->flush();
     }
