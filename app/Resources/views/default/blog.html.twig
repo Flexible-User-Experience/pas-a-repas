@@ -21,11 +21,16 @@
 {% block main %}
     <div class="container">
         <div class="row">
+            <div class="col-md-12">
+                <img src="{{ asset('bundles/app/images/head.jpg') }}" class="img-responsive" alt="{{ 'frontend.index.main.image' | trans | capitalize }}">
+            </div>
+        </div>
+        <div class="row">
             <div class="col-xs-9">
                 {# main right side #}
                 {% for post in posts %}
                     <div class="thumbnail">
-                        <img src="{{ asset('bundles/app/images/650_1200.jpg') }}" alt="...">
+                        <img src="{{ asset('bundles/app/images/650_1200.jpg') | imagine_filter('700x200') }}" alt="...">
                         <div class="caption">
                             <h2>{{ post.title }}</h2>
                             <h5>{{ post.publishedDate | date('d/m/Y') }}</h5>
@@ -35,7 +40,7 @@
                                 {% endfor %}
                             {% endif %}
                             <p>{{ post.description | truncate(50) }}</p>
-                            <a href="{{ path('blog_detail', { year: post.publishedDate | date('Y'), month: post.publishedDate | date('m'), day: post.publishedDate | date('d'), slug: post.slug }) }}" class="btn btn-primary" role="button">{{ 'frontend.blog.main.keep_reading' | trans | upper }}</a>
+                            <a href="{{ path('blog_detail', { year: post.publishedDate | date('Y'), month: post.publishedDate | date('m'), day: post.publishedDate | date('d'), slug: post.slug }) }}" class="pull-right">{{ 'frontend.blog.main.keep_reading' | trans | upper }}</a>
                         </div>
                     </div>
                 {% endfor %}
