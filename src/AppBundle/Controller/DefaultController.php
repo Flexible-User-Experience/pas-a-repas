@@ -88,7 +88,7 @@ class DefaultController extends Controller
     /**
      * @Route("/blog/{year}/{month}/{day}/{slug}", name="blog_detail")
      */
-    public function postDetailAction($slug)
+    public function postDetailAction($year, $month, $day, $slug)
     {
         $post = $this->getDoctrine()->getRepository('AppBundle:Post')->findOneBySlug($slug);
 
