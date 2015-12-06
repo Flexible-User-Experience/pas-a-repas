@@ -75,47 +75,4 @@ class DefaultController extends Controller
         ));
     }
 
-    /**
-     * @Route("/blog", name="blog")
-     */
-    public function postsListAction()
-    {
-        $posts = $this->getDoctrine()->getRepository('AppBundle:Post')->getAllEnabledSortedByPublishedDate();
-        $categories = $this->getDoctrine()->getRepository('AppBundle:Category')->getAllEnabledSortedByTitle();
-
-        return $this->render('default/blog.html.twig', array(
-                'posts' => $posts,
-                'categories' => $categories,
-            ));
-    }
-
-    /**
-     * @Route("/blog/{year}/{month}/{day}/{slug}", name="blog_detail")
-     */
-    public function postDetailAction($year, $month, $day, $slug)
-    {
-        $post = $this->getDoctrine()->getRepository('AppBundle:Post')->findOneBySlug($slug);
-
-        return $this->render('default/blog_detail.html.twig', array('post' => $post));
-    }
-
-    /**
-     * @Route("/blog/categories", name="categories")
-     */
-    public function categoriesListAction()
-    {
-        $categories = $this->getDoctrine()->getRepository('AppBundle:Category')->getAllEnabledSortedByTitle();
-
-        return $this->render('default/categories.html.twig', array('categories' => $categories));
-    }
-
-    /**
-     * @Route("/blog/category/{slug}", name="category_detail")
-     */
-    public function categoryDetailAction($slug)
-    {
-        $category = $this->getDoctrine()->getRepository('AppBundle:Category')->findOneBySlug($slug);
-
-        return $this->render('default/category_detail.html.twig', array('category' => $category));
-    }
 }
