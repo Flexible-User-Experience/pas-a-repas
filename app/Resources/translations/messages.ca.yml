@@ -34,4 +34,5 @@ frontend:
         submit: enviar
   blog:
     main:
+      tags: etiquetes
       keep_reading: seguir llegint

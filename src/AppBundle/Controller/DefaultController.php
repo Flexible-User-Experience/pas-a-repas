@@ -81,8 +81,12 @@ class DefaultController extends Controller
     public function postsListAction()
     {
         $posts = $this->getDoctrine()->getRepository('AppBundle:Post')->getAllEnabledSortedByPublishedDate();
+        $categories = $this->getDoctrine()->getRepository('AppBundle:Category')->getAllEnabledSortedByTitle();
 
-        return $this->render('default/blog.html.twig', array('posts' => $posts));
+        return $this->render('default/blog.html.twig', array(
+                'posts' => $posts,
+                'categories' => $categories,
+            ));
     }
 
     /**
