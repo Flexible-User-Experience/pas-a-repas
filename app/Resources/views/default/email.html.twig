@@ -1,2 +1,3 @@
 <h1>Detall del mail</h1>
-<p>La persona {{ contactEntity.name }} amb telefòn {{ contactEntity.phone }} , adreça de cooreu elèctronic {{ contactEntity.email }} va enviar el següent missatge " {{ contactEntity.message }} " amb data {{ contactEntity.date |date('d/m/Y') }}</p>
+
+<p>En/La {{ contactEntity.name }} amb telefòn {{ contactEntity.phone }}{% if contactEntity.phone == null %} tal i tal i {% endif %} adreça de correu elèctronic {{ contactEntity.email }} , va enviar el següent missatge " {{ contactEntity.message }} " amb data {{ contactEntity.date |date('d/m/Y') }}</p>
