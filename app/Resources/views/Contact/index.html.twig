@@ -1,6 +1,6 @@
-{% extends '::base.html.twig' %}
+{% extends 'base.html.twig' %}
 
-{% block body -%}
+{% block main -%}
     <h1>Contact list</h1>
 
     <table class="records_list">
@@ -29,9 +29,6 @@
                     <li>
                         <a href="{{ path('contact_show', { 'id': entity.id }) }}">show</a>
                     </li>
-                    <li>
-                        <a href="{{ path('contact_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
                 </ul>
                 </td>
             </tr>
@@ -40,10 +37,5 @@
     </table>
 
         <ul>
-        <li>
-            <a href="{{ path('contact_new') }}">
-                Create a new entry
-            </a>
-        </li>
     </ul>
     {% endblock %}

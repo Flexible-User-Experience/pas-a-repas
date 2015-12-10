@@ -23,7 +23,6 @@ class ContactController extends Controller
      *
      * @Route("/", name="contact")
      * @Method("GET")
-     * @Template()
      */
     public function indexAction()
     {
@@ -31,9 +30,9 @@ class ContactController extends Controller
 
         $entities = $em->getRepository('AppBundle:Contact')->findAll();
 
-        return array(
+        return $this->render('Contact/index.html.twig', array(
             'entities' => $entities,
-        );
+        ));
     }
 
     /**
@@ -41,7 +40,6 @@ class ContactController extends Controller
      *
      * @Route("/{id}", name="contact_show")
      * @Method("GET")
-     * @Template()
      */
     public function showAction($id)
     {
@@ -53,11 +51,8 @@ class ContactController extends Controller
             throw $this->createNotFoundException('Unable to find Contact entity.');
         }
 
-        $deleteForm = $this->createDeleteForm($id);
-
-        return array(
-            'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),
-        );
+        return $this->render('Contact/show.html.twig', array(
+            'entity' => $entity,
+        ));
     }
 }
