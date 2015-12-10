@@ -131,7 +131,7 @@ class CategoryController extends Controller
      *
      * @Route("/{id}/edit", name="admin_category_edit")
      * @Method("GET")
-     * @Template()
+     * @Template(":Category:edit.html.twig")
      */
     public function editAction($id)
     {
@@ -176,7 +176,7 @@ class CategoryController extends Controller
      *
      * @Route("/{id}", name="admin_category_update")
      * @Method("PUT")
-     * @Template("AppBundle:Category:edit.html.twig")
+     * @Template(":Category:edit.html.twig")
      */
     public function updateAction(Request $request, $id)
     {
@@ -226,6 +226,26 @@ class CategoryController extends Controller
             $em->remove($entity);
             $em->flush();
         }
+
+        return $this->redirect($this->generateUrl('admin_category'));
+    }
+    /**
+     * Deletes a Category entity.
+     *
+     * @Route("/{id}/delete", name="admin_category_straighforward_delete")
+     * @Method("GET")
+     */
+    public function straighforwardDeleteAction(Request $request, $id)
+    {
+            $em = $this->getDoctrine()->getManager();
+            $entity = $em->getRepository('AppBundle:Category')->find($id);
+
+            if (!$entity) {
+                throw $this->createNotFoundException('Unable to find Category entity.');
+            }
+
+            $em->remove($entity);
+            $em->flush();
 
         return $this->redirect($this->generateUrl('admin_category'));
     }
