@@ -23,24 +23,26 @@ class CategoryController extends Controller
      *
      * @Route("/", name="admin_category")
      * @Method("GET")
-     * @Template()
      */
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('AppBundle:Category')->findAll();
+        $categories = $em->getRepository('AppBundle:Category')->findAll();
 
-        return array(
-            'entities' => $entities,
-        );
+        $titol = "Llista de categories 2";
+
+        return $this->render('Category/index.html.twig', array(
+            'entities' => $categories,
+            'title' => $titol,
+        ));
     }
     /**
      * Creates a new Category entity.
      *
      * @Route("/", name="admin_category_create")
      * @Method("POST")
-     * @Template("AppBundle:Category:new.html.twig")
+     * @Template(":Category:new.html.twig")
      */
     public function createAction(Request $request)
     {
@@ -86,7 +88,7 @@ class CategoryController extends Controller
      *
      * @Route("/new", name="admin_category_new")
      * @Method("GET")
-     * @Template()
+     * @Template(":Category:new.html.twig")
      */
     public function newAction()
     {

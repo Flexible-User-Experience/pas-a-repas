@@ -266,4 +266,9 @@ class Post
     {
         return $this->categories;
     }
+
+    public function __toString() {
+
+        return "Hola";
+    }
 }
