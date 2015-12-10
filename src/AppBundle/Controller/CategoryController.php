@@ -106,7 +106,7 @@ class CategoryController extends Controller
      *
      * @Route("/{id}", name="admin_category_show")
      * @Method("GET")
-     * @Template()
+     * @Template(":Category:show.html.twig")
      */
     public function showAction($id)
     {
