@@ -52,7 +52,7 @@ class DefaultController extends Controller
                 ->setSubject('Pas a repàs contact form')
                 ->setFrom($contactEntity->getEmail())
                 ->setTo($this->container->getParameter('mailer_destination'))
-                ->setBody($this->render('default/email.html.twig', array(
+                ->setBody($this->renderView('default/email.html.twig', array(
                     'contactEntity' => $contactEntity,
                 )))
                 ->setCharset('UTF-8')
