@@ -23,7 +23,7 @@ class BlogController extends Controller
         $posts = $this->getDoctrine()->getRepository('AppBundle:Post')->getAllEnabledSortedByPublishedDate();
         $categories = $this->getDoctrine()->getRepository('AppBundle:Category')->getAllEnabledSortedByTitle();
 
-        return $this->render('default/blog.html.twig', array(
+        return $this->render('Blog/blog.html.twig', array(
             'posts' => $posts,
             'categories' => $categories,
         ));
@@ -36,7 +36,7 @@ class BlogController extends Controller
     {
         $post = $this->getDoctrine()->getRepository('AppBundle:Post')->findOneBySlug($slug);
 
-        return $this->render('default/blog_detail.html.twig', array('post' => $post));
+        return $this->render('Blog/blog_detail.html.twig', array('post' => $post));
     }
 
     /**
@@ -46,7 +46,7 @@ class BlogController extends Controller
     {
         $categories = $this->getDoctrine()->getRepository('AppBundle:Category')->getAllEnabledSortedByTitle();
 
-        return $this->render('default/categories.html.twig', array('categories' => $categories));
+        return $this->render('Blog/categories.html.twig', array('categories' => $categories));
     }
 
     /**
@@ -56,7 +56,7 @@ class BlogController extends Controller
     {
         $category = $this->getDoctrine()->getRepository('AppBundle:Category')->findOneBySlug($slug);
 
-        return $this->render('default/category_detail.html.twig', array('category' => $category));
+        return $this->render('Blog/category_detail.html.twig', array('category' => $category));
     }
 
 }
