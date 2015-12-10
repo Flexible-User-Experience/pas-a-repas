@@ -13,7 +13,7 @@ use AppBundle\Form\ContactType;
 /**
  * Contact controller.
  *
- * @Route("/contact")
+ * @Route("/admin/contact")
  */
 class ContactController extends Controller
 {
