@@ -66,7 +66,7 @@ class DefaultController extends Controller
             $em->flush();
 
             //Add flash message
-            $this->addFlash('notice', 'ENVIAT!');
+            $this->addFlash('notice', ' ');
         }
 
         return $this->render('default/index.html.twig', array(
