@@ -1,52 +1,59 @@
-{% extends '::base.html.twig' %}
+{% extends 'base.html.twig' %}
 
-{% block body -%}
-    <h1>Post</h1>
+{% block main -%}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
 
-    <table class="record_properties">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ entity.id }}</td>
-            </tr>
-            <tr>
-                <th>Createddate</th>
-                <td>{{ entity.createdDate|date('Y-m-d H:i:s') }}</td>
-            </tr>
-            <tr>
-                <th>Publisheddate</th>
-                <td>{{ entity.publishedDate|date('Y-m-d H:i:s') }}</td>
-            </tr>
-            <tr>
-                <th>Title</th>
-                <td>{{ entity.title }}</td>
-            </tr>
-            <tr>
-                <th>Slug</th>
-                <td>{{ entity.slug }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ entity.description }}</td>
-            </tr>
-            <tr>
-                <th>Enabled</th>
-                <td>{{ entity.enabled }}</td>
-            </tr>
-        </tbody>
-    </table>
+                <h1>Post</h1>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('admin_post') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('admin_post_edit', { 'id': entity.id }) }}">
-            Edit
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+                <table class="record_properties">
+                    <tbody>
+                    <tr>
+                        <th>Id</th>
+                        <td>{{ entity.id }}</td>
+                    </tr>
+                    <tr>
+                        <th>Createddate</th>
+                        <td>{{ entity.createdDate|date('Y-m-d H:i:s') }}</td>
+                    </tr>
+                    <tr>
+                        <th>Publisheddate</th>
+                        <td>{{ entity.publishedDate|date('Y-m-d H:i:s') }}</td>
+                    </tr>
+                    <tr>
+                        <th>Title</th>
+                        <td>{{ entity.title }}</td>
+                    </tr>
+                    <tr>
+                        <th>Slug</th>
+                        <td>{{ entity.slug }}</td>
+                    </tr>
+                    <tr>
+                        <th>Description</th>
+                        <td>{{ entity.description }}</td>
+                    </tr>
+                    <tr>
+                        <th>Enabled</th>
+                        <td>{{ entity.enabled }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <ul class="record_actions">
+                    <li>
+                        <a href="{{ path('admin_post') }}">
+                            Back to the list
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('admin_post_edit', { 'id': entity.id }) }}">
+                            Edit
+                        </a>
+                    </li>
+                    <li>{{ form(delete_form) }}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 {% endblock %}
