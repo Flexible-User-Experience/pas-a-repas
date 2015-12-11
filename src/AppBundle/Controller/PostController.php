@@ -23,24 +23,23 @@ class PostController extends Controller
      *
      * @Route("/", name="admin_post")
      * @Method("GET")
-     * @Template()
      */
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('AppBundle:Post')->findAll();
+        $posts = $em->getRepository('AppBundle:Post')->findAll();
 
-        return array(
-            'entities' => $entities,
-        );
+        return $this->render('Post/index.html.twig', array(
+            'entities' => $posts,
+        ));
     }
     /**
      * Creates a new Post entity.
      *
      * @Route("/", name="admin_post_create")
      * @Method("POST")
-     * @Template("AppBundle:Post:new.html.twig")
+     * @Template(":Post:new.html.twig")
      */
     public function createAction(Request $request)
     {
@@ -104,7 +103,7 @@ class PostController extends Controller
      *
      * @Route("/{id}", name="admin_post_show")
      * @Method("GET")
-     * @Template()
+     * @Template(":Post:show.html.twig")
      */
     public function showAction($id)
     {
@@ -129,7 +128,7 @@ class PostController extends Controller
      *
      * @Route("/{id}/edit", name="admin_post_edit")
      * @Method("GET")
-     * @Template()
+     * @Template(":Post:edit.html.twig")
      */
     public function editAction($id)
     {
@@ -174,7 +173,7 @@ class PostController extends Controller
      *
      * @Route("/{id}", name="admin_post_update")
      * @Method("PUT")
-     * @Template("AppBundle:Post:edit.html.twig")
+     * @Template(":Post:edit.html.twig")
      */
     public function updateAction(Request $request, $id)
     {

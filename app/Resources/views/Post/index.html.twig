@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block main -%}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <h1>Post list</h1>
+
+                <table class="records_list">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Createddate</th>
+                        <th>Publisheddate</th>
+                        <th>Title</th>
+                        <th>Slug</th>
+                        <th>Description</th>
+                        <th>Enabled</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for entity in entities %}
+                        <tr>
+                            <td><a href="{{ path('admin_post_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                            <td>{% if entity.createdDate %}{{ entity.createdDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                            <td>{% if entity.publishedDate %}{{ entity.publishedDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                            <td>{{ entity.title }}</td>
+                            <td>{{ entity.slug }}</td>
+                            <td>{{ entity.description }}</td>
+                            <td>{{ entity.enabled }}</td>
+                            <td>
+                                <ul>
+                                    <li>
+                                        <a href="{{ path('admin_post_show', { 'id': entity.id }) }}">show</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ path('admin_post_edit', { 'id': entity.id }) }}">edit</a>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+                <ul>
+                    <li>
+                        <a href="{{ path('admin_post_new') }}">
+                            Create a new entry
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
