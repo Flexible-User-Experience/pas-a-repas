@@ -39,7 +39,7 @@ class PostController extends Controller
      *
      * @Route("/", name="admin_post_create")
      * @Method("POST")
-     * @Template(":Post:new.html.twig")
+     * @Template()
      */
     public function createAction(Request $request)
     {
@@ -85,7 +85,7 @@ class PostController extends Controller
      *
      * @Route("/new", name="admin_post_new")
      * @Method("GET")
-     * @Template()
+     * @Template(":Post:new.html.twig")
      */
     public function newAction()
     {
