@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block main -%}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>{{ title }}</h1>
+
+                <table class="records_list">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Createddate</th>
+                        <th>Title</th>
+                        <th>Slug</th>
+                        <th>Enabled</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for entity in entities %}
+                        <tr>
+                            <td><a href="{{ path('admin_category_show', { 'id': entity.id }) }}">{{ entity.id }}</a>
+                            </td>
+                            <td>{% if entity.createdDate %}{{ entity.createdDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                            <td>{{ entity.title }}</td>
+                            <td>{{ entity.slug }}</td>
+                            <td>{{ entity.enabled }}</td>
+                            <td>
+                                <ul>
+                                    <li>
+                                        <a href="{{ path('admin_category_show', { 'id': entity.id }) }}">show</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ path('admin_category_edit', { 'id': entity.id }) }}">edit</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ path('admin_category_straighforward_delete', { 'id': entity.id }) }}">delete</a>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+                <ul>
+                    <li>
+                        <a href="{{ path('admin_category_new') }}">
+                            Create a new entry
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

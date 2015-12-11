@@ -52,10 +52,11 @@ class DefaultController extends Controller
                 ->setSubject('Pas a repàs contact form')
                 ->setFrom($contactEntity->getEmail())
                 ->setTo($this->container->getParameter('mailer_destination'))
-            //$this->container->getParameter('my_parameters_yml_key')
-                ->setBody($this->render('default/email.html.twig', array(
-                'contactEntity' => $contactEntity,
-            )));
+                ->setBody($this->renderView('default/email.html.twig', array(
+                    'contactEntity' => $contactEntity,
+                )))
+                ->setCharset('UTF-8')
+                ->setContentType('text/html');
             $this->get('mailer')->send($message);
 
             $em = $this->getDoctrine()->getManager();
@@ -74,43 +75,4 @@ class DefaultController extends Controller
         ));
     }
 
-    /**
-     * @Route("/blog", name="blog")
-     */
-    public function postsListAction()
-    {
-        $posts = $this->getDoctrine()->getRepository('AppBundle:Post')->getAllEnabledSortedByPublishedDate();
-
-        return $this->render('default/blog.html.twig', array('posts' => $posts));
-    }
-
-    /**
-     * @Route("/blog/{year}/{month}/{day}/{slug}", name="blog_detail")
-     */
-    public function postDetailAction($slug)
-    {
-        $post = $this->getDoctrine()->getRepository('AppBundle:Post')->findOneBySlug($slug);
-
-        return $this->render('default/blog_detail.html.twig', array('post' => $post));
-    }
-
-    /**
-     * @Route("/blog/categories", name="categories")
-     */
-    public function categoriesListAction()
-    {
-        $categories = $this->getDoctrine()->getRepository('AppBundle:Category')->getAllEnabledSortedByTitle();
-
-        return $this->render('default/categories.html.twig', array('categories' => $categories));
-    }
-
-    /**
-     * @Route("/blog/category/{slug}", name="category_detail")
-     */
-    public function categoryDetailAction($slug)
-    {
-        $category = $this->getDoctrine()->getRepository('AppBundle:Category')->findOneBySlug($slug);
-
-        return $this->render('default/category_detail.html.twig', array('category' => $category));
-    }
 }

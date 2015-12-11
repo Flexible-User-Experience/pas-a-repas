@@ -205,4 +205,10 @@ class Category
     {
         $this->posts->removeElement($post);
     }
+
+    public function __toString() {
+
+        return "Hola";
+    }
+
 }

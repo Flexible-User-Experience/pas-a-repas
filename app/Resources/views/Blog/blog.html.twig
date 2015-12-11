@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'frontend.layout.menu.blog' | trans | title }} · {{ parent() }}{% endblock %}
+
+{% block menu %}
+    <div class="navbar-collapse collapse float-right">
+        <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="{{ path('blog') }}">{{ 'frontend.layout.menu.blog' | trans | upper }}</a></li>
+        </ul>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse float-right">
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="{{ path('homepage') }}#classes-de-repas">{{ 'frontend.layout.menu.courses' | trans | upper }}</a></li>
+            <li><a href="{{ path('homepage') }}#sobre-mi">{{ 'frontend.layout.menu.about' | trans | upper }}</a></li>
+            <li><a href="{{ path('homepage') }}#contacte">{{ 'frontend.layout.menu.contact' | trans | upper }}</a></li>
+            {#<li><a href="{{ path('homepage') }}#localitzacio">{{ 'frontend.layout.menu.location' | trans | upper }}</a></li>#}
+        </ul>
+    </div>
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <img src="{{ asset('bundles/app/images/head.jpg') }}" class="img-responsive" alt="{{ 'frontend.index.main.image' | trans | capitalize }}">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-8">
+                {# main right side #}
+                {% for post in posts %}
+                    <div class="thumbnail">
+                        <img src="{{ asset('bundles/app/images/650_1200.jpg') | imagine_filter('700x200') }}" alt="...">
+                        <div class="caption">
+                            <h2 class="c-violet">{{ post.title }}</h2>
+                            <h5>{{ post.publishedDate | date('d/m/Y') }}</h5>
+                            {#{% if post.categories | length > 0 %}
+                                {% for category in post.categories %}
+                                    <span>{{ category.title }}</span>
+                                {% endfor %}
+                            {% endif %}#}
+                            <p>{{ post.description | truncate(100) }}</p>
+                            <a href="{{ path('blog_detail', { year: post.publishedDate | date('Y'), month: post.publishedDate | date('m'), day: post.publishedDate | date('d'), slug: post.slug }) }}" class="c-violet pull-right">{{ 'frontend.blog.main.keep_reading' | trans | upper }}</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="col-xs-4">
+                {# left side #}
+                <div class="thumbnail">
+                    <div class="caption">
+                        <h3 class="c-cyan">{{ 'frontend.blog.main.tags' | trans | upper }}</h3>
+                        {% for category in categories %}
+                            <a href="#" class="badge">{{ category.title }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

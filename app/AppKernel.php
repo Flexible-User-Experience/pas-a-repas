@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             new Apoutchika\LoremIpsumBundle\ApoutchikaLoremIpsumBundle(),
             new Ivory\GoogleMapBundle\IvoryGoogleMapBundle(),
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
+            new Liip\ImagineBundle\LiipImagineBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

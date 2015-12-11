@@ -81,3 +81,19 @@ swiftmailer:
     encryption: ssl
     auth_mode:  login
     spool:     { type: memory }
+
+# Liip Imagine
+liip_imagine:
+    resolvers:
+       default:
+          web_path: ~
+    filter_sets:
+        cache: ~
+        1200xY:
+            quality: 75
+            filters:
+                thumbnail: { size: [1200, null], mode: outbound }
+        700x200:
+            quality: 80
+            filters:
+                thumbnail: { size: [700, 200], mode: outbound }
