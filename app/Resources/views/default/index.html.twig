@@ -3,14 +3,12 @@
 {% block main %}
     <div class="container">
         <div class="row">
-            <br>
             <div class="col-md-12 text-center">
                 <br>
                 {% for flashMessage in app.session.flashbag.get('notice') %}
                     <div class="alert alert-success" role="alert">
-                        <strong>{{ 'frontend.index.main.sent' | trans | capitalize }}</strong>
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        {{ flashMessage }}
+                        {{ flashMessage | trans | capitalize }}
                     </div>
                 {% endfor %}
                 <img src="{{ asset('bundles/app/images/head.jpg') }}" class="img-responsive" alt="{{ 'frontend.index.main.image' | trans | capitalize }}">
