@@ -2,15 +2,17 @@
 
 namespace AppBundle\Tests\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Liip\FunctionalTestBundle\Test\WebTestCase as WebTestCase;
 
 class PostControllerTest extends WebTestCase
 {
-    /*
     public function testCompleteScenario()
     {
         // Create a new client to browse the application
-        $client = static::createClient();
+        $client = $this->createClient(array(), array(
+            'PHP_AUTH_USER' => 'admin',
+            'PHP_AUTH_PW' => 'admin',
+        ));
 
         // Create a new entry in the database
         $crawler = $client->request('GET', '/admin/post/');
@@ -19,8 +21,9 @@ class PostControllerTest extends WebTestCase
 
         // Fill in the form and submit it
         $form = $crawler->selectButton('Create')->form(array(
-            'appbundle_post[field_name]'  => 'Test',
-            // ... other fields to fill
+            'appbundle_post[title]' => 'Test',
+            'appbundle_post[slug]' => 'Test',
+            'appbundle_post[description]' => 'Test',
         ));
 
         $client->submit($form);
@@ -33,8 +36,7 @@ class PostControllerTest extends WebTestCase
         $crawler = $client->click($crawler->selectLink('Edit')->link());
 
         $form = $crawler->selectButton('Update')->form(array(
-            'appbundle_post[field_name]'  => 'Foo',
-            // ... other fields to fill
+            'appbundle_post[title]' => 'Foo',
         ));
 
         $client->submit($form);
@@ -50,6 +52,4 @@ class PostControllerTest extends WebTestCase
         // Check the entity has been delete on the list
         $this->assertNotRegExp('/Foo/', $client->getResponse()->getContent());
     }
-
-    */
 }
