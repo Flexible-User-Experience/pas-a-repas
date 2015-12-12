@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Tests\Controller;
+namespace AppBundle\Tests\Admin;
 
 use Liip\FunctionalTestBundle\Test\WebTestCase as WebTestCase;
 
@@ -10,8 +10,8 @@ class PostControllerTest extends WebTestCase
     {
         // Create a new client to browse the application
         $client = $this->createClient(array(), array(
-            'PHP_AUTH_USER' => 'admin',
-            'PHP_AUTH_PW' => 'admin',
+            'PHP_AUTH_USER' => $this->getContainer()->getParameter('admin_user'),
+            'PHP_AUTH_PW' => $this->getContainer()->getParameter('admin_password'),
         ));
 
         // Create a new entry in the database
