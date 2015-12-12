@@ -3,7 +3,14 @@
 {% block main %}
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12 text-center">
+                <br>
+                {% for flashMessage in app.session.flashbag.get('notice') %}
+                    <div class="alert alert-success" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        {{ flashMessage | trans | capitalize }}
+                    </div>
+                {% endfor %}
                 <img src="{{ asset('bundles/app/images/head.jpg') }}" class="img-responsive" alt="{{ 'frontend.index.main.image' | trans | capitalize }}">
             </div>
         </div>
@@ -29,7 +36,7 @@
                             </div>
                             <div class="col-sm-7 text-center c-white">
                                 <div class="banner-service">
-                                    {{ words(70) }}
+                                    {{ 'frontend.index.primary_txt' | trans }}
                                 </div>
                             </div>
                         </div>
@@ -38,7 +45,7 @@
                         <div class="row">
                             <div class="col-sm-7 text-center c-white">
                                 <div class="banner-service">
-                                    {{ words(70) }}
+                                    {{ 'frontend.index.eso_txt' | trans }}
                                 </div>
                             </div>
                             <div class="col-sm-5">
@@ -95,11 +102,6 @@
             <div class="col-md-12">
                 <h2 class="my-h2 text-center">{{ 'frontend.layout.menu.contact' | trans | upper }}</h2>
                 <p class="text-center">{{ sentences(2) }}</p>
-                {% for flashMessage in app.session.flashbag.get('notice') %}
-                    <div class="alert alert-success">
-                        {{ flashMessage }}
-                    </div>
-                {% endfor %}
                 {{ form_start(contactForm) }}
                     <div class="row">
                         <div class="col-sm-2 col-xs-1"></div>

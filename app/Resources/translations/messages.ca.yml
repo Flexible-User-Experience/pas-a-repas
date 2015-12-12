@@ -19,13 +19,16 @@ frontend:
   index:
     main:
       image: el pas definitiu
+      sent: el seu missatge s'ha enviat satisfactoriament !
     courses:
       primary: primària
       eso: eso
       school: batxillerat
-      selectivity: selectivitat
+      selectivity: proves d'accés
       university: universitat
     about_mi: Benvinguts a l'espai web de Pas a Repàs. Sóc la Isabel Porres. Alguns de vosaltres ja em coneixeu, doncs fa més de 15 anys que em dedico a donar classes de repàs a Amposta. Per a qui no, em presento: sóc llicenciada en Filologia Hispànica, casada i mare de 2 filles. M'avala un ampli currículum en estudis i formació ja que l'ensenyament és la meva gran passió. Treballo per a formar en l'excel·lència els joves de la meva ciutat. M'esforço per a que ningú d'ells es quedi enrere, oferint-los un reforç educatiu que els ajudi a créixer a nivell personal, professional i social.
+    primary_txt: Classes de reforç per a nens i nenes de Primària. Deixa el teu fill a les meves mans per a complementar l'educació de casa i l'escola. Gaudirà d'un ambient íntim i relaxat (grup de fins a 8 persones) amb una formació adaptada per finalitzar els deures de l'escola i preparar els exàmens. Vàlid per a tots els cursos i assignatures. Classes individualitzades per a nens amb dificultats d'aprenentatge.
+    eso_txt: Classes de repàs per a estudiants d'ESO. La millor opció per al reforç de l'ensenyament a escola. El teu fill obtindrà els beneficis d'una formació de qualitat amb una atenció personalitzada. Entorn controlat (grup de fins a 8 persones) amb opció de classes particulars. Engloba tots els cursos i assignatures. A classe reforcem els temes poc assolits per l'alumne amb materials complementaris personalitzats, finalitzem els deures de l'escola i fem la preparació per a exàmens. Aprèn al teu ritme i com a casa.
     contact:
       form:
         name: nom
