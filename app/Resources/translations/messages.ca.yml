@@ -36,6 +36,16 @@ frontend:
         phone: telèfon
         message: missatge
         submit: enviar
+  admin:
+    contact:
+      index:
+        name: nom
+        email: email
+        phone: telèfon
+        message: missatge
+        date: data
+        actions: accions
+
   blog:
     main:
       tags: etiquetes

@@ -11,12 +11,12 @@
                     <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Phone</th>
-                        <th>Message</th>
-                        <th>Date</th>
-                        <th>Actions</th>
+                        <th>{{ 'frontend.admin.contact.index.name' |trans |capitalize }}</th>
+                        <th>{{ 'frontend.admin.contact.index.email' |trans |capitalize }}</th>
+                        <th>{{ 'frontend.admin.contact.index.phone' |trans |capitalize }}</th>
+                        <th>{{ 'frontend.admin.contact.index.message' |trans |capitalize }}</th>
+                        <th>{{ 'frontend.admin.contact.index.date' |trans |capitalize }}</th>
+                        <th>{{ 'frontend.admin.contact.index.actions' |trans |capitalize }}</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -27,7 +27,7 @@
                             <td>{{ entity.email }}</td>
                             <td>{{ entity.phone }}</td>
                             <td>{{ entity.message }}</td>
-                            <td>{% if entity.date %}{{ entity.date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                            <td>{% if entity.date %}{{ entity.date|date('d-m-Y') }}{% endif %}</td>
                             <td>
                                 <ul>
                                     <li>
