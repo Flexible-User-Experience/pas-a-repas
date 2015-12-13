@@ -5,14 +5,14 @@
         <div class="row">
             <div class="col-md-12">
 
-                <h1>Post edit</h1>
+                <h1>{{ 'frontend.admin.post_edit' |trans |upper }}</h1>
 
                 {{ form(edit_form) }}
 
                 <ul class="record_actions">
                     <li>
                         <a href="{{ path('admin_post') }}">
-                            Back to the list
+                            {{ 'frontend.admin.back-list' |trans |capitalize }}
                         </a>
                     </li>
                     <li>{{ form(delete_form) }}</li>

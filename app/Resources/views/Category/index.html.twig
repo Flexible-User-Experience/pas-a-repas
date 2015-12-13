@@ -4,17 +4,17 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>{{ title }}</h1>
+                <h1>{{ 'frontend.admin.category_list' |trans |upper }}</h1>
 
                 <table class="table table-hover table-bordered">
                     <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Createddate</th>
-                        <th>Title</th>
+                        <th>{{ 'frontend.admin.created-date' |trans |capitalize }}</th>
+                        <th>{{ 'frontend.admin.title' |trans |capitalize }}</th>
                         <th>Slug</th>
-                        <th>Enabled</th>
-                        <th>Actions</th>
+                        <th>{{ 'frontend.admin.enabled' |trans |capitalize }}</th>
+                        <th>{{ 'frontend.admin.actions' |trans |capitalize }}</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -22,20 +22,20 @@
                         <tr>
                             <td><a href="{{ path('admin_category_show', { 'id': entity.id }) }}">{{ entity.id }}</a>
                             </td>
-                            <td>{% if entity.createdDate %}{{ entity.createdDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                            <td>{% if entity.createdDate %}{{ entity.createdDate|date('d-m-Y') }}{% endif %}</td>
                             <td>{{ entity.title }}</td>
                             <td>{{ entity.slug }}</td>
                             <td>{{ entity.enabled }}</td>
                             <td>
                                 <ul>
                                     <li>
-                                        <a href="{{ path('admin_category_show', { 'id': entity.id }) }}">show</a>
+                                        <a href="{{ path('admin_category_show', { 'id': entity.id }) }}">{{ 'frontend.admin.show' |trans |capitalize }}</a>
                                     </li>
                                     <li>
-                                        <a href="{{ path('admin_category_edit', { 'id': entity.id }) }}">edit</a>
+                                        <a href="{{ path('admin_category_edit', { 'id': entity.id }) }}">{{ 'frontend.admin.edit' |trans |capitalize }}</a>
                                     </li>
                                     <li>
-                                        <a href="{{ path('admin_category_straighforward_delete', { 'id': entity.id }) }}">delete</a>
+                                        <a href="{{ path('admin_category_straighforward_delete', { 'id': entity.id }) }}">{{ 'frontend.admin.delete' |trans |capitalize }}</a>
                                     </li>
                                 </ul>
                             </td>
@@ -47,7 +47,7 @@
                 <ul>
                     <li>
                         <a href="{{ path('admin_category_new') }}">
-                            Create a new entry
+                            {{ 'frontend.admin.create_new_entry' |trans |capitalize }}
                         </a>
                     </li>
                 </ul>

@@ -4,15 +4,15 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>Category edit</h1>
+                <h1>{{ 'frontend.admin.category_edit' |trans |upper }}</h1>
 
                 {{ form(edit_form) }}
 
                 <ul class="record_actions">
                     <li>
                         <a href="{{ path('admin_category') }}">
-                            Back to the list
-                        </a>
+                            {{ 'frontend.admin.back-list' |trans |capitalize }}
+                        </a>r
                     </li>
                     <li>{{ form(delete_form) }}</li>
                 </ul>

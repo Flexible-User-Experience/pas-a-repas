@@ -5,14 +5,14 @@
         <div class="row">
             <div class="col-md-12">
 
-                <h1>Category creation</h1>
+                <h1>{{ 'frontend.admin.category_creation' |trans |upper }}</h1>
 
                 {{ form(form) }}
 
                 <ul class="record_actions">
                     <li>
                         <a href="{{ path('admin_category') }}">
-                            Back to the list
+                            {{ 'frontend.admin.back-list' |trans |capitalize }}
                         </a>
                     </li>
                 </ul>

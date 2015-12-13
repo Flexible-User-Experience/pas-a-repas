@@ -39,15 +39,26 @@ frontend:
         message: missatge
         submit: enviar
   admin:
-    contact:
-      index:
-        name: nom
-        email: email
-        phone: telèfon
-        message: missatge
-        date: data
-        actions: accions
-
+    date: data
+    actions: accions
+    created-date: data de creació
+    published-date: data de publicació
+    title: títol
+    description: descripció
+    enabled: permés
+    contact-list: llista de contactes
+    post-list: llista de posts
+    category_list: llista de categories
+    back-list: torna a la llista
+    edit: edita
+    delete: esborra
+    show: mostra
+    post_creation: crea un post
+    category_creation: crea una categoria
+    category_edit: edita categoria
+    post_edit: edita post
+    create_new_entry: nova entrada
+    category: categoria
   blog:
     main:
       tags: etiquetes

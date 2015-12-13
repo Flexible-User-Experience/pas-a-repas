@@ -5,18 +5,18 @@
         <div class="row">
             <div class="col-md-12">
 
-                <h1>Contact list</h1>
+                <h1>{{ 'frontend.admin.contact-list' | trans | upper }}</h1>
 
-                <table class="table table-hover records_list">
+                <table class="table table-hover table-bordered records_list">
                     <thead>
                     <tr>
                         <th>Id</th>
-                        <th>{{ 'frontend.admin.contact.index.name' |trans |capitalize }}</th>
-                        <th>{{ 'frontend.admin.contact.index.email' |trans |capitalize }}</th>
-                        <th>{{ 'frontend.admin.contact.index.phone' |trans |capitalize }}</th>
-                        <th>{{ 'frontend.admin.contact.index.message' |trans |capitalize }}</th>
-                        <th>{{ 'frontend.admin.contact.index.date' |trans |capitalize }}</th>
-                        <th>{{ 'frontend.admin.contact.index.actions' |trans |capitalize }}</th>
+                        <th>{{ 'frontend.index.contact.form.name' |trans |capitalize }}</th>
+                        <th>{{ 'frontend.index.contact.form.email' |trans |capitalize }}</th>
+                        <th>{{ 'frontend.index.contact.form.phone' |trans |capitalize }}</th>
+                        <th>{{ 'frontend.index.contact.form.message' |trans |capitalize }}</th>
+                        <th>{{ 'frontend.admin.date' |trans |capitalize }}</th>
+                        <th>{{ 'frontend.admin.actions' |trans |capitalize }}</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -31,7 +31,7 @@
                             <td>
                                 <ul>
                                     <li>
-                                        <a href="{{ path('contact_show', { 'id': entity.id }) }}">show</a>
+                                        <a href="{{ path('contact_show', { 'id': entity.id }) }}">{{ 'frontend.admin.show' |trans |capitalize }}</a>
                                     </li>
                                 </ul>
                             </td>
