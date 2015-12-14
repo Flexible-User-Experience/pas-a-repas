@@ -35,7 +35,7 @@
                                 <img class="img-responsive" src="{{ asset('bundles/app/images/c1-primary.jpg') }}" alt="{# TODO set alt img #}"/>
                             </div>
                             <div class="col-sm-7 text-center c-white">
-                                <div class="banner-service">
+                                <div class="banner-service text-justify">
                                     {{ 'frontend.index.primary_txt' | trans }}
                                 </div>
                             </div>
@@ -60,7 +60,7 @@
                             </div>
                             <div class="col-sm-7 text-center c-white">
                                 <div class="banner-service">
-                                    {{ words(70) }}
+                                    {{ 'frontend.index.sc_school' | trans  }}
                                 </div>
                             </div>
                         </div>
@@ -69,7 +69,13 @@
                         <div class="row">
                             <div class="col-sm-7 text-center c-white">
                                 <div class="banner-service">
-                                    {{ 'frontend.index.selectivity_txt' | trans }}
+                                    <p class="text-justify">{{ 'frontend.index.selectivity_txt' | trans }}</p>
+                                    <ul class="text-left">
+                                        <li>{{ 'frontend.index.pau' | trans }}</li>
+                                        <li>{{ 'frontend.index.pacfs' | trans }}</li>
+                                        <li>{{ 'frontend.index.pacfm' | trans }}</li>
+                                        <li>{{ 'frontend.index.pau25' | trans }}</li>
+                                    </ul>
                                 </div>
                             </div>
                             <div class="col-sm-5">
