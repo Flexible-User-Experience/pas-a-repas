@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "9f980b176f2ce7ad25a5c4b81c9a0691",
-    "content-hash": "8a738d09088d5c5e0d5a1963a9336a8a",
+    "hash": "9b7826d3cbf6547d158f7e61bcb56bf3",
+    "content-hash": "c007f695c6f850b013f3b631cb677dd9",
     "packages": [
         {
             "name": "apoutchika/loremipsum-bundle",
@@ -2064,6 +2064,52 @@
             "time": "2015-11-07 08:07:40"
         },
         {
+            "name": "stephanecollot/datetimepicker-bundle",
+            "version": "dev-master",
+            "target-dir": "SC/DatetimepickerBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/stephanecollot/DatetimepickerBundle.git",
+                "reference": "733e4d1896aba5ee7c0b924d0ce25bca179b47ef"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/stephanecollot/DatetimepickerBundle/zipball/733e4d1896aba5ee7c0b924d0ce25bca179b47ef",
+                "reference": "733e4d1896aba5ee7c0b924d0ce25bca179b47ef",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3",
+                "symfony/framework-bundle": "2.*",
+                "symfony/symfony": "2.*"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "SC\\DatetimepickerBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Stephane Collot"
+                }
+            ],
+            "description": "Symfony bundle for Bootstrap DateTime picker",
+            "keywords": [
+                "bootstrap",
+                "bundle",
+                "datepicker",
+                "picker",
+                "symfony",
+                "timepicker"
+            ],
+            "time": "2015-05-11 20:47:22"
+        },
+        {
             "name": "swiftmailer/swiftmailer",
             "version": "v5.4.1",
             "source": {
@@ -2645,7 +2691,8 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "apoutchika/loremipsum-bundle": 20,
-        "cypresslab/gitelephant-bundle": 20
+        "cypresslab/gitelephant-bundle": 20,
+        "stephanecollot/datetimepicker-bundle": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
