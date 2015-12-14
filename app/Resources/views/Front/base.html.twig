@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+    <!--[if lt IE 7]>     <html lang="{{ app.request.locale }}" class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+    <!--[if IE 7]>        <html lang="{{ app.request.locale }}" class="no-js lt-ie9 lt-ie8"><![endif]-->
+    <!--[if IE 8]>        <html lang="{{ app.request.locale }}" class="no-js lt-ie9"><![endif]-->
+    <!--[if gt IE 8]><!--><html lang="{{ app.request.locale }}" class="no-js"><!--<![endif]-->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="author" content="www.flux.cat">
+        <meta charset="UTF-8">
+        <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
+        <title>{% block title %}{{ 'frontend.layout.main.title' | trans | title }}{% endblock %}</title>
+        {% block stylesheets %}
+            {% stylesheets filter="cssrewrite,less" '@mycss' %}
+                <link rel="stylesheet" type="text/css" href="{{ asset_url }}"/>
+            {% endstylesheets %}
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+    </head>
+    <body class="my-body" data-spy="scroll" data-target="#navbar" data-offset="200">
+        {#<!-- Browser Happy -->#}
+        <!--[if lt IE 10]>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="alert alert-warning alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h5><span class="fa fa-warning"></span>&nbsp;{{ 'frontend.layout.browser.happy' | trans | raw }}</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <![endif]-->
+        {#<!-- Fixed top menu -->#}
+        <nav class="navbar navbar-default navbar-fixed-top my-nav" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" data-aria-expanded="false" data-aria-controls="navbar">
+                        <span class="sr-only">{{ 'frontend.layout.toggle.navigation' | trans }}</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="{{ path('homepage') }}"><img src="{{ asset('bundles/app/images/menu.png') }}" alt="{{ 'frontend.layout.main.title' | trans | capitalize }}"/></a>
+                    <p class="navbar-text text-hide">{{ 'frontend.layout.main.title' | trans | capitalize }}</p>
+                </div>
+                {% block menu %}
+                    <div class="navbar-collapse collapse float-right">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="{{ path('blog') }}">{{ 'frontend.layout.menu.blog' | trans | upper }}</a></li>
+                        </ul>
+                    </div>
+                    <div id="navbar" class="navbar-collapse collapse float-right">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="#classes-de-repas">{{ 'frontend.layout.menu.courses' | trans | upper }}</a></li>
+                            <li><a href="#sobre-mi">{{ 'frontend.layout.menu.about' | trans | upper }}</a></li>
+                            <li><a href="#contacte">{{ 'frontend.layout.menu.contact' | trans | upper }}</a></li>
+                            {#<li><a href="#localitzacio">{{ 'frontend.layout.menu.location' | trans | upper }}</a></li>#}
+                        </ul>
+                    </div>
+                {% endblock %}
+            </div>
+        </nav>
+        {#<!-- Main content -->#}
+        {% block main %}{% endblock %}
+        {#<!-- Scroll-Top effect -->#}
+        <div class="scroll-top-wrapper"><span class="scroll-top-inner"><i class="fa fa-2x fa-arrow-circle-up"></i></span></div>
+        {#<!-- Footer -->#}
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <ul class="list-unstyled">
+                            <li class="col-sm-3 col-xs-1"></li>
+                            <li class="col-sm-3 col-xs-5">
+                                <h5>{{ 'frontend.layout.footer.contact' | trans | upper }}</h5>
+                                <address>
+                                    <strong>ISABEL PORRES ESTRADA</strong><br>
+                                    <a href="mailto:isabel@pasarepas.cat"><i class="fa fa-envelope"></i> isabel@pasarepas.cat</a><br>
+                                    <i class="fa fa-phone-square"></i> 607 548 474
+                                </address>
+                            </li>
+                            <li class="col-sm-3 col-xs-5">
+                                <h5>{{ 'frontend.layout.footer.address' | trans | upper }}</h5>
+                                <address>
+                                    <strong>C. Sebastià Joan Arbó, 6</strong><br>
+                                    43870 Amposta<br>
+                                    (Tarragona)
+                                </address>
+                            </li>
+                            <li class="col-sm-3 col-xs-1"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        {#<!-- Javascripts -->#}
+        {% block javascripts %}
+            {% javascripts '@myjs' %}
+                <script type="text/javascript" src="{{ asset_url }}"></script>
+            {% endjavascripts %}
+        {% endblock %}
+        {#<!-- Scroll-Top effect JS -->#}
+        {% include 'Front/fragments/scroll-to-top-js.html.twig' %}
+        {#<!-- Google Analytics -->#}
+        {% if google_analytics_enabled %}
+            <script type="text/javascript">
+                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+                ga('create', '{{ google_analytics_account }}', 'auto'); ga('send', 'pageview');
+            </script>
+        {% endif %}
+    </body>
+</html>

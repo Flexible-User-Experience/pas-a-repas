@@ -50,9 +50,9 @@ frontend:
     post-list: llista de posts
     category_list: llista de categories
     back-list: torna a la llista
-    edit: edita
-    delete: esborra
-    show: mostra
+    edit: editar
+    delete: esborrar
+    show: mostrar
     post_creation: crea un post
     category_creation: crea una categoria
     category_edit: edita categoria

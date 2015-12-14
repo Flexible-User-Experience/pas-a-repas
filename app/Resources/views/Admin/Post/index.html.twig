@@ -1,18 +1,21 @@
-{% extends 'base.html.twig' %}
+{% extends 'base_admin.html.twig' %}
 
 {% block main -%}
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>{{ 'frontend.admin.category_list' |trans |upper }}</h1>
+
+                <h1>{{ 'frontend.admin.post-list' | trans | upper }}</h1>
 
                 <table class="table table-hover table-bordered">
                     <thead>
                     <tr>
                         <th>Id</th>
                         <th>{{ 'frontend.admin.created-date' |trans |capitalize }}</th>
+                        <th>{{ 'frontend.admin.published-date' |trans |capitalize }}</th>
                         <th>{{ 'frontend.admin.title' |trans |capitalize }}</th>
                         <th>Slug</th>
+                        <th>{{ 'frontend.admin.description' |trans |capitalize }}</th>
                         <th>{{ 'frontend.admin.enabled' |trans |capitalize }}</th>
                         <th>{{ 'frontend.admin.actions' |trans |capitalize }}</th>
                     </tr>
@@ -20,22 +23,20 @@
                     <tbody>
                     {% for entity in entities %}
                         <tr>
-                            <td><a href="{{ path('admin_category_show', { 'id': entity.id }) }}">{{ entity.id }}</a>
-                            </td>
+                            <td><a href="{{ path('admin_post_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
                             <td>{% if entity.createdDate %}{{ entity.createdDate|date('d-m-Y') }}{% endif %}</td>
+                            <td>{% if entity.publishedDate %}{{ entity.publishedDate|date('d-m-Y') }}{% endif %}</td>
                             <td>{{ entity.title }}</td>
                             <td>{{ entity.slug }}</td>
+                            <td>{{ entity.description | truncate(50)}}</td>
                             <td>{{ entity.enabled }}</td>
                             <td>
                                 <ul>
                                     <li>
-                                        <a href="{{ path('admin_category_show', { 'id': entity.id }) }}">{{ 'frontend.admin.show' |trans |capitalize }}</a>
+                                        <a href="{{ path('admin_post_show', { 'id': entity.id }) }}">{{  'frontend.admin.show' |trans |capitalize }}</a>
                                     </li>
                                     <li>
-                                        <a href="{{ path('admin_category_edit', { 'id': entity.id }) }}">{{ 'frontend.admin.edit' |trans |capitalize }}</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ path('admin_category_straighforward_delete', { 'id': entity.id }) }}">{{ 'frontend.admin.delete' |trans |capitalize }}</a>
+                                        <a href="{{ path('admin_post_edit', { 'id': entity.id }) }}">{{  'frontend.admin.edit' |trans |capitalize }}</a>
                                     </li>
                                 </ul>
                             </td>
@@ -46,8 +47,8 @@
 
                 <ul>
                     <li>
-                        <a href="{{ path('admin_category_new') }}">
-                            {{ 'frontend.admin.create_new_entry' |trans |capitalize }}
+                        <a href="{{ path('admin_post_new') }}">
+                            {{  'frontend.admin.create_new_entry' |trans |capitalize }}
                         </a>
                     </li>
                 </ul>

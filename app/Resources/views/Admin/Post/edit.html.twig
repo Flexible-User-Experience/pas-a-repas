@@ -1,13 +1,13 @@
-{% extends 'base.html.twig' %}
+{% extends 'base_admin.html.twig' %}
 
 {% block main -%}
     <div class="container">
         <div class="row">
             <div class="col-md-12">
 
-                <h1>{{ 'frontend.admin.post_creation' |trans |upper }}</h1>
+                <h1>{{ 'frontend.admin.post_edit' |trans |upper }}</h1>
 
-                {{ form(form) }}
+                {{ form(edit_form) }}
 
                 <ul class="record_actions">
                     <li>
@@ -15,6 +15,7 @@
                             {{ 'frontend.admin.back-list' |trans |capitalize }}
                         </a>
                     </li>
+                    <li>{{ form(delete_form) }}</li>
                 </ul>
             </div>
         </div>

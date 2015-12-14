@@ -1,52 +1,50 @@
 <?php
 
-namespace AppBundle\Controller;
+namespace AppBundle\Controller\Admin;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use AppBundle\Entity\Category;
-use AppBundle\Form\CategoryType;
+use AppBundle\Entity\Post;
+use AppBundle\Form\PostType;
 
 /**
- * Category controller.
+ * Post controller.
  *
- * @Route("/admin/category")
+ * @Route("/admin/post")
  */
-class CategoryController extends Controller
+class PostController extends Controller
 {
 
     /**
-     * Lists all Category entities.
+     * Lists all Post entities.
      *
-     * @Route("/", name="admin_category")
+     * @Route("/", name="admin_post")
      * @Method("GET")
      */
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
 
-        $categories = $em->getRepository('AppBundle:Category')->findAll();
+        $posts = $em->getRepository('AppBundle:Post')->findAll();
 
-        $titol = "Llista de categories 2";
-
-        return $this->render('Category/index.html.twig', array(
-            'entities' => $categories,
-            'title' => $titol,
+        return $this->render('Admin/Post/index.html.twig', array(
+            'entities' => $posts,
         ));
     }
+
     /**
-     * Creates a new Category entity.
+     * Creates a new Post entity.
      *
-     * @Route("/", name="admin_category_create")
+     * @Route("/", name="admin_post_create")
      * @Method("POST")
-     * @Template(":Category:new.html.twig")
+     * @Template(":Admin/Post:new.html.twig")
      */
     public function createAction(Request $request)
     {
-        $entity = new Category();
+        $entity = new Post();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
@@ -55,7 +53,7 @@ class CategoryController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('admin_category_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('admin_post_show', array('id' => $entity->getId())));
         }
 
         return array(
@@ -65,16 +63,16 @@ class CategoryController extends Controller
     }
 
     /**
-     * Creates a form to create a Category entity.
+     * Creates a form to create a Post entity.
      *
-     * @param Category $entity The entity
+     * @param Post $entity The entity
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createCreateForm(Category $entity)
+    private function createCreateForm(Post $entity)
     {
-        $form = $this->createForm(new CategoryType(), $entity, array(
-            'action' => $this->generateUrl('admin_category_create'),
+        $form = $this->createForm(new PostType(), $entity, array(
+            'action' => $this->generateUrl('admin_post_create'),
             'method' => 'POST',
         ));
 
@@ -84,15 +82,15 @@ class CategoryController extends Controller
     }
 
     /**
-     * Displays a form to create a new Category entity.
+     * Displays a form to create a new Post entity.
      *
-     * @Route("/new", name="admin_category_new")
+     * @Route("/new", name="admin_post_new")
      * @Method("GET")
-     * @Template(":Category:new.html.twig")
+     * @Template(":Admin/Post:new.html.twig")
      */
     public function newAction()
     {
-        $entity = new Category();
+        $entity = new Post();
         $form   = $this->createCreateForm($entity);
 
         return array(
@@ -102,20 +100,20 @@ class CategoryController extends Controller
     }
 
     /**
-     * Finds and displays a Category entity.
+     * Finds and displays a Post entity.
      *
-     * @Route("/{id}", name="admin_category_show")
+     * @Route("/{id}", name="admin_post_show")
      * @Method("GET")
-     * @Template(":Category:show.html.twig")
+     * @Template(":Admin/Post:show.html.twig")
      */
     public function showAction($id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('AppBundle:Category')->find($id);
+        $entity = $em->getRepository('AppBundle:Post')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Category entity.');
+            throw $this->createNotFoundException('Unable to find Post entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
@@ -127,20 +125,20 @@ class CategoryController extends Controller
     }
 
     /**
-     * Displays a form to edit an existing Category entity.
+     * Displays a form to edit an existing Post entity.
      *
-     * @Route("/{id}/edit", name="admin_category_edit")
+     * @Route("/{id}/edit", name="admin_post_edit")
      * @Method("GET")
-     * @Template(":Category:edit.html.twig")
+     * @Template(":Admin/Post:edit.html.twig")
      */
     public function editAction($id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('AppBundle:Category')->find($id);
+        $entity = $em->getRepository('AppBundle:Post')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Category entity.');
+            throw $this->createNotFoundException('Unable to find Post entity.');
         }
 
         $editForm = $this->createEditForm($entity);
@@ -154,16 +152,16 @@ class CategoryController extends Controller
     }
 
     /**
-    * Creates a form to edit a Category entity.
+    * Creates a form to edit a Post entity.
     *
-    * @param Category $entity The entity
+    * @param Post $entity The entity
     *
     * @return \Symfony\Component\Form\Form The form
     */
-    private function createEditForm(Category $entity)
+    private function createEditForm(Post $entity)
     {
-        $form = $this->createForm(new CategoryType(), $entity, array(
-            'action' => $this->generateUrl('admin_category_update', array('id' => $entity->getId())),
+        $form = $this->createForm(new PostType(), $entity, array(
+            'action' => $this->generateUrl('admin_post_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));
 
@@ -172,20 +170,20 @@ class CategoryController extends Controller
         return $form;
     }
     /**
-     * Edits an existing Category entity.
+     * Edits an existing Post entity.
      *
-     * @Route("/{id}", name="admin_category_update")
+     * @Route("/{id}", name="admin_post_update")
      * @Method("PUT")
-     * @Template(":Category:edit.html.twig")
+     * @Template(":Admin/Post:edit.html.twig")
      */
     public function updateAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('AppBundle:Category')->find($id);
+        $entity = $em->getRepository('AppBundle:Post')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Category entity.');
+            throw $this->createNotFoundException('Unable to find Post entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
@@ -195,7 +193,7 @@ class CategoryController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('admin_category_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('admin_post_edit', array('id' => $id)));
         }
 
         return array(
@@ -205,9 +203,9 @@ class CategoryController extends Controller
         );
     }
     /**
-     * Deletes a Category entity.
+     * Deletes a Post entity.
      *
-     * @Route("/{id}", name="admin_category_delete")
+     * @Route("/{id}", name="admin_post_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, $id)
@@ -217,41 +215,21 @@ class CategoryController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('AppBundle:Category')->find($id);
+            $entity = $em->getRepository('AppBundle:Post')->find($id);
 
             if (!$entity) {
-                throw $this->createNotFoundException('Unable to find Category entity.');
+                throw $this->createNotFoundException('Unable to find Post entity.');
             }
 
             $em->remove($entity);
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('admin_category'));
-    }
-    /**
-     * Deletes a Category entity.
-     *
-     * @Route("/{id}/delete", name="admin_category_straighforward_delete")
-     * @Method("GET")
-     */
-    public function straighforwardDeleteAction(Request $request, $id)
-    {
-            $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('AppBundle:Category')->find($id);
-
-            if (!$entity) {
-                throw $this->createNotFoundException('Unable to find Category entity.');
-            }
-
-            $em->remove($entity);
-            $em->flush();
-
-        return $this->redirect($this->generateUrl('admin_category'));
+        return $this->redirect($this->generateUrl('admin_post'));
     }
 
     /**
-     * Creates a form to delete a Category entity by id.
+     * Creates a form to delete a Post entity by id.
      *
      * @param mixed $id The entity id
      *
@@ -260,7 +238,7 @@ class CategoryController extends Controller
     private function createDeleteForm($id)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('admin_category_delete', array('id' => $id)))
+            ->setAction($this->generateUrl('admin_post_delete', array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm()
