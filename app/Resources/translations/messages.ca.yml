@@ -59,6 +59,8 @@ frontend:
     post_edit: edita post
     create_new_entry: nova entrada
     category: categoria
+    post: article
+    contact: contacte
   blog:
     main:
       tags: etiquetes
