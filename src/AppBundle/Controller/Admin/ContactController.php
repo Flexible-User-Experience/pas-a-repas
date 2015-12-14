@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Controller;
+namespace AppBundle\Controller\Admin;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -30,7 +30,7 @@ class ContactController extends Controller
 
         $entities = $em->getRepository('AppBundle:Contact')->findAll();
 
-        return $this->render('Contact/index.html.twig', array(
+        return $this->render('Admin/Contact/index.html.twig', array(
             'entities' => $entities,
         ));
     }
@@ -51,7 +51,7 @@ class ContactController extends Controller
             throw $this->createNotFoundException('Unable to find Contact entity.');
         }
 
-        return $this->render('Contact/show.html.twig', array(
+        return $this->render('Admin/Contact/show.html.twig', array(
             'entity' => $entity,
         ));
     }

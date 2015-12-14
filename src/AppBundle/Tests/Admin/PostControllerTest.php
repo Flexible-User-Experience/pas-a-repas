@@ -17,7 +17,7 @@ class PostControllerTest extends WebTestCase
         // Create a new entry in the database
         $crawler = $client->request('GET', '/admin/post/');
         $this->assertEquals(200, $client->getResponse()->getStatusCode(), "Unexpected HTTP status code for GET /admin/post/");
-        $crawler = $client->click($crawler->selectLink('Create a new entry')->link());
+        $crawler = $client->click($crawler->selectLink('Nova entrada')->link());
 
         // Fill in the form and submit it
         $form = $crawler->selectButton('Create')->form(array(
@@ -33,7 +33,7 @@ class PostControllerTest extends WebTestCase
         $this->assertGreaterThan(0, $crawler->filter('td:contains("Test")')->count(), 'Missing element td:contains("Test")');
 
         // Edit the entity
-        $crawler = $client->click($crawler->selectLink('Edit')->link());
+        $crawler = $client->click($crawler->selectLink('Editar')->link());
 
         $form = $crawler->selectButton('Update')->form(array(
             'appbundle_post[title]' => 'Foo',

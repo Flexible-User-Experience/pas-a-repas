@@ -19,7 +19,7 @@ class ContactControllerTest extends WebTestCase
         $this->assertEquals(200, $client->getResponse()->getStatusCode(), "Unexpected HTTP status code for GET /admin/contact/");
 
         // Show the entity
-        $link = $crawler->selectLink('show')->first()->link();
+        $link = $crawler->selectLink('Mostrar')->first()->link();
         $client->click($link);
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
     }

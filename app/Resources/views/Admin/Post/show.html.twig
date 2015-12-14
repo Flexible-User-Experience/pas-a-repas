@@ -1,28 +1,28 @@
-{% extends 'base.html.twig' %}
+{% extends 'Admin/base_admin.html.twig' %}
 
 {% block main -%}
     <div class="container">
         <div class="row">
             <div class="col-md-12">
 
-                <h1>Post</h1>
+                <h1>POST</h1>
 
-                <table class="record_properties">
+                <table class="table table-hover table-bordered record_properties">
                     <tbody>
                     <tr>
                         <th>Id</th>
                         <td>{{ entity.id }}</td>
                     </tr>
                     <tr>
-                        <th>Createddate</th>
-                        <td>{{ entity.createdDate|date('Y-m-d H:i:s') }}</td>
+                        <th>{{ 'frontend.admin.created-date' |trans |capitalize }}</th>
+                        <td>{{ entity.createdDate|date('d-m-Y') }}</td>
                     </tr>
                     <tr>
-                        <th>Publisheddate</th>
+                        <th>{{  'frontend.admin.published-date' |trans |capitalize }}</th>
                         <td>{{ entity.publishedDate|date('Y-m-d H:i:s') }}</td>
                     </tr>
                     <tr>
-                        <th>Title</th>
+                        <th>{{ 'frontend.admin.title' |trans |capitalize }}</th>
                         <td>{{ entity.title }}</td>
                     </tr>
                     <tr>
@@ -30,11 +30,11 @@
                         <td>{{ entity.slug }}</td>
                     </tr>
                     <tr>
-                        <th>Description</th>
+                        <th>{{ 'frontend.admin.description' |trans |capitalize }}</th>
                         <td>{{ entity.description }}</td>
                     </tr>
                     <tr>
-                        <th>Enabled</th>
+                        <th>{{ 'frontend.admin.enabled' |trans |capitalize }}</th>
                         <td>{{ entity.enabled }}</td>
                     </tr>
                     </tbody>
@@ -43,12 +43,12 @@
                 <ul class="record_actions">
                     <li>
                         <a href="{{ path('admin_post') }}">
-                            Back to the list
+                            {{ 'frontend.admin.back-list' |trans |capitalize }}
                         </a>
                     </li>
                     <li>
                         <a href="{{ path('admin_post_edit', { 'id': entity.id }) }}">
-                            Edit
+                            {{ 'frontend.admin.edit' |trans |capitalize }}
                         </a>
                     </li>
                     <li>{{ form(delete_form) }}</li>

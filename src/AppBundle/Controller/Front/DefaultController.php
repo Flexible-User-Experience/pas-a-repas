@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Controller;
+namespace AppBundle\Controller\Front;
 
 use AppBundle\Entity\Contact;
 use AppBundle\Form\Type\ContactType;
@@ -52,7 +52,7 @@ class DefaultController extends Controller
                 ->setSubject('Pas a repàs contact form')
                 ->setFrom($contactEntity->getEmail())
                 ->setTo($this->container->getParameter('mailer_destination'))
-                ->setBody($this->renderView('default/email.html.twig', array(
+                ->setBody($this->renderView('Front/default/email.html.twig', array(
                     'contactEntity' => $contactEntity,
                 )))
                 ->setCharset('UTF-8')
@@ -69,7 +69,7 @@ class DefaultController extends Controller
             $this->addFlash('notice','frontend.index.main.sent');
         }
 
-        return $this->render('default/index.html.twig', array(
+        return $this->render('Front/default/index.html.twig', array(
             'mapView' => $mapObject,
             'contactForm' => $form->createView(),
         ));

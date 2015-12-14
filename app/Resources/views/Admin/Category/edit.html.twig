@@ -1,20 +1,20 @@
-{% extends 'base.html.twig' %}
+{% extends 'Admin/base_admin.html.twig' %}
 
 {% block main -%}
     <div class="container">
         <div class="row">
             <div class="col-md-12">
+                <h1>{{ 'frontend.admin.category_edit' |trans |upper }}</h1>
 
-                <h1>Category creation</h1>
-
-                {{ form(form) }}
+                {{ form(edit_form) }}
 
                 <ul class="record_actions">
                     <li>
                         <a href="{{ path('admin_category') }}">
-                            Back to the list
-                        </a>
+                            {{ 'frontend.admin.back-list' |trans |capitalize }}
+                        </a>r
                     </li>
+                    <li>{{ form(delete_form) }}</li>
                 </ul>
             </div>
         </div>

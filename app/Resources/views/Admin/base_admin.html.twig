@@ -1,0 +1,17 @@
+{% extends 'Front/base.html.twig' %}
+
+{% block footer %}{% endblock %}
+
+{% block analytics %}{% endblock %}
+
+{% block scroll_top %}{% endblock %}
+
+{% block menu %}
+    <div class="navbar-collapse collapse float-right">
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="{{ path('contact') }}">{{ 'frontend.admin.contact' | trans | upper }}</a></li>
+            <li><a href="{{ path('admin_post') }}">{{ 'frontend.admin.post' | trans | upper }}</a></li>
+            <li><a href="{{ path('admin_category') }}">{{ 'frontend.admin.category' | trans | upper }}</a></li>
+        </ul>
+    </div>
+{% endblock %}

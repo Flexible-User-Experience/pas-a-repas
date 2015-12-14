@@ -65,51 +65,57 @@
         {#<!-- Scroll-Top effect -->#}
         <div class="scroll-top-wrapper"><span class="scroll-top-inner"><i class="fa fa-2x fa-arrow-circle-up"></i></span></div>
         {#<!-- Footer -->#}
-        <footer>
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <ul class="list-unstyled">
-                            <li class="col-sm-3 col-xs-1"></li>
-                            <li class="col-sm-3 col-xs-5">
-                                <h5>{{ 'frontend.layout.footer.contact' | trans | upper }}</h5>
-                                <address>
-                                    <strong>ISABEL PORRES ESTRADA</strong><br>
-                                    <a href="mailto:isabel@pasarepas.cat"><i class="fa fa-envelope"></i> isabel@pasarepas.cat</a><br>
-                                    <i class="fa fa-phone-square"></i> 607 548 474
-                                </address>
-                            </li>
-                            <li class="col-sm-3 col-xs-5">
-                                <h5>{{ 'frontend.layout.footer.address' | trans | upper }}</h5>
-                                <address>
-                                    <strong>C. Sebastià Joan Arbó, 6</strong><br>
-                                    43870 Amposta<br>
-                                    (Tarragona)
-                                </address>
-                            </li>
-                            <li class="col-sm-3 col-xs-1"></li>
-                        </ul>
+        {% block footer %}
+            <footer>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <ul class="list-unstyled">
+                                <li class="col-sm-3 col-xs-1"></li>
+                                <li class="col-sm-3 col-xs-5">
+                                    <h5>{{ 'frontend.layout.footer.contact' | trans | upper }}</h5>
+                                    <address>
+                                        <strong>ISABEL PORRES ESTRADA</strong><br>
+                                        <a href="mailto:isabel@pasarepas.cat"><i class="fa fa-envelope"></i> isabel@pasarepas.cat</a><br>
+                                        <i class="fa fa-phone-square"></i> 607 548 474
+                                    </address>
+                                </li>
+                                <li class="col-sm-3 col-xs-5">
+                                    <h5>{{ 'frontend.layout.footer.address' | trans | upper }}</h5>
+                                    <address>
+                                        <strong>C. Sebastià Joan Arbó, 6</strong><br>
+                                        43870 Amposta<br>
+                                        (Tarragona)
+                                    </address>
+                                </li>
+                                <li class="col-sm-3 col-xs-1"></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </footer>
+            </footer>
+        {% endblock %}
         {#<!-- Javascripts -->#}
         {% block javascripts %}
             {% javascripts '@myjs' %}
                 <script type="text/javascript" src="{{ asset_url }}"></script>
             {% endjavascripts %}
         {% endblock %}
-        {#<!-- Scroll-Top effect JS -->#}
-        {% include 'fragments/scroll-to-top-js.html.twig' %}
-        {#<!-- Google Analytics -->#}
-        {% if google_analytics_enabled %}
-            <script type="text/javascript">
-                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-                        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-                })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-                ga('create', '{{ google_analytics_account }}', 'auto'); ga('send', 'pageview');
-            </script>
-        {% endif %}
+        {% block scroll_top %}
+            {#<!-- Scroll-Top effect JS -->#}
+            {% include 'Front/fragments/scroll-to-top-js.html.twig' %}
+        {% endblock %}
+        {% block analytics %}
+            {#<!-- Google Analytics -->#}
+            {% if google_analytics_enabled %}
+                <script type="text/javascript">
+                    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+                    ga('create', '{{ google_analytics_account }}', 'auto'); ga('send', 'pageview');
+                </script>
+            {% endif %}
+        {% endblock %}
     </body>
 </html>

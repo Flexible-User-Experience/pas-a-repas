@@ -1,22 +1,22 @@
-{% extends 'base.html.twig' %}
+{% extends 'Admin/base_admin.html.twig' %}
 
 {% block main -%}
     <div class="container">
         <div class="row">
             <div class="col-md-12">
 
-                <h1>Contact list</h1>
+                <h1>{{ 'frontend.admin.contact-list' | trans | upper }}</h1>
 
-                <table class="table table-hover records_list">
+                <table class="table table-hover table-bordered records_list">
                     <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Phone</th>
-                        <th>Message</th>
-                        <th>Date</th>
-                        <th>Actions</th>
+                        <th>{{ 'frontend.index.contact.form.name' |trans |capitalize }}</th>
+                        <th>{{ 'frontend.index.contact.form.email' |trans |capitalize }}</th>
+                        <th>{{ 'frontend.index.contact.form.phone' |trans |capitalize }}</th>
+                        <th>{{ 'frontend.index.contact.form.message' |trans |capitalize }}</th>
+                        <th>{{ 'frontend.admin.date' |trans |capitalize }}</th>
+                        <th>{{ 'frontend.admin.actions' |trans |capitalize }}</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -27,11 +27,11 @@
                             <td>{{ entity.email }}</td>
                             <td>{{ entity.phone }}</td>
                             <td>{{ entity.message }}</td>
-                            <td>{% if entity.date %}{{ entity.date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                            <td>{% if entity.date %}{{ entity.date|date('d-m-Y') }}{% endif %}</td>
                             <td>
                                 <ul>
                                     <li>
-                                        <a href="{{ path('contact_show', { 'id': entity.id }) }}">show</a>
+                                        <a href="{{ path('contact_show', { 'id': entity.id }) }}">{{ 'frontend.admin.show' |trans |capitalize }}</a>
                                     </li>
                                 </ul>
                             </td>
