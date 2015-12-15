@@ -66,6 +66,8 @@ frontend:
     category: categoria
     post: article
     contact: contacte
+    dashboard: tauler
+    welcome: Benvingut a l'administrador d'entitats
   blog:
     main:
       tags: etiquetes

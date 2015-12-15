@@ -1,5 +1,28 @@
 {% extends 'Admin/base_admin.html.twig' %}
 
 {% block main %}
-    <h1>Dashboard</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>{{ 'frontend.admin.dashboard' |trans |upper }}</h1>
+                <h4>{{ 'frontend.admin.welcome' |trans |capitalize }}</h4>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="btn btn-default">
+                    <a href="{{ path('contact') }}" class="btn btn-primary btn-lg active"
+                       role="button">{{ 'frontend.admin.contact' | trans | upper }}</a>
+                    <a href="{{ path('admin_post') }}" class="btn btn-primary btn-lg active"
+                       role="button">{{ 'frontend.admin.post' | trans | upper }}</a>
+                    <a href="{{ path('admin_category') }}" class="btn btn-primary btn-lg active"
+                       role="button">{{ 'frontend.admin.category' | trans | upper }}</a>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
+
+
