@@ -6,6 +6,16 @@ use Liip\FunctionalTestBundle\Test\WebTestCase as WebTestCase;
 
 class ContactControllerTest extends WebTestCase
 {
+    /**
+     * Set up tests
+     */
+    public function setUp()
+    {
+        $this->loadFixtures(array(
+            'AppBundle\DataFixtures\ORM\Contacts',
+        ));
+    }
+
     public function testCompleteScenario()
     {
         // Create a new client to browse the application
@@ -16,11 +26,11 @@ class ContactControllerTest extends WebTestCase
 
         // Visit admin list view
         $crawler = $client->request('GET', '/admin/contact/');
-        $this->assertEquals(200, $client->getResponse()->getStatusCode(), "Unexpected HTTP status code for GET /admin/contact/");
+        $this->assertStatusCode(200, $client);
 
         // Show the entity
         $link = $crawler->selectLink('Mostrar')->first()->link();
         $client->click($link);
-        $this->assertEquals(200, $client->getResponse()->getStatusCode());
+        $this->assertStatusCode(200, $client);
     }
 }
