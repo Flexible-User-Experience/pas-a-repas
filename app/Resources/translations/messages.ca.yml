@@ -72,3 +72,4 @@ frontend:
     main:
       tags: etiquetes
       keep_reading: seguir llegint
+      post_detail: detall de l'article

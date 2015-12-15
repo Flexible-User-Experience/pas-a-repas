@@ -1,15 +1,22 @@
 {% extends 'Front/base.html.twig' %}
 
-{% block title %}Post detail{% endblock %}
+{% block title %}{{ 'frontend.blog.main.post_detail' | trans | title }}{% endblock %}
 
 {% block main %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <img src="{{ asset('bundles/app/images/blog-head.jpg') }}" class="img-responsive" alt="{{ 'frontend.index.main.image' | trans | capitalize }}">
+            </div>
+        </div>
+    </div>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <h1>Detail of Post</h1>
                     <h3>{{ post.title }}</h3>
                     <h5>{{ post.createdDate | date ('d-m-Y')}}</h5>
-                    <h5>{{ post.description | truncate(150)}}</h5>
+                    <h5>{{ post.description | truncate(500)}}</h5>
                     {% for category in post.categories %}
                         <a href="{{ path('category_detail', {slug: category.slug}) }}">{{ category.title }}</a>
                     {% endfor %}
