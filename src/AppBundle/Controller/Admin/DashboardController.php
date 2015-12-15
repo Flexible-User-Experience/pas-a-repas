@@ -25,8 +25,17 @@ class DashboardController extends Controller
      */
     public function dashboardAction()
     {
-
         return $this->render('Admin/dashboard.html.twig');
     }
 
+    public function lastContactMsgs()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $query = $em->createQuery('SELECT c FROM c');
+        $query->setMaxResults(5);
+
+        return $query->getResult();
+
+    }
 }
