@@ -33,7 +33,7 @@ class DashboardController extends Controller
         $today = new \DateTime('today');
 
         foreach ($contacts as $contact) {
-            if ($contact->getDate()->format('d-m-Y') == $today->format('d-m-Y')) {
+            if ($contact->getDate()->format('m') == $today->format('m') && $contact->getDate()->format('Y') == $today->format('Y')) {
                 $contactMsgsAmount = $contactMsgsAmount + 1;
             }
         }
