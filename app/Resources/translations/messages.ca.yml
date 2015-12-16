@@ -63,11 +63,11 @@ frontend:
     category_edit: edita categoria
     post_edit: edita post
     create_new_entry: nova entrada
-    category: categoria
-    post: article
-    contact: contacte
+    category: categories
+    post: articles
+    contact: contactes
     dashboard: tauler
-    welcome: Benvingut a l'administrador d'entitats
+    welcome: Benvingut a l'administrador de continguts
   blog:
     main:
       tags: etiquetes
