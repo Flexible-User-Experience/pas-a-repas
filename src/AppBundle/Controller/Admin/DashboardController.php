@@ -9,6 +9,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use AppBundle\Entity\Post;
 use AppBundle\Form\PostType;
+use Symfony\Component\Validator\Constraints\Date;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 /**
  * Dashboard controller.
@@ -25,8 +27,18 @@ class DashboardController extends Controller
      */
     public function dashboardAction()
     {
+        $contacts = $this->getDoctrine()->getRepository('AppBundle:Contact')->findAll();
 
-        return $this->render('Admin/dashboard.html.twig');
+        $contactMsgsAmount = 0;
+        $today = new \DateTime('today');
+
+        foreach ($contacts as $contact) {
+            if ($contact->getDate()->format('m') == $today->format('m') && $contact->getDate()->format('Y') == $today->format('Y')) {
+                $contactMsgsAmount = $contactMsgsAmount + 1;
+            }
+        }
+
+        return $this->render('Admin/dashboard.html.twig', array ('contactMsgsAmount' => $contactMsgsAmount));
     }
 
 }

@@ -20,11 +20,7 @@
 
 {% block main %}
     <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <img src="{{ asset('bundles/app/images/head.jpg') }}" class="img-responsive" alt="{{ 'frontend.index.main.image' | trans | capitalize }}">
-            </div>
-        </div>
+        {%  include ':Front/fragments:blog_heading_image.html.twig' %}
         <div class="row">
             <div class="col-xs-8">
                 {# main right side #}
