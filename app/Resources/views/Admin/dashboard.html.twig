@@ -20,8 +20,19 @@
                     <a href="{{ path('admin_category') }}" class="btn btn-primary btn-lg active"
                        role="button">{{ 'frontend.admin.category' | trans | upper }}</a>
                 </div>
-                <h3>Aquest mes, el número de contactes és de {{ contactMsgsAmount }}</h3>
+                <h3>Aquest mes, s'han registrat
+                    <div class="row">
+                        <div class="col-md-6">
+                            <button class="btn btn-primary" type="button">
+                                Contactes <span class="badge">{{ contactMsgsAmount }}</span>
+                                Articles <span class="badge">{{ postAmount }}</span>
+                                Categories <span class="badge">{{ categoryAmount }}</span>
+                            </button>
+                        </div>
+                    </div>
+                </h3>
             </div>
         </div>
     </div>
 {% endblock %}
+
