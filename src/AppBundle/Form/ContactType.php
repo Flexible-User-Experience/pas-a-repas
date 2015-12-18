@@ -19,7 +19,7 @@ class ContactType extends AbstractType
             ->add('email')
             ->add('phone')
             ->add('message')
-            ->add('date')
+            ->add('date', 'genemu_jquerydate')
         ;
     }
     

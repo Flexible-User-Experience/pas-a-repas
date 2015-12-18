@@ -15,7 +15,7 @@ class CategoryType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('createdDate')
+            ->add('createdDate', 'genemu_jquerydate')
             ->add('title')
             ->add('slug')
             ->add('enabled')
