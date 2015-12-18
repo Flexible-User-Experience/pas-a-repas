@@ -98,12 +98,19 @@ liip_imagine:
             filters:
                 thumbnail: { size: [700, 200], mode: outbound }
 
-# Date Time Picker
-sc_datetimepicker:
-    picker: ~
-
 genemu_form:
     date: ~
 
 vich_uploader:
     db_driver: orm # or mongodb or propel or phpcr
+
+stof_doctrine_extensions:
+    default_locale: "%locale%"
+    orm:
+        default:
+#            tree: false
+            timestampable: true # not needed: listeners are not enabled by default
+            sluggable: true
+#        other:
+#            timestampable: true
+#            sluggable: true

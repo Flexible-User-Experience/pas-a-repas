@@ -20,7 +20,6 @@ class PostType extends AbstractType
             ->add('publishedDate', 'genemu_jquerydate')
 //            ->add('publishedDate', 'collot_datetime', array('label' => 'frontend.admin.published-date'))
             ->add('title')
-            ->add('slug')
             ->add('description')
             ->add('enabled')
             ->add('categories')

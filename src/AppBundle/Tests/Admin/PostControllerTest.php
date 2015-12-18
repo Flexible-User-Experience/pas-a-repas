@@ -22,7 +22,6 @@ class PostControllerTest extends WebTestCase
         // Fill in the form and submit it
         $form = $crawler->selectButton('Create')->form(array(
             'appbundle_post[title]' => 'Test',
-            'appbundle_post[slug]' => 'Test',
             'appbundle_post[description]' => 'Test',
         ));
 

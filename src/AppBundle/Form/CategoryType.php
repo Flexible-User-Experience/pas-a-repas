@@ -17,7 +17,6 @@ class CategoryType extends AbstractType
         $builder
             ->add('createdDate', 'genemu_jquerydate')
             ->add('title')
-            ->add('slug')
             ->add('enabled')
             ->add('posts')
         ;
