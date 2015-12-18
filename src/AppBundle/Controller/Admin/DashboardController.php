@@ -34,7 +34,7 @@ class DashboardController extends Controller
 
         $contactMsgsAmount = 0;
         $postsAmount = 0;
-        $categoryAmount = 0;
+        $categoriesAmount = 0;
         $today = new \DateTime('today');
 
         foreach ($contacts as $contact)
@@ -57,13 +57,13 @@ class DashboardController extends Controller
         {
             if ($category->getCreatedDate()->format('m') == $today->format('m') && $category->getCreatedDate()->format('Y') == $today->format('Y'))
             {
-                $categoryAmount = $categoryAmount + 1;
+                $categoriesAmount = $categoriesAmount + 1;
             }
         }
 
         return $this->render('Admin/dashboard.html.twig', array(
                 'contactMsgsAmount' => $contactMsgsAmount,
                 'postsAmount' => $postsAmount,
-                'categoryAmount' => $categoryAmount));
+                'categoriesAmount' => $categoriesAmount));
         }
     }
