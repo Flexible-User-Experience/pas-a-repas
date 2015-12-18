@@ -23,6 +23,7 @@ class AppKernel extends Kernel
             new Liip\ImagineBundle\LiipImagineBundle(),
             new SC\DatetimepickerBundle\SCDatetimepickerBundle(),
             new Genemu\Bundle\FormBundle\GenemuFormBundle(),
+            new Vich\UploaderBundle\VichUploaderBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
