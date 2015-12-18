@@ -31,11 +31,12 @@ frontend:
     eso_txt: Classes de repàs per a estudiants d'ESO. La millor opció per al reforç de l'ensenyament a escola. El teu fill obtindrà els beneficis d'una formació de qualitat amb una atenció personalitzada. Entorn controlat (grup de fins a 8 persones) amb opció de classes particulars. Engloba tots els cursos i assignatures. A classe reforcem els temes poc assolits per l'alumne amb materials complementaris personalitzats, finalitzem els deures de l'escola i fem la preparació per a exàmens. <strong>Aprèn al teu ritme i com a casa</strong>.
     sc_school: Classes de reforç per a joves estudiants de Batxillerat. <strong>Assegura el teu futur amb una formació per a l'excel·lència</strong>. En aquest nivell només dono classes particulars. Aprofitaràs al màxim el temps i notaràs la diferència amb la meva formació individualitzada i adaptada a les teves necessitats. Reforç de les assignatures de classe: <strong>català, castellà, llatí, filosofia, biologia, matemàtiques CCSS</strong>. Accés a materials complementaris addicionals i exclusius.
     selectivity_txt: Classes particulars de preparació per a proves d'accés. <strong>Confia en mi per a treure el millor de tu</strong>. Fomació de qualitat i individualitzada amb materials addicionals i exclusius. <strong>Metodologia exitosa avalada amb resultats al llarg de més de 15 anys d'experiència</strong>.
-    pau: Selectivitat (PAU)
-    pacfs: Proves d'accès a cicles formatius de grau superior (PACFS)
-    pacfm: Proves d'accès a cicles formatius de grau mitjà (PACFM)
-    pau25: Proves d'accès a la universitat per a majors de 25 anys
-    cc: Certificats de Català
+    selectivity_list:
+      pau: Selectivitat (PAU)
+      pacfs: Proves d'accès a cicles formatius de grau superior (PACFS)
+      pacfm: Proves d'accès a cicles formatius de grau mitjà (PACFM)
+      pau25: Proves d'accès a la universitat per a majors de 25 anys
+      cc: Certificats de Català
     university_txt: Classes particulars per a estudiants universitaris. Et puc ajudar a complementar els teus estudis superiors amb el reforç de les assignatures de <strong>Filologia Hispànica, Filologia Catalana i Llatí<strong>. Treballarem plegats per a que el teu esforç i compromís es vegin recompensats amb uns resultats excel·lents.
     contact:
       msg: Si vols rebre més informació, omple aquest formulari i et resoldré qualsevol dubte que tinguis sobre les classes de repàs.
