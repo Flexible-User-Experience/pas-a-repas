@@ -1,4 +1,5 @@
 parameters:
+    locale: ca
     database_driver:   pdo_sqlite
     database_host:     127.0.0.1
     database_port:     ~
