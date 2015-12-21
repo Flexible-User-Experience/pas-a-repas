@@ -37,6 +37,7 @@ class Posts extends AbstractFixture implements FixtureInterface
                 ->setEnabled($value)
                 ->setCreatedDate($now)
                 ->setPublishedDate($now)
+                ->setImageName('image-' . $title)
                 ->setDescription($this->generateRandomString(1000))
                 ->addCategory($category1);
 

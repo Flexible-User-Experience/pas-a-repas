@@ -6,6 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
@@ -37,6 +38,14 @@ class Post
     /**
      * @var \DateTime
      *
+     * @Gedmo\Timestampable(on="update")
+     * @ORM\Column(type="datetime")
+     */
+    private $updatedDate;
+
+    /**
+     * @var \DateTime
+     *
      * @ORM\Column(type="datetime")
      */
     private $publishedDate;
@@ -54,7 +63,7 @@ class Post
      * @Gedmo\Slug(fields={"title"})
      * @ORM\Column(name="slug", type="string", length=255)
      */
-    protected $slug;
+    private $slug;
 
     /**
      * @var string
@@ -68,7 +77,21 @@ class Post
      *
      * @ORM\Column(type="boolean")
      */
-    protected $enabled;
+    private $enabled;
+
+    /**
+     * @var File
+     *
+     * @Vich\UploadableField(mapping="uploads", fileNameProperty="imageName")
+     */
+    private $imageFile;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", length=255)
+     */
+    private $imageName;
 
     /**
      * @ORM\ManyToMany(targetEntity="Category", inversedBy="posts")
@@ -93,7 +116,7 @@ class Post
      *
      * @return Post
      */
-    public function setCreatedDate($createdDate)
+    public function setCreatedDate(\DateTime $createdDate)
     {
         $this->createdDate = $createdDate;
 
@@ -108,6 +131,22 @@ class Post
     public function getCreatedDate()
     {
         return $this->createdDate;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getUpdatedDate()
+    {
+        return $this->updatedDate;
+    }
+
+    /**
+     * @param \DateTime $updatedDate
+     */
+    public function setUpdatedDate(\DateTime $updatedDate)
+    {
+        $this->updatedDate = $updatedDate;
     }
 
     /**
@@ -236,6 +275,51 @@ class Post
     public function getEnabled()
     {
         return $this->enabled;
+    }
+
+    /**
+     * @return File
+     */
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
+
+    /**
+     * @param File|UploadedFile $imageFile
+     *
+     * @return Post
+     */
+    public function setImageFile(File $imageFile = null)
+    {
+        $this->imageFile = $imageFile;
+        if ($imageFile) {
+            // It is required that at least one field changes if you are using doctrine
+            // otherwise the event listeners won't be called and the file is lost
+            $this->updatedDate = new \DateTime('now');
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getImageName()
+    {
+        return $this->imageName;
+    }
+
+    /**
+     * @param string $imageName
+     *
+     * @return Post
+     */
+    public function setImageName($imageName)
+    {
+        $this->imageName = $imageName;
+
+        return $this;
     }
 
     /**
