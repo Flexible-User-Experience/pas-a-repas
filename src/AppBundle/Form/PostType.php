@@ -19,6 +19,10 @@ class PostType extends AbstractType
 //            ->add('publishedDate', 'collot_datetime', array('label' => 'frontend.admin.published-date'))
             ->add('title')
             ->add('description')
+            ->add('imageFile', 'vich_file', array(
+                'required' => false,
+                'allow_delete' => true,
+            ))
             ->add('enabled')
             ->add('categories')
         ;
