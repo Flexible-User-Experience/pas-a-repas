@@ -3,11 +3,8 @@ imports:
     - { resource: security.yml }
     - { resource: services.yml }
 
-parameters:
-    locale: ca
-
 framework:
-    translator:      { fallbacks: ["%locale%"] }
+    translator:      { fallbacks: [ "%locale%" ] }
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -16,7 +13,7 @@ framework:
     csrf_protection: ~
     validation:      { enable_annotations: true }
     templating:
-        engines: ['twig']
+        engines: [ "twig" ]
     default_locale:  "%locale%"
     trusted_hosts:   ~
     trusted_proxies: ~
@@ -30,7 +27,7 @@ twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
     form:
-        resources: ['bootstrap_3_layout.html.twig']
+        resources: [ "bootstrap_3_layout.html.twig" ]
     globals:
         google_analytics_enabled: %google_analytics_enabled%
         google_analytics_account: "%google_analytics_account%"
@@ -39,7 +36,6 @@ twig:
 assetic:
     debug:          "%kernel.debug%"
     use_controller: false
-    #bundles:        [ ]
     java:           "%assetic_path_java%"
     node:           "%assetic_path_node%"
     filters:
@@ -98,6 +94,22 @@ liip_imagine:
             filters:
                 thumbnail: { size: [700, 200], mode: outbound }
 
-# Date Time Picker
-sc_datetimepicker:
-    picker: ~
+# Genemu
+genemu_form:
+    date: ~
+
+# Vich
+vich_uploader:
+    db_driver: orm
+    mappings:
+        uploads:
+            uri_prefix:         /uploads
+            upload_destination: %kernel.root_dir%/../web/uploads
+
+# Stof
+stof_doctrine_extensions:
+    default_locale: "%locale%"
+    orm:
+        default:
+            timestampable: true
+            sluggable: true

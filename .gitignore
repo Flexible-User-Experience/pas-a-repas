@@ -15,6 +15,9 @@
 /web/assetic/*
 /web/css/*
 /web/js/*
+/web/media/*
 !/web/media/.gitkeep
+/web/uploads/*
+!/web/uploads/.gitkeep
 /.idea
 /Capfile

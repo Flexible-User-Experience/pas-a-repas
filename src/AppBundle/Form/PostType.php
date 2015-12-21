@@ -15,13 +15,15 @@ class PostType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('createdDate')
-//            ->add('createdDate', 'collot_datetime', array('label' => 'frontend.admin.created-date'))
-            ->add('publishedDate')
-//            ->add('publishedDate', 'collot_datetime', array('label' => 'frontend.admin.published-date'))
+            ->add('publishedDate', 'date', array(
+                'widget' => 'single_text',
+            ))
             ->add('title')
-            ->add('slug')
             ->add('description')
+            ->add('imageFile', 'vich_file', array(
+                'required' => false,
+                'allow_delete' => false,
+            ))
             ->add('enabled')
             ->add('categories')
         ;

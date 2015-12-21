@@ -22,7 +22,6 @@ class CategoryControllerTest extends WebTestCase
         // Fill in the form and submit it
         $form = $crawler->selectButton('Create')->form(array(
             'appbundle_category[title]' => 'Test',
-            'appbundle_category[slug]' => 'Test',
         ));
 
         $client->submit($form);
