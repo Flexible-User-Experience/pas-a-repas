@@ -15,13 +15,14 @@ class PostType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('publishedDate', 'genemu_jquerydate')
-//            ->add('publishedDate', 'collot_datetime', array('label' => 'frontend.admin.published-date'))
+            ->add('publishedDate', 'date', array(
+                'widget' => 'single_text',
+            ))
             ->add('title')
             ->add('description')
             ->add('imageFile', 'vich_file', array(
                 'required' => false,
-                'allow_delete' => true,
+                'allow_delete' => false,
             ))
             ->add('enabled')
             ->add('categories')
