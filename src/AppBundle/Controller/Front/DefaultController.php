@@ -48,16 +48,13 @@ class DefaultController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             // ... perform some action, such as saving the task to the database
-            $message = \Swift_Message::newInstance()
-                ->setSubject('Pas a repàs contact form')
-                ->setFrom($contactEntity->getEmail())
-                ->setTo($this->container->getParameter('mailer_destination'))
-                ->setBody($this->renderView('Front/default/email.html.twig', array(
-                    'contactEntity' => $contactEntity,
-                )))
-                ->setCharset('UTF-8')
-                ->setContentType('text/html');
-            $this->get('mailer')->send($message);
+            $mailer = $this->get('app.mailer');
+            $mailer->sendEmail(
+                $contactEntity->getEmail(),
+                $this->container->getParameter('mailer_destination'),
+                'Pas a repàs contact form',
+                $this->renderView('Front/default/email.html.twig', array('contactEntity' => $contactEntity )));
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($contactEntity);
             $em->flush();
