@@ -1,7 +1,5 @@
 {% extends 'Front/base.html.twig' %}
 
-{% block footer %}{% endblock %}
-
 {% block analytics %}{% endblock %}
 
 {% block scroll_top %}{% endblock %}
@@ -13,5 +11,16 @@
             <li><a href="{{ path('admin_post') }}">{{ 'frontend.admin.post' | trans | upper }}</a></li>
             <li><a href="{{ path('admin_category') }}">{{ 'frontend.admin.category' | trans | upper }}</a></li>
         </ul>
+    </div>
+{% endblock %}
+
+{% block footer %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <a href="{{ path('homepage') }}" class="btn btn-primary"
+                   role="button"><i class="fa fa-arrow-circle-left"></i> {{ 'frontend.admin.homepage' | trans | capitalize }}</a>
+            </div>
+        </div>
     </div>
 {% endblock %}

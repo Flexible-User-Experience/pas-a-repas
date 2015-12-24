@@ -2,14 +2,8 @@
 
 namespace AppBundle\Controller\Front;
 
-use AppBundle\Entity\Contact;
-use AppBundle\Form\Type\ContactType;
-use Ivory\GoogleMapBundle\Entity\Map;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
-use Ivory\GoogleMap\Overlays\Animation;
-use Ivory\GoogleMap\Overlays\Marker;
 use AppBundle\Entity\Category;
 use AppBundle\Entity\Post;
 
@@ -31,6 +25,12 @@ class BlogController extends Controller
 
     /**
      * @Route("/blog/{year}/{month}/{day}/{slug}", name="blog_detail")
+     * @param $year
+     * @param $month
+     * @param $day
+     * @param $slug
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function postDetailAction($year, $month, $day, $slug)
     {
@@ -51,6 +51,9 @@ class BlogController extends Controller
 
     /**
      * @Route("/blog/category/{slug}", name="category_detail")
+     * @param $slug
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function categoryDetailAction($slug)
     {
@@ -58,5 +61,4 @@ class BlogController extends Controller
 
         return $this->render('Front/Blog/category_detail.html.twig', array('category' => $category));
     }
-
 }

@@ -18,13 +18,13 @@
             <div class="col-md-12">
                 <h2 class="my-h2 text-center">{{ 'frontend.layout.menu.courses' | trans | upper }}</h2>
                 {#<!-- Nav tabs -->#}
-                <div class="navbar">
+                <div class="navbar no-m-bottom">
                     <ul class="nav nav-justified" role="tablist">
-                        <li role="presentation" class="active"><a href="#primaria" class="c-magenta" aria-controls="primaria" role="tab" data-toggle="tab"><i class="icon-pencil fa-3x"></i><br>{{ 'frontend.index.courses.primary' | trans | upper }}<br><i class="current-mark icon-arrow fa-3x"></i></a></li>
-                        <li role="presentation"><a href="#eso" class="c-wine" aria-controls="eso" role="tab" data-toggle="tab"><i class="icon-ruler fa-3x"></i><br>{{ 'frontend.index.courses.eso' | trans | upper }}<br><i class="current-mark icon-arrow fa-3x"></i></a></li>
-                        <li role="presentation"><a href="#batxillerat" class="c-violet" aria-controls="batxillerat" role="tab" data-toggle="tab"><i class="icon-book fa-3x"></i><br>{{ 'frontend.index.courses.school' | trans | upper }}<br><i class="current-mark icon-arrow fa-3x"></i></a></li>
-                        <li role="presentation"><a href="#selectivitat" class="c-lviolet" aria-controls="selectivitat" role="tab" data-toggle="tab"><i class="icon-check fa-3x"></i><br>{{ 'frontend.index.courses.selectivity' | trans | upper }}<br><i class="current-mark icon-arrow fa-3x"></i></a></li>
-                        <li role="presentation"><a href="#universitat" class="c-cyan" aria-controls="universitat" role="tab" data-toggle="tab"><i class="icon-hat fa-3x"></i><br>{{ 'frontend.index.courses.university' | trans | upper }}<br><i class="current-mark icon-arrow fa-3x"></i></a></li>
+                        <li role="presentation" class="active"><a href="#primaria" class="c-magenta" aria-controls="primaria" role="tab" data-toggle="tab"><i class="icon-pencil fa-4x"></i>{{ 'frontend.index.courses.primary' | trans | upper }}<i class="current-mark icon-arrow fa-3x"></i></a></li>
+                        <li role="presentation"><a href="#eso" class="c-wine" aria-controls="eso" role="tab" data-toggle="tab"><i class="icon-ruler fa-4x"></i>{{ 'frontend.index.courses.eso' | trans | upper }}<i class="current-mark icon-arrow fa-3x"></i></a></li>
+                        <li role="presentation"><a href="#batxillerat" class="c-violet" aria-controls="batxillerat" role="tab" data-toggle="tab"><i class="icon-book fa-4x"></i>{{ 'frontend.index.courses.school' | trans | upper }}<i class="current-mark icon-arrow fa-3x"></i></a></li>
+                        <li role="presentation"><a href="#selectivitat" class="c-lviolet" aria-controls="selectivitat" role="tab" data-toggle="tab"><i class="icon-check fa-4x"></i>{{ 'frontend.index.courses.selectivity' | trans | upper }}<i class="current-mark icon-arrow fa-3x"></i></a></li>
+                        <li role="presentation"><a href="#universitat" class="c-cyan" aria-controls="universitat" role="tab" data-toggle="tab"><i class="icon-hat fa-4x"></i>{{ 'frontend.index.courses.university' | trans | upper }}<i class="current-mark icon-arrow fa-3x"></i></a></li>
                     </ul>
                 </div>
                 {#<!-- Tab panes -->#}
@@ -34,8 +34,8 @@
                             <div class="col-sm-5">
                                 <img class="img-responsive" src="{{ asset('bundles/app/images/c1-primary.jpg') }}" alt="{# TODO set alt img #}"/>
                             </div>
-                            <div class="col-sm-7 text-center c-white">
-                                <div class="banner-service text-justify">
+                            <div class="col-sm-7 c-white">
+                                <div class="banner-service">
                                     {{ 'frontend.index.primary_txt' | trans | raw }}
                                 </div>
                             </div>
@@ -43,8 +43,8 @@
                     </div>
                     <div role="tabpanel" class="tab-pane fade bc-wine" id="eso">
                         <div class="row">
-                            <div class="col-sm-7 text-center c-white">
-                                <div class="banner-service text-justify">
+                            <div class="col-sm-7 c-white">
+                                <div class="banner-service">
                                     {{ 'frontend.index.eso_txt' | trans | raw }}
                                 </div>
                             </div>
@@ -58,8 +58,8 @@
                             <div class="col-sm-5">
                                 <img class="img-responsive" src="{{ asset('bundles/app/images/c3-school.jpg') }}" alt="{# TODO set alt img #}"/>
                             </div>
-                            <div class="col-sm-7 text-center c-white">
-                                <div class="banner-service text-justify">
+                            <div class="col-sm-7 c-white">
+                                <div class="banner-service">
                                     {{ 'frontend.index.sc_school' | trans | raw  }}
                                 </div>
                             </div>
@@ -67,10 +67,10 @@
                     </div>
                     <div role="tabpanel" class="tab-pane fade bc-lviolet" id="selectivitat">
                         <div class="row">
-                            <div class="col-sm-7 text-center c-white">
+                            <div class="col-sm-7 c-white">
                                 <div class="banner-service">
-                                    <p class="text-justify">{{ 'frontend.index.selectivity_txt' | trans | raw }}</p>
-                                    <ul class="text-left">
+                                    <p>{{ 'frontend.index.selectivity_txt' | trans | raw }}</p>
+                                    <ul>
                                         <li>{{ 'frontend.index.selectivity_list.pau' | trans }}</li>
                                         <li>{{ 'frontend.index.selectivity_list.pacfs' | trans }}</li>
                                         <li>{{ 'frontend.index.selectivity_list.pacfm' | trans }}</li>
@@ -89,8 +89,8 @@
                             <div class="col-sm-5">
                                 <img class="img-responsive" src="{{ asset('bundles/app/images/c5-university.jpg') }}" alt="{# TODO set alt img #}"/>
                             </div>
-                            <div class="col-sm-7 text-center c-white">
-                                <div class="banner-service text-justify">
+                            <div class="col-sm-7 c-white">
+                                <div class="banner-service">
                                     {{ 'frontend.index.university_txt' | trans | raw }}
                                 </div>
                             </div>
@@ -102,13 +102,13 @@
         <div id="sobre-mi" class="row">
             <div class="col-md-12">
                 <h2 class="my-h2 c-white text-center">{{ 'frontend.layout.menu.about' | trans | upper }}</h2>
-                <p class="text-center banner-service">{{ 'frontend.index.about_mi' | trans | raw }}</p>
+                <p class="text-center banner-service sobre-mi">{{ 'frontend.index.about_mi' | trans | raw }}</p>
             </div>
         </div>
         <div id="contacte" class="row">
             <div class="col-md-12">
                 <h2 class="my-h2 text-center">{{ 'frontend.layout.menu.contact' | trans | upper }}</h2>
-                <p class="text-center">{{ 'frontend.index.contact.msg' | trans }}</p>
+                <p class="text-center contacte">{{ 'frontend.index.contact.msg' | trans }}</p>
                 {{ form_start(contactForm) }}
                     <div class="row">
                         <div class="col-sm-2 col-xs-1"></div>

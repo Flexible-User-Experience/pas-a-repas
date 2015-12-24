@@ -74,6 +74,7 @@ frontend:
     contact: contactes
     dashboard: tauler
     welcome: Benvingut a l'administrador de continguts
+    homepage: tornar a inici
   blog:
     main:
       tags: etiquetes

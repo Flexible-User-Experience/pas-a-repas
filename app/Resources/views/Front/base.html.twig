@@ -4,7 +4,7 @@
     <!--[if IE 8]>        <html lang="{{ app.request.locale }}" class="no-js lt-ie9"><![endif]-->
     <!--[if gt IE 8]><!--><html lang="{{ app.request.locale }}" class="no-js"><!--<![endif]-->
     <head>
-        <meta name="description" content="Classes de repàs a Amposta per a tots els nivells: Primària, ESO, Batxillerat, Universitat. Preparació de proves d'accés. Aprèn al teu ritme i com a casa.">
+        <meta name="description" content="{{ 'frontend.layout.tags.description' | trans | title }}">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <meta name="author" content="www.flux.cat">
         <meta charset="UTF-8">
@@ -74,22 +74,24 @@
                             <ul class="list-unstyled">
                                 <li class="col-sm-3 col-xs-1"></li>
                                 <li class="col-sm-3 col-xs-5">
-                                    <h5>{{ 'frontend.layout.footer.contact' | trans | upper }}</h5>
+                                    {#<h5>{{ 'frontend.layout.footer.contact' | trans | upper }}</h5>#}
                                     <address>
-                                        <strong>ISABEL PORRES ESTRADA</strong><br>
+                                        <span>ISABEL PORRES ESTRADA</span><br>
                                         <a href="mailto:isabel@pasarepas.cat"><i class="fa fa-envelope"></i> isabel@pasarepas.cat</a><br>
                                         <i class="fa fa-phone-square"></i> 607 548 474
                                     </address>
                                 </li>
                                 <li class="col-sm-3 col-xs-5">
-                                    <h5>{{ 'frontend.layout.footer.address' | trans | upper }}</h5>
+                                    {#<h5>{{ 'frontend.layout.footer.address' | trans | upper }}</h5>#}
                                     <address>
-                                        <strong>C. Sebastià Joan Arbó, 6</strong><br>
+                                        <span>C. Sebastià Joan Arbó, 6</span><br>
                                         43870 Amposta<br>
                                         (Tarragona)
                                     </address>
                                 </li>
-                                <li class="col-sm-3 col-xs-1"></li>
+                                <li class="col-sm-3 col-xs-1 text-right">
+                                    <a target="_blank" href="https://www.facebook.com/pasarepas"><i class="fa fa-facebook-official fa-3x"></i></a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -104,7 +106,7 @@
         {% endblock %}
         {% block scroll_top %}
             {#<!-- Scroll-Top effect JS -->#}
-            {% include 'Front/fragments/scroll-to-top-js.html.twig' %}
+            {% include 'Front/Fragments/scroll-to-top-js.html.twig' %}
         {% endblock %}
         {% block analytics %}
             {#<!-- Google Analytics -->#}
