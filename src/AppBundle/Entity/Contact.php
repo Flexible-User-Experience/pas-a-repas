@@ -61,7 +61,6 @@ class Contact
      */
     private $date;
 
-
     /**
      * Get id
      *
@@ -206,4 +205,5 @@ class Contact
 
         return $object;
     }
+
 }
