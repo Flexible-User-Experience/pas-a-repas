@@ -1,5 +1,9 @@
 {% extends 'Front/base.html.twig' %}
 
+{% block head %}
+    <a class="navbar-brand" href="{{ path('admin_dasboard') }}"><img src="{{ asset('bundles/app/images/menu.png') }}" alt="{{ 'frontend.layout.main.title' | trans | capitalize }}"/></a>
+{% endblock %}
+
 {% block analytics %}{% endblock %}
 
 {% block scroll_top %}{% endblock %}
