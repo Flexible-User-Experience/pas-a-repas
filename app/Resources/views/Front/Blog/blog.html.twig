@@ -3,30 +3,20 @@
 {% block title %}{{ 'frontend.layout.menu.blog' | trans | title }} · {{ parent() }}{% endblock %}
 
 {% block menu %}
-    <div class="navbar-collapse collapse float-right">
-        <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="{{ path('blog') }}">{{ 'frontend.layout.menu.blog' | trans | upper }}</a></li>
-        </ul>
-    </div>
-    <div id="navbar" class="navbar-collapse collapse float-right">
-        <ul class="nav navbar-nav navbar-right">
-            <li><a href="{{ path('homepage') }}#classes-de-repas">{{ 'frontend.layout.menu.courses' | trans | upper }}</a></li>
-            <li><a href="{{ path('homepage') }}#sobre-mi">{{ 'frontend.layout.menu.about' | trans | upper }}</a></li>
-            <li><a href="{{ path('homepage') }}#contacte">{{ 'frontend.layout.menu.contact' | trans | upper }}</a></li>
-            {#<li><a href="{{ path('homepage') }}#localitzacio">{{ 'frontend.layout.menu.location' | trans | upper }}</a></li>#}
-        </ul>
-    </div>
+    {% include ':Front/Fragments:blog_menu.html.twig' %}
 {% endblock %}
 
 {% block main %}
     <div class="container">
-        {%  include ':Front/fragments:blog_heading_image.html.twig' %}
+        {%  include ':Front/Fragments:blog_heading_image.html.twig' %}
         <div class="row">
             <div class="col-xs-8">
                 {# main right side #}
                 {% for post in posts %}
                     <div class="thumbnail">
-                        <img src="{{ asset('bundles/app/images/650_1200.jpg') | imagine_filter('700x200') }}" alt="...">
+                        {% if post.imageName %}
+                            <img src="{{ vich_uploader_asset(post, 'imageFile') | imagine_filter('700x200') }}" alt="{{ post.title }} thumbnail">
+                        {% endif %}
                         <div class="caption">
                             <h2 class="c-violet">{{ post.title }}</h2>
                             <h5>{{ post.publishedDate | date('d/m/Y') }}</h5>
@@ -46,9 +36,13 @@
                 <div class="thumbnail">
                     <div class="caption">
                         <h3 class="c-cyan">{{ 'frontend.blog.main.tags' | trans | upper }}</h3>
-                        {% for category in categories %}
-                            <a href="#" class="badge">{{ category.title }}</a>
-                        {% endfor %}
+                        {% block categories %}
+                            {% for category in categories %}
+                                {% if category.posts | length > 0 %}
+                                    <a href="{{ path('category_detail', {slug: category.slug}) }}" class="badge">{{ category.title }}</a>
+                                {% endif %}
+                            {% endfor %}
+                        {% endblock %}
                     </div>
                 </div>
             </div>

@@ -34,31 +34,40 @@ class BlogController extends Controller
      */
     public function postDetailAction($year, $month, $day, $slug)
     {
+        /** @var Post $post */
         $post = $this->getDoctrine()->getRepository('AppBundle:Post')->findOneBySlug($slug);
+        if (!$post || !$post->getEnabled()) {
+            throw $this->createNotFoundException('Unable to find Post entity.');
+        }
+        if ($post->getPublishedDate()->format('Y-m-d') != $year . '-' . $month . '-' . $day) {
+            throw $this->createNotFoundException('Wrong Post entity published date');
+        }
 
-        return $this->render('Front/Blog/blog_detail.html.twig', array('post' => $post));
+        return $this->render('Front/Blog/blog_detail.html.twig', array(
+            'post' => $post,
+        ));
     }
 
     /**
-     * @Route("/blog/categories", name="categories")
-     */
-    public function categoriesListAction()
-    {
-        $categories = $this->getDoctrine()->getRepository('AppBundle:Category')->getAllEnabledSortedByTitle();
-
-        return $this->render('Front/Blog/categories.html.twig', array('categories' => $categories));
-    }
-
-    /**
-     * @Route("/blog/category/{slug}", name="category_detail")
+     * @Route("/blog/categoria/{slug}", name="category_detail")
      * @param $slug
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function categoryDetailAction($slug)
     {
+        /** @var Category $category */
         $category = $this->getDoctrine()->getRepository('AppBundle:Category')->findOneBySlug($slug);
+        if (!$category || !$category->getEnabled()) {
+            throw $this->createNotFoundException('Unable to find Category entity.');
+        }
+        $posts = $this->getDoctrine()->getRepository('AppBundle:Post')->getPostsByCategoryEnabledSortedByPublishedDate($category);
+        $categories = $this->getDoctrine()->getRepository('AppBundle:Category')->getAllEnabledSortedByTitle();
 
-        return $this->render('Front/Blog/category_detail.html.twig', array('category' => $category));
+        return $this->render('Front/Blog/category_detail.html.twig', array(
+            'selectedCategory' => $category,
+            'posts' => $posts,
+            'categories' => $categories,
+        ));
     }
 }

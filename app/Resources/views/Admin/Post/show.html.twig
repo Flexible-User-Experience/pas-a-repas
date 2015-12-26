@@ -1,5 +1,7 @@
 {% extends 'Admin/base_admin.html.twig' %}
 
+{% block menu_post %} class="active"{% endblock %}
+
 {% block main -%}
     <div class="container">
         <div class="row">
@@ -14,11 +16,15 @@
                         <td>{{ entity.id }}</td>
                     </tr>
                     <tr>
+                        <th>{{ 'frontend.admin.image' |trans |capitalize }}</th>
+                        <td>{% if entity.imageName %}<img src="{{ vich_uploader_asset(entity, 'imageFile') | imagine_filter('256xY') }}" alt="{{ entity.title }} thumbnail">{% else %}---{% endif %}</td>
+                    </tr>
+                    <tr>
                         <th>{{ 'frontend.admin.created-date' |trans |capitalize }}</th>
                         <td>{{ entity.createdDate|date('d-m-Y') }}</td>
                     </tr>
                     <tr>
-                        <th>{{  'frontend.admin.published-date' |trans |capitalize }}</th>
+                        <th>{{ 'frontend.admin.published-date' |trans |capitalize }}</th>
                         <td>{{ entity.publishedDate|date('Y-m-d H:i:s') }}</td>
                     </tr>
                     <tr>
@@ -35,7 +41,7 @@
                     </tr>
                     <tr>
                         <th>{{ 'frontend.admin.enabled' |trans |capitalize }}</th>
-                        <td>{{ entity.enabled }}</td>
+                        <td>{% if entity.enabled %}<span class="label label-success">{{ 'frontend.admin.yes' |trans |capitalize }}</span>{% else %}<span class="label label-danger">{{ 'frontend.admin.no' |trans |capitalize }}</span>{% endif %}</td>
                     </tr>
                     </tbody>
                 </table>

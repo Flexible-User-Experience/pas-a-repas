@@ -1,18 +1,11 @@
-{% extends 'Front/base.html.twig' %}
+{% extends 'Front/Blog/blog.html.twig' %}
 
-{% block title %}Category detail{% endblock %}
+{% block title %}{{ selectedCategory.title }} · {{ parent() }}{% endblock %}
 
-{% block main %}
-    <div class="container">
-        {%  include ':Front/fragments:blog_heading_image.html.twig' %}
-        <div class="row">
-            <div class="col-md-12">
-                <h1>Detail of Category</h1>
-                    <h3>{{ category.title }}</h3>
-                {% for post in category.posts %}
-                    <h4>{{ post.title }}</h4>
-                {% endfor %}
-            </div>
-        </div>
-    </div>
+{% block categories %}
+    {% for category in categories %}
+        {% if category.posts | length > 0 %}
+            <a href="{{ path('category_detail', {slug: category.slug}) }}"{% if category.id == selectedCategory.id %} class="badge"{% endif %}>{{ category.title }}</a>
+        {% endif %}
+    {% endfor %}
 {% endblock %}

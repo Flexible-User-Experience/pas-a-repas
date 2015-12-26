@@ -93,10 +93,14 @@ liip_imagine:
             quality: 80
             filters:
                 thumbnail: { size: [700, 200], mode: outbound }
-
-# Genemu
-genemu_form:
-    date: ~
+        256xY:
+            quality: 80
+            filters:
+                thumbnail: { size: [256, null], mode: outbound }
+        128x128:
+            quality: 85
+            filters:
+                thumbnail: { size: [128, 128], mode: outbound }
 
 # Vich
 vich_uploader:

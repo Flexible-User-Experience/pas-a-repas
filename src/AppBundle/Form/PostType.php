@@ -19,7 +19,11 @@ class PostType extends AbstractType
                 'widget' => 'single_text',
             ))
             ->add('title')
-            ->add('description')
+            ->add('description', 'textarea', array(
+                'attr' => array(
+                    'rows' => 5,
+                ),
+            ))
             ->add('imageFile', 'vich_file', array(
                 'required' => false,
                 'allow_delete' => false,

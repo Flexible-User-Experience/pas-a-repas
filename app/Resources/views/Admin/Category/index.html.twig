@@ -1,5 +1,7 @@
 {% extends 'Admin/base_admin.html.twig' %}
 
+{% block menu_category %} class="active"{% endblock %}
+
 {% block main -%}
     <div class="container">
         <div class="row">
@@ -12,7 +14,6 @@
                         <th>Id</th>
                         <th>{{ 'frontend.admin.created-date' |trans |capitalize }}</th>
                         <th>{{ 'frontend.admin.title' |trans |capitalize }}</th>
-                        <th>Slug</th>
                         <th>{{ 'frontend.admin.enabled' |trans |capitalize }}</th>
                         <th>{{ 'frontend.admin.actions' |trans |capitalize }}</th>
                     </tr>
@@ -24,8 +25,7 @@
                             </td>
                             <td>{% if entity.createdDate %}{{ entity.createdDate|date('d-m-Y') }}{% endif %}</td>
                             <td>{{ entity.title }}</td>
-                            <td>{{ entity.slug }}</td>
-                            <td>{{ entity.enabled }}</td>
+                            <td>{% if entity.enabled %}<span class="label label-success">{{ 'frontend.admin.yes' |trans |capitalize }}</span>{% else %}<span class="label label-danger">{{ 'frontend.admin.no' |trans |capitalize }}</span>{% endif %}</td>
                             <td>
                                 <ul>
                                     <li>

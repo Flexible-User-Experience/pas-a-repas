@@ -357,8 +357,25 @@ class Post
         return $this->categories;
     }
 
+    /**
+     * Set categories
+     *
+     * @param ArrayCollection $categories
+     *
+     * @return Post
+     */
+    public function setCategories(ArrayCollection $categories)
+    {
+        $this->categories = $categories;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
     public function __toString() {
 
-        return "Hola";
+        return $this->getTitle();
     }
 }
