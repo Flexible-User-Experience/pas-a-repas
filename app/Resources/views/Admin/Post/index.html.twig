@@ -13,6 +13,7 @@
                     <thead>
                     <tr>
                         <th>Id</th>
+                        <th>{{ 'frontend.admin.image' |trans |capitalize }}</th>
                         <th>{{ 'frontend.admin.created-date' |trans |capitalize }}</th>
                         <th>{{ 'frontend.admin.published-date' |trans |capitalize }}</th>
                         <th>{{ 'frontend.admin.title' |trans |capitalize }}</th>
@@ -24,6 +25,7 @@
                     {% for entity in entities %}
                         <tr>
                             <td><a href="{{ path('admin_post_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                            <td>{% if entity.imageName %}<img src="{{ vich_uploader_asset(entity, 'imageFile') | imagine_filter('128x128') }}" alt="{{ entity.title }} thumbnail">{% else %}---{% endif %}</td>
                             <td>{% if entity.createdDate %}{{ entity.createdDate|date('d-m-Y') }}{% endif %}</td>
                             <td>{% if entity.publishedDate %}{{ entity.publishedDate|date('d-m-Y') }}{% endif %}</td>
                             <td>{{ entity.title }}</td>
