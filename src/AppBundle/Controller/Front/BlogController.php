@@ -39,6 +39,9 @@ class BlogController extends Controller
         if (!$post || !$post->getEnabled()) {
             throw $this->createNotFoundException('Unable to find Post entity.');
         }
+        if ($post->getPublishedDate()->format('Y-m-d') != $year . '-' . $month . '-' . $day) {
+            throw $this->createNotFoundException('Wrong Post entity published date');
+        }
 
         return $this->render('Front/Blog/blog_detail.html.twig', array(
             'post' => $post,

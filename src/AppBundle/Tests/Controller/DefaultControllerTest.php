@@ -2,6 +2,7 @@
 
 namespace AppBundle\Tests\Controller;
 
+use AppBundle\Entity\Post;
 use Liip\FunctionalTestBundle\Test\WebTestCase;
 
 class DefaultControllerTest extends WebTestCase
@@ -27,8 +28,9 @@ class DefaultControllerTest extends WebTestCase
         $this->assertStatusCode(200, $client);
         $client->request('GET', '/blog');
         $this->assertStatusCode(200, $client);
-        $postSlug = $this->fixtures->getReference('last-post')->getSlug();
-        $client->request('GET', "/blog/0000/00/00/$postSlug");
+        /** @var Post $post */
+        $post = $this->fixtures->getReference('last-post');
+        $client->request('GET', "/blog/" . $post->getPublishedDate()->format('Y/m/d') . "/" . $post->getSlug());
         $this->assertStatusCode(200, $client);
         $categorySlug = $this->fixtures->getReference('first-category')->getSlug();
         $client->request('GET', "/blog/categoria/$categorySlug");
@@ -44,6 +46,10 @@ class DefaultControllerTest extends WebTestCase
         $client->request('GET', '/this-is-a-broken-route');
         $this->assertStatusCode(404, $client);
         $client->request('GET', '/blog/this-is-a-broken-route');
+        $this->assertStatusCode(404, $client);
+        /** @var Post $post */
+        $post = $this->fixtures->getReference('last-post');
+        $client->request('GET', "/blog/" . $post->getPublishedDate()->format('Y/m/') . "0/" . $post->getSlug());
         $this->assertStatusCode(404, $client);
         $client->request('GET', '/blog/categoria/this-is-a-broken-route');
         $this->assertStatusCode(404, $client);
