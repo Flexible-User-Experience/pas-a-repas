@@ -1,6 +1,6 @@
 {% extends 'Front/Blog/blog.html.twig' %}
 
-{% block title %}Category detail{% endblock %}
+{% block title %}{{ selectedCategory.title }} · {{ parent() }}{% endblock %}
 
 {% block categories %}
     {% for category in categories %}
