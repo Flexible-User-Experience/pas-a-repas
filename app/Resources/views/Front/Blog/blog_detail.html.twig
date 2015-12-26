@@ -2,6 +2,10 @@
 
 {% block title %}{{ post.title }} · {{ parent() }}{% endblock %}
 
+{% block menu %}
+    {% include ':Front/Fragments:blog_menu.html.twig' %}
+{% endblock %}
+
 {% block main %}
     <div class="container">
         {% include ':Front/Fragments:blog_heading_image.html.twig' %}
