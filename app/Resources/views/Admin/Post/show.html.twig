@@ -35,7 +35,7 @@
                     </tr>
                     <tr>
                         <th>{{ 'frontend.admin.enabled' |trans |capitalize }}</th>
-                        <td>{{ entity.enabled }}</td>
+                        <td>{% if entity.enabled %}<span class="label label-success">{{ 'frontend.admin.yes' |trans |capitalize }}</span>{% else %}<span class="label label-danger">{{ 'frontend.admin.no' |trans |capitalize }}</span>{% endif %}</td>
                     </tr>
                     </tbody>
                 </table>

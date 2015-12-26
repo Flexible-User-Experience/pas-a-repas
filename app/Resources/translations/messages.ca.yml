@@ -56,7 +56,7 @@ frontend:
     published-date: data de publicació
     title: títol
     description: descripció
-    enabled: permés
+    enabled: actiu
     contact-list: llista de contactes
     post-list: llista de posts
     category_list: llista de categories
@@ -75,6 +75,8 @@ frontend:
     dashboard: tauler
     welcome: Benvingut a l'administrador de continguts
     homepage: tornar a inici
+    yes: sí
+    no: no
   blog:
     main:
       tags: etiquetes

@@ -14,8 +14,6 @@
                         <th>{{ 'frontend.admin.created-date' |trans |capitalize }}</th>
                         <th>{{ 'frontend.admin.published-date' |trans |capitalize }}</th>
                         <th>{{ 'frontend.admin.title' |trans |capitalize }}</th>
-                        <th>Slug</th>
-                        <th>{{ 'frontend.admin.description' |trans |capitalize }}</th>
                         <th>{{ 'frontend.admin.enabled' |trans |capitalize }}</th>
                         <th>{{ 'frontend.admin.actions' |trans |capitalize }}</th>
                     </tr>
@@ -27,16 +25,14 @@
                             <td>{% if entity.createdDate %}{{ entity.createdDate|date('d-m-Y') }}{% endif %}</td>
                             <td>{% if entity.publishedDate %}{{ entity.publishedDate|date('d-m-Y') }}{% endif %}</td>
                             <td>{{ entity.title }}</td>
-                            <td>{{ entity.slug }}</td>
-                            <td>{{ entity.description | truncate(50)}}</td>
-                            <td>{{ entity.enabled }}</td>
+                            <td>{% if entity.enabled %}<span class="label label-success">{{ 'frontend.admin.yes' |trans |capitalize }}</span>{% else %}<span class="label label-danger">{{ 'frontend.admin.no' |trans |capitalize }}</span>{% endif %}</td>
                             <td>
                                 <ul>
                                     <li>
-                                        <a href="{{ path('admin_post_show', { 'id': entity.id }) }}">{{  'frontend.admin.show' |trans |capitalize }}</a>
+                                        <a href="{{ path('admin_post_show', { 'id': entity.id }) }}">{{ 'frontend.admin.show' |trans |capitalize }}</a>
                                     </li>
                                     <li>
-                                        <a href="{{ path('admin_post_edit', { 'id': entity.id }) }}">{{  'frontend.admin.edit' |trans |capitalize }}</a>
+                                        <a href="{{ path('admin_post_edit', { 'id': entity.id }) }}">{{ 'frontend.admin.edit' |trans |capitalize }}</a>
                                     </li>
                                 </ul>
                             </td>
