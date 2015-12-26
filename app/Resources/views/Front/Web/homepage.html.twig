@@ -11,7 +11,7 @@
                         {{ flashMessage | trans | capitalize }}
                     </div>
                 {% endfor %}
-                <img src="{{ asset('bundles/app/images/head.jpg') }}" class="img-responsive" alt="{{ 'frontend.index.main.image' | trans | capitalize }}">
+                <img src="{{ asset('bundles/app/images/head.jpg') | imagine_filter('1200xY') }}" class="img-responsive" alt="{{ 'frontend.index.main.image' | trans | capitalize }}">
             </div>
         </div>
         <div id="classes-de-repas" class="row">

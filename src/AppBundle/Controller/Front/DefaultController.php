@@ -64,7 +64,7 @@ class DefaultController extends Controller
             $this->addFlash('notice','frontend.index.main.sent');
         }
 
-        return $this->render('Front/Web/index.html.twig', array(
+        return $this->render('Front/Web/homepage.html.twig', array(
             'mapView' => $mapObject,
             'contactForm' => $form->createView(),
         ));
