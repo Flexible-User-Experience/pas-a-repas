@@ -21,7 +21,6 @@ class AppKernel extends Kernel
             new Ivory\GoogleMapBundle\IvoryGoogleMapBundle(),
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
             new Liip\ImagineBundle\LiipImagineBundle(),
-            new Genemu\Bundle\FormBundle\GenemuFormBundle(),
             new Vich\UploaderBundle\VichUploaderBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
         );

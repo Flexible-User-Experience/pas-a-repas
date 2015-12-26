@@ -94,10 +94,6 @@ liip_imagine:
             filters:
                 thumbnail: { size: [700, 200], mode: outbound }
 
-# Genemu
-genemu_form:
-    date: ~
-
 # Vich
 vich_uploader:
     db_driver: orm

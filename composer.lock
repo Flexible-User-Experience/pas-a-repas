@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "2ee90eb3d98d58a88d58e170b6bc9b56",
-    "content-hash": "ab5dae8d9b655ca39527b3b151483389",
+    "hash": "cc438c476adaeb6517b3d97590865e2d",
+    "content-hash": "75d06823785fed1af5c77ecf66333014",
     "packages": [
         {
             "name": "apoutchika/loremipsum-bundle",
@@ -1441,76 +1441,6 @@
                 "uploadable"
             ],
             "time": "2015-12-18 20:34:21"
-        },
-        {
-            "name": "genemu/form-bundle",
-            "version": "v2.2.2",
-            "target-dir": "Genemu/Bundle/FormBundle",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/genemu/GenemuFormBundle.git",
-                "reference": "9fecbe7a12fba1761228909e843301c4d1a11e7c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/genemu/GenemuFormBundle/zipball/9fecbe7a12fba1761228909e843301c4d1a11e7c",
-                "reference": "9fecbe7a12fba1761228909e843301c4d1a11e7c",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.2",
-                "symfony/form": "~2.3",
-                "symfony/framework-bundle": "~2.3"
-            },
-            "require-dev": {
-                "doctrine/doctrine-bundle": "1.*",
-                "doctrine/mongodb-odm-bundle": "*",
-                "doctrine/orm": "2.*",
-                "propel/propel-bundle": "*",
-                "symfony/doctrine-bridge": "~2.3",
-                "symfony/finder": "2.*"
-            },
-            "suggest": {
-                "symfony/doctrine-bundle": "In order to use some form types with Doctrine",
-                "symfony/finder": "For an image type",
-                "symfony/mongodb-odm-bundle": "For MongoDB integration",
-                "symfony/twig-bridge": "For integration into Twig templates"
-            },
-            "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.2-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Genemu\\Bundle\\FormBundle": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Olivier Chauvel",
-                    "email": "olivier@generation-multiple.com"
-                },
-                {
-                    "name": "Community contributions",
-                    "homepage": "https://github.com/genemu/GenemuFormBundle/contributors"
-                },
-                {
-                    "name": "Bilal Amarni",
-                    "email": "bilal.amarni@gmail.com"
-                }
-            ],
-            "description": "Extra form types for your Symfony2 projects",
-            "keywords": [
-                "extra form",
-                "form"
-            ],
-            "time": "2014-03-23 12:12:05"
         },
         {
             "name": "imagine/imagine",

@@ -1,10 +1,5 @@
 {% extends 'Admin/base_admin.html.twig' %}
 
-{% block stylesheets %}
-    {{ parent() }}
-    {{ form_stylesheet(edit_form) }}
-{% endblock %}
-
 {% block main -%}
     <div class="container">
         <div class="row">
@@ -26,9 +21,3 @@
         </div>
     </div>
 {% endblock %}
-
-{% block javascripts %}
-    {{ parent() }}
-    {{ form_javascript(edit_form) }}
-{% endblock %}
-
