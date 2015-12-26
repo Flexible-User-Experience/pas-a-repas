@@ -145,7 +145,7 @@ class Category
     }
 
     /**
-     * @return mixed
+     * @return ArrayCollection
      */
     public function getPosts()
     {
@@ -153,11 +153,15 @@ class Category
     }
 
     /**
-     * @param mixed $posts
+     * @param ArrayCollection $posts
+     *
+     * @return Category
      */
-    public function setPosts($posts)
+    public function setPosts(ArrayCollection $posts)
     {
         $this->posts = $posts;
+
+        return $this;
     }
 
     /**
