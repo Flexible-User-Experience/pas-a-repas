@@ -17,6 +17,7 @@ class PostRepository extends EntityRepository
             ->where('p.enabled = :enabled')
             ->setParameter('enabled', true)
             ->orderBy('p.publishedDate', 'DESC')
+            ->addOrderBy('p.title', 'ASC')
             ->getQuery();
 
         return $query->getResult();
@@ -36,6 +37,7 @@ class PostRepository extends EntityRepository
             ->setParameter('enabled', true)
             ->setParameter('cid', $category->getId())
             ->orderBy('p.publishedDate', 'DESC')
+            ->addOrderBy('p.title', 'ASC')
             ->getQuery();
 
         return $query->getResult();

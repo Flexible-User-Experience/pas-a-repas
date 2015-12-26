@@ -17,7 +17,7 @@ class CategoryType extends AbstractType
         $builder
             ->add('title')
             ->add('enabled')
-            ->add('posts')
+//            ->add('posts')
         ;
     }
     

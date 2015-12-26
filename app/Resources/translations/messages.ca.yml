@@ -58,16 +58,18 @@ frontend:
     description: descripció
     enabled: actiu
     contact-list: llista de contactes
-    post-list: llista de posts
+    post-list: llista d'articles
     category_list: llista de categories
+    category_show: detall de categoria
     back-list: torna a la llista
     edit: editar
     delete: esborrar
     show: mostrar
-    post_creation: crea un post
+    post_creation: crea un article
     category_creation: crea una categoria
     category_edit: edita categoria
-    post_edit: edita post
+    post_edit: edita article
+    post_show: detall d'article
     create_new_entry: nova entrada
     category: categories
     post: articles
