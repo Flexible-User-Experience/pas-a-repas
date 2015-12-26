@@ -357,8 +357,11 @@ class Post
         return $this->categories;
     }
 
+    /**
+     * @return string
+     */
     public function __toString() {
 
-        return "Hola";
+        return $this->getTitle();
     }
 }

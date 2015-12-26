@@ -26,7 +26,9 @@
                 {# main right side #}
                 {% for post in posts %}
                     <div class="thumbnail">
-                        <img src="{{ asset('bundles/app/images/650_1200.jpg') | imagine_filter('700x200') }}" alt="...">
+                        {% if post.imageName %}
+                            <img src="{{ vich_uploader_asset(post, 'imageFile') | imagine_filter('700x200') }}" alt="{{ post.title }} thumbnail">
+                        {% endif %}
                         <div class="caption">
                             <h2 class="c-violet">{{ post.title }}</h2>
                             <h5>{{ post.publishedDate | date('d/m/Y') }}</h5>

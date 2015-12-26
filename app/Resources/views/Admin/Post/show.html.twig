@@ -16,11 +16,15 @@
                         <td>{{ entity.id }}</td>
                     </tr>
                     <tr>
+                        <th>{{ 'frontend.admin.image' |trans |capitalize }}</th>
+                        <td>{% if entity.imageName %}<img src="{{ vich_uploader_asset(entity, 'imageFile') | imagine_filter('256xY') }}" alt="{{ entity.title }} thumbnail">{% else %}---{% endif %}</td>
+                    </tr>
+                    <tr>
                         <th>{{ 'frontend.admin.created-date' |trans |capitalize }}</th>
                         <td>{{ entity.createdDate|date('d-m-Y') }}</td>
                     </tr>
                     <tr>
-                        <th>{{  'frontend.admin.published-date' |trans |capitalize }}</th>
+                        <th>{{ 'frontend.admin.published-date' |trans |capitalize }}</th>
                         <td>{{ entity.publishedDate|date('Y-m-d H:i:s') }}</td>
                     </tr>
                     <tr>

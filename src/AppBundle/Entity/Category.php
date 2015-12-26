@@ -208,9 +208,12 @@ class Category
         $this->posts->removeElement($post);
     }
 
+    /**
+     * @return string
+     */
     public function __toString() {
 
-        return "Hola";
+        return $this->getTitle();
     }
 
 }
