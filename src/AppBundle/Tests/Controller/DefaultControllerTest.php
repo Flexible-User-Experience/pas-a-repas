@@ -30,13 +30,11 @@ class DefaultControllerTest extends WebTestCase
         $postSlug = $this->fixtures->getReference('last-post')->getSlug();
         $client->request('GET', "/blog/0000/00/00/$postSlug");
         $this->assertStatusCode(200, $client);
-        $client->request('GET', '/blog/categories');
-        $this->assertStatusCode(200, $client);
         $categorySlug = $this->fixtures->getReference('first-category')->getSlug();
-        $client->request('GET', "/blog/category/$categorySlug");
+        $client->request('GET', "/blog/categoria/$categorySlug");
         $this->assertStatusCode(200, $client);
         $categorySlug = $this->fixtures->getReference('last-category')->getSlug();
-        $client->request('GET', "/blog/category/$categorySlug");
+        $client->request('GET', "/blog/categoria/$categorySlug");
         $this->assertStatusCode(200, $client);
     }
 
@@ -47,9 +45,7 @@ class DefaultControllerTest extends WebTestCase
         $this->assertStatusCode(404, $client);
         $client->request('GET', '/blog/this-is-a-broken-route');
         $this->assertStatusCode(404, $client);
-        $client->request('GET', '/blog/categories/this-is-a-broken-route');
-        $this->assertStatusCode(404, $client);
-        $client->request('GET', '/blog/category/this-is-a-broken-route');
+        $client->request('GET', '/blog/categoria/this-is-a-broken-route');
         $this->assertStatusCode(500, $client);
     }
 }

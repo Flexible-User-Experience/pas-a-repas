@@ -40,17 +40,7 @@ class BlogController extends Controller
     }
 
     /**
-     * @Route("/blog/categories", name="categories")
-     */
-    public function categoriesListAction()
-    {
-        $categories = $this->getDoctrine()->getRepository('AppBundle:Category')->getAllEnabledSortedByTitle();
-
-        return $this->render('Front/Blog/categories.html.twig', array('categories' => $categories));
-    }
-
-    /**
-     * @Route("/blog/category/{slug}", name="category_detail")
+     * @Route("/blog/categoria/{slug}", name="category_detail")
      * @param $slug
      *
      * @return \Symfony\Component\HttpFoundation\Response
