@@ -34,7 +34,7 @@ class Posts extends AbstractFixture implements FixtureInterface
             $post
                 ->setTitle($title)
                 ->setSlug($title)
-                ->setEnabled($value)
+                ->setEnabled($title === end($titles) ? 1 : $value)
                 ->setCreatedDate($now)
                 ->setPublishedDate($now)
                 ->setDescription($this->generateRandomString(1000))

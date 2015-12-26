@@ -46,6 +46,6 @@ class DefaultControllerTest extends WebTestCase
         $client->request('GET', '/blog/this-is-a-broken-route');
         $this->assertStatusCode(404, $client);
         $client->request('GET', '/blog/categoria/this-is-a-broken-route');
-        $this->assertStatusCode(500, $client);
+        $this->assertStatusCode(404, $client);
     }
 }
