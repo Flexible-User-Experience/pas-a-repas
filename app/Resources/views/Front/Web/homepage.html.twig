@@ -1,5 +1,22 @@
 {% extends 'Front/base.html.twig' %}
 
+{% form_theme contactForm _self %}
+
+{% block _contact_send_widget %}
+    {% set attr = attr|merge({class: (attr.class|default('btn-default') ~ ' btn')|trim}) %}
+    {%- if label is empty -%}
+        {%- if label_format is not empty -%}
+            {% set label = label_format|replace({
+            '%name%': name,
+            '%id%': id,
+            }) %}
+        {%- else -%}
+            {% set label = name|humanize %}
+        {%- endif -%}
+    {%- endif -%}
+    <button type="{{ type|default('button') }}" {{ block('button_attributes') }}>{{ label|trans({}, translation_domain) }} <i class="icon-arrow-right"></i></button>
+{% endblock %}
+
 {% block main %}
     <div class="container">
         <div class="row">
@@ -120,6 +137,7 @@
                         </div>
                         <div class="col-sm-4 col-xs-5">
                             {{ form_row(contactForm.message) }}
+                            {{ form_row(contactForm.send) }}
                             {{ form_rest(contactForm) }}
                         </div>
                         <div class="col-sm-2 col-xs-1"></div>

@@ -51,7 +51,7 @@ class ContactType extends AbstractType
                 array(
                     'label' => 'frontend.index.contact.form.submit',
                     'attr'  => array(
-                        'class' => 'btn-info',
+                        'class' => 'btn-violet',
                     ),
                 )
             );
