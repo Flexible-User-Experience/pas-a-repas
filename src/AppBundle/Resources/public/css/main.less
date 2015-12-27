@@ -156,6 +156,15 @@ p.text-center.contacte { margin: 0 0 40px 0; }
     li {
       padding: 10px;
       border-bottom: solid 1px @grey;
+      a { color: @grey; }
+      &.active {
+        border-bottom: solid 1px @cyan;
+        a { color: @cyan; }
+      }
+      &:hover a {
+        color: @magenta;
+        text-decoration: none;
+      }
     }
   }
 }

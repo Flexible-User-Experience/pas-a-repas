@@ -42,7 +42,7 @@
                                     {% for category in categories %}
                                         {% if category.posts | length > 0 %}
                                             <li>
-                                                <a href="{{ path('category_detail', {slug: category.slug}) }}" class="c-grey">{{ category.title }}</a>
+                                                <a href="{{ path('category_detail', {slug: category.slug}) }}">{{ category.title }}</a>
                                             </li>
                                         {% endif %}
                                     {% endfor %}
