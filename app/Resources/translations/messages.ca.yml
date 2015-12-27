@@ -40,7 +40,7 @@ frontend:
       pacfm: Proves d'accès a cicles formatius de grau mitjà (PACFM)
       pau25: Proves d'accès a la universitat per a majors de 25 anys
       cc: Certificats de Català
-    university_txt: Classes particulars per a estudiants universitaris. Et puc ajudar a complementar els teus estudis superiors amb el reforç de les assignatures de <strong>Filologia Hispànica, Filologia Catalana i Llatí<strong>. Treballarem plegats per a que el teu esforç i compromís es vegin recompensats amb uns resultats excel·lents.
+    university_txt: Classes particulars per a estudiants universitaris. Et puc ajudar a complementar els teus estudis superiors amb el reforç de les assignatures de <strong>Filologia Hispànica, Filologia Catalana i Llatí</strong>. Treballarem plegats per a que el teu esforç i compromís es vegin recompensats amb uns resultats excel·lents.
     contact:
       msg: Si vols rebre més informació, omple aquest formulari i et resoldré qualsevol dubte que tinguis sobre les classes de repàs.
       form:
@@ -58,16 +58,18 @@ frontend:
     description: descripció
     enabled: actiu
     contact-list: llista de contactes
-    post-list: llista de posts
+    post-list: llista d'articles
     category_list: llista de categories
+    category_show: detall de categoria
     back-list: torna a la llista
     edit: editar
     delete: esborrar
     show: mostrar
-    post_creation: crea un post
+    post_creation: crea un article
     category_creation: crea una categoria
     category_edit: edita categoria
-    post_edit: edita post
+    post_edit: edita article
+    post_show: detall d'article
     create_new_entry: nova entrada
     category: categories
     post: articles
@@ -81,5 +83,6 @@ frontend:
   blog:
     main:
       tags: etiquetes
+      categories: categories
       keep_reading: seguir llegint
       post_detail: detall de l'article

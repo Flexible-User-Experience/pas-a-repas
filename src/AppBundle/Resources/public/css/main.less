@@ -12,6 +12,7 @@
 @lgrey:   #F0F1F2;
 @white:   #FFFFFF;
 @black:   #222222;
+@gap-extra: 40px;
 
 // Fonts
 @fa-font-path: "/bundles/app/fonts";
@@ -22,6 +23,16 @@
   url('@{fa-font-path}/PlutoSansRegular.ttf') format('truetype'),
   url('@{fa-font-path}/PlutoSansRegular.woff') format('woff'),
   url('@{fa-font-path}/PlutoSansRegular.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'plutobold';
+  src:url('@{fa-font-path}/PlutoSansBold.eot');
+  src:url('@{fa-font-path}/PlutoSansBold.eot?#iefix') format('embedded-opentype'),
+  url('@{fa-font-path}/PlutoSansBold.ttf') format('truetype'),
+  url('@{fa-font-path}/PlutoSansBold.woff') format('woff'),
+  url('@{fa-font-path}/PlutoSansBold.svg') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -73,7 +84,10 @@ body.my-body {
 }
 
 // Strongs
-strong { text-decoration: underline;}
+strong {
+  font-family: "plutobold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+}
 
 // Textarea
 textarea { resize: vertical; }
@@ -83,6 +97,7 @@ address { line-height: 1.65; }
 
 // Gaps
 .no-m-bottom { margin-bottom: 0; }
+.extra-m-bottom { margin-bottom: @gap-extra; }
 
 // Customs
 h2.my-h2 {
@@ -134,6 +149,25 @@ div.navbar ul.nav.nav-justified {
   }
 }
 p.text-center.contacte { margin: 0 0 40px 0; }
+.blog-categories {
+  h3 { margin-top: 0; }
+  ul.list-unstyled {
+    margin-bottom: 0;
+    li {
+      padding: 10px;
+      border-bottom: solid 1px @grey;
+      a { color: @grey; }
+      &.active {
+        border-bottom: solid 1px @cyan;
+        a { color: @cyan; }
+      }
+      &:hover a {
+        color: @magenta;
+        text-decoration: none;
+      }
+    }
+  }
+}
 
 // Thumbnails
 @thumbnail-padding: 0;

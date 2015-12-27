@@ -3,9 +3,13 @@
 {% block title %}{{ selectedCategory.title }} · {{ parent() }}{% endblock %}
 
 {% block categories %}
-    {% for category in categories %}
-        {% if category.posts | length > 0 %}
-            <a href="{{ path('category_detail', {slug: category.slug}) }}"{% if category.id == selectedCategory.id %} class="badge"{% endif %}>{{ category.title }}</a>
-        {% endif %}
-    {% endfor %}
+    <ul class="list-unstyled">
+        {% for category in categories %}
+            {% if category.posts | length > 0 %}
+                <li{% if category.id == selectedCategory.id %} class="active"{% endif %}>
+                    <a href="{{ path('category_detail', {slug: category.slug}) }}">{{ category.title }}</a>
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
 {% endblock %}
