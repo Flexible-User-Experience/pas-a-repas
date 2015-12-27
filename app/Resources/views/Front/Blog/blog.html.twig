@@ -15,7 +15,7 @@
                 {% for post in posts %}
                     <div class="thumbnail">
                         {% if post.imageName %}
-                            <img src="{{ vich_uploader_asset(post, 'imageFile') | imagine_filter('700x200') }}" alt="{{ post.title }} thumbnail">
+                            <a href="{{ path('blog_detail', { year: post.publishedDate | date('Y'), month: post.publishedDate | date('m'), day: post.publishedDate | date('d'), slug: post.slug }) }}"><img src="{{ vich_uploader_asset(post, 'imageFile') | imagine_filter('700x200') }}" alt="{{ post.title }} thumbnail"></a>
                         {% endif %}
                         <div class="caption">
                             <h2 class="c-violet">{{ post.title }}</h2>
