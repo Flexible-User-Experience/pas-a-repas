@@ -105,7 +105,7 @@
                 <p class="text-center banner-service sobre-mi">{{ 'frontend.index.about_mi' | trans | raw }}</p>
             </div>
         </div>
-        <div id="contacte" class="row">
+        <div id="contacte" class="row extra-m-bottom">
             <div class="col-md-12">
                 <h2 class="my-h2 text-center">{{ 'frontend.layout.menu.contact' | trans | upper }}</h2>
                 <p class="text-center contacte">{{ 'frontend.index.contact.msg' | trans }}</p>
@@ -129,7 +129,7 @@
         </div>
         <div id="localitzacio" class="row">
             <div class="col-md-12">
-                <h2 class="my-h2 text-center">{{ 'frontend.layout.menu.location' | trans | upper }}</h2>
+                {#<h2 class="my-h2 text-center">{{ 'frontend.layout.menu.location' | trans | upper }}</h2>#}
                 <div class="google-maps-container">
                     {{ google_map(mapView) }}
                 </div>
