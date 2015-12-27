@@ -83,5 +83,6 @@ frontend:
   blog:
     main:
       tags: etiquetes
+      categories: categories
       keep_reading: seguir llegint
       post_detail: detall de l'article

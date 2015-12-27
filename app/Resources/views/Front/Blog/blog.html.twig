@@ -33,18 +33,24 @@
             </div>
             <div class="col-xs-4">
                 {# left side #}
-                <div class="thumbnail">
-                    <div class="caption">
-                        <h3 class="c-cyan">{{ 'frontend.blog.main.tags' | trans | upper }}</h3>
-                        {% block categories %}
-                            {% for category in categories %}
-                                {% if category.posts | length > 0 %}
-                                    <a href="{{ path('category_detail', {slug: category.slug}) }}" class="badge">{{ category.title }}</a>
-                                {% endif %}
-                            {% endfor %}
-                        {% endblock %}
+                {% if categories | length > 0 %}
+                    <div class="thumbnail blog-categories">
+                        <div class="caption">
+                            <h3 class="c-cyan">{{ 'frontend.blog.main.categories' | trans | upper }}</h3>
+                            {% block categories %}
+                                <ul class="list-unstyled">
+                                    {% for category in categories %}
+                                        {% if category.posts | length > 0 %}
+                                            <li>
+                                                <a href="{{ path('category_detail', {slug: category.slug}) }}" class="c-grey">{{ category.title }}</a>
+                                            </li>
+                                        {% endif %}
+                                    {% endfor %}
+                                </ul>
+                            {% endblock %}
+                        </div>
                     </div>
-                </div>
+                {% endif %}
             </div>
         </div>
     </div>

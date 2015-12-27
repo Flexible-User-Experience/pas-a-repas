@@ -12,6 +12,7 @@
 @lgrey:   #F0F1F2;
 @white:   #FFFFFF;
 @black:   #222222;
+@gap-extra: 40px;
 
 // Fonts
 @fa-font-path: "/bundles/app/fonts";
@@ -96,6 +97,7 @@ address { line-height: 1.65; }
 
 // Gaps
 .no-m-bottom { margin-bottom: 0; }
+.extra-m-bottom { margin-bottom: @gap-extra; }
 
 // Customs
 h2.my-h2 {
@@ -147,6 +149,16 @@ div.navbar ul.nav.nav-justified {
   }
 }
 p.text-center.contacte { margin: 0 0 40px 0; }
+.blog-categories {
+  h3 { margin-top: 0; }
+  ul.list-unstyled {
+    margin-bottom: 0;
+    li {
+      padding: 10px;
+      border-bottom: solid 1px @grey;
+    }
+  }
+}
 
 // Thumbnails
 @thumbnail-padding: 0;
