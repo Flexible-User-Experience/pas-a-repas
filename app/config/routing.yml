@@ -1,6 +1,10 @@
 app:
-    resource: "@AppBundle/Controller/"
+    resource: "@AppBundle/Controller/Front/"
     type:     annotation
+
+sonata:
+    resource: "@SonataAdminBundle/Resources/config/routing/sonata_admin.xml"
+    prefix:   /admin
 
 _liip_imagine:
     resource: "@LiipImagineBundle/Resources/config/routing.xml"

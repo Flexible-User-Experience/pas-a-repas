@@ -46,7 +46,7 @@ assetic:
     assets:
         mycss:
             inputs:
-#                - "@AppBundle/Resources/public/css/main.less"
+#                - "@AppBundle/Resources/public/css/main.less"    # comment this line to avoid double included CSS
                 - "@AppBundle/Resources/public/css/icomoon.less"
         myjs:
             inputs:
@@ -117,3 +117,10 @@ stof_doctrine_extensions:
         default:
             timestampable: true
             sluggable: true
+
+# Sonata configs
+sonata_block:
+    default_contexts: [ cms ]
+    blocks:
+        sonata.admin.block.admin_list:
+            contexts: [ admin ]
