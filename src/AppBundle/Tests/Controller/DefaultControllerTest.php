@@ -57,12 +57,12 @@ class DefaultControllerTest extends WebTestCase
 
     public function testSendContactForm()
     {
-        // Fetch messages amount befor send form
+        // fetch messages amount before send form
         $messages = $this->getContainer()->get('doctrine')->getRepository('AppBundle:Contact')->findAll();
         $messagesAmountPreSendForm = count($messages);
         $client = static::makeClient();
         $crawler = $client->request('GET', '/');
-        // Fill contact form and submit it
+        // fill contact form and submit it
         $form = $crawler->selectButton('enviar')->form(array(
             'contact[name]' => 'fake name',
             'contact[email]' => 'test@test.com',
@@ -70,6 +70,7 @@ class DefaultControllerTest extends WebTestCase
             'contact[message]' => 'fake message',
         ));
         $client->submit($form);
+        // fetch messages again and check if there is an increment
         $messages = $this->getContainer()->get('doctrine')->getRepository('AppBundle:Contact')->findAll();
         $this->assertEquals(count($messages), $messagesAmountPreSendForm + 1);
     }
