@@ -10,7 +10,7 @@ services:
         class: AppBundle\Admin\CategoryAdmin
         arguments: [ ~, AppBundle\Entity\Category, ~ ]
         tags:
-            - { name: sonata.admin, manager_type: orm, label: Category }
+            - { name: sonata.admin, manager_type: orm, label: Categories, group: Web }
 # Twig
     twig.extension.text:
         class: Twig_Extensions_Extension_Text
