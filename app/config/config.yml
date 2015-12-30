@@ -31,6 +31,8 @@ twig:
     globals:
         google_analytics_enabled: %google_analytics_enabled%
         google_analytics_account: "%google_analytics_account%"
+        main_brand_title:         "Pas a Repàs"
+        admin_tag_version:        "v2.0.20"
 
 # Assetic Configuration
 assetic:
@@ -128,8 +130,8 @@ sonata_admin:
         use_select2:    true
         pager_links:    10
     persist_filters: true
-#    templates:
-#        layout:    "::Admin/layout.html.twig"
+    templates:
+        layout:    "::Admin/layout.html.twig"
 #        dashboard: "::Admin/dashboard.html.twig"
 #        edit:      "::Admin/edit.html.twig"
     dashboard:
@@ -143,7 +145,7 @@ sonata_admin:
                 class: col-md-12
                 settings:
                     content: >
-                        <h1 style="margin-top:0">CMS Pas a Repàs v2</h1>
+                        <h1 style="margin-top:0">CMS v2.0</h1>
             -
                 position: left
                 type: sonata.admin.block.admin_list
