@@ -138,7 +138,7 @@ sonata_admin:
     dashboard:
         groups:
             Web:
-                icon: "<i class='fa fa-file-text'></i>"
+                icon: "<i class='fa fa-chrome'></i>"
         blocks:
             -
                 position: top
