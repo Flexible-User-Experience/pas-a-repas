@@ -96,5 +96,6 @@ backend:
         email: Email
         phone: Telèfon
         message: Missatge
+        categories: Categories
         published_date: Data publicació
         actions: Accions

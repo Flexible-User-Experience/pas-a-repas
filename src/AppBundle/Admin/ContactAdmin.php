@@ -123,15 +123,5 @@ class ContactAdmin extends BaseAdmin
                     'label'    => 'backend.admin.message',
                 )
             );
-//            ->add(
-//                '_action',
-//                'actions',
-//                array(
-//                    'actions' => array(
-//                        'edit' => array(),
-//                    ),
-//                    'label'   => 'backend.admin.actions',
-//                )
-//            );
     }
 }

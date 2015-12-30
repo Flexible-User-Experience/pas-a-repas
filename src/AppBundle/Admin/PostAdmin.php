@@ -54,6 +54,13 @@ class PostAdmin extends BaseAdmin
                 )
             )
             ->add(
+                'categories',
+                null,
+                array(
+                    'label'    => 'backend.admin.categories',
+                )
+            )
+            ->add(
                 'enabled',
                 null,
                 array(
@@ -82,7 +89,15 @@ class PostAdmin extends BaseAdmin
                 array(
                     'label' => 'backend.admin.title',
                 )
-            )->add(
+            )
+            ->add(
+                'categories',
+                null,
+                array(
+                    'label'    => 'backend.admin.categories',
+                )
+            )
+            ->add(
                 'description',
                 null,
                 array(
@@ -118,6 +133,13 @@ class PostAdmin extends BaseAdmin
                 array(
                     'label'    => 'backend.admin.title',
                     'editable' => true,
+                )
+            )
+            ->add(
+                'categories',
+                null,
+                array(
+                    'label'    => 'backend.admin.categories',
                 )
             )
             ->add(
