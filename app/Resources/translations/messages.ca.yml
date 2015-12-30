@@ -89,10 +89,12 @@ frontend:
 backend:
     admin:
         title: Títol
+        description: Descripció
         enabled: Actiu
         date: Data
         name: Nom
         email: Email
         phone: Telèfon
         message: Missatge
+        published_date: Data publicació
         actions: Accions

@@ -7,19 +7,19 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 
 /**
- * Class CategoryAdmin
+ * Class PostAdmin
  *
  * @category Admin
  * @package  AppBundle\Admin
  * @author   David Romaní <david@flux.cat>
  */
-class CategoryAdmin extends BaseAdmin
+class PostAdmin extends BaseAdmin
 {
-    protected $classnameLabel = 'Categoria';
-    protected $baseRoutePattern = 'web/categoria';
+    protected $classnameLabel = 'Article';
+    protected $baseRoutePattern = 'web/article';
     protected $datagridValues = array(
-        '_sort_by'    => 'title',
-        '_sort_order' => 'asc',
+        '_sort_by'    => 'publishedDate',
+        '_sort_order' => 'desc',
     );
 
     /**
@@ -29,10 +29,28 @@ class CategoryAdmin extends BaseAdmin
     {
         $formMapper
             ->add(
+                'publishedDate',
+                null,
+                array(
+                    'label' => 'backend.admin.published_date',
+                )
+            )
+            ->add(
                 'title',
                 null,
                 array(
                     'label' => 'backend.admin.title',
+                )
+            )
+            ->add(
+                'description',
+                null,
+                array(
+                    'label' => 'backend.admin.description',
+                    'attr' => array(
+                        'rows' => 7,
+                    ),
+                    'required' => false,
                 )
             )
             ->add(
@@ -52,10 +70,23 @@ class CategoryAdmin extends BaseAdmin
     {
         $datagridMapper
             ->add(
+                'publishedDate',
+                null,
+                array(
+                    'label' => 'backend.admin.published_date',
+                )
+            )
+            ->add(
                 'title',
                 null,
                 array(
                     'label' => 'backend.admin.title',
+                )
+            )->add(
+                'description',
+                null,
+                array(
+                    'label' => 'backend.admin.description',
                 )
             )
             ->add(
@@ -72,8 +103,15 @@ class CategoryAdmin extends BaseAdmin
      */
     protected function configureListFields(ListMapper $listMapper)
     {
-        unset($this->listModes['mosaic']);
         $listMapper
+            ->add(
+                'publishedDate',
+                null,
+                array(
+                    'label'    => 'backend.admin.published_date',
+                    'editable' => true,
+                )
+            )
             ->add(
                 'title',
                 null,
@@ -86,7 +124,7 @@ class CategoryAdmin extends BaseAdmin
                 'enabled',
                 null,
                 array(
-                    'label'    => 'backend.admin.enabled',
+                    'label' => 'backend.admin.enabled',
                     'editable' => true,
                 )
             )

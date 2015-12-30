@@ -18,8 +18,8 @@ class ContactAdmin extends BaseAdmin
     protected $classnameLabel = 'Contacte';
     protected $baseRoutePattern = 'web/contacte';
     protected $datagridValues = array(
-        '_sort_by'    => 'title',
-        '_sort_order' => 'asc',
+        '_sort_by'    => 'date',
+        '_sort_order' => 'desc',
     );
 
     /**
@@ -122,16 +122,16 @@ class ContactAdmin extends BaseAdmin
                 array(
                     'label'    => 'backend.admin.message',
                 )
-            )
-            ->add(
-                '_action',
-                'actions',
-                array(
-                    'actions' => array(
-//                        'edit' => array(),
-                    ),
-                    'label'   => 'backend.admin.actions',
-                )
             );
+//            ->add(
+//                '_action',
+//                'actions',
+//                array(
+//                    'actions' => array(
+//                        'edit' => array(),
+//                    ),
+//                    'label'   => 'backend.admin.actions',
+//                )
+//            );
     }
 }
