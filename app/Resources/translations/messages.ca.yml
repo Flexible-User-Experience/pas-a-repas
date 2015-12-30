@@ -90,4 +90,9 @@ backend:
     admin:
         title: Títol
         enabled: Actiu
+        date: Data
+        name: Nom
+        email: Email
+        phone: Telèfon
+        message: Missatge
         actions: Accions

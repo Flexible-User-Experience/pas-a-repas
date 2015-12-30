@@ -11,7 +11,7 @@ class CategoryRepository extends EntityRepository
         $query = $this->createQueryBuilder('c')
             ->where('c.enabled = :enabled')
             ->setParameter('enabled', true)
-            ->orderBy('c.title', 'DESC')
+            ->orderBy('c.title', 'ASC')
             ->getQuery();
 
         return $query->getResult();
