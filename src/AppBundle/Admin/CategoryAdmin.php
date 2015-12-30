@@ -2,7 +2,6 @@
 
 namespace AppBundle\Admin;
 
-use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
@@ -14,17 +13,35 @@ use Sonata\AdminBundle\Form\FormMapper;
  * @package  AppBundle\Admin
  * @author   David Romaní <david@flux.cat>
  */
-class CategoryAdmin extends Admin
+class CategoryAdmin extends BaseAdmin
 {
+    protected $classnameLabel = 'Categoria';
+    protected $baseRoutePattern = 'web/categoria';
+    protected $datagridValues = array(
+        '_sort_by'    => 'title',
+        '_sort_order' => 'asc',
+    );
+
     /**
      * @param FormMapper $formMapper
      */
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('title')
-            ->add('enabled')
-        ;
+            ->add(
+                'title',
+                null,
+                array(
+                    'label' => 'backend.admin.title',
+                )
+            )
+            ->add(
+                'enabled',
+                null,
+                array(
+                    'label' => 'backend.admin.enabled',
+                )
+            );
     }
 
     /**
@@ -33,9 +50,20 @@ class CategoryAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('title')
-            ->add('enabled')
-        ;
+            ->add(
+                'title',
+                null,
+                array(
+                    'label' => 'backend.admin.title',
+                )
+            )
+            ->add(
+                'enabled',
+                null,
+                array(
+                    'label' => 'backend.admin.enabled',
+                )
+            );
     }
 
     /**
@@ -43,11 +71,33 @@ class CategoryAdmin extends Admin
      */
     protected function configureListFields(ListMapper $listMapper)
     {
+        unset($this->listModes['mosaic']);
         $listMapper
-            ->addIdentifier('title')
-            ->add('enabled', null, array(
-                'editable' => true,
-            ))
-        ;
+            ->add(
+                'title',
+                null,
+                array(
+                    'label'    => 'backend.admin.title',
+                    'editable' => true,
+                )
+            )
+            ->add(
+                'enabled',
+                null,
+                array(
+                    'label'    => 'backend.admin.enabled',
+                    'editable' => true,
+                )
+            )
+            ->add(
+                '_action',
+                'actions',
+                array(
+                    'actions' => array(
+                        'edit' => array(),
+                    ),
+                    'label'   => 'backend.admin.actions',
+                )
+            );
     }
 }
