@@ -15,8 +15,8 @@ class CategoryControllerTest extends WebTestCase
         ));
 
         // Create a new entry in the database
-        $crawler = $client->request('GET', '/admin/category/');
-        $this->assertEquals(200, $client->getResponse()->getStatusCode(), "Unexpected HTTP status code for GET /admin/category/");
+        $crawler = $client->request('GET', '/admin/web/category/');
+        $this->assertEquals(200, $client->getResponse()->getStatusCode(), "Unexpected HTTP status code for GET /admin/web/category/");
         $crawler = $client->click($crawler->selectLink('Nova entrada')->link());
 
         // Fill in the form and submit it
