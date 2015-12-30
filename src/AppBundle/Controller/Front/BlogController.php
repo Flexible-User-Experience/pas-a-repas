@@ -7,6 +7,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use AppBundle\Entity\Category;
 use AppBundle\Entity\Post;
 
+/**
+ * Class BlogController
+ *
+ * @category Controller
+ * @package  AppBundle\Controller\Front
+ * @author   David Romaní <david@flux.cat>
+ */
 class BlogController extends Controller
 {
     /**

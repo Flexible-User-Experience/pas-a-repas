@@ -1,8 +1,12 @@
 services:
+# App
+    app.mailer:
+        class: AppBundle\Service\MailerService
+        autowire: true
+    app.google_maps_service:
+        class: AppBundle\Service\GoogleMapsService
+# Twig
     twig.extension.text:
         class: Twig_Extensions_Extension_Text
         tags:
             - { name: twig.extension }
-    app.mailer:
-        class: AppBundle\Service\MailerService
-        arguments: [@swiftmailer.mailer.default]
