@@ -31,7 +31,7 @@ class DefaultController extends Controller
     {
         /** @var GoogleMapsService $gms */
         $gms = $this->get('app.google_maps_service');
-        $mapObject = $gms->buildMap(40.7061278, 0.5817055555555556, 'ca', 15);
+        $mapObject = $gms->buildMap(40.7061278, 0.5817055555555556, $this->container->getParameter('locale'), 15);
         /** @var ContactType $contactType */
         $contactType = new ContactType();
         /** @var Contact $contactEntity */

@@ -41,8 +41,7 @@
         "vich/uploader-bundle": "^0.14.0"
     },
     "require-dev": {
-        "sensio/generator-bundle": "~3.0",
-        "symfony/phpunit-bridge": "~2.7"
+        "sensio/generator-bundle": "~3.0"
     },
     "scripts": {
         "post-install-cmd": [
