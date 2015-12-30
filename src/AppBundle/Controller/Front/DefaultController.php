@@ -4,13 +4,18 @@ namespace AppBundle\Controller\Front;
 
 use AppBundle\Entity\Contact;
 use AppBundle\Form\Type\ContactType;
-use Ivory\GoogleMapBundle\Entity\Map;
+use AppBundle\Service\GoogleMapsService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Ivory\GoogleMap\Overlays\Animation;
-use Ivory\GoogleMap\Overlays\Marker;
 
+/**
+ * Class DefaultController
+ *
+ * @category Controller
+ * @package  AppBundle\Controller\Front
+ * @author   David Romaní <david@flux.cat>
+ */
 class DefaultController extends Controller
 {
     /**
@@ -24,22 +29,9 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        /** @var Marker $marker */
-        $marker = new Marker();
-        $marker->setPrefixJavascriptVariable('marker_');
-        $marker->setPosition(40.7061278, 0.5817055555555556, true);
-        $marker->setAnimation(Animation::DROP);
-
-        /** @var Map $mapObject */
-        $mapObject = $this->get('ivory_google_map.map');
-        $mapObject->setStylesheetOption('width', '100%');
-        $mapObject->setStylesheetOption('height', '100%');
-        $mapObject->setLanguage('es');
-        $mapObject->setCenter(40.7061278, 0.5817055555555556, true);
-        $mapObject->setMapOption('zoom', 15);
-        //$mapObject->setBound(-2.1, -3.9, 2.6, 1.4, true, true);
-        $mapObject->addMarker($marker);
-
+        /** @var GoogleMapsService $gms */
+        $gms = $this->get('app.google_maps_service');
+        $mapObject = $gms->buildMap(40.7061278, 0.5817055555555556, $this->container->getParameter('locale'), 15);
         /** @var ContactType $contactType */
         $contactType = new ContactType();
         /** @var Contact $contactEntity */
@@ -48,19 +40,19 @@ class DefaultController extends Controller
         $form = $this->createForm($contactType, $contactEntity);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            // ... perform some action, such as saving the task to the database
+            // send notification email
             $mailer = $this->get('app.mailer');
             $mailer->sendEmail(
                 $contactEntity->getEmail(),
                 $this->container->getParameter('mailer_destination'),
                 'Pas a repàs contact form',
-                $this->renderView('Front/Web/email.html.twig', array('contactEntity' => $contactEntity )));
-
+                $this->renderView('Front/Web/email.html.twig', array('contactEntity' => $contactEntity))
+            );
+            // persist new contact message record
             $em = $this->getDoctrine()->getManager();
             $em->persist($contactEntity);
             $em->flush();
-
-            //Add flash message
+            // add view flash message
             $this->addFlash('notice','frontend.index.main.sent');
         }
 
