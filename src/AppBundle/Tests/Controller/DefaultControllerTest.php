@@ -54,4 +54,23 @@ class DefaultControllerTest extends WebTestCase
         $client->request('GET', '/blog/categoria/this-is-a-broken-route');
         $this->assertStatusCode(404, $client);
     }
+
+    public function testSendContactForm()
+    {
+        // Fetch messages amount befor send form
+        $messages = $this->getContainer()->get('doctrine')->getRepository('AppBundle:Contact')->findAll();
+        $messagesAmountPreSendForm = count($messages);
+        $client = static::makeClient();
+        $crawler = $client->request('GET', '/');
+        // Fill contact form and submit it
+        $form = $crawler->selectButton('enviar')->form(array(
+            'contact[name]' => 'fake name',
+            'contact[email]' => 'test@test.com',
+            'contact[phone]' => 'fake phone',
+            'contact[message]' => 'fake message',
+        ));
+        $client->submit($form);
+        $messages = $this->getContainer()->get('doctrine')->getRepository('AppBundle:Contact')->findAll();
+        $this->assertEquals(count($messages), $messagesAmountPreSendForm + 1);
+    }
 }
