@@ -5,6 +5,12 @@ services:
         autowire: true
     app.google_maps_service:
         class: AppBundle\Service\GoogleMapsService
+# Sonata
+    admin.category:
+        class: AppBundle\Admin\CategoryAdmin
+        arguments: [ ~, AppBundle\Entity\Category, ~ ]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Category }
 # Twig
     twig.extension.text:
         class: Twig_Extensions_Extension_Text
