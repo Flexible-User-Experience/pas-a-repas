@@ -8,6 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Post
@@ -83,6 +84,11 @@ class Post
      * @var File
      *
      * @Vich\UploadableField(mapping="uploads", fileNameProperty="imageName")
+     * @Assert\File(
+     *     maxSize = "10M",
+     *     mimeTypes = {"image/jpg", "image/jpeg", "image/png", "image/gif"},
+     * )
+     * @Assert\Image(minWidth = 1200)
      */
     private $imageFile;
 

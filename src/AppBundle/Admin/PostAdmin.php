@@ -29,6 +29,15 @@ class PostAdmin extends BaseAdmin
     {
         $formMapper
             ->add(
+                'imageFile',
+                'file',
+                array(
+                    'label'    => 'backend.admin.image',
+                    'help'     => $this->getImageHelperFormMapperWithThumbnail(),
+                    'required' => false,
+                )
+            )
+            ->add(
                 'publishedDate',
                 'sonata_type_date_picker',
                 array(
@@ -44,13 +53,11 @@ class PostAdmin extends BaseAdmin
             )
             ->add(
                 'description',
-                null,
+                'ckeditor',
                 array(
-                    'label'    => 'backend.admin.description',
-                    'attr'     => array(
-                        'rows' => 7,
-                    ),
-                    'required' => false,
+                    'label'       => 'backend.admin.description',
+                    'config_name' => 'my_config',
+                    'required'    => false,
                 )
             )
             ->add(

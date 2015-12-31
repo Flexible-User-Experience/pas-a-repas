@@ -21,6 +21,7 @@
         "doctrine/doctrine-migrations-bundle": "^1.0",
         "doctrine/migrations": "^1.0",
         "doctrine/orm": "^2.4.8",
+        "egeloen/ckeditor-bundle": "^4.0",
         "egeloen/google-map-bundle": "~2.1",
         "egulias/email-validator": "^1.2",
         "hautelook/alice-bundle": "^1.0",

@@ -4,6 +4,8 @@ namespace AppBundle\Admin;
 
 use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Route\RouteCollection;
+use Liip\ImagineBundle\Imagine\Cache\CacheManager;
+use Vich\UploaderBundle\Templating\Helper\UploaderHelper;
 
 /**
  * Class BaseAdmin
@@ -14,6 +16,26 @@ use Sonata\AdminBundle\Route\RouteCollection;
  */
 abstract class BaseAdmin extends Admin
 {
+    /** @var UploaderHelper */
+    private $vus;
+
+    /** @var CacheManager */
+    private $lis;
+
+    /**
+     * @param string         $code
+     * @param string         $class
+     * @param string         $baseControllerName
+     * @param UploaderHelper $vus
+     * @param CacheManager   $lis
+     */
+    public function __construct($code, $class, $baseControllerName, UploaderHelper $vus, CacheManager $lis)
+    {
+        parent::__construct($code, $class, $baseControllerName);
+        $this->vus = $vus;
+        $this->lis = $lis;
+    }
+
     /**
      * @var array
      */
@@ -74,5 +96,18 @@ abstract class BaseAdmin extends Admin
     protected function getFormMdSuccessBoxArray($bootstrapColSize = '6')
     {
         return $this->getDefaultFormBoxArray('md', $bootstrapColSize, 'success');
+    }
+
+    /**
+     * Get image helper form mapper with thumbnail
+     *
+     * @return string
+     */
+    protected function getImageHelperFormMapperWithThumbnail()
+    {
+        return ($this->getSubject()->getImageName() ? '<img src="' . $this->lis->getBrowserPath(
+                $this->vus->asset($this->getSubject(), 'imageFile'),
+                '480xY'
+            ) . '" class="admin-preview" alt="thumbnail"/>' : '') . '<span style="width:100%;display:block;">Màxim 10MB amb format PNG, JPG o GIF. Amplada mínima 1200px.</span>';
     }
 }

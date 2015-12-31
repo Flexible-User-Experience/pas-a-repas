@@ -82,6 +82,13 @@ swiftmailer:
     auth_mode:  login
     spool:      { type: memory }
 
+# CKEditor
+ivory_ck_editor:
+    inline: false
+    configs:
+        my_config:
+            toolbar: standard
+
 # Liip Imagine
 liip_imagine:
     resolvers:
@@ -97,6 +104,10 @@ liip_imagine:
             quality: 80
             filters:
                 thumbnail: { size: [700, 200], mode: outbound }
+        480xY:
+            quality: 80
+            filters:
+                thumbnail: { size: [480, null], mode: outbound }
         256xY:
             quality: 80
             filters:

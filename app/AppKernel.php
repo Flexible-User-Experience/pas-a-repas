@@ -28,6 +28,7 @@ class AppKernel extends Kernel
             new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
             // Vendors
             new Apoutchika\LoremIpsumBundle\ApoutchikaLoremIpsumBundle(),
+            new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
             new Ivory\GoogleMapBundle\IvoryGoogleMapBundle(),
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new Liip\ImagineBundle\LiipImagineBundle(),
