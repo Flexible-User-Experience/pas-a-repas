@@ -67,6 +67,8 @@ doctrine:
         user:     "%database_user%"
         password: "%database_password%"
         charset:  UTF8
+        types:
+            json: Sonata\Doctrine\Types\JsonType
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
         naming_strategy: doctrine.orm.naming_strategy.underscore
@@ -137,6 +139,15 @@ stof_doctrine_extensions:
             timestampable: true
             sluggable: true
 
+# FOS User
+fos_user:
+    db_driver:      orm
+    firewall_name:  main
+    user_class:     Sonata\UserBundle\Entity\BaseUser
+    group:
+        group_class:   Sonata\UserBundle\Entity\BaseGroup
+        group_manager: sonata.user.orm.group_manager
+
 # Sonata configs
 sonata_admin:
     title: "Pas a Repàs"
@@ -187,3 +198,7 @@ sonata_block:
         sonata.user.block.menu:         ~
         sonata.block.service.text:      ~
         sonata.admin.block.admin_list:  ~
+
+sonata_user:
+    security_acl: true
+    manager_type: orm
