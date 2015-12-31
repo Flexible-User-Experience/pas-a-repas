@@ -34,8 +34,7 @@ class ContactAdmin extends BaseAdmin
             ->remove('edit')
             ->remove('show')
             ->remove('delete')
-            ->remove('batch')
-        ;
+            ->remove('batch');
     }
 
     /**
@@ -90,37 +89,38 @@ class ContactAdmin extends BaseAdmin
         $listMapper
             ->add(
                 'date',
-                null,
+                'date',
                 array(
-                    'label'    => 'backend.admin.date',
+                    'label'  => 'backend.admin.date',
+                    'format' => 'd/m/Y'
                 )
             )
             ->add(
                 'name',
                 null,
                 array(
-                    'label'    => 'backend.admin.name',
+                    'label' => 'backend.admin.name',
                 )
             )
             ->add(
                 'email',
                 null,
                 array(
-                    'label'    => 'backend.admin.email',
+                    'label' => 'backend.admin.email',
                 )
             )
             ->add(
                 'phone',
                 null,
                 array(
-                    'label'    => 'backend.admin.phone',
+                    'label' => 'backend.admin.phone',
                 )
             )
             ->add(
                 'message',
-                null,
+                'textarea',
                 array(
-                    'label'    => 'backend.admin.message',
+                    'label' => 'backend.admin.message',
                 )
             );
     }

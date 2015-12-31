@@ -46,8 +46,8 @@ class PostAdmin extends BaseAdmin
                 'description',
                 null,
                 array(
-                    'label' => 'backend.admin.description',
-                    'attr' => array(
+                    'label'    => 'backend.admin.description',
+                    'attr'     => array(
                         'rows' => 7,
                     ),
                     'required' => false,
@@ -57,14 +57,14 @@ class PostAdmin extends BaseAdmin
                 'categories',
                 null,
                 array(
-                    'label'    => 'backend.admin.categories',
+                    'label' => 'backend.admin.categories',
                 )
             )
             ->add(
                 'enabled',
                 null,
                 array(
-                    'label' => 'backend.admin.enabled',
+                    'label'    => 'backend.admin.enabled',
                     'required' => false,
                 )
             );
@@ -94,7 +94,7 @@ class PostAdmin extends BaseAdmin
                 'categories',
                 null,
                 array(
-                    'label'    => 'backend.admin.categories',
+                    'label' => 'backend.admin.categories',
                 )
             )
             ->add(
@@ -121,9 +121,10 @@ class PostAdmin extends BaseAdmin
         $listMapper
             ->add(
                 'publishedDate',
-                null,
+                'date',
                 array(
                     'label'    => 'backend.admin.published_date',
+                    'format'   => 'd/m/Y',
                     'editable' => true,
                 )
             )
@@ -139,14 +140,14 @@ class PostAdmin extends BaseAdmin
                 'categories',
                 null,
                 array(
-                    'label'    => 'backend.admin.categories',
+                    'label' => 'backend.admin.categories',
                 )
             )
             ->add(
                 'enabled',
                 null,
                 array(
-                    'label' => 'backend.admin.enabled',
+                    'label'    => 'backend.admin.enabled',
                     'editable' => true,
                 )
             )

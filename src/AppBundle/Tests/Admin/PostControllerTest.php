@@ -4,8 +4,18 @@ namespace AppBundle\Tests\Admin;
 
 use Liip\FunctionalTestBundle\Test\WebTestCase as WebTestCase;
 
+/**
+ * Class PostControllerTest
+ *
+ * @category Test
+ * @package  AppBundle\Tests\Admin
+ * @author   David Romaní <david@flux.cat>
+ */
 class PostControllerTest extends WebTestCase
 {
+    /**
+     * Test admins
+     */
     public function testCompleteScenario()
     {
         // Create a new client to browse the application
@@ -15,11 +25,16 @@ class PostControllerTest extends WebTestCase
         ));
 
         // Create a new entry in the database
-        $crawler = $client->request('GET', '/admin/post/');
-        $this->assertEquals(200, $client->getResponse()->getStatusCode(), "Unexpected HTTP status code for GET /admin/post/");
-        $crawler = $client->click($crawler->selectLink('Nova entrada')->link());
+        $crawler = $client->request('GET', '/admin/web/article/list');
+        $this->assertStatusCode(200, $client);
+
+        // Check amount of table list items
+        $items = $this->getContainer()->get('doctrine')->getRepository('AppBundle:Post')->findAll();
+        $rows = $crawler->filter('tbody')->first()->children();
+        $this->assertEquals(count($items), $rows->count());
 
         // Fill in the form and submit it
+        $crawler = $client->click($crawler->selectLink('Afegeix')->link());
         $form = $crawler->selectButton('Create')->form(array(
             'appbundle_post[title]' => 'Test',
             'appbundle_post[description]' => 'Test',

@@ -4,8 +4,18 @@ namespace AppBundle\Tests\Admin;
 
 use Liip\FunctionalTestBundle\Test\WebTestCase as WebTestCase;
 
+/**
+ * Class CategoryControllerTest
+ *
+ * @category Test
+ * @package  AppBundle\Tests\Admin
+ * @author   David Romaní <david@flux.cat>
+ */
 class CategoryControllerTest extends WebTestCase
 {
+    /**
+     * Test admins
+     */
     public function testCompleteScenario()
     {
         // Create a new client to browse the application
@@ -15,12 +25,17 @@ class CategoryControllerTest extends WebTestCase
         ));
 
         // Create a new entry in the database
-        $crawler = $client->request('GET', '/admin/web/category/');
-        $this->assertEquals(200, $client->getResponse()->getStatusCode(), "Unexpected HTTP status code for GET /admin/web/category/");
-        $crawler = $client->click($crawler->selectLink('Nova entrada')->link());
+        $crawler = $client->request('GET', '/admin/web/categoria/list');
+        $this->assertStatusCode(200, $client);
+
+        // Check amount of table list items
+        $items = $this->getContainer()->get('doctrine')->getRepository('AppBundle:Category')->findAll();
+        $rows = $crawler->filter('tbody')->first()->children();
+        $this->assertEquals(count($items), $rows->count());
 
         // Fill in the form and submit it
-        $form = $crawler->selectButton('Create')->form(array(
+        $crawler = $client->click($crawler->selectLink('Afegeix')->link());
+        $form = $crawler->selectButton('Crea')->form(array(
             'appbundle_category[title]' => 'Test',
         ));
 
