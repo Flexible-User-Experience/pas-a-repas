@@ -12,6 +12,9 @@ AppBundle\Entity\Category:
   category{1..5}:
     title: <sentence()>
     enabled: <boolean(70)>
+  category6:
+    title: hitme
+    enabled: <boolean(70)>
 
 # Posts
 AppBundle\Entity\Post:

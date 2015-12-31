@@ -3,7 +3,6 @@
 namespace AppBundle\Tests\Admin;
 
 use AppBundle\Tests\BaseTest;
-use Symfony\Bundle\FrameworkBundle\Client;
 
 /**
  * Class BackendTest
@@ -19,7 +18,7 @@ class BackendTest extends BaseTest
      */
     public function testAdminLoginPageIsSuccessful()
     {
-        $client = static::createClient();
+        $client = $this->createClient();           // anonymous user
         $client->request('GET', '/admin/login');
 
         $this->assertStatusCode(200, $client);
@@ -33,7 +32,7 @@ class BackendTest extends BaseTest
      */
     public function testAdminPagesAreSuccessful($url)
     {
-        $client = $this->getAuthenticadedUser();
+        $client = $this->makeClient(true);         // authenticated user
         $client->request('GET', $url);
 
         $this->assertStatusCode(200, $client);
@@ -68,7 +67,7 @@ class BackendTest extends BaseTest
      */
     public function testAdminPagesAreNotFound($url)
     {
-        $client = $this->getAuthenticadedUser();
+        $client = $this->makeClient(true);         // authenticated user
         $client->request('GET', $url);
 
         $this->assertStatusCode(404, $client);
@@ -92,15 +91,5 @@ class BackendTest extends BaseTest
             array('/admin/web/article/1/show'),
             array('/admin/web/article/batch'),
         );
-    }
-
-    /**
-     * Get authenticated user with Liip Funcitonal Test Bundle
-     *
-     * @return Client
-     */
-    private function getAuthenticadedUser()
-    {
-        return static::makeClient(true);
     }
 }
