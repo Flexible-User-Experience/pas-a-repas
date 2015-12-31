@@ -4,8 +4,18 @@ namespace AppBundle\Tests\Admin;
 
 use Liip\FunctionalTestBundle\Test\WebTestCase as WebTestCase;
 
+/**
+ * Class DashboardControllerTest
+ *
+ * @category Test
+ * @package  AppBundle\Tests\Admin
+ * @author   David Romaní <david@flux.cat>
+ */
 class DashboardControllerTest extends WebTestCase
 {
+    /**
+     * Test admins
+     */
     public function testCompleteScenario()
     {
         // Create a new client to browse the application

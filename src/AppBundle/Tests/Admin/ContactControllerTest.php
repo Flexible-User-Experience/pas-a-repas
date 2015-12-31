@@ -4,6 +4,13 @@ namespace AppBundle\Tests\Admin;
 
 use Liip\FunctionalTestBundle\Test\WebTestCase as WebTestCase;
 
+/**
+ * Class ContactControllerTest
+ *
+ * @category Test
+ * @package  AppBundle\Tests\Admin
+ * @author   David Romaní <david@flux.cat>
+ */
 class ContactControllerTest extends WebTestCase
 {
     /**
@@ -16,6 +23,9 @@ class ContactControllerTest extends WebTestCase
         ));
     }
 
+    /**
+     * Test admins
+     */
     public function testCompleteScenario()
     {
         // Create a new client to browse the application
@@ -25,12 +35,12 @@ class ContactControllerTest extends WebTestCase
         ));
 
         // Visit admin list view
-        $crawler = $client->request('GET', '/admin/contact/');
+        $crawler = $client->request('GET', '/admin/web/contacte/list');
         $this->assertStatusCode(200, $client);
 
-        // Show the entity
-        $link = $crawler->selectLink('Mostrar')->first()->link();
-        $client->click($link);
-        $this->assertStatusCode(200, $client);
+        // Check amount of table list items
+        $items = $this->getContainer()->get('doctrine')->getRepository('AppBundle:Contact')->findAll();
+        $rows = $crawler->filter('tbody')->first()->children();
+        $this->assertEquals(count($items), $rows->count());
     }
 }

@@ -19,5 +19,3 @@ parameters:
     assetic_path_java:         /usr/bin/java
     assetic_path_node:         /usr/bin/nodejs
     assetic_path_node_modules: /home/<user>/node_modules
-    admin_user: ~
-    admin_password: ~

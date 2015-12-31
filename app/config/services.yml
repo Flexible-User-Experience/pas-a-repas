@@ -5,6 +5,22 @@ services:
         autowire: true
     app.google_maps_service:
         class: AppBundle\Service\GoogleMapsService
+# Sonata
+    admin.contact:
+        class: AppBundle\Admin\ContactAdmin
+        arguments: [ ~, AppBundle\Entity\Contact, ~, @vich_uploader.templating.helper.uploader_helper, @liip_imagine.cache.manager ]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Contactes, group: Web }
+    admin.category:
+        class: AppBundle\Admin\CategoryAdmin
+        arguments: [ ~, AppBundle\Entity\Category, ~, @vich_uploader.templating.helper.uploader_helper, @liip_imagine.cache.manager ]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Categories, group: Web }
+    admin.post:
+        class: AppBundle\Admin\PostAdmin
+        arguments: [ ~, AppBundle\Entity\Post, ~, @vich_uploader.templating.helper.uploader_helper, @liip_imagine.cache.manager ]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Articles, group: Web }
 # Twig
     twig.extension.text:
         class: Twig_Extensions_Extension_Text

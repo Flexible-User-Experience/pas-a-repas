@@ -86,3 +86,17 @@ frontend:
       categories: categories
       keep_reading: seguir llegint
       post_detail: detall de l'article
+backend:
+    admin:
+        title: Títol
+        description: Descripció
+        image: Imatge
+        enabled: Actiu
+        date: Data
+        name: Nom
+        email: Email
+        phone: Telèfon
+        message: Missatge
+        categories: Categories
+        published_date: Data publicació
+        actions: Accions

@@ -27,10 +27,14 @@ twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
     form:
-        resources: [ "bootstrap_3_layout.html.twig" ]
+        resources:
+            - "bootstrap_3_layout.html.twig"
+            - 'SonataCoreBundle:Form:datepicker.html.twig'
     globals:
         google_analytics_enabled: %google_analytics_enabled%
         google_analytics_account: "%google_analytics_account%"
+        main_brand_title:         "Pas a Repàs"
+        admin_tag_version:        "v2.0.20"
 
 # Assetic Configuration
 assetic:
@@ -46,7 +50,7 @@ assetic:
     assets:
         mycss:
             inputs:
-#                - "@AppBundle/Resources/public/css/main.less"
+#                - "@AppBundle/Resources/public/css/main.less"    # comment this line to avoid double included CSS
                 - "@AppBundle/Resources/public/css/icomoon.less"
         myjs:
             inputs:
@@ -63,6 +67,8 @@ doctrine:
         user:     "%database_user%"
         password: "%database_password%"
         charset:  UTF8
+        types:
+            json: Sonata\Doctrine\Types\JsonType
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
         naming_strategy: doctrine.orm.naming_strategy.underscore
@@ -77,6 +83,13 @@ swiftmailer:
     encryption: ssl
     auth_mode:  login
     spool:      { type: memory }
+
+# CKEditor
+ivory_ck_editor:
+    inline: false
+    configs:
+        my_config:
+            toolbar: standard
 
 # Liip Imagine
 liip_imagine:
@@ -93,6 +106,10 @@ liip_imagine:
             quality: 80
             filters:
                 thumbnail: { size: [700, 200], mode: outbound }
+        480xY:
+            quality: 80
+            filters:
+                thumbnail: { size: [480, null], mode: outbound }
         256xY:
             quality: 80
             filters:
@@ -101,6 +118,10 @@ liip_imagine:
             quality: 85
             filters:
                 thumbnail: { size: [128, 128], mode: outbound }
+        60x60:
+            quality: 95
+            filters:
+                thumbnail: { size: [60, 60], mode: outbound }
 
 # Vich
 vich_uploader:
@@ -117,3 +138,69 @@ stof_doctrine_extensions:
         default:
             timestampable: true
             sluggable: true
+
+# FOS User
+fos_user:
+    db_driver:      orm
+    firewall_name:  admin
+    user_class:     AppBundle\Entity\User
+    group:
+        group_class:   AppBundle\Entity\Group
+        group_manager: sonata.user.orm.group_manager
+    service:
+        user_manager: sonata.user.orm.user_manager
+
+# Sonata configs
+sonata_admin:
+    title: "Pas a Repàs"
+    title_logo: "/bundles/app/images/backend-favicon.png"
+    options:
+        html5_validate: true
+        confirm_exit:   true
+        use_select2:    true
+        pager_links:    10
+    persist_filters: true
+    templates:
+        layout:    "::Admin/layout.html.twig"
+        dashboard: "::Admin/dashboard.html.twig"
+#        edit:      "::Admin/edit.html.twig"
+    dashboard:
+        groups:
+            Web:
+                icon: "<i class='fa fa-chrome'></i>"
+        blocks:
+            -
+                position: top
+                type: sonata.block.service.text
+                class: col-md-12
+                settings:
+                    content: >
+                        <h1 style="margin-top:0">CMS v2.0</h1>
+            -
+                position: left
+                type: sonata.admin.block.admin_list
+                settings:
+                    groups: [ Web ]
+            -
+                position: right
+                type: sonata.admin.block.admin_list
+                settings:
+                    groups: [ Oficina ]
+            -
+                position: bottom
+                type: sonata.block.service.text
+                class: col-md-12
+                settings:
+                    content: >
+                        <div><hr style="margin-top:40px;border-top:solid 1px #d2d6de"><p><i class="fa fa-info-circle"></i> Per rebre assistència tècnica envieu un missatge a <a href="mailto:suport@flux.cat?subject=Ajuda CMS v2" style="color:#000">suport@flux.cat</a></p></div>
+
+sonata_block:
+    default_contexts: [ cms ]
+    blocks:
+        sonata.user.block.menu:         ~
+        sonata.block.service.text:      ~
+        sonata.admin.block.admin_list:  ~
+
+sonata_user:
+    security_acl: true
+    manager_type: orm
