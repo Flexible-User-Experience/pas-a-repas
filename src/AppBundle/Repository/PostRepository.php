@@ -6,6 +6,13 @@ use AppBundle\Entity\Category;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\EntityRepository;
 
+/**
+ * Class PostRepository
+ *
+ * @category Repository
+ * @package  AppBundle\Repository
+ * @author   David Romaní <david@flux.cat>
+ */
 class PostRepository extends EntityRepository
 {
     /**
