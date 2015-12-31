@@ -67,6 +67,8 @@ class CategoryAdmin extends BaseAdmin
             );
     }
 
+
+
     /**
      * @param ListMapper $listMapper
      */
@@ -96,6 +98,7 @@ class CategoryAdmin extends BaseAdmin
                 array(
                     'actions' => array(
                         'edit' => array(),
+                        'delete' => array(),
                     ),
                     'label'   => 'backend.admin.actions',
                 )

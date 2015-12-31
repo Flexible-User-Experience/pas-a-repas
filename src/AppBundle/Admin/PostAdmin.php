@@ -118,6 +118,7 @@ class PostAdmin extends BaseAdmin
      */
     protected function configureListFields(ListMapper $listMapper)
     {
+        unset($this->listModes['mosaic']);
         $listMapper
             ->add(
                 'image',
@@ -165,6 +166,7 @@ class PostAdmin extends BaseAdmin
                 array(
                     'actions' => array(
                         'edit' => array(),
+                        'delete' => array(),
                     ),
                     'label'   => 'backend.admin.actions',
                 )

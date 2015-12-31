@@ -55,9 +55,21 @@ abstract class BaseAdmin extends Admin
     {
         $collection
             ->remove('show')
-            ->remove('delete')
             ->remove('batch')
         ;
+    }
+
+    /**
+     * Remove batch action list view first column
+     *
+     * @return array
+     */
+    public function getBatchActions()
+    {
+        $actions = parent::getBatchActions();
+        unset($actions['delete']);
+
+        return $actions;
     }
 
     /**
