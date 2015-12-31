@@ -57,7 +57,7 @@ class PostAdmin extends BaseAdmin
                 array(
                     'label'       => 'backend.admin.description',
                     'config_name' => 'my_config',
-                    'required'    => false,
+                    'required'    => true,
                 )
             )
             ->add(
@@ -72,7 +72,7 @@ class PostAdmin extends BaseAdmin
                 'sonata_type_boolean',
                 array(
                     'label'    => 'backend.admin.enabled',
-                    'required' => false,
+                    'required' => true,
                 )
             );
     }
@@ -165,7 +165,7 @@ class PostAdmin extends BaseAdmin
                 'actions',
                 array(
                     'actions' => array(
-                        'edit' => array(),
+                        'edit'   => array(),
                         'delete' => array(),
                     ),
                     'label'   => 'backend.admin.actions',

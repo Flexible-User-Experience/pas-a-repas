@@ -55,8 +55,7 @@ abstract class BaseAdmin extends Admin
     {
         $collection
             ->remove('show')
-            ->remove('batch')
-        ;
+            ->remove('batch');
     }
 
     /**
@@ -95,7 +94,7 @@ abstract class BaseAdmin extends Admin
     protected function getDefaultFormBoxArray($bootstrapGrid = 'md', $bootstrapSize = '6', $boxClass = 'primary')
     {
         return array(
-            'class' => 'col-' . $bootstrapGrid . '-' . $bootstrapSize,
+            'class'     => 'col-' . $bootstrapGrid . '-' . $bootstrapSize,
             'box_class' => 'box box-' . $boxClass,
         );
     }

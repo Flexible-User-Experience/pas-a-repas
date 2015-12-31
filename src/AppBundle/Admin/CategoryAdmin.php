@@ -39,7 +39,7 @@ class CategoryAdmin extends BaseAdmin
                 'enabled',
                 'sonata_type_boolean',
                 array(
-                    'label' => 'backend.admin.enabled',
+                    'label'    => 'backend.admin.enabled',
                     'required' => true,
                 )
             );
@@ -66,7 +66,6 @@ class CategoryAdmin extends BaseAdmin
                 )
             );
     }
-
 
 
     /**
@@ -97,7 +96,7 @@ class CategoryAdmin extends BaseAdmin
                 'actions',
                 array(
                     'actions' => array(
-                        'edit' => array(),
+                        'edit'   => array(),
                         'delete' => array(),
                     ),
                     'label'   => 'backend.admin.actions',
