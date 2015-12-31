@@ -4,58 +4,9 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0b193177b9c7d23e8e9b990649cacc47",
-    "content-hash": "7d8797ea34339d6e03c6adc9e06284ba",
+    "hash": "3acc9c2500398ead36293bf0e2ba4fa5",
+    "content-hash": "a9d4e86c282b51e5682eae00446daf57",
     "packages": [
-        {
-            "name": "apoutchika/loremipsum-bundle",
-            "version": "v1.0.3",
-            "target-dir": "Apoutchika/LoremIpsumBundle",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/apoutchika/LoremIpsumBundle.git",
-                "reference": "d02771d1710dd78eccf0d7b12b9e8488bea3d891"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/apoutchika/LoremIpsumBundle/zipball/d02771d1710dd78eccf0d7b12b9e8488bea3d891",
-                "reference": "d02771d1710dd78eccf0d7b12b9e8488bea3d891",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.2",
-                "symfony/framework-bundle": ">=2.0"
-            },
-            "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Apoutchika\\LoremIpsumBundle": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Julien Philippon",
-                    "email": "contact@julienphilippon.fr"
-                }
-            ],
-            "description": "Generate paragraphs, sentences and words for your development.",
-            "keywords": [
-                "data",
-                "fixtures",
-                "ipsum",
-                "lorem"
-            ],
-            "time": "2014-10-05 19:11:51"
-        },
         {
             "name": "behat/transliterator",
             "version": "v1.1.0",

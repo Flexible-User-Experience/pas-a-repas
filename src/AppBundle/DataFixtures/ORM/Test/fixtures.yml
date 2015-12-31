@@ -1,0 +1,41 @@
+# Contacts
+AppBundle\Entity\Contact:
+  contact{1..2}:
+    name: <name(null)>
+    email: <safeEmail()>
+    phone: <phoneNumber()>
+    message: <paragraph()>
+    date: <dateTimeThisMonth()>
+
+# Categories
+AppBundle\Entity\Category:
+  category{1..5}:
+    title: <sentence()>
+    enabled: <boolean(70)>
+
+# Posts
+AppBundle\Entity\Post:
+  post{1..10}:
+    publishedDate: <dateTimeThisMonth()>
+    title: <sentence()>
+    description: <paragraph()>
+    enabled: <boolean(70)>
+    categories: [ @category1, @category2, @category3 ]
+  post{11..15}:
+    publishedDate: <dateTimeThisMonth()>
+    title: <sentence()>
+    description: <paragraph()>
+    enabled: <boolean(70)>
+    categories: [ ]
+
+## Admin users
+AppBundle\Entity\User:
+    user1:
+        username: <{private_test_user}>
+        plainPassword: <{private_test_pass}>
+        email: "admin@admin.com"
+        firstname: <name()>
+        lastname: <lastname()>
+        enabled: true
+        roles:
+            - ROLE_ADMIN
