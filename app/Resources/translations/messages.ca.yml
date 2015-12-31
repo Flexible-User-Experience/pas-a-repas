@@ -90,6 +90,7 @@ backend:
     admin:
         title: Títol
         description: Descripció
+        image: Imatge
         enabled: Actiu
         date: Data
         name: Nom

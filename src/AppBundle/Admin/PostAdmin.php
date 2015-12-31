@@ -30,7 +30,7 @@ class PostAdmin extends BaseAdmin
         $formMapper
             ->add(
                 'publishedDate',
-                null,
+                'sonata_type_date_picker',
                 array(
                     'label' => 'backend.admin.published_date',
                 )
@@ -62,7 +62,7 @@ class PostAdmin extends BaseAdmin
             )
             ->add(
                 'enabled',
-                null,
+                'sonata_type_boolean',
                 array(
                     'label'    => 'backend.admin.enabled',
                     'required' => false,
@@ -76,13 +76,6 @@ class PostAdmin extends BaseAdmin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add(
-                'publishedDate',
-                null,
-                array(
-                    'label' => 'backend.admin.published_date',
-                )
-            )
             ->add(
                 'title',
                 null,
@@ -119,6 +112,14 @@ class PostAdmin extends BaseAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
+            ->add(
+                'image',
+                'date',
+                array(
+                    'label'    => 'backend.admin.image',
+                    'template' => '::Admin/Cells/list__cell_image_field.html.twig'
+                )
+            )
             ->add(
                 'publishedDate',
                 'date',
