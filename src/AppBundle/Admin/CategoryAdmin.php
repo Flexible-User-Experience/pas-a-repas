@@ -37,10 +37,10 @@ class CategoryAdmin extends BaseAdmin
             )
             ->add(
                 'enabled',
-                null,
+                'sonata_type_boolean',
                 array(
                     'label' => 'backend.admin.enabled',
-                    'required' => false,
+                    'required' => true,
                 )
             );
     }
