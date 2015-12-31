@@ -1,29 +1,11 @@
-{% extends 'Admin/base_admin.html.twig' %}
+{% extends 'SonataAdminBundle:Core:dashboard.html.twig' %}
 
-{% block main %}
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h1>{{ 'frontend.admin.dashboard' |trans |upper }}</h1>
-                <h3>{{ 'frontend.admin.welcome' |trans |capitalize }}</h3>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-6">
-            <h4>Aquest mes, s'han registrat</h4>
-                <div class="panel panel-default">
-                    <div class="panel-heading">{{ 'frontend.admin.contact' | trans | upper }}</div>
-                        <div class="panel-body">{{ contactMsgsAmount }}</div>
-                    <div class="panel-heading">{{ 'frontend.admin.post' | trans | upper }}</div>
-                        <div class="panel-body">{{ postsAmount }}</div>
-                    <div class="panel-heading">{{ 'frontend.admin.category' | trans | upper }}</div>
-                        <div class="panel-body">{{ categoriesAmount }}</div>
-                </div>
-            </div>
-        </div>
+{# custom top menu #}
+{% block sonata_top_nav_menu %}
+    <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="{{ path('homepage') }}"><i class="fa fa-home"></i></a></li>
+            <li><a href="{{ path('sonata_user_admin_security_logout') }}"><i class="fa fa-power-off text-success"></i></a></li>
+        </ul>
     </div>
 {% endblock %}
-
