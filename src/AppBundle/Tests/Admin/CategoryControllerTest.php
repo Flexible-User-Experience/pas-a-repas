@@ -2,7 +2,7 @@
 
 namespace AppBundle\Tests\Admin;
 
-use Liip\FunctionalTestBundle\Test\WebTestCase as WebTestCase;
+use AppBundle\Tests\BaseTest;
 use AppBundle\Admin\CategoryAdmin;
 
 /**
@@ -12,19 +12,8 @@ use AppBundle\Admin\CategoryAdmin;
  * @package  AppBundle\Tests\Admin
  * @author   David Romaní <david@flux.cat>
  */
-class CategoryControllerTest extends WebTestCase
+class CategoryControllerTest extends BaseTest
 {
-    /**
-     * Set up tests
-     */
-    public function setUp()
-    {
-        $this->loadFixtures(array(
-            'AppBundle\DataFixtures\ORM\Categories',
-            'AppBundle\DataFixtures\ORM\Posts',
-        ));
-    }
-
     /**
      * Test admins
      */

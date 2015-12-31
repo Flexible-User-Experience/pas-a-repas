@@ -6,6 +6,13 @@ use AppBundle\Form\Type\ContactType;
 use AppBundle\Entity\Contact;
 use Symfony\Component\Form\Test\TypeTestCase;
 
+/**
+ * Class ContactTypeTest
+ *
+ * @category Test
+ * @package  AppBundle\Tests\Form\Type
+ * @author   David Romaní <david@flux.cat>
+ */
 class ContactTypeTest extends TypeTestCase
 {
     public function testSubmitValidData()

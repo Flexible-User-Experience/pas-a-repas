@@ -45,7 +45,7 @@ AppBundle\Entity\User:
     user1:
         username: <{private_test_user}>
         plainPassword: <{private_test_pass}>
-        email: "admin@admin.com"
+        email: <safeEmail()>
         firstname: <name()>
         lastname: <lastname()>
         enabled: true
