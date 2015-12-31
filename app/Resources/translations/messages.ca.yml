@@ -91,6 +91,7 @@ backend:
         title: Títol
         description: Descripció
         image: Imatge
+        checked: Llegit
         enabled: Actiu
         date: Data
         name: Nom

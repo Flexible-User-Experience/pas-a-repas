@@ -48,6 +48,7 @@ class BackendTest extends BaseTest
         return array(
             array('/admin/dashboard'),
             array('/admin/web/contacte/list'),
+            array('/admin/web/contacte/1/show'),
             array('/admin/web/categoria/list'),
             array('/admin/web/categoria/create'),
             array('/admin/web/categoria/1/edit'),
@@ -83,7 +84,6 @@ class BackendTest extends BaseTest
         return array(
             array('/admin/web/contacte/create'),
             array('/admin/web/contacte/1/edit'),
-            array('/admin/web/contacte/1/show'),
             array('/admin/web/contacte/1/delete'),
             array('/admin/web/contacte/batch'),
             array('/admin/web/categoria/1/show'),

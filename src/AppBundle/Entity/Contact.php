@@ -17,7 +17,7 @@ class Contact
     /**
      * @var integer
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
@@ -26,14 +26,14 @@ class Contact
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=255)
+     * @ORM\Column(type="string", length=255)
      */
     private $name;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="email", type="string", length=255)
+     * @ORM\Column(type="string", length=255)
      * @Assert\Email(
      *     strict = true, checkMX = true, checkHost = true)
      */
@@ -42,14 +42,14 @@ class Contact
     /**
      * @var string
      *
-     * @ORM\Column(name="phone", type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $phone;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="message", type="text", length=2000)
+     * @ORM\Column(type="text", length=2000)
      */
     private $message;
 
@@ -60,6 +60,13 @@ class Contact
      * @ORM\Column(name="date", type="datetime")
      */
     private $date;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="boolean")
+     */
+    private $checked = false;
 
     /**
      * Get id
@@ -206,4 +213,24 @@ class Contact
         return $object;
     }
 
+    /**
+     * @return string
+     */
+    public function getChecked()
+    {
+        return $this->checked;
+    }
+
+    /**
+     * @param string $checked
+     */
+    public function setChecked($checked)
+    {
+        $this->checked = $checked;
+    }
+
+    public function __toString()
+    {
+        return $this->name ? $this->getDate()->format('d/m/Y') . ' · ' . $this->getName() : '---';
+    }
 }
