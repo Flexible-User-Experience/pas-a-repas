@@ -29,7 +29,7 @@ twig:
     form:
         resources:
             - "bootstrap_3_layout.html.twig"
-            - 'SonataCoreBundle:Form:datepicker.html.twig'
+            - "SonataCoreBundle:Form:datepicker.html.twig"
     globals:
         google_analytics_enabled: %google_analytics_enabled%
         google_analytics_account: "%google_analytics_account%"
@@ -168,6 +168,8 @@ sonata_admin:
         groups:
             Web:
                 icon: "<i class='fa fa-chrome'></i>"
+            Administrador:
+                icon: "<i class='fa fa-cog'></i>"
         blocks:
             -
                 position: top
@@ -185,7 +187,7 @@ sonata_admin:
                 position: right
                 type: sonata.admin.block.admin_list
                 settings:
-                    groups: [ Oficina ]
+                    groups: [ Administrador ]
             -
                 position: bottom
                 type: sonata.block.service.text

@@ -42,7 +42,7 @@ AppBundle\Entity\Post:
 
 ## Admin users
 AppBundle\Entity\User:
-    user1:
+    admin:
         username: <{private_test_user}>
         plainPassword: <{private_test_pass}>
         email: <safeEmail()>
@@ -51,3 +51,21 @@ AppBundle\Entity\User:
         enabled: true
         roles:
             - ROLE_ADMIN
+    cms{1..4}:
+        username: <username()>
+        plainPassword: <password()>
+        email: <safeEmail()>
+        firstname: <name()>
+        lastname: <lastname()>
+        enabled: true
+        roles:
+            - ROLE_CMS
+    manager{1..2}:
+        username: <username()>
+        plainPassword: <password()>
+        email: <safeEmail()>
+        firstname: <name()>
+        lastname: <lastname()>
+        enabled: true
+        roles:
+            - ROLE_MANAGER

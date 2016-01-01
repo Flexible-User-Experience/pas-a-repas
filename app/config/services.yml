@@ -21,6 +21,11 @@ services:
         arguments: [ ~, AppBundle\Entity\Post, ~, @vich_uploader.templating.helper.uploader_helper, @liip_imagine.cache.manager ]
         tags:
             - { name: sonata.admin, manager_type: orm, label: Articles, group: Web }
+    admin.user:
+        class: AppBundle\Admin\UserAdmin
+        arguments: [ ~, AppBundle\Entity\User, ~ ]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Usuaris, group: Administrador }
 # Twig
     twig.extension.text:
         class: Twig_Extensions_Extension_Text
