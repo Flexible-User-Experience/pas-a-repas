@@ -8,17 +8,17 @@ services:
 # Sonata
     admin.contact:
         class: AppBundle\Admin\ContactAdmin
-        arguments: [ ~, AppBundle\Entity\Contact, AppBundle:Admin\ContactAdmin, @vich_uploader.templating.helper.uploader_helper, @liip_imagine.cache.manager ]
+        arguments: [ ~, AppBundle\Entity\Contact, AppBundle:Admin\ContactAdmin, "@vich_uploader.templating.helper.uploader_helper", "@liip_imagine.cache.manager" ]
         tags:
             - { name: sonata.admin, manager_type: orm, label: Contactes, group: Web }
     admin.category:
         class: AppBundle\Admin\CategoryAdmin
-        arguments: [ ~, AppBundle\Entity\Category, ~, @vich_uploader.templating.helper.uploader_helper, @liip_imagine.cache.manager ]
+        arguments: [ ~, AppBundle\Entity\Category, ~, "@vich_uploader.templating.helper.uploader_helper", "@liip_imagine.cache.manager" ]
         tags:
             - { name: sonata.admin, manager_type: orm, label: Categories, group: Web }
     admin.post:
         class: AppBundle\Admin\PostAdmin
-        arguments: [ ~, AppBundle\Entity\Post, ~, @vich_uploader.templating.helper.uploader_helper, @liip_imagine.cache.manager ]
+        arguments: [ ~, AppBundle\Entity\Post, ~, "@vich_uploader.templating.helper.uploader_helper", "@liip_imagine.cache.manager" ]
         tags:
             - { name: sonata.admin, manager_type: orm, label: Articles, group: Web }
     admin.user:

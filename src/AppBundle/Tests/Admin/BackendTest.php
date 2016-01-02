@@ -57,6 +57,10 @@ class BackendTest extends BaseTest
             array('/admin/web/article/create'),
             array('/admin/web/article/1/edit'),
             array('/admin/web/article/1/delete'),
+            array('/admin/administrador/usuari/list'),
+            array('/admin/administrador/usuari/create'),
+            array('/admin/administrador/usuari/1/edit'),
+            array('/admin/administrador/usuari/1/delete'),
         );
     }
 
@@ -90,6 +94,8 @@ class BackendTest extends BaseTest
             array('/admin/web/categoria/batch'),
             array('/admin/web/article/1/show'),
             array('/admin/web/article/batch'),
+            array('/admin/administrador/usuari/show'),
+            array('/admin/administrador/usuari/batch'),
         );
     }
 }
