@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Controller\Front;
+namespace AppBundle\Controller\Frontend;
 
 use AppBundle\Entity\Contact;
 use AppBundle\Form\Type\ContactType;
@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\Request;
  * Class DefaultController
  *
  * @category Controller
- * @package  AppBundle\Controller\Front
+ * @package  AppBundle\Controller\Frontend
  * @author   David Romaní <david@flux.cat>
  */
 class DefaultController extends Controller

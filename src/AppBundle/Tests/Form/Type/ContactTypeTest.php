@@ -27,7 +27,12 @@ class ContactTypeTest extends TypeTestCase
         $type = new ContactType();
         $form = $this->factory->create($type);
 
-        $object = Contact::fromArray($formData);
+        $object = new Contact();
+        $object
+            ->setName($formData['name'])
+            ->setEmail($formData['email'])
+            ->setPhone($formData['phone'])
+            ->setMessage($formData['message']);
 
         // submit the data to the form directly
         $form->submit($formData);

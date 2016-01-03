@@ -1,5 +1,5 @@
 app:
-    resource: "@AppBundle/Controller/Front/"
+    resource: "@AppBundle/Controller/Frontend/"
     type:     annotation
 
 sonata:

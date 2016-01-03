@@ -20,7 +20,7 @@
         <div class="row">
             <div class="col-md-12">
                 <h1>{{ post.title }}</h1>
-                <h5>{{ post.createdDate | date ('d/m/Y') }}</h5>
+                <h5>{{ post.createdAt | date ('d/m/Y') }}</h5>
                 <h5>{{ post.description | raw }}</h5>
                 {% for category in post.categories %}
                     <a href="{{ path('category_detail', {slug: category.slug}) }}">{{ category.title }}</a>

@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Controller\Front;
+namespace AppBundle\Controller\Frontend;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -11,7 +11,7 @@ use AppBundle\Entity\Post;
  * Class BlogController
  *
  * @category Controller
- * @package  AppBundle\Controller\Front
+ * @package  AppBundle\Controller\Frontend
  * @author   David Romaní <david@flux.cat>
  */
 class BlogController extends Controller
@@ -46,7 +46,7 @@ class BlogController extends Controller
         if (!$post || !$post->getEnabled()) {
             throw $this->createNotFoundException('Unable to find Post entity.');
         }
-        if ($post->getPublishedDate()->format('Y-m-d') != $year . '-' . $month . '-' . $day) {
+        if ($post->getPublishedAt()->format('Y-m-d') != $year . '-' . $month . '-' . $day) {
             throw $this->createNotFoundException('Wrong Post entity published date');
         }
 

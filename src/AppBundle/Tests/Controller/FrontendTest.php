@@ -80,16 +80,16 @@ class FrontendTest extends BaseTest
         $post = $posts[0];
         $client = $this->createClient();
         $client->request('GET', $this->getUrl('blog_detail', array(
-            'year' => $post->getPublishedDate()->format('Y'),
-            'month' => $post->getPublishedDate()->format('m'),
-            'day' => $post->getPublishedDate()->format('d'),
+            'year' => $post->getPublishedAt()->format('Y'),
+            'month' => $post->getPublishedAt()->format('m'),
+            'day' => $post->getPublishedAt()->format('d'),
             'slug' => $post->getSlug(),
         )));
         $this->assertStatusCode(200, $client);
         $client->request('GET', $this->getUrl('blog_detail', array(
-            'year' => $post->getPublishedDate()->format('Y'),
-            'month' => $post->getPublishedDate()->format('m'),
-            'day' => $post->getPublishedDate()->format('d'),
+            'year' => $post->getPublishedAt()->format('Y'),
+            'month' => $post->getPublishedAt()->format('m'),
+            'day' => $post->getPublishedAt()->format('d'),
             'slug' => 'broken',
         )));
         $this->assertStatusCode(404, $client);

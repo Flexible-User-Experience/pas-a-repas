@@ -23,7 +23,7 @@ class PostRepository extends EntityRepository
         $query = $this->createQueryBuilder('p')
             ->where('p.enabled = :enabled')
             ->setParameter('enabled', true)
-            ->orderBy('p.publishedDate', 'DESC')
+            ->orderBy('p.publishedAt', 'DESC')
             ->addOrderBy('p.title', 'ASC')
             ->getQuery();
 
@@ -43,7 +43,7 @@ class PostRepository extends EntityRepository
             ->andWhere('c.id = :cid')
             ->setParameter('enabled', true)
             ->setParameter('cid', $category->getId())
-            ->orderBy('p.publishedDate', 'DESC')
+            ->orderBy('p.publishedAt', 'DESC')
             ->addOrderBy('p.title', 'ASC')
             ->getQuery();
 
