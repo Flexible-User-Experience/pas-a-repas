@@ -13,72 +13,44 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Post
  *
+ * @category Entity
+ * @package  AppBundle\Entity
+ * @author   David Romaní <david@flux.cat>
+ *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="AppBundle\Repository\PostRepository")
  * @Vich\Uploadable
  */
-class Post
+class Post extends Base
 {
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    private $id;
-
-    /**
-     * @var \DateTime
-     *
-     * @Gedmo\Timestampable(on="create")
-     * @ORM\Column(type="datetime")
-     */
-    private $createdDate;
-
-    /**
-     * @var \DateTime
-     *
-     * @Gedmo\Timestampable(on="update")
-     * @ORM\Column(type="datetime")
-     */
-    private $updatedDate;
-
-    /**
      * @var \DateTime
      *
      * @ORM\Column(type="datetime")
      */
-    private $publishedDate;
+    private $publishedAt;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="title", type="string", length=255, unique=true)
+     * @ORM\Column(type="string", length=255, unique=true)
      */
     private $title;
 
     /**
      * @var string
      *
+     * @ORM\Column(type="string", length=255)
      * @Gedmo\Slug(fields={"title"})
-     * @ORM\Column(name="slug", type="string", length=255)
      */
     private $slug;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="text", length=4000)
+     * @ORM\Column(type="text", length=4000)
      */
     private $description;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(type="boolean")
-     */
-    private $enabled;
 
     /**
      * @var File
@@ -86,7 +58,7 @@ class Post
      * @Vich\UploadableField(mapping="uploads", fileNameProperty="imageName")
      * @Assert\File(
      *     maxSize = "10M",
-     *     mimeTypes = {"image/jpg", "image/jpeg", "image/png", "image/gif"},
+     *     mimeTypes = {"image/jpg", "image/jpeg", "image/png", "image/gif"}
      * )
      * @Assert\Image(minWidth = 1200)
      */
@@ -100,83 +72,49 @@ class Post
     private $imageName;
 
     /**
+     * @var ArrayCollection
+     *
      * @ORM\ManyToMany(targetEntity="Category", inversedBy="posts")
      * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
      */
-    protected $categories;
+    private $categories;
 
     /**
-     * Get id
      *
-     * @return integer
+     * Methods
+     *
      */
-    public function getId()
+
+    /**
+     * Post constructor
+     */
+    public function __construct()
     {
-        return $this->id;
+        $this->categories = new ArrayCollection();
     }
 
     /**
-     * Set createdDate
+     * Set publishedAt
      *
-     * @param \DateTime $createdDate
+     * @param \DateTime $publishedAt
      *
      * @return Post
      */
-    public function setCreatedDate(\DateTime $createdDate)
+    public function setPublishedAt(\DateTime $publishedAt)
     {
-        $this->createdDate = $createdDate;
+        $this->publishedAt = $publishedAt;
 
         return $this;
     }
 
     /**
-     * Get createdDate
+     * Get publishedAt
      *
      * @return \DateTime
      */
-    public function getCreatedDate()
+    public function getPublishedAt()
     {
-        return $this->createdDate;
-    }
-
-    /**
-     * @return \DateTime
-     */
-    public function getUpdatedDate()
-    {
-        return $this->updatedDate;
-    }
-
-    /**
-     * @param \DateTime $updatedDate
-     */
-    public function setUpdatedDate(\DateTime $updatedDate)
-    {
-        $this->updatedDate = $updatedDate;
-    }
-
-    /**
-     * Set publishedDate
-     *
-     * @param \DateTime $publishedDate
-     *
-     * @return Post
-     */
-    public function setPublishedDate($publishedDate)
-    {
-        $this->publishedDate = $publishedDate;
-
-        return $this;
-    }
-
-    /**
-     * Get publishedDate
-     *
-     * @return \DateTime
-     */
-    public function getPublishedDate()
-    {
-        return $this->publishedDate;
+        return $this->publishedAt;
     }
 
     /**
@@ -252,46 +190,8 @@ class Post
     }
 
     /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->categories = new ArrayCollection();
-    }
-
-    /**
-     * Set enabled
+     * Set imageFile
      *
-     * @param boolean $enabled
-     *
-     * @return Post
-     */
-    public function setEnabled($enabled)
-    {
-        $this->enabled = $enabled;
-
-        return $this;
-    }
-
-    /**
-     * Get enabled
-     *
-     * @return boolean
-     */
-    public function getEnabled()
-    {
-        return $this->enabled;
-    }
-
-    /**
-     * @return File
-     */
-    public function getImageFile()
-    {
-        return $this->imageFile;
-    }
-
-    /**
      * @param File|UploadedFile $imageFile
      *
      * @return Post
@@ -302,21 +202,25 @@ class Post
         if ($imageFile) {
             // It is required that at least one field changes if you are using doctrine
             // otherwise the event listeners won't be called and the file is lost
-            $this->updatedDate = new \DateTime('now');
+            $this->updatedAt = new \DateTime('now');
         }
 
         return $this;
     }
 
     /**
-     * @return string
+     * Get imageFile
+     *
+     * @return File|UploadedFile
      */
-    public function getImageName()
+    public function getImageFile()
     {
-        return $this->imageName;
+        return $this->imageFile;
     }
 
     /**
+     * Set imageName
+     *
      * @param string $imageName
      *
      * @return Post
@@ -326,6 +230,40 @@ class Post
         $this->imageName = $imageName;
 
         return $this;
+    }
+
+    /**
+     * Get imageName
+     *
+     * @return string
+     */
+    public function getImageName()
+    {
+        return $this->imageName;
+    }
+
+    /**
+     * Set categories
+     *
+     * @param ArrayCollection $categories
+     *
+     * @return Post
+     */
+    public function setCategories(ArrayCollection $categories)
+    {
+        $this->categories = $categories;
+
+        return $this;
+    }
+
+    /**
+     * Get categories
+     *
+     * @return ArrayCollection
+     */
+    public function getCategories()
+    {
+        return $this->categories;
     }
 
     /**
@@ -354,30 +292,8 @@ class Post
     }
 
     /**
-     * Get categories
+     * To string
      *
-     * @return ArrayCollection
-     */
-    public function getCategories()
-    {
-        return $this->categories;
-    }
-
-    /**
-     * Set categories
-     *
-     * @param ArrayCollection $categories
-     *
-     * @return Post
-     */
-    public function setCategories(ArrayCollection $categories)
-    {
-        $this->categories = $categories;
-
-        return $this;
-    }
-
-    /**
      * @return string
      */
     public function __toString() {

@@ -9,20 +9,15 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Contact
  *
+ * @category Entity
+ * @package  AppBundle\Entity
+ * @author   David Romaní <david@flux.cat>
+ *
  * @ORM\Table()
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\ContactRepository")
  */
-class Contact
+class Contact extends Base
 {
-    /**
-     * @var integer
-     *
-     * @ORM\Column(type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    private $id;
-
     /**
      * @var string
      *
@@ -34,8 +29,7 @@ class Contact
      * @var string
      *
      * @ORM\Column(type="string", length=255)
-     * @Assert\Email(
-     *     strict = true, checkMX = true, checkHost = true)
+     * @Assert\Email(strict = true, checkMX = true, checkHost = true)
      */
     private $email;
 
@@ -54,29 +48,24 @@ class Contact
     private $message;
 
     /**
-     * @var \DateTime
-     *
-     * @Gedmo\Timestampable(on="create")
-     * @ORM\Column(name="date", type="datetime")
-     */
-    private $date;
-
-    /**
-     * @var string
+     * @var boolean
      *
      * @ORM\Column(type="boolean")
      */
     private $checked = false;
 
     /**
-     * Get id
+     * @var boolean
      *
-     * @return integer
+     * @ORM\Column(type="boolean")
      */
-    public function getId()
-    {
-        return $this->id;
-    }
+    private $answered = false;
+
+    /**
+     *
+     * Methods
+     *
+     */
 
     /**
      * Set name
@@ -175,46 +164,23 @@ class Contact
     }
 
     /**
-     * Set date
+     * Set checked
      *
-     * @param \DateTime $date
+     * @param boolean $checked
      *
      * @return Contact
      */
-    public function setDate($date)
+    public function setChecked($checked)
     {
-        $this->date = $date;
+        $this->checked = $checked;
 
         return $this;
     }
 
     /**
-     * Get date
+     * Get checked
      *
-     * @return \DateTime
-     */
-    public function getDate()
-    {
-        return $this->date;
-    }
-
-    /**
-     * @param $array
-     *
-     * @return Contact
-     */
-    public static function fromArray($array) {
-        $object = new Contact();
-        foreach ($array as $key => $value)
-        {
-            $object->$key = $value;
-        }
-
-        return $object;
-    }
-
-    /**
-     * @return string
+     * @return boolean
      */
     public function getChecked()
     {
@@ -222,15 +188,36 @@ class Contact
     }
 
     /**
-     * @param string $checked
+     * Set answered
+     *
+     * @param boolean $answered
+     *
+     * @return Contact
      */
-    public function setChecked($checked)
+    public function setAnswered($answered)
     {
-        $this->checked = $checked;
+        $this->answered = $answered;
+
+        return $this;
     }
 
+    /**
+     * Get answered
+     *
+     * @return boolean
+     */
+    public function getAnswered()
+    {
+        return $this->answered;
+    }
+
+    /**
+     * To string
+     *
+     * @return string
+     */
     public function __toString()
     {
-        return $this->name ? $this->getDate()->format('d/m/Y') . ' · ' . $this->getName() : '---';
+        return $this->name ? $this->getCreatedAt()->format('d/m/Y') . ' · ' . $this->getName() : '---';
     }
 }
