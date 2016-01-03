@@ -2,6 +2,8 @@
 
 namespace AppBundle\Entity;
 
+use AppBundle\Entity\Traits\SlugTrait;
+use AppBundle\Entity\Traits\TitleTrait;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -18,20 +20,8 @@ use Doctrine\Common\Collections\ArrayCollection;
  */
 class Category extends Base
 {
-    /**
-     * @var string
-     *
-     * @ORM\Column(type="string", length=255, unique=true)
-     */
-    private $title;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(type="string", length=255)
-     * @Gedmo\Slug(fields={"title"})
-     */
-    private $slug;
+    use TitleTrait;
+    use SlugTrait;
 
     /**
      * @var ArrayCollection
@@ -52,54 +42,6 @@ class Category extends Base
     public function __construct()
     {
         $this->posts = new ArrayCollection();
-    }
-
-    /**
-     * Set title
-     *
-     * @param string $title
-     *
-     * @return Category
-     */
-    public function setTitle($title)
-    {
-        $this->title = $title;
-
-        return $this;
-    }
-
-    /**
-     * Get title
-     *
-     * @return string
-     */
-    public function getTitle()
-    {
-        return $this->title;
-    }
-
-    /**
-     * Set slug
-     *
-     * @param string $slug
-     *
-     * @return Category
-     */
-    public function setSlug($slug)
-    {
-        $this->slug = $slug;
-
-        return $this;
-    }
-
-    /**
-     * Get slug
-     *
-     * @return string
-     */
-    public function getSlug()
-    {
-        return $this->slug;
     }
 
     /**

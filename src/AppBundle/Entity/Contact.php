@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use AppBundle\Entity\Traits\DescriptionTrait;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -18,6 +19,8 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Contact extends Base
 {
+    use DescriptionTrait;
+
     /**
      * @var string
      *
@@ -43,7 +46,7 @@ class Contact extends Base
     /**
      * @var string
      *
-     * @ORM\Column(type="text", length=2000)
+     * @ORM\Column(type="text", length=4000)
      */
     private $message;
 
