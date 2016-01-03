@@ -19,5 +19,7 @@ parameters:
     assetic_path_java:         /usr/bin/java
     assetic_path_node:         /usr/bin/nodejs
     assetic_path_node_modules: /home/<user>/node_modules
-    private_test_user: ~
-    private_test_pass: ~
+    private_admin_test_user: ~
+    private_admin_test_pass: ~
+    private_editor_test_user: ~
+    private_editor_test_pass: ~

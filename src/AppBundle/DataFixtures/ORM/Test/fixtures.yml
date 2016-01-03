@@ -5,40 +5,62 @@ AppBundle\Entity\Contact:
     email: <safeEmail()>
     phone: <phoneNumber()>
     message: <paragraph()>
-    date: <dateTimeThisMonth()>
+    description: <paragraph()>
+    createdAt: <dateTimeBetween('-2 months', '-1 months')>
+    updatedAt: <dateTimeThisMonth()>
+    enabled: true
+    checked: <boolean(70)>
+    answered: <boolean(30)>
 
 # Categories
 AppBundle\Entity\Category:
   category{1..5}:
-    title: <sentence()>
+    title: <current()> <word()>
+    createdAt: <dateTimeBetween('-2 months', '-1 months')>
+    updatedAt: <dateTimeThisMonth()>
     enabled: <boolean(70)>
   category6:
     title: hitme
+    createdAt: <dateTimeBetween('-2 months', '-1 months')>
+    updatedAt: <dateTimeThisMonth()>
     enabled: <boolean(70)>
 
 # Posts
 AppBundle\Entity\Post:
   post{1..10}:
-    publishedDate: <dateTimeThisMonth()>
+    publishedAt: <dateTimeThisMonth()>
     title: <sentence()>
     description: <paragraph()>
+    createdAt: <dateTimeBetween('-2 months', '-1 months')>
+    updatedAt: <dateTimeThisMonth()>
     enabled: <boolean(70)>
     categories: [ @category1, @category2, @category3 ]
   post{11..15}:
-    publishedDate: <dateTimeThisMonth()>
+    publishedAt: <dateTimeThisMonth()>
     title: <sentence()>
     description: <paragraph()>
+    createdAt: <dateTimeBetween('-2 months', '-1 months')>
+    updatedAt: <dateTimeThisMonth()>
     enabled: <boolean(70)>
     categories: [ ]
 
-## Admin users
+## Users
 AppBundle\Entity\User:
-    user1:
-        username: <{private_test_user}>
-        plainPassword: <{private_test_pass}>
+    admin:
+        username: <{private_admin_test_user}>
+        plainPassword: <{private_admin_test_pass}>
         email: <safeEmail()>
         firstname: <name()>
         lastname: <lastname()>
         enabled: true
         roles:
             - ROLE_ADMIN
+    editor:
+        username: <{private_editor_test_user}>
+        plainPassword: <{private_editor_test_pass}>
+        email: <safeEmail()>
+        firstname: <name()>
+        lastname: <lastname()>
+        enabled: true
+        roles:
+            - ROLE_CMS

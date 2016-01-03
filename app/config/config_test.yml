@@ -23,8 +23,8 @@ swiftmailer:
 liip_functional_test:
     cache_sqlite_db: true
     authentication:
-        username: "%private_test_user%"
-        password: "%private_test_pass%"
+        username: "%private_admin_test_user%"
+        password: "%private_admin_test_pass%"
 
 doctrine:
     dbal:
