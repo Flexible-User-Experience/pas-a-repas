@@ -18,7 +18,7 @@ class PostAdmin extends BaseAdmin
     protected $classnameLabel = 'Article';
     protected $baseRoutePattern = 'web/article';
     protected $datagridValues = array(
-        '_sort_by'    => 'publishedDate',
+        '_sort_by'    => 'publishedAt',
         '_sort_order' => 'desc',
     );
 
@@ -38,7 +38,7 @@ class PostAdmin extends BaseAdmin
                 )
             )
             ->add(
-                'publishedDate',
+                'publishedAt',
                 'sonata_type_date_picker',
                 array(
                     'label' => 'backend.admin.published_date',
@@ -129,7 +129,7 @@ class PostAdmin extends BaseAdmin
                 )
             )
             ->add(
-                'publishedDate',
+                'publishedAt',
                 'date',
                 array(
                     'label'    => 'backend.admin.published_date',

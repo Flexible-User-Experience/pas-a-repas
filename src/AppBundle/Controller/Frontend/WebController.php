@@ -10,13 +10,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * Class DefaultController
+ * Class WebController
  *
  * @category Controller
  * @package  AppBundle\Controller\Frontend
  * @author   David Romaní <david@flux.cat>
  */
-class DefaultController extends Controller
+class WebController extends Controller
 {
     /**
      * @Route("/", name="homepage")
@@ -27,17 +27,14 @@ class DefaultController extends Controller
      * @throws \Ivory\GoogleMap\Exception\MapException
      * @throws \Ivory\GoogleMap\Exception\OverlayException
      */
-    public function indexAction(Request $request)
+    public function homepageAction(Request $request)
     {
         /** @var GoogleMapsService $gms */
         $gms = $this->get('app.google_maps_service');
         $mapObject = $gms->buildMap(40.7061278, 0.5817055555555556, $this->container->getParameter('locale'), 15);
-        /** @var ContactType $contactType */
-        $contactType = new ContactType();
         /** @var Contact $contactEntity */
         $contactEntity = new Contact();
-
-        $form = $this->createForm($contactType, $contactEntity);
+        $form = $this->createForm(ContactType::class, $contactEntity);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             // send notification email
@@ -49,11 +46,12 @@ class DefaultController extends Controller
                 $this->renderView('Front/Web/email.html.twig', array('contactEntity' => $contactEntity))
             );
             // persist new contact message record
+            $contactEntity->setDescription('');
             $em = $this->getDoctrine()->getManager();
             $em->persist($contactEntity);
             $em->flush();
             // add view flash message
-            $this->addFlash('notice','frontend.index.main.sent');
+            $this->addFlash('notice', 'frontend.index.main.sent');
         }
 
         return $this->render('Front/Web/homepage.html.twig', array(

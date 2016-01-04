@@ -14,7 +14,7 @@
                     {% elseif role == 'ROLE_MANAGER' %}
                         {% set status = 'primary' %}
                         {% set text = 'gestor' %}
-                    {% elseif role == 'ROLE_ADMIN' or role == 'ROLE_SONATA_ADMIN' %}
+                    {% elseif role == 'ROLE_ADMIN' or role == 'ROLE_SONATA_ADMIN' or role == 'ROLE_SUPER_ADMIN' %}
                         {% set status = 'success' %}
                         {% set text = 'administrador' %}
                     {% endif %}

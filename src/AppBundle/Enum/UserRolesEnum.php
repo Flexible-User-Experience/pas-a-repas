@@ -15,7 +15,7 @@ class UserRolesEnum
     const ROLE_CMS = 'ROLE_CMS';
     const ROLE_MANAGER = 'ROLE_MANAGER';
     const ROLE_ADMIN = 'ROLE_ADMIN';
-    const ROLE_SONATA_ADMIN = 'ROLE_SONATA_ADMIN';
+    const ROLE_SUPER_ADMIN = 'ROLE_SUPER_ADMIN';
 
     /**
      * @return array
@@ -27,7 +27,7 @@ class UserRolesEnum
             self::ROLE_CMS => 'editor',
             self::ROLE_MANAGER => 'gestor',
             self::ROLE_ADMIN => 'administrador',
-            self::ROLE_SONATA_ADMIN => 'super administrador',
+            self::ROLE_SUPER_ADMIN => 'super administrador',
         );
     }
 }

@@ -38,11 +38,11 @@ class ContactTypeTest extends TypeTestCase
         $form->submit($formData);
 
         $this->assertTrue($form->isSynchronized());
-        $this->assertEquals($object->getName(), $form->getData()['name']);
-        $this->assertEquals($object->getEmail(), $form->getData()['email']);
-        $this->assertEquals($object->getPhone(), $form->getData()['phone']);
-        $this->assertNotEquals($object->getPhone(), $form->getData()['message']);
-        $this->assertEquals($object->getMessage(), $form->getData()['message']);
+        $this->assertEquals($object->getName(), $form->get('name'));
+        $this->assertEquals($object->getEmail(), $form->get('email'));
+        $this->assertEquals($object->getPhone(), $form->get('phone'));
+        $this->assertNotEquals($object->getPhone(), $form->get('message'));
+        $this->assertEquals($object->getMessage(), $form->get('message'));
 
         $view = $form->createView();
         $children = $view->children;

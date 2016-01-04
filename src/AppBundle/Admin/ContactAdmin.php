@@ -19,7 +19,7 @@ class ContactAdmin extends BaseAdmin
     protected $classnameLabel = 'Contacte';
     protected $baseRoutePattern = 'web/contacte';
     protected $datagridValues = array(
-        '_sort_by'    => 'date',
+        '_sort_by'    => 'createdAt',
         '_sort_order' => 'desc',
     );
 
@@ -51,7 +51,7 @@ class ContactAdmin extends BaseAdmin
                 )
             )
             ->add(
-                'date',
+                'createdAt',
                 null,
                 array(
                     'label' => 'backend.admin.date',
@@ -94,11 +94,11 @@ class ContactAdmin extends BaseAdmin
     {
         $showMapper
             ->add(
-                'date',
+                'createdAt',
                 'date',
                 array(
                     'label' => 'backend.admin.date',
-                    'format' => 'd/m/Y',
+                    'format' => 'd/m/Y H:i',
                 )
             )
             ->add(
@@ -146,7 +146,7 @@ class ContactAdmin extends BaseAdmin
                 )
             )
             ->add(
-                'date',
+                'createdAt',
                 'date',
                 array(
                     'label'  => 'backend.admin.date',
