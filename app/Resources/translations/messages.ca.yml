@@ -92,6 +92,8 @@ backend:
         description: Descripció
         image: Imatge
         checked: Llegit
+        answered: Contestat
+        answer: Resposta
         enabled: Actiu
         date: Data
         name: Nom

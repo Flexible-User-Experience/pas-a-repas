@@ -52,9 +52,10 @@ class ContactAdmin extends BaseAdmin
             )
             ->add(
                 'createdAt',
-                null,
+                'doctrine_orm_date',
                 array(
-                    'label' => 'backend.admin.date',
+                    'label'      => 'backend.admin.date',
+                    'field_type' => 'sonata_type_date_picker',
                 )
             )
             ->add(
@@ -97,8 +98,15 @@ class ContactAdmin extends BaseAdmin
                 'createdAt',
                 'date',
                 array(
-                    'label' => 'backend.admin.date',
+                    'label'  => 'backend.admin.date',
                     'format' => 'd/m/Y H:i',
+                )
+            )
+            ->add(
+                'checked',
+                null,
+                array(
+                    'label' => 'backend.admin.checked',
                 )
             )
             ->add(
@@ -128,7 +136,24 @@ class ContactAdmin extends BaseAdmin
                 array(
                     'label' => 'backend.admin.message',
                 )
+            )
+            ->add(
+                'answered',
+                null,
+                array(
+                    'label' => 'backend.admin.answered',
+                )
             );
+        if ($this->getSubject()->getAnswered()) {
+            $showMapper
+                ->add(
+                    'description',
+                    'textarea',
+                    array(
+                        'label' => 'backend.admin.answer',
+                    )
+                );
+        }
     }
 
     /**
@@ -173,7 +198,15 @@ class ContactAdmin extends BaseAdmin
                 array(
                     'label' => 'backend.admin.phone',
                 )
-            )->add(
+            )
+            ->add(
+                'answered',
+                null,
+                array(
+                    'label' => 'backend.admin.answered',
+                )
+            )
+            ->add(
                 '_action',
                 'actions',
                 array(
