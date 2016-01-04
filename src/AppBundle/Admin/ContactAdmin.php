@@ -85,6 +85,20 @@ class ContactAdmin extends BaseAdmin
                 array(
                     'label' => 'backend.admin.message',
                 )
+            )
+            ->add(
+                'answered',
+                null,
+                array(
+                    'label' => 'backend.admin.answered',
+                )
+            )
+            ->add(
+                'description',
+                null,
+                array(
+                    'label' => 'backend.admin.answer',
+                )
             );
     }
 
