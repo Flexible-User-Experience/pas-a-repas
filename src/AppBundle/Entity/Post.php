@@ -57,6 +57,20 @@ class Post extends Base
     private $imageName;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $metaKeywords;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $metaDescription;
+
+    /**
      * @var ArrayCollection
      *
      * @ORM\ManyToMany(targetEntity="Category", inversedBy="posts")
@@ -153,6 +167,54 @@ class Post extends Base
     public function getImageName()
     {
         return $this->imageName;
+    }
+
+    /**
+     * Set MetaKeywords
+     *
+     * @param string $metaKeywords
+     *
+     * @return Post
+     */
+    public function setMetaKeywords($metaKeywords)
+    {
+        $this->metaKeywords = $metaKeywords;
+
+        return $this;
+    }
+
+    /**
+     * Get MetaKeywords
+     *
+     * @return string
+     */
+    public function getMetaKeywords()
+    {
+        return $this->metaKeywords;
+    }
+
+    /**
+     * Set MetaDescription
+     *
+     * @param string $metaDescription
+     *
+     * @return Post
+     */
+    public function setMetaDescription($metaDescription)
+    {
+        $this->metaDescription = $metaDescription;
+
+        return $this;
+    }
+
+    /**
+     * Get MetaDescription
+     *
+     * @return string
+     */
+    public function getMetaDescription()
+    {
+        return $this->metaDescription;
     }
 
     /**

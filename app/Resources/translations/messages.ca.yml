@@ -90,6 +90,9 @@ backend:
     admin:
         title: Títol
         description: Descripció
+        metakeywords: Paraules clau
+        metakeywordshelp: Separades per coma
+        metadescription: Metadescripció
         image: Imatge
         checked: Llegit
         answered: Contestat
@@ -100,11 +103,15 @@ backend:
         email: Email
         phone: Telèfon
         message: Missatge
+        category: Categoria
         categories: Categories
+        post: Article
         posts: Articles
         posts_amount: Articles vinculats
         published_date: Data publicació
         actions: Accions
+        controls: Controls
+        content: Contingut
         block:
             title: Notificacions
             text: missatges pendents de llegir

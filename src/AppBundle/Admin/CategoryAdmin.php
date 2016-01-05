@@ -60,6 +60,7 @@ class CategoryAdmin extends BaseAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
+            ->with('backend.admin.category', $this->getFormMdSuccessBoxArray(6))
             ->add(
                 'title',
                 null,
@@ -67,6 +68,8 @@ class CategoryAdmin extends BaseAdmin
                     'label' => 'backend.admin.title',
                 )
             )
+            ->end()
+            ->with('backend.admin.controls', $this->getFormMdSuccessBoxArray(6))
             ->add(
                 'enabled',
                 'sonata_type_boolean',
@@ -74,7 +77,8 @@ class CategoryAdmin extends BaseAdmin
                     'label'    => 'backend.admin.enabled',
                     'required' => true,
                 )
-            );
+            )
+            ->end();
     }
 
     /**

@@ -47,6 +47,14 @@ class PostAdmin extends BaseAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
+            ->with('backend.admin.post', $this->getFormMdSuccessBoxArray(6))
+            ->add(
+                'publishedAt',
+                'sonata_type_date_picker',
+                array(
+                    'label' => 'backend.admin.published_date',
+                )
+            )
             ->add(
                 'imageFile',
                 'file',
@@ -56,13 +64,40 @@ class PostAdmin extends BaseAdmin
                     'required' => false,
                 )
             )
+            ->end()
+            ->with('backend.admin.controls', $this->getFormMdSuccessBoxArray(6))
             ->add(
-                'publishedAt',
-                'sonata_type_date_picker',
+                'categories',
+                null,
                 array(
-                    'label' => 'backend.admin.published_date',
+                    'label' => 'backend.admin.categories',
                 )
             )
+            ->add(
+                'metaKeywords',
+                null,
+                array(
+                    'label' => 'backend.admin.metakeywords',
+                    'help'  => 'backend.admin.metakeywordshelp',
+                )
+            )
+            ->add(
+                'metaDescription',
+                null,
+                array(
+                    'label' => 'backend.admin.metadescription',
+                )
+            )
+            ->add(
+                'enabled',
+                'sonata_type_boolean',
+                array(
+                    'label'    => 'backend.admin.enabled',
+                    'required' => true,
+                )
+            )
+            ->end()
+            ->with('backend.admin.content', $this->getFormMdSuccessBoxArray(12))
             ->add(
                 'title',
                 null,
@@ -79,21 +114,7 @@ class PostAdmin extends BaseAdmin
                     'required'    => true,
                 )
             )
-            ->add(
-                'categories',
-                null,
-                array(
-                    'label' => 'backend.admin.categories',
-                )
-            )
-            ->add(
-                'enabled',
-                'sonata_type_boolean',
-                array(
-                    'label'    => 'backend.admin.enabled',
-                    'required' => true,
-                )
-            );
+            ->end();
     }
 
     /**
@@ -102,6 +123,14 @@ class PostAdmin extends BaseAdmin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
+            ->add(
+                'publishedAt',
+                'doctrine_orm_date',
+                array(
+                    'label'      => 'backend.admin.published_date',
+                    'field_type' => 'sonata_type_date_picker',
+                )
+            )
             ->add(
                 'title',
                 null,
@@ -121,6 +150,20 @@ class PostAdmin extends BaseAdmin
                 null,
                 array(
                     'label' => 'backend.admin.description',
+                )
+            )
+            ->add(
+                'metaKeywords',
+                null,
+                array(
+                    'label' => 'backend.admin.metakeywords',
+                )
+            )
+            ->add(
+                'metaDescription',
+                null,
+                array(
+                    'label' => 'backend.admin.metadescription',
                 )
             )
             ->add(
