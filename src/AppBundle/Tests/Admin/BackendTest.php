@@ -92,7 +92,6 @@ class BackendTest extends BaseTest
             array('/admin/web/missatge/1/delete'),
             array('/admin/web/missatge/batch'),
             array('/admin/web/categoria/batch'),
-            array('/admin/web/article/1/show'),
             array('/admin/web/article/batch'),
             array('/admin/administrador/usuari/show'),
             array('/admin/administrador/usuari/batch'),

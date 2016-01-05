@@ -108,6 +108,7 @@ backend:
         post: Article
         posts: Articles
         posts_amount: Articles vinculats
+        categories_amount: Categories vinculades
         published_date: Data publicació
         actions: Accions
         controls: Controls

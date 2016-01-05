@@ -2,7 +2,7 @@
 
 namespace AppBundle\Controller\Admin;
 
-use AppBundle\Entity\Contact;
+use AppBundle\Entity\Post;
 use Sonata\AdminBundle\Controller\CRUDController as Controller;
 use Symfony\Component\HttpFoundation\File\Exception\AccessDeniedException;
 use Symfony\Component\HttpFoundation\Request;
@@ -10,16 +10,16 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
- * Class ContactAdminController
+ * Class PostAdminController
  *
  * @category Controller
  * @package  AppBundle\Controller\Admin
  * @author   David Romaní <david@flux.cat>
  */
-class ContactAdminController extends Controller
+class PostAdminController extends Controller
 {
     /**
-     * Show action.
+     * Custom show action redirect to public frontend view
      *
      * @param int|string|null $id
      * @param Request         $request
@@ -33,36 +33,21 @@ class ContactAdminController extends Controller
         $request = $this->resolveRequest($request);
         $id = $request->get($this->admin->getIdParameter());
 
-        /** @var Contact $object */
+        /** @var Post $object */
         $object = $this->admin->getObject($id);
 
         if (!$object) {
             throw $this->createNotFoundException(sprintf('unable to find the object with id : %s', $id));
         }
 
-        $object->setChecked(true);
-        $this->admin->checkAccess('show', $object);
-
-        $preResponse = $this->preShow($request, $object);
-        if ($preResponse !== null) {
-            return $preResponse;
-        }
-
-        $this->admin->setSubject($object);
-
-        $em = $this->getDoctrine()->getManager();
-        $em->persist($object);
-        $em->flush();
-
-        return $this->render(
-            $this->admin->getTemplate('show'),
+        return $this->redirectToRoute(
+            'blog_detail',
             array(
-                'action'   => 'show',
-                'object'   => $object,
-                'elements' => $this->admin->getShow(),
-            ),
-            null,
-            $request
+                'year'  => $object->getPublishedAt()->format('Y'),
+                'month' => $object->getPublishedAt()->format('m'),
+                'day'   => $object->getPublishedAt()->format('d'),
+                'slug'  => $object->getSlug(),
+            )
         );
     }
 

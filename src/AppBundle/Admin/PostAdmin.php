@@ -6,6 +6,7 @@ use Doctrine\ORM\QueryBuilder;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\AdminBundle\Route\RouteCollection;
 
 /**
  * Class PostAdmin
@@ -22,6 +23,17 @@ class PostAdmin extends BaseAdmin
         '_sort_by'    => 'publishedAt',
         '_sort_order' => 'desc',
     );
+
+    /**
+     * Configure route collection
+     *
+     * @param RouteCollection $collection
+     */
+    protected function configureRoutes(RouteCollection $collection)
+    {
+        $collection
+            ->remove('batch');
+    }
 
     /**
      * Override query list to reduce queries amount on list view (apply join strategy)
@@ -93,7 +105,7 @@ class PostAdmin extends BaseAdmin
                 'sonata_type_boolean',
                 array(
                     'label'    => 'backend.admin.enabled',
-                    'required' => true,
+                    'required' => false,
                 )
             )
             ->end()
@@ -208,10 +220,11 @@ class PostAdmin extends BaseAdmin
                 )
             )
             ->add(
-                'categories',
+                'count',
                 null,
                 array(
-                    'label' => 'backend.admin.categories',
+                    'label'    => 'backend.admin.categories_amount',
+                    'template' => '::Admin/Cells/list__cell_categories_amount_field.html.twig',
                 )
             )
             ->add(
@@ -227,6 +240,7 @@ class PostAdmin extends BaseAdmin
                 'actions',
                 array(
                     'actions' => array(
+                        'show'   => array(),
                         'edit'   => array(),
                         'delete' => array(),
                     ),
