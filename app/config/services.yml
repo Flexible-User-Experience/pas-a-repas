@@ -5,12 +5,12 @@ services:
         autowire: true
     app.google_maps_service:
         class: AppBundle\Service\GoogleMapsService
-# Sonata
+# Sonata Admins
     admin.contact:
         class: AppBundle\Admin\ContactAdmin
         arguments: [ ~, AppBundle\Entity\Contact, AppBundle:Admin\ContactAdmin, "@vich_uploader.templating.helper.uploader_helper", "@liip_imagine.cache.manager" ]
         tags:
-            - { name: sonata.admin, manager_type: orm, label: Contactes, group: Web }
+            - { name: sonata.admin, manager_type: orm, label: Missatges, group: Web }
     admin.category:
         class: AppBundle\Admin\CategoryAdmin
         arguments: [ ~, AppBundle\Entity\Category, ~, "@vich_uploader.templating.helper.uploader_helper", "@liip_imagine.cache.manager" ]
@@ -26,6 +26,15 @@ services:
         arguments: [ ~, AppBundle\Entity\User, ~ ]
         tags:
             - { name: sonata.admin, manager_type: orm, label: Usuaris, group: Administrador }
+# Sonata Blocks
+    admin.block.messages:
+        class: AppBundle\Admin\Block\PendingMessagesBlock
+        tags:
+            - { name: sonata.block }
+        arguments:
+            - sonata.admin.block.messages
+            - @templating
+            - @doctrine.orm.entity_manager
 # Twig
     twig.extension.text:
         class: Twig_Extensions_Extension_Text

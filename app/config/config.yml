@@ -181,12 +181,17 @@ sonata_admin:
                     content: >
                         <h1 style="margin-top:0">CMS v2.0</h1>
             -
-                position: left
+                position: top
                 type: sonata.admin.block.admin_list
+                class: col-md-6
                 settings:
                     groups: [ Web ]
             -
-                position: right
+                position: top
+                type: admin.block.messages
+                class: col-md-6
+            -
+                position: left
                 type: sonata.admin.block.admin_list
                 settings:
                     groups: [ Administrador ]
@@ -204,6 +209,7 @@ sonata_block:
         sonata.user.block.menu:         ~
         sonata.block.service.text:      ~
         sonata.admin.block.admin_list:  ~
+        admin.block.messages:           ~
 
 sonata_user:
     security_acl: true

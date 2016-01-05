@@ -1,0 +1,16 @@
+{% extends sonata_block.templates.block_base %}
+
+{% block block %}
+    <div class="box{% if pendingMessages > 0 %} box-info{% endif %}">
+        <div class="box-header">
+            <h3 class="box-title">
+                <i class="fa fa-envelope-o"></i>
+                {% if pendingMessages > 0 %}
+                    {{ pendingMessages }} {{ 'backend.admin.block.text' | trans }}
+                {% else %}
+                    {{ 'backend.admin.block.notext' | trans }}
+                {% endif %}
+            </h3>
+        </div>
+    </div>
+{% endblock %}

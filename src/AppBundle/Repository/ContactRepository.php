@@ -13,4 +13,16 @@ use Doctrine\ORM\EntityRepository;
  */
 class ContactRepository extends EntityRepository
 {
+    /**
+     * @return int
+     */
+    public function getPendingMessagesAmount()
+    {
+        $query = $this->createQueryBuilder('c')
+            ->where('c.checked = :checked')
+            ->setParameter('checked', false)
+            ->getQuery();
+
+        return count($query->getResult());
+    }
 }

@@ -103,3 +103,7 @@ backend:
         categories: Categories
         published_date: Data publicació
         actions: Accions
+        block:
+            title: Notificacions
+            text: missatges pendents de llegir
+            notext: no tens cap missatge pendent de llegir
