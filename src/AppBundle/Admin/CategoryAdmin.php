@@ -5,6 +5,8 @@ namespace AppBundle\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\AdminBundle\Route\RouteCollection;
+use Sonata\AdminBundle\Show\ShowMapper;
 
 /**
  * Class CategoryAdmin
@@ -21,6 +23,17 @@ class CategoryAdmin extends BaseAdmin
         '_sort_by'    => 'title',
         '_sort_order' => 'asc',
     );
+
+    /**
+     * Configure route collection
+     *
+     * @param RouteCollection $collection
+     */
+    protected function configureRoutes(RouteCollection $collection)
+    {
+        $collection
+            ->remove('batch');
+    }
 
     /**
      * @param FormMapper $formMapper
@@ -59,6 +72,14 @@ class CategoryAdmin extends BaseAdmin
                 )
             )
             ->add(
+                'posts',
+                null,
+                array(
+                    'label'    => 'backend.admin.posts',
+                    'editable' => true,
+                )
+            )
+            ->add(
                 'enabled',
                 null,
                 array(
@@ -67,6 +88,42 @@ class CategoryAdmin extends BaseAdmin
             );
     }
 
+    /**
+     * @param ShowMapper $showMapper
+     */
+    protected function configureShowFields(ShowMapper $showMapper)
+    {
+        $showMapper
+            ->add(
+                'createdAt',
+                'date',
+                array(
+                    'label'  => 'backend.admin.date',
+                    'format' => 'd/m/Y H:i',
+                )
+            )
+            ->add(
+                'title',
+                null,
+                array(
+                    'label' => 'backend.admin.title',
+                )
+            )
+            ->add(
+                'posts',
+                null,
+                array(
+                    'label' => 'backend.admin.posts',
+                )
+            )
+            ->add(
+                'enabled',
+                null,
+                array(
+                    'label' => 'backend.admin.enabled',
+                )
+            );
+    }
 
     /**
      * @param ListMapper $listMapper
@@ -84,6 +141,14 @@ class CategoryAdmin extends BaseAdmin
                 )
             )
             ->add(
+                'count',
+                null,
+                array(
+                    'label'    => 'backend.admin.posts_amount',
+                    'template' => '::Admin/Cells/list__cell_posts_amount_field.html.twig',
+                )
+            )
+            ->add(
                 'enabled',
                 null,
                 array(
@@ -96,6 +161,7 @@ class CategoryAdmin extends BaseAdmin
                 'actions',
                 array(
                     'actions' => array(
+                        'show'   => array(),
                         'edit'   => array(),
                         'delete' => array(),
                     ),

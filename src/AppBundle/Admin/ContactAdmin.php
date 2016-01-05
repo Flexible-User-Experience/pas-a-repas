@@ -17,7 +17,7 @@ use Sonata\AdminBundle\Show\ShowMapper;
 class ContactAdmin extends BaseAdmin
 {
     protected $classnameLabel = 'Contacte';
-    protected $baseRoutePattern = 'web/contacte';
+    protected $baseRoutePattern = 'web/missatge';
     protected $datagridValues = array(
         '_sort_by'    => 'createdAt',
         '_sort_order' => 'desc',

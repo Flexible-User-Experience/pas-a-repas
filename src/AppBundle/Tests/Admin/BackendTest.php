@@ -47,10 +47,11 @@ class BackendTest extends BaseTest
     {
         return array(
             array('/admin/dashboard'),
-            array('/admin/web/contacte/list'),
-            array('/admin/web/contacte/1/show'),
+            array('/admin/web/missatge/list'),
+            array('/admin/web/missatge/1/show'),
             array('/admin/web/categoria/list'),
             array('/admin/web/categoria/create'),
+            array('/admin/web/categoria/1/show'),
             array('/admin/web/categoria/1/edit'),
             array('/admin/web/categoria/1/delete'),
             array('/admin/web/article/list'),
@@ -86,11 +87,10 @@ class BackendTest extends BaseTest
     public function provideNotFoundUrls()
     {
         return array(
-            array('/admin/web/contacte/create'),
-            array('/admin/web/contacte/1/edit'),
-            array('/admin/web/contacte/1/delete'),
-            array('/admin/web/contacte/batch'),
-            array('/admin/web/categoria/1/show'),
+            array('/admin/web/missatge/create'),
+            array('/admin/web/missatge/1/edit'),
+            array('/admin/web/missatge/1/delete'),
+            array('/admin/web/missatge/batch'),
             array('/admin/web/categoria/batch'),
             array('/admin/web/article/1/show'),
             array('/admin/web/article/batch'),

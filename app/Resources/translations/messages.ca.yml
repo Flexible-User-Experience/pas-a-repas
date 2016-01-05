@@ -101,6 +101,8 @@ backend:
         phone: Telèfon
         message: Missatge
         categories: Categories
+        posts: Articles
+        posts_amount: Articles vinculats
         published_date: Data publicació
         actions: Accions
         block:
