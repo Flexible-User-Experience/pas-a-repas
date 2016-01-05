@@ -5,7 +5,6 @@ namespace AppBundle\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
-use Sonata\AdminBundle\Route\RouteCollection;
 
 /**
  * Class ScheduleAdmin
@@ -29,22 +28,22 @@ class ScheduleAdmin extends BaseAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->with('backend.admin.category', $this->getFormMdSuccessBoxArray(6))
+            ->with('backend.admin.schedule', $this->getFormMdSuccessBoxArray(6))
             ->add(
-                'title',
-                null,
+                'date',
+                'sonata_type_date_picker',
                 array(
-                    'label' => 'backend.admin.title',
+                    'label' => 'backend.admin.date',
                 )
             )
             ->end()
             ->with('backend.admin.controls', $this->getFormMdSuccessBoxArray(6))
             ->add(
-                'enabled',
-                'checkbox',
+                'hours',
+                null,
                 array(
-                    'label'    => 'backend.admin.enabled',
-                    'required' => false,
+                    'label'    => 'backend.admin.hours',
+                    'required' => true,
                 )
             )
             ->end();

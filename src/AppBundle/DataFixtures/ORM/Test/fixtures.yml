@@ -54,6 +54,24 @@ AppBundle\Entity\Schedule:
     date: <dateTimeThisMonth()>
     hours: <numberBetween(1, 4)>
 
+## Customers
+AppBundle\Entity\Customer:
+  customer{1..5}:
+    name: <firstName()>
+    surname: <lastName()>
+    father: <firstName()> <lastName()>
+    mother: <firstName()> <lastName()>
+    address: <streetName()>
+    city: <city()>
+    postalCode: <postcode()>
+    email: <safeEmail()>
+    priceHourSingle: <randomFloat(2, 11, 20)>
+    priceHourGroup: <randomFloat(2, 0, 10)>
+    singleClasses: <boolean(70)>
+    groupClasses: <boolean(70)>
+    annotations: <paragraph()>
+    enabled: <boolean(70)>
+
 ## Users
 AppBundle\Entity\User:
     admin:
