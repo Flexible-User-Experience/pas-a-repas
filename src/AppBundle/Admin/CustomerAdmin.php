@@ -27,26 +27,33 @@ class CustomerAdmin extends BaseAdmin
      */
     protected function configureFormFields(FormMapper $formMapper)
     {
-//        $formMapper
-//            ->with('backend.admin.schedule', $this->getFormMdSuccessBoxArray(6))
-//            ->add(
-//                'date',
-//                'sonata_type_date_picker',
-//                array(
-//                    'label' => 'backend.admin.date',
-//                )
-//            )
-//            ->end()
-//            ->with('backend.admin.controls', $this->getFormMdSuccessBoxArray(6))
-//            ->add(
-//                'hours',
-//                null,
-//                array(
-//                    'label'    => 'backend.admin.hours',
-//                    'required' => true,
-//                )
-//            )
-//            ->end();
+        $formMapper
+            ->with('backend.admin.customer', $this->getFormMdSuccessBoxArray(6))
+            ->add(
+                'name',
+                null,
+                array(
+                    'label'    => 'backend.admin.name',
+                )
+            )
+            ->add(
+                'surname',
+                null,
+                array(
+                    'label'    => 'backend.admin.surname',
+                )
+            )
+            ->end()
+            ->with('backend.admin.controls', $this->getFormMdSuccessBoxArray(6))
+            ->add(
+                'enabled',
+                null,
+                array(
+                    'label'    => 'backend.admin.enabled',
+                    'required' => false,
+                )
+            )
+            ->end();
     }
 
     /**
@@ -54,22 +61,28 @@ class CustomerAdmin extends BaseAdmin
      */
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
-//        $datagridMapper
-//            ->add(
-//                'date',
-//                'doctrine_orm_date',
-//                array(
-//                    'label'      => 'backend.admin.date',
-//                    'field_type' => 'sonata_type_date_picker',
-//                )
-//            )
-//            ->add(
-//                'hours',
-//                null,
-//                array(
-//                    'label'    => 'backend.admin.hours',
-//                )
-//            );
+        $datagridMapper
+            ->add(
+                'name',
+                null,
+                array(
+                    'label'    => 'backend.admin.name',
+                )
+            )
+            ->add(
+                'surname',
+                null,
+                array(
+                    'label'    => 'backend.admin.surname',
+                )
+            )
+            ->add(
+                'enabled',
+                null,
+                array(
+                    'label'    => 'backend.admin.enabled',
+                )
+            );
     }
 
     /**
