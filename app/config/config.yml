@@ -29,7 +29,7 @@ twig:
     form:
         resources:
             - "bootstrap_3_layout.html.twig"
-            - 'SonataCoreBundle:Form:datepicker.html.twig'
+            - "SonataCoreBundle:Form:datepicker.html.twig"
     globals:
         google_analytics_enabled: %google_analytics_enabled%
         google_analytics_account: "%google_analytics_account%"
@@ -160,14 +160,16 @@ sonata_admin:
         use_select2:    true
         pager_links:    10
     persist_filters: true
+    security:
+        handler: sonata.admin.security.handler.role
     templates:
         layout:    "::Admin/layout.html.twig"
-        dashboard: "::Admin/dashboard.html.twig"
-#        edit:      "::Admin/edit.html.twig"
     dashboard:
         groups:
             Web:
                 icon: "<i class='fa fa-chrome'></i>"
+            Administrador:
+                icon: "<i class='fa fa-cog'></i>"
         blocks:
             -
                 position: top
@@ -177,15 +179,20 @@ sonata_admin:
                     content: >
                         <h1 style="margin-top:0">CMS v2.0</h1>
             -
-                position: left
+                position: top
                 type: sonata.admin.block.admin_list
+                class: col-md-6
                 settings:
                     groups: [ Web ]
             -
-                position: right
+                position: top
+                type: admin.block.messages
+                class: col-md-6
+            -
+                position: left
                 type: sonata.admin.block.admin_list
                 settings:
-                    groups: [ Oficina ]
+                    groups: [ Administrador ]
             -
                 position: bottom
                 type: sonata.block.service.text
@@ -200,6 +207,12 @@ sonata_block:
         sonata.user.block.menu:         ~
         sonata.block.service.text:      ~
         sonata.admin.block.admin_list:  ~
+        admin.block.messages:           ~
+
+sonata_doctrine_orm_admin:
+    templates:
+        form:
+            - "::Admin/Forms/custom_checkbox_form_template_hack.html.twig"
 
 sonata_user:
     security_acl: true

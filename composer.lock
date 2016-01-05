@@ -4,58 +4,9 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0b193177b9c7d23e8e9b990649cacc47",
-    "content-hash": "7d8797ea34339d6e03c6adc9e06284ba",
+    "hash": "3acc9c2500398ead36293bf0e2ba4fa5",
+    "content-hash": "a9d4e86c282b51e5682eae00446daf57",
     "packages": [
-        {
-            "name": "apoutchika/loremipsum-bundle",
-            "version": "v1.0.3",
-            "target-dir": "Apoutchika/LoremIpsumBundle",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/apoutchika/LoremIpsumBundle.git",
-                "reference": "d02771d1710dd78eccf0d7b12b9e8488bea3d891"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/apoutchika/LoremIpsumBundle/zipball/d02771d1710dd78eccf0d7b12b9e8488bea3d891",
-                "reference": "d02771d1710dd78eccf0d7b12b9e8488bea3d891",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.2",
-                "symfony/framework-bundle": ">=2.0"
-            },
-            "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Apoutchika\\LoremIpsumBundle": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Julien Philippon",
-                    "email": "contact@julienphilippon.fr"
-                }
-            ],
-            "description": "Generate paragraphs, sentences and words for your development.",
-            "keywords": [
-                "data",
-                "fixtures",
-                "ipsum",
-                "lorem"
-            ],
-            "time": "2014-10-05 19:11:51"
-        },
         {
             "name": "behat/transliterator",
             "version": "v1.1.0",
@@ -237,24 +188,24 @@
         },
         {
             "name": "cypresslab/gitelephant",
-            "version": "v1.0.14",
+            "version": "v1.0.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/matteosister/GitElephant.git",
-                "reference": "7db4e7fd8bf1819b64a49fef801ac03e33ba6008"
+                "reference": "85c97a762e0193b01f64d1ee9084a239b4eaf1bd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/matteosister/GitElephant/zipball/7db4e7fd8bf1819b64a49fef801ac03e33ba6008",
-                "reference": "7db4e7fd8bf1819b64a49fef801ac03e33ba6008",
+                "url": "https://api.github.com/repos/matteosister/GitElephant/zipball/85c97a762e0193b01f64d1ee9084a239b4eaf1bd",
+                "reference": "85c97a762e0193b01f64d1ee9084a239b4eaf1bd",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.0",
                 "phpcollection/phpcollection": "~0.4",
-                "symfony/filesystem": "~2.0",
-                "symfony/finder": "~2.0",
-                "symfony/process": "~2.0"
+                "symfony/filesystem": "~2.0|~3.0",
+                "symfony/finder": "~2.0|~3.0",
+                "symfony/process": "~2.0|~3.0"
             },
             "require-dev": {
                 "mockery/mockery": "0.9.*",
@@ -282,7 +233,7 @@
             "keywords": [
                 "git"
             ],
-            "time": "2015-09-18 21:25:51"
+            "time": "2016-01-03 09:24:52"
         },
         {
             "name": "cypresslab/gitelephant-bundle",
@@ -402,33 +353,33 @@
         },
         {
             "name": "doctrine/cache",
-            "version": "v1.5.4",
+            "version": "v1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/cache.git",
-                "reference": "47cdc76ceb95cc591d9c79a36dc3794975b5d136"
+                "reference": "f8af318d14bdb0eff0336795b428b547bd39ccb6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/cache/zipball/47cdc76ceb95cc591d9c79a36dc3794975b5d136",
-                "reference": "47cdc76ceb95cc591d9c79a36dc3794975b5d136",
+                "url": "https://api.github.com/repos/doctrine/cache/zipball/f8af318d14bdb0eff0336795b428b547bd39ccb6",
+                "reference": "f8af318d14bdb0eff0336795b428b547bd39ccb6",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.2"
+                "php": "~5.5|~7.0"
             },
             "conflict": {
                 "doctrine/common": ">2.2,<2.4"
             },
             "require-dev": {
-                "phpunit/phpunit": ">=3.7",
+                "phpunit/phpunit": "~4.8|~5.0",
                 "predis/predis": "~1.0",
                 "satooshi/php-coveralls": "~0.6"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.5.x-dev"
+                    "dev-master": "1.6.x-dev"
                 }
             },
             "autoload": {
@@ -468,7 +419,7 @@
                 "cache",
                 "caching"
             ],
-            "time": "2015-12-19 05:03:47"
+            "time": "2015-12-31 16:37:02"
         },
         {
             "name": "doctrine/collections",
@@ -2862,16 +2813,16 @@
         },
         {
             "name": "nelmio/alice",
-            "version": "2.1.2",
+            "version": "2.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nelmio/alice.git",
-                "reference": "f9afb65c8511967d672b6bc451d7156ea437d796"
+                "reference": "c05812b4864b2bdf547607f1c7f0ea8c847e7f9a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nelmio/alice/zipball/f9afb65c8511967d672b6bc451d7156ea437d796",
-                "reference": "f9afb65c8511967d672b6bc451d7156ea437d796",
+                "url": "https://api.github.com/repos/nelmio/alice/zipball/c05812b4864b2bdf547607f1c7f0ea8c847e7f9a",
+                "reference": "c05812b4864b2bdf547607f1c7f0ea8c847e7f9a",
                 "shasum": ""
             },
             "require": {
@@ -2916,21 +2867,21 @@
                 "orm",
                 "test"
             ],
-            "time": "2015-12-10 10:03:17"
+            "time": "2015-12-28 20:40:51"
         },
         {
             "name": "nelmio/api-doc-bundle",
-            "version": "2.11.1",
+            "version": "2.11.2",
             "target-dir": "Nelmio/ApiDocBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nelmio/NelmioApiDocBundle.git",
-                "reference": "19d4e37365edd5104e31662a2d3b510d92a7e78a"
+                "reference": "1ae2cfa9a50279d722d6b6e7b02322cef948d55d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nelmio/NelmioApiDocBundle/zipball/19d4e37365edd5104e31662a2d3b510d92a7e78a",
-                "reference": "19d4e37365edd5104e31662a2d3b510d92a7e78a",
+                "url": "https://api.github.com/repos/nelmio/NelmioApiDocBundle/zipball/1ae2cfa9a50279d722d6b6e7b02322cef948d55d",
+                "reference": "1ae2cfa9a50279d722d6b6e7b02322cef948d55d",
                 "shasum": ""
             },
             "require": {
@@ -3000,7 +2951,7 @@
                 "documentation",
                 "rest"
             ],
-            "time": "2015-12-08 13:19:42"
+            "time": "2015-12-16 15:17:51"
         },
         {
             "name": "paragonie/random_compat",
@@ -3982,12 +3933,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataUserBundle.git",
-                "reference": "3b41f386a0114457181f93dea37a08fb9464dff0"
+                "reference": "1cb2a91f21a71585de5ace4521c0381e0464b901"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataUserBundle/zipball/3b41f386a0114457181f93dea37a08fb9464dff0",
-                "reference": "3b41f386a0114457181f93dea37a08fb9464dff0",
+                "url": "https://api.github.com/repos/sonata-project/SonataUserBundle/zipball/1cb2a91f21a71585de5ace4521c0381e0464b901",
+                "reference": "1cb2a91f21a71585de5ace4521c0381e0464b901",
                 "shasum": ""
             },
             "require": {
@@ -4052,7 +4003,7 @@
                 "sonata",
                 "user"
             ],
-            "time": "2015-12-04 14:04:04"
+            "time": "2016-01-04 15:10:49"
         },
         {
             "name": "stof/doctrine-extensions-bundle",

@@ -12,7 +12,6 @@
         ]
     },
     "require": {
-        "apoutchika/loremipsum-bundle": "^1.0",
         "components/font-awesome": "^4.0",
         "components/jquery": "^2.0",
         "cypresslab/gitelephant-bundle": "dev-develop",

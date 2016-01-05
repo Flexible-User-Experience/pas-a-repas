@@ -5,6 +5,7 @@ namespace AppBundle\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Route\RouteCollection;
+use Sonata\AdminBundle\Show\ShowMapper;
 
 /**
  * Class ContactAdmin
@@ -16,9 +17,9 @@ use Sonata\AdminBundle\Route\RouteCollection;
 class ContactAdmin extends BaseAdmin
 {
     protected $classnameLabel = 'Contacte';
-    protected $baseRoutePattern = 'web/contacte';
+    protected $baseRoutePattern = 'web/missatge';
     protected $datagridValues = array(
-        '_sort_by'    => 'date',
+        '_sort_by'    => 'createdAt',
         '_sort_order' => 'desc',
     );
 
@@ -32,7 +33,6 @@ class ContactAdmin extends BaseAdmin
         $collection
             ->remove('create')
             ->remove('edit')
-            ->remove('show')
             ->remove('delete')
             ->remove('batch');
     }
@@ -44,10 +44,18 @@ class ContactAdmin extends BaseAdmin
     {
         $datagridMapper
             ->add(
-                'date',
+                'checked',
                 null,
                 array(
-                    'label' => 'backend.admin.date',
+                    'label' => 'backend.admin.checked',
+                )
+            )
+            ->add(
+                'createdAt',
+                'doctrine_orm_date',
+                array(
+                    'label'      => 'backend.admin.date',
+                    'field_type' => 'sonata_type_date_picker',
                 )
             )
             ->add(
@@ -77,22 +85,42 @@ class ContactAdmin extends BaseAdmin
                 array(
                     'label' => 'backend.admin.message',
                 )
+            )
+            ->add(
+                'answered',
+                null,
+                array(
+                    'label' => 'backend.admin.answered',
+                )
+            )
+            ->add(
+                'description',
+                null,
+                array(
+                    'label' => 'backend.admin.answer',
+                )
             );
     }
 
     /**
-     * @param ListMapper $listMapper
+     * @param ShowMapper $showMapper
      */
-    protected function configureListFields(ListMapper $listMapper)
+    protected function configureShowFields(ShowMapper $showMapper)
     {
-        unset($this->listModes['mosaic']);
-        $listMapper
+        $showMapper
             ->add(
-                'date',
+                'createdAt',
                 'date',
                 array(
                     'label'  => 'backend.admin.date',
-                    'format' => 'd/m/Y'
+                    'format' => 'd/m/Y H:i',
+                )
+            )
+            ->add(
+                'checked',
+                null,
+                array(
+                    'label' => 'backend.admin.checked',
                 )
             )
             ->add(
@@ -121,6 +149,85 @@ class ContactAdmin extends BaseAdmin
                 'textarea',
                 array(
                     'label' => 'backend.admin.message',
+                )
+            )
+            ->add(
+                'answered',
+                null,
+                array(
+                    'label' => 'backend.admin.answered',
+                )
+            );
+        if ($this->getSubject()->getAnswered()) {
+            $showMapper
+                ->add(
+                    'description',
+                    'textarea',
+                    array(
+                        'label' => 'backend.admin.answer',
+                    )
+                );
+        }
+    }
+
+    /**
+     * @param ListMapper $listMapper
+     */
+    protected function configureListFields(ListMapper $listMapper)
+    {
+        unset($this->listModes['mosaic']);
+        $listMapper
+            ->add(
+                'checked',
+                null,
+                array(
+                    'label' => 'backend.admin.checked',
+                )
+            )
+            ->add(
+                'createdAt',
+                'date',
+                array(
+                    'label'  => 'backend.admin.date',
+                    'format' => 'd/m/Y'
+                )
+            )
+            ->add(
+                'name',
+                null,
+                array(
+                    'label' => 'backend.admin.name',
+                )
+            )
+            ->add(
+                'email',
+                null,
+                array(
+                    'label' => 'backend.admin.email',
+                )
+            )
+            ->add(
+                'phone',
+                null,
+                array(
+                    'label' => 'backend.admin.phone',
+                )
+            )
+            ->add(
+                'answered',
+                null,
+                array(
+                    'label' => 'backend.admin.answered',
+                )
+            )
+            ->add(
+                '_action',
+                'actions',
+                array(
+                    'actions' => array(
+                        'show' => array(),
+                    ),
+                    'label'   => 'backend.admin.actions',
                 )
             );
     }

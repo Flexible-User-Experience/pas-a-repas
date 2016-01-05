@@ -1,6 +1,11 @@
 imports:
     - { resource: config_dev.yml }
 
+security:
+    firewalls:
+        admin:
+            http_basic: ~
+
 framework:
     test: ~
     session:
@@ -17,6 +22,9 @@ swiftmailer:
 
 liip_functional_test:
     cache_sqlite_db: true
+    authentication:
+        username: "%private_admin_test_user%"
+        password: "%private_admin_test_pass%"
 
 doctrine:
     dbal:

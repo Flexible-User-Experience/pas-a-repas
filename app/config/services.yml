@@ -2,25 +2,36 @@ services:
 # App
     app.mailer:
         class: AppBundle\Service\MailerService
-        autowire: true
+        arguments: [ "@swiftmailer.mailer" ]
     app.google_maps_service:
         class: AppBundle\Service\GoogleMapsService
-# Sonata
+# Sonata Admins
     admin.contact:
         class: AppBundle\Admin\ContactAdmin
-        arguments: [ ~, AppBundle\Entity\Contact, ~, @vich_uploader.templating.helper.uploader_helper, @liip_imagine.cache.manager ]
+        arguments: [ ~, AppBundle\Entity\Contact, AppBundle:Admin\ContactAdmin, "@vich_uploader.templating.helper.uploader_helper", "@liip_imagine.cache.manager" ]
         tags:
-            - { name: sonata.admin, manager_type: orm, label: Contactes, group: Web }
+            - { name: sonata.admin, manager_type: orm, label: Missatges, group: Web }
     admin.category:
         class: AppBundle\Admin\CategoryAdmin
-        arguments: [ ~, AppBundle\Entity\Category, ~, @vich_uploader.templating.helper.uploader_helper, @liip_imagine.cache.manager ]
+        arguments: [ ~, AppBundle\Entity\Category, ~, "@vich_uploader.templating.helper.uploader_helper", "@liip_imagine.cache.manager" ]
         tags:
             - { name: sonata.admin, manager_type: orm, label: Categories, group: Web }
     admin.post:
         class: AppBundle\Admin\PostAdmin
-        arguments: [ ~, AppBundle\Entity\Post, ~, @vich_uploader.templating.helper.uploader_helper, @liip_imagine.cache.manager ]
+        arguments: [ ~, AppBundle\Entity\Post, AppBundle:Admin\PostAdmin, "@vich_uploader.templating.helper.uploader_helper", "@liip_imagine.cache.manager" ]
         tags:
             - { name: sonata.admin, manager_type: orm, label: Articles, group: Web }
+    admin.user:
+        class: AppBundle\Admin\UserAdmin
+        arguments: [ ~, AppBundle\Entity\User, ~, "@fos_user.user_manager" ]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Usuaris, group: Administrador }
+# Sonata Blocks
+    admin.block.messages:
+        class: AppBundle\Admin\Block\PendingMessagesBlock
+        tags:
+            - { name: sonata.block }
+        arguments: [ "sonata.admin.block.messages", "@templating", "@doctrine.orm.entity_manager" ]
 # Twig
     twig.extension.text:
         class: Twig_Extensions_Extension_Text

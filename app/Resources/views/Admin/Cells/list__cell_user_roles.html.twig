@@ -1,0 +1,28 @@
+{% extends 'SonataAdminBundle:CRUD:base_list_field.html.twig' %}
+
+{% block field%}
+    {% spaceless %}
+        <div>
+            {% if object.roles %}
+                {% for role in object.roles %}
+                    {% if role == 'ROLE_USER' %}
+                        {% set status = 'info' %}
+                        {% set text = 'usuari' %}
+                    {% elseif role == 'ROLE_CMS' %}
+                        {% set status = 'warning' %}
+                        {% set text = 'editor' %}
+                    {% elseif role == 'ROLE_MANAGER' %}
+                        {% set status = 'primary' %}
+                        {% set text = 'gestor' %}
+                    {% elseif role == 'ROLE_ADMIN' or role == 'ROLE_SONATA_ADMIN' or role == 'ROLE_SUPER_ADMIN' %}
+                        {% set status = 'success' %}
+                        {% set text = 'administrador' %}
+                    {% endif %}
+                    <span class="label label-{{ status }}" style="margin-right:10px">{{ text }}</span>
+                {% endfor %}
+            {% else %}
+                ---
+            {% endif %}
+        </div>
+    {% endspaceless %}
+{% endblock %}

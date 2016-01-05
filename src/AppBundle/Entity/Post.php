@@ -2,6 +2,9 @@
 
 namespace AppBundle\Entity;
 
+use AppBundle\Entity\Traits\DescriptionTrait;
+use AppBundle\Entity\Traits\TitleTrait;
+use AppBundle\Entity\Traits\SlugTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
@@ -13,72 +16,26 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Post
  *
+ * @category Entity
+ * @package  AppBundle\Entity
+ * @author   David Romaní <david@flux.cat>
+ *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="AppBundle\Repository\PostRepository")
  * @Vich\Uploadable
  */
-class Post
+class Post extends Base
 {
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    private $id;
-
-    /**
-     * @var \DateTime
-     *
-     * @Gedmo\Timestampable(on="create")
-     * @ORM\Column(type="datetime")
-     */
-    private $createdDate;
-
-    /**
-     * @var \DateTime
-     *
-     * @Gedmo\Timestampable(on="update")
-     * @ORM\Column(type="datetime")
-     */
-    private $updatedDate;
+    use TitleTrait;
+    use SlugTrait;
+    use DescriptionTrait;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(type="datetime")
      */
-    private $publishedDate;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="title", type="string", length=255, unique=true)
-     */
-    private $title;
-
-    /**
-     * @var string
-     *
-     * @Gedmo\Slug(fields={"title"})
-     * @ORM\Column(name="slug", type="string", length=255)
-     */
-    private $slug;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="description", type="text", length=4000)
-     */
-    private $description;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(type="boolean")
-     */
-    private $enabled;
+    private $publishedAt;
 
     /**
      * @var File
@@ -86,7 +43,7 @@ class Post
      * @Vich\UploadableField(mapping="uploads", fileNameProperty="imageName")
      * @Assert\File(
      *     maxSize = "10M",
-     *     mimeTypes = {"image/jpg", "image/jpeg", "image/png", "image/gif"},
+     *     mimeTypes = {"image/jpg", "image/jpeg", "image/png", "image/gif"}
      * )
      * @Assert\Image(minWidth = 1200)
      */
@@ -100,159 +57,35 @@ class Post
     private $imageName;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $metaKeywords;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $metaDescription;
+
+    /**
+     * @var ArrayCollection
+     *
      * @ORM\ManyToMany(targetEntity="Category", inversedBy="posts")
      * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
      */
-    protected $categories;
+    private $categories;
 
     /**
-     * Get id
      *
-     * @return integer
+     * Methods
+     *
      */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
-     * Set createdDate
-     *
-     * @param \DateTime $createdDate
-     *
-     * @return Post
-     */
-    public function setCreatedDate(\DateTime $createdDate)
-    {
-        $this->createdDate = $createdDate;
-
-        return $this;
-    }
-
-    /**
-     * Get createdDate
-     *
-     * @return \DateTime
-     */
-    public function getCreatedDate()
-    {
-        return $this->createdDate;
-    }
-
-    /**
-     * @return \DateTime
-     */
-    public function getUpdatedDate()
-    {
-        return $this->updatedDate;
-    }
-
-    /**
-     * @param \DateTime $updatedDate
-     */
-    public function setUpdatedDate(\DateTime $updatedDate)
-    {
-        $this->updatedDate = $updatedDate;
-    }
-
-    /**
-     * Set publishedDate
-     *
-     * @param \DateTime $publishedDate
-     *
-     * @return Post
-     */
-    public function setPublishedDate($publishedDate)
-    {
-        $this->publishedDate = $publishedDate;
-
-        return $this;
-    }
-
-    /**
-     * Get publishedDate
-     *
-     * @return \DateTime
-     */
-    public function getPublishedDate()
-    {
-        return $this->publishedDate;
-    }
-
-    /**
-     * Set title
-     *
-     * @param string $title
-     *
-     * @return Post
-     */
-    public function setTitle($title)
-    {
-        $this->title = $title;
-
-        return $this;
-    }
-
-    /**
-     * Get title
-     *
-     * @return string
-     */
-    public function getTitle()
-    {
-        return $this->title;
-    }
-
-    /**
-     * Set slug
-     *
-     * @param string $slug
-     *
-     * @return Post
-     */
-    public function setSlug($slug)
-    {
-        $this->slug = $slug;
-
-        return $this;
-    }
-
-    /**
-     * Get slug
-     *
-     * @return string
-     */
-    public function getSlug()
-    {
-        return $this->slug;
-    }
-
-    /**
-     * Set description
-     *
-     * @param string $description
-     *
-     * @return Post
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * Get description
-     *
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
-
-    /**
-     * Constructor
+     * Post constructor
      */
     public function __construct()
     {
@@ -260,38 +93,32 @@ class Post
     }
 
     /**
-     * Set enabled
+     * Set publishedAt
      *
-     * @param boolean $enabled
+     * @param \DateTime $publishedAt
      *
      * @return Post
      */
-    public function setEnabled($enabled)
+    public function setPublishedAt(\DateTime $publishedAt)
     {
-        $this->enabled = $enabled;
+        $this->publishedAt = $publishedAt;
 
         return $this;
     }
 
     /**
-     * Get enabled
+     * Get publishedAt
      *
-     * @return boolean
+     * @return \DateTime
      */
-    public function getEnabled()
+    public function getPublishedAt()
     {
-        return $this->enabled;
+        return $this->publishedAt;
     }
 
     /**
-     * @return File
-     */
-    public function getImageFile()
-    {
-        return $this->imageFile;
-    }
-
-    /**
+     * Set imageFile
+     *
      * @param File|UploadedFile $imageFile
      *
      * @return Post
@@ -302,21 +129,25 @@ class Post
         if ($imageFile) {
             // It is required that at least one field changes if you are using doctrine
             // otherwise the event listeners won't be called and the file is lost
-            $this->updatedDate = new \DateTime('now');
+            $this->updatedAt = new \DateTime('now');
         }
 
         return $this;
     }
 
     /**
-     * @return string
+     * Get imageFile
+     *
+     * @return File|UploadedFile
      */
-    public function getImageName()
+    public function getImageFile()
     {
-        return $this->imageName;
+        return $this->imageFile;
     }
 
     /**
+     * Set imageName
+     *
      * @param string $imageName
      *
      * @return Post
@@ -326,6 +157,88 @@ class Post
         $this->imageName = $imageName;
 
         return $this;
+    }
+
+    /**
+     * Get imageName
+     *
+     * @return string
+     */
+    public function getImageName()
+    {
+        return $this->imageName;
+    }
+
+    /**
+     * Set MetaKeywords
+     *
+     * @param string $metaKeywords
+     *
+     * @return Post
+     */
+    public function setMetaKeywords($metaKeywords)
+    {
+        $this->metaKeywords = $metaKeywords;
+
+        return $this;
+    }
+
+    /**
+     * Get MetaKeywords
+     *
+     * @return string
+     */
+    public function getMetaKeywords()
+    {
+        return $this->metaKeywords;
+    }
+
+    /**
+     * Set MetaDescription
+     *
+     * @param string $metaDescription
+     *
+     * @return Post
+     */
+    public function setMetaDescription($metaDescription)
+    {
+        $this->metaDescription = $metaDescription;
+
+        return $this;
+    }
+
+    /**
+     * Get MetaDescription
+     *
+     * @return string
+     */
+    public function getMetaDescription()
+    {
+        return $this->metaDescription;
+    }
+
+    /**
+     * Set categories
+     *
+     * @param ArrayCollection $categories
+     *
+     * @return Post
+     */
+    public function setCategories(ArrayCollection $categories)
+    {
+        $this->categories = $categories;
+
+        return $this;
+    }
+
+    /**
+     * Get categories
+     *
+     * @return ArrayCollection
+     */
+    public function getCategories()
+    {
+        return $this->categories;
     }
 
     /**
@@ -354,30 +267,8 @@ class Post
     }
 
     /**
-     * Get categories
+     * To string
      *
-     * @return ArrayCollection
-     */
-    public function getCategories()
-    {
-        return $this->categories;
-    }
-
-    /**
-     * Set categories
-     *
-     * @param ArrayCollection $categories
-     *
-     * @return Post
-     */
-    public function setCategories(ArrayCollection $categories)
-    {
-        $this->categories = $categories;
-
-        return $this;
-    }
-
-    /**
      * @return string
      */
     public function __toString() {

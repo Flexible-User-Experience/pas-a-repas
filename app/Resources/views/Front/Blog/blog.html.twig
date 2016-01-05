@@ -19,14 +19,14 @@
                         {% endif %}
                         <div class="caption">
                             <h2 class="c-violet">{{ post.title }}</h2>
-                            <h5>{{ post.publishedDate | date('d/m/Y') }}</h5>
+                            <h5>{{ post.publishedAt | date('d/m/Y') }}</h5>
                             {#{% if post.categories | length > 0 %}
                                 {% for category in post.categories %}
                                     <span>{{ category.title }}</span>
                                 {% endfor %}
                             {% endif %}#}
                             <p>{{ post.description | truncate(100) }}</p>
-                            <a href="{{ path('blog_detail', { year: post.publishedDate | date('Y'), month: post.publishedDate | date('m'), day: post.publishedDate | date('d'), slug: post.slug }) }}" class="c-violet pull-right">{{ 'frontend.blog.main.keep_reading' | trans | upper }}</a>
+                            <a href="{{ path('blog_detail', { year: post.publishedAt | date('Y'), month: post.publishedAt | date('m'), day: post.publishedAt | date('d'), slug: post.slug }) }}" class="c-violet pull-right">{{ 'frontend.blog.main.keep_reading' | trans | upper }}</a>
                         </div>
                     </div>
                 {% endfor %}

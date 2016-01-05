@@ -2,22 +2,21 @@
 
 namespace AppBundle\Tests\Repository;
 
+use AppBundle\Tests\BaseTest;
 use AppBundle\Entity\Post;
-use Liip\FunctionalTestBundle\Test\WebTestCase;
 
-class PostRepositoryTest extends WebTestCase
+/**
+ * Class PostRepositoryTest
+ *
+ * @category Test
+ * @package  AppBundle\Tests\Repository
+ * @author   David Romaní <david@flux.cat>
+ */
+class PostRepositoryTest extends BaseTest
 {
     /**
-     * Set up tests
+     * Test
      */
-    public function setUp()
-    {
-        $this->loadFixtures(array(
-            'AppBundle\DataFixtures\ORM\Categories',
-            'AppBundle\DataFixtures\ORM\Posts',
-        ));
-    }
-
     public function testEnabled()
     {
         $enabledPosts = $this->getContainer()->get('doctrine')->getRepository('AppBundle:Post')->getAllEnabledSortedByPublishedDate();

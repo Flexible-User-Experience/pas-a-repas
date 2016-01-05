@@ -1,0 +1,103 @@
+# Contacts
+AppBundle\Entity\Contact:
+  contact{1..20}:
+    name: <name(null)>
+    email: <safeEmail()>
+    phone: <phoneNumber()>
+    message: <paragraph()>
+    description: <paragraph()>
+    createdAt: <dateTimeBetween('-2 months', '-1 months')>
+    updatedAt: <dateTimeThisMonth()>
+    enabled: true
+    checked: <boolean(70)>
+    answered: <boolean(30)>
+
+# Categories
+AppBundle\Entity\Category:
+  category{1..10}:
+    title: <current()> <word()>
+    createdAt: <dateTimeBetween('-2 months', '-1 months')>
+    updatedAt: <dateTimeThisMonth()>
+    enabled: <boolean(70)>
+
+# Posts
+AppBundle\Entity\Post:
+  post{1..10}:
+    publishedAt: <dateTimeThisMonth()>
+    title: <sentence()>
+    description: <paragraph()>
+    metaKeywords: <word()>
+    metaDescription: <sentence()>
+    createdAt: <dateTimeBetween('-2 months', '-1 months')>
+    updatedAt: <dateTimeThisMonth()>
+    enabled: <boolean(70)>
+    categories: [ @category1, @category2, @category3 ]
+  post{11..15}:
+    publishedAt: <dateTimeThisMonth()>
+    title: <sentence()>
+    description: <paragraph()>
+    metaKeywords: <word()>
+    metaDescription: <sentence()>
+    createdAt: <dateTimeBetween('-2 months', '-1 months')>
+    updatedAt: <dateTimeThisMonth()>
+    enabled: <boolean(70)>
+    categories: [ @category1, @category2 ]
+  post{16..20}:
+    publishedAt: <dateTimeThisMonth()>
+    title: <sentence()>
+    description: <paragraph()>
+    metaKeywords: <word()>
+    metaDescription: <sentence()>
+    createdAt: <dateTimeBetween('-2 months', '-1 months')>
+    updatedAt: <dateTimeThisMonth()>
+    enabled: <boolean(70)>
+    categories: [ @category1 ]
+  post{21..25}:
+    publishedAt: <dateTimeThisMonth()>
+    title: <sentence()>
+    description: <paragraph()>
+    metaKeywords: <word()>
+    metaDescription: <sentence()>
+    createdAt: <dateTimeBetween('-2 months', '-1 months')>
+    updatedAt: <dateTimeThisMonth()>
+    enabled: <boolean(70)>
+    categories: [ ]
+
+## Users
+AppBundle\Entity\User:
+    admin:
+        username: <{private_admin_test_user}>
+        plainPassword: <{private_admin_test_pass}>
+        email: <safeEmail()>
+        firstname: <name()>
+        lastname: <lastname()>
+        enabled: true
+        roles:
+            - ROLE_SUPER_ADMIN
+    editor:
+        username: <{private_editor_test_user}>
+        plainPassword: <{private_editor_test_pass}>
+        email: <safeEmail()>
+        firstname: <name()>
+        lastname: <lastname()>
+        enabled: true
+        roles:
+            - ROLE_CMS
+    cms{1..4}:
+        username: <username()>
+        plainPassword: <password()>
+        email: <safeEmail()>
+        firstname: <name()>
+        lastname: <lastname()>
+        enabled: true
+        roles:
+            - ROLE_CMS
+    manager{1..2}:
+        username: <username()>
+        plainPassword: <password()>
+        email: <safeEmail()>
+        firstname: <name()>
+        lastname: <lastname()>
+        enabled: true
+        roles:
+            - ROLE_MANAGER
