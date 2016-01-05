@@ -58,33 +58,49 @@ class UserAdmin extends ParentUserAdmin
         /** @var object $formMapper */
         $formMapper
             ->with('Dades generals', array('class' => 'col-md-6'))
-            ->add('firstname', null, array(
-                'label' => 'Nom',
-                'required' => false,
-            ))
-            ->add('username', null, array(
-                'label' => 'Nom d\'usuari',
-            ))
+            ->add(
+                'firstname',
+                null,
+                array(
+                    'label'    => 'Nom',
+                    'required' => false,
+                )
+            )
+            ->add(
+                'username',
+                null,
+                array(
+                    'label' => 'Nom d\'usuari',
+                )
+            )
             ->add('email', null, array())
-            ->add('plainPassword', 'text', array(
-                'label' => 'Constrasenya',
-                'required' => (!$this->getSubject() || is_null($this->getSubject()->getId()))
-            ))
+            ->add(
+                'plainPassword',
+                'text',
+                array(
+                    'label'    => 'Constrasenya',
+                    'required' => (!$this->getSubject() || is_null($this->getSubject()->getId()))
+                )
+            )
             ->end()
             ->with('Administració', array('class' => 'col-md-6'))
             ->add(
                 'roles',
                 'choice',
                 array(
-                    'label' => 'Rols',
-                    'choices' => UserRolesEnum::getEnumArray(),
+                    'label'    => 'Rols',
+                    'choices'  => UserRolesEnum::getEnumArray(),
                     'multiple' => true,
                     'expanded' => true
                 )
             )
-            ->add('enabled', 'sonata_type_boolean', array(
-                'required' => true,
-            ))
+            ->add(
+                'enabled',
+                'checkbox',
+                array(
+                    'required' => false,
+                )
+            )
             ->end();
     }
 
@@ -94,17 +110,30 @@ class UserAdmin extends ParentUserAdmin
     protected function configureDatagridFilters(DatagridMapper $filterMapper)
     {
         $filterMapper
-            ->add('username', null, array(
-                'label' => 'Nom d\'usuari',
-            ))
+            ->add(
+                'username',
+                null,
+                array(
+                    'label' => 'Nom d\'usuari',
+                )
+            )
             ->add('email')
-            ->add('roles', 'doctrine_orm_string', array(
-                'label' => 'Rols',
-                'choice', array('choices' => UserRolesEnum::getEnumArray()),
-            ))
-            ->add('enabled', null, array(
-                'label' => 'Actiu',
-            ));
+            ->add(
+                'roles',
+                'doctrine_orm_string',
+                array(
+                    'label' => 'Rols',
+                    'choice',
+                    array('choices' => UserRolesEnum::getEnumArray()),
+                )
+            )
+            ->add(
+                'enabled',
+                null,
+                array(
+                    'label' => 'Actiu',
+                )
+            );
     }
 
     /**
@@ -114,27 +143,47 @@ class UserAdmin extends ParentUserAdmin
     {
         unset($this->listModes['mosaic']);
         $listMapper
-            ->add('username', null, array(
-                'label' => 'Nom d\'usuari',
-                'editable' => true,
-            ))
-            ->add('email', null, array(
-                'editable' => true,
-            ))
-            ->add('roles', null, array(
-                'label' => 'Rols',
-                'template' => '::Admin/Cells/list__cell_user_roles.html.twig',
-            ))
-            ->add('enabled', null, array(
-                'label' => 'Actiu',
-                'editable' => true,
-            ))
-            ->add('_action', 'actions', array(
-                'actions' => array(
-                    'edit' => array(),
-                    'delete' => array(),
-                ),
-                'label' => 'Accions',
-            ));
+            ->add(
+                'username',
+                null,
+                array(
+                    'label'    => 'Nom d\'usuari',
+                    'editable' => true,
+                )
+            )
+            ->add(
+                'email',
+                null,
+                array(
+                    'editable' => true,
+                )
+            )
+            ->add(
+                'roles',
+                null,
+                array(
+                    'label'    => 'Rols',
+                    'template' => '::Admin/Cells/list__cell_user_roles.html.twig',
+                )
+            )
+            ->add(
+                'enabled',
+                null,
+                array(
+                    'label'    => 'Actiu',
+                    'editable' => true,
+                )
+            )
+            ->add(
+                '_action',
+                'actions',
+                array(
+                    'actions' => array(
+                        'edit'   => array(),
+                        'delete' => array(),
+                    ),
+                    'label'   => 'Accions',
+                )
+            );
     }
 }

@@ -102,7 +102,7 @@ class PostAdmin extends BaseAdmin
             )
             ->add(
                 'enabled',
-                'sonata_type_boolean',
+                'checkbox',
                 array(
                     'label'    => 'backend.admin.enabled',
                     'required' => false,

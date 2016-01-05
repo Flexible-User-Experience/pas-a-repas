@@ -164,8 +164,6 @@ sonata_admin:
         handler: sonata.admin.security.handler.role
     templates:
         layout:    "::Admin/layout.html.twig"
-#        dashboard: "::Admin/dashboard.html.twig"
-#        edit:      "::Admin/edit.html.twig"
     dashboard:
         groups:
             Web:
@@ -210,6 +208,11 @@ sonata_block:
         sonata.block.service.text:      ~
         sonata.admin.block.admin_list:  ~
         admin.block.messages:           ~
+
+sonata_doctrine_orm_admin:
+    templates:
+        form:
+            - "::Admin/Forms/custom_checkbox_form_template_hack.html.twig"
 
 sonata_user:
     security_acl: true

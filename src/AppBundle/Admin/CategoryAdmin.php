@@ -72,10 +72,10 @@ class CategoryAdmin extends BaseAdmin
             ->with('backend.admin.controls', $this->getFormMdSuccessBoxArray(6))
             ->add(
                 'enabled',
-                'sonata_type_boolean',
+                'checkbox',
                 array(
                     'label'    => 'backend.admin.enabled',
-                    'required' => true,
+                    'required' => false,
                 )
             )
             ->end();
