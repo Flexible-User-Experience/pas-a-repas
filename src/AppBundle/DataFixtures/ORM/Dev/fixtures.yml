@@ -63,6 +63,12 @@ AppBundle\Entity\Post:
     enabled: <boolean(70)>
     categories: [ ]
 
+## Schedules
+AppBundle\Entity\Schedule:
+  schedule{1..10}:
+    date: <dateTimeThisMonth()>
+    hours: <numberBetween(1, 4)>
+
 ## Users
 AppBundle\Entity\User:
     admin:
