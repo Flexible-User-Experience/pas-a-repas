@@ -100,6 +100,7 @@ backend:
         enabled: Actiu
         date: Data
         name: Nom
+        surname: Cognoms
         email: Email
         phone: Telèfon
         message: Missatge

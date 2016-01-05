@@ -62,6 +62,9 @@ class BackendTest extends BaseTest
             array('/admin/facturacio/parte/create'),
             array('/admin/facturacio/parte/1/edit'),
             array('/admin/facturacio/parte/1/delete'),
+            array('/admin/facturacio/alumne/create'),
+            array('/admin/facturacio/alumne/1/edit'),
+            array('/admin/facturacio/alumne/1/delete'),
             array('/admin/administrador/usuari/list'),
             array('/admin/administrador/usuari/create'),
             array('/admin/administrador/usuari/1/edit'),
@@ -99,6 +102,8 @@ class BackendTest extends BaseTest
             array('/admin/web/article/batch'),
             array('/admin/facturacio/parte/1/show'),
             array('/admin/facturacio/parte/batch'),
+            array('/admin/facturacio/alumne/1/show'),
+            array('/admin/facturacio/alumne/batch'),
             array('/admin/administrador/usuari/show'),
             array('/admin/administrador/usuari/batch'),
         );
