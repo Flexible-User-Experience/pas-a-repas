@@ -110,6 +110,7 @@ backend:
         posts_amount: Articles vinculats
         categories_amount: Categories vinculades
         published_date: Data publicació
+        hours: Hores
         actions: Accions
         controls: Controls
         content: Contingut

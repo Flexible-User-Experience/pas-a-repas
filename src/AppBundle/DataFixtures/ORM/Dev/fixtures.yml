@@ -106,4 +106,4 @@ AppBundle\Entity\User:
         lastname: <lastname()>
         enabled: true
         roles:
-            - ROLE_MANAGER
+            - ROLE_ADMIN

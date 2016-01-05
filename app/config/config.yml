@@ -168,6 +168,8 @@ sonata_admin:
         groups:
             Web:
                 icon: "<i class='fa fa-chrome'></i>"
+            Facturació:
+                icon: "<i class='fa fa-file-text'></i>"
             Administrador:
                 icon: "<i class='fa fa-cog'></i>"
         blocks:
@@ -189,8 +191,15 @@ sonata_admin:
                 type: admin.block.messages
                 class: col-md-6
             -
-                position: left
+                position: top
                 type: sonata.admin.block.admin_list
+                class: col-md-6
+                settings:
+                    groups: [ Facturació ]
+            -
+                position: top
+                type: sonata.admin.block.admin_list
+                class: col-md-6
                 settings:
                     groups: [ Administrador ]
             -
