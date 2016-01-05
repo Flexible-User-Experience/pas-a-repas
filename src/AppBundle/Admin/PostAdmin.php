@@ -2,6 +2,7 @@
 
 namespace AppBundle\Admin;
 
+use AppBundle\Repository\CategoryRepository;
 use Doctrine\ORM\QueryBuilder;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
@@ -83,6 +84,9 @@ class PostAdmin extends BaseAdmin
                 null,
                 array(
                     'label' => 'backend.admin.categories',
+                    'query_builder' => function (CategoryRepository $repository) {
+                        return $repository->getAllSortedByTitleQB();
+                    },
                 )
             )
             ->add(

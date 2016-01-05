@@ -8,6 +8,7 @@ use Sonata\AdminBundle\Route\RouteCollection;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use FOS\UserBundle\Model\UserManagerInterface;
 
 /**
  * Class UserAdmin
@@ -18,12 +19,23 @@ use Sonata\AdminBundle\Form\FormMapper;
  */
 class UserAdmin extends ParentUserAdmin
 {
+    /**
+     * @var UserManagerInterface
+     */
+    protected $userManager;
+
     protected $classnameLabel = 'Usuari';
     protected $baseRoutePattern = 'administrador/usuari';
     protected $datagridValues = array(
         '_sort_by'    => 'username',
         '_sort_order' => 'asc',
     );
+
+    public function __construct($code, $class, $baseControllerName, $userManager)
+    {
+        parent::__construct($code, $class, $baseControllerName);
+        $this->userManager = $userManager;
+    }
 
     /**
      * Available routes

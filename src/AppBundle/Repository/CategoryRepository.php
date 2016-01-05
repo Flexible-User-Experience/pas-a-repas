@@ -13,6 +13,12 @@ use Doctrine\ORM\EntityRepository;
  */
 class CategoryRepository extends EntityRepository
 {
+    public function getAllSortedByTitleQB()
+    {
+        return $this->createQueryBuilder('c')
+            ->orderBy('c.title', 'ASC');
+    }
+
     public function getAllEnabledSortedByTitle()
     {
         $query = $this->createQueryBuilder('c')
