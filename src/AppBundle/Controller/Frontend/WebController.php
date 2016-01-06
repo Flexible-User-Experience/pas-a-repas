@@ -42,7 +42,7 @@ class WebController extends Controller
             $mailer->sendEmail(
                 $contactEntity->getEmail(),
                 $this->container->getParameter('mailer_destination'),
-                'Pas a repàs contact form',
+                'Missatge de contacte Pas a Repàs',
                 $this->renderView('Front/Web/email.html.twig', array('contactEntity' => $contactEntity))
             );
             // persist new contact message record
