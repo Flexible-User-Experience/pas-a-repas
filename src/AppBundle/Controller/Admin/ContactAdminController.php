@@ -66,6 +66,51 @@ class ContactAdminController extends Controller
         );
     }
 
+    /**
+     * Answer message action.
+     *
+     * @param int|string|null $id
+     * @param Request         $request
+     *
+     * @return Response
+     * @throws NotFoundHttpException If the object does not exist
+     * @throws AccessDeniedException If access is not granted
+     */
+    public function answerAction($id = null, Request $request = null)
+    {
+        $request = $this->resolveRequest($request);
+        $id = $request->get($this->admin->getIdParameter());
+
+        /** @var Contact $object */
+        $object = $this->admin->getObject($id);
+
+        if (!$object) {
+            throw $this->createNotFoundException(sprintf('unable to find the object with id : %s', $id));
+        }
+
+        $object->setChecked(true);
+        $this->admin->checkAccess('show', $object);
+
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($object);
+        $em->flush();
+
+        return $this->render(
+            $this->admin->getTemplate('show'),
+            array(
+                'action'   => 'answer',
+                'object'   => $object,
+            ),
+            null,
+            $request
+        );
+    }
+
+    /**
+     * @param Request|null $request
+     * @return Request
+     */
     private function resolveRequest(Request $request = null)
     {
         if (null === $request) {

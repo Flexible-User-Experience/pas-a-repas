@@ -97,6 +97,7 @@ backend:
         checked: Llegit
         answered: Contestat
         answer: Resposta
+        answer_action: Respon
         enabled: Actiu
         date: Data
         name: Nom

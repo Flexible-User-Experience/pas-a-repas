@@ -10,32 +10,32 @@ services:
         class: AppBundle\Admin\ContactAdmin
         arguments: [ ~, AppBundle\Entity\Contact, AppBundle:Admin\ContactAdmin, "@vich_uploader.templating.helper.uploader_helper", "@liip_imagine.cache.manager" ]
         tags:
-            - { name: sonata.admin, manager_type: orm, label: Missatges, group: Web }
+            - { name: sonata.admin, manager_type: orm, label: "Missatges de contacte", group: "Web" }
     admin.category:
         class: AppBundle\Admin\CategoryAdmin
         arguments: [ ~, AppBundle\Entity\Category, ~, "@vich_uploader.templating.helper.uploader_helper", "@liip_imagine.cache.manager" ]
         tags:
-            - { name: sonata.admin, manager_type: orm, label: Categories, group: Web }
+            - { name: sonata.admin, manager_type: orm, label: "Categories", group: "Web" }
     admin.post:
         class: AppBundle\Admin\PostAdmin
         arguments: [ ~, AppBundle\Entity\Post, AppBundle:Admin\PostAdmin, "@vich_uploader.templating.helper.uploader_helper", "@liip_imagine.cache.manager" ]
         tags:
-            - { name: sonata.admin, manager_type: orm, label: Articles, group: Web }
+            - { name: sonata.admin, manager_type: orm, label: "Articles", group: "Web" }
     admin.schedule:
         class: AppBundle\Admin\ScheduleAdmin
         arguments: [ ~, AppBundle\Entity\Schedule, ~, "@vich_uploader.templating.helper.uploader_helper", "@liip_imagine.cache.manager" ]
         tags:
-            - { name: sonata.admin, manager_type: orm, label: Partes, group: Facturació }
+            - { name: sonata.admin, manager_type: orm, label: "Partes", group: "Facturació" }
     admin.customer:
         class: AppBundle\Admin\CustomerAdmin
         arguments: [ ~, AppBundle\Entity\Customer, ~, "@vich_uploader.templating.helper.uploader_helper", "@liip_imagine.cache.manager" ]
         tags:
-            - { name: sonata.admin, manager_type: orm, label: Alumnes, group: Facturació }
+            - { name: sonata.admin, manager_type: orm, label: "Alumnes", group: "Facturació" }
     admin.user:
         class: AppBundle\Admin\UserAdmin
         arguments: [ ~, AppBundle\Entity\User, ~, "@fos_user.user_manager" ]
         tags:
-            - { name: sonata.admin, manager_type: orm, label: Usuaris, group: Administrador }
+            - { name: sonata.admin, manager_type: orm, label: "Usuaris", group: "Administrador" }
 # Sonata Blocks
     admin.block.messages:
         class: AppBundle\Admin\Block\PendingMessagesBlock

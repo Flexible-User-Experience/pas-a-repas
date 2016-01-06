@@ -49,6 +49,7 @@ class BackendTest extends BaseTest
             array('/admin/dashboard'),
             array('/admin/web/missatge/list'),
             array('/admin/web/missatge/1/show'),
+            array('/admin/web/missatge/1/answer'),
             array('/admin/web/categoria/list'),
             array('/admin/web/categoria/create'),
             array('/admin/web/categoria/1/show'),
