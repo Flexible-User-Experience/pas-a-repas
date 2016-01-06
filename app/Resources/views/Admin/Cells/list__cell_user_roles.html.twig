@@ -11,12 +11,15 @@
                     {% elseif role == 'ROLE_CMS' %}
                         {% set status = 'warning' %}
                         {% set text = 'editor' %}
-                    {% elseif role == 'ROLE_MANAGER' %}
+                    {% elseif role == 'ROLE_ADMIN' %}
                         {% set status = 'primary' %}
-                        {% set text = 'gestor' %}
-                    {% elseif role == 'ROLE_ADMIN' or role == 'ROLE_SONATA_ADMIN' or role == 'ROLE_SUPER_ADMIN' %}
-                        {% set status = 'success' %}
                         {% set text = 'administrador' %}
+                    {% elseif role == 'ROLE_SUPER_ADMIN' %}
+                        {% set status = 'danger' %}
+                        {% set text = 'super administrador' %}
+                    {% else %}
+                        {% set status = 'success' %}
+                        {% set text = '---' %}
                     {% endif %}
                     <span class="label label-{{ status }}" style="margin-right:10px">{{ text }}</span>
                 {% endfor %}

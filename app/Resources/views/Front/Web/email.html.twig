@@ -1,3 +1,5 @@
-<h1>Detall del mail</h1>
+<h1>Has rebut un missatge de contacte</h1>
 
-<p>En/La {{ contactEntity.name }} {% if contactEntity.phone is not null %} amb telefòn {{ contactEntity.phone }} i {% endif %} adreça de correu elèctronic {{ contactEntity.email }}, va enviar el següent missatge "{{ contactEntity.message }}" amb data {{ contactEntity.createdAt | date('d/m/Y') }}</p>
+<p>En/La {{ contactEntity.name }} {% if contactEntity.phone is not null %} amb telefòn {{ contactEntity.phone }} i {% endif %} adreça de correu elèctronic {{ contactEntity.email }}, us ha enviat un missatge de contacte amb data {{ contactEntity.createdAt | date('d/m/Y H:i') }}</p>
+
+<p>Accedix a l'aplicació de gestió per llegir el missatge i respondre'l. Fes clic <a href="{{ path('admin_app_contact_list') }}">aquí</a>.</p>

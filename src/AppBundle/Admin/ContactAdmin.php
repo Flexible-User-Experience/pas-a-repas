@@ -34,7 +34,8 @@ class ContactAdmin extends BaseAdmin
             ->remove('create')
             ->remove('edit')
             ->remove('delete')
-            ->remove('batch');
+            ->remove('batch')
+            ->add('answer', $this->getRouterIdParameter() . '/answer');
     }
 
     /**
@@ -226,6 +227,9 @@ class ContactAdmin extends BaseAdmin
                 array(
                     'actions' => array(
                         'show' => array(),
+                        'answer' => array(
+                            'template' => '::Admin/Cells/list__action_answer.html.twig'
+                        )
                     ),
                     'label'   => 'backend.admin.actions',
                 )

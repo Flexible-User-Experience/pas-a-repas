@@ -97,9 +97,11 @@ backend:
         checked: Llegit
         answered: Contestat
         answer: Resposta
+        answer_action: Respon
         enabled: Actiu
         date: Data
         name: Nom
+        surname: Cognoms
         email: Email
         phone: Telèfon
         message: Missatge
@@ -110,6 +112,8 @@ backend:
         posts_amount: Articles vinculats
         categories_amount: Categories vinculades
         published_date: Data publicació
+        schedule: Parte
+        hours: Hores
         actions: Accions
         controls: Controls
         content: Contingut
