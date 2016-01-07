@@ -2954,16 +2954,16 @@
         },
         {
             "name": "paragonie/random_compat",
-            "version": "1.1.4",
+            "version": "1.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paragonie/random_compat.git",
-                "reference": "d762ee5b099a29044603cd4649851e81aa66cb47"
+                "reference": "dd8998b7c846f6909f4e7a5f67fabebfc412a4f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/d762ee5b099a29044603cd4649851e81aa66cb47",
-                "reference": "d762ee5b099a29044603cd4649851e81aa66cb47",
+                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/dd8998b7c846f6909f4e7a5f67fabebfc412a4f7",
+                "reference": "dd8998b7c846f6909f4e7a5f67fabebfc412a4f7",
                 "shasum": ""
             },
             "require": {
@@ -2998,7 +2998,7 @@
                 "pseudorandom",
                 "random"
             ],
-            "time": "2015-12-10 14:48:13"
+            "time": "2016-01-06 13:31:20"
         },
         {
             "name": "phpcollection/phpcollection",
@@ -3295,12 +3295,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataAdminBundle.git",
-                "reference": "2e68c08ed1d8680c64f91e90d1119effc60811dd"
+                "reference": "3e302f807e156c7eda82e5144b6400646b1e31c8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/2e68c08ed1d8680c64f91e90d1119effc60811dd",
-                "reference": "2e68c08ed1d8680c64f91e90d1119effc60811dd",
+                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/3e302f807e156c7eda82e5144b6400646b1e31c8",
+                "reference": "3e302f807e156c7eda82e5144b6400646b1e31c8",
                 "shasum": ""
             },
             "require": {
@@ -3373,7 +3373,7 @@
                 "bootstrap",
                 "sonata"
             ],
-            "time": "2015-12-30 11:13:06"
+            "time": "2016-01-07 13:55:06"
         },
         {
             "name": "sonata-project/block-bundle",
