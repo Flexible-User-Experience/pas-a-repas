@@ -5,10 +5,10 @@ namespace AppBundle\Controller\Admin;
 use AppBundle\Entity\Contact;
 use AppBundle\Form\Type\ContactAnswerType;
 use Sonata\AdminBundle\Controller\CRUDController as Controller;
-use Symfony\Component\HttpFoundation\File\Exception\AccessDeniedException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 
 /**
  * Class ContactAdminController
@@ -27,7 +27,7 @@ class ContactAdminController extends Controller
      *
      * @return Response
      * @throws NotFoundHttpException If the object does not exist
-     * @throws AccessDeniedException If access is not granted
+     * @throws AccessDeniedHttpException If access is not granted
      */
     public function showAction($id = null, Request $request = null)
     {
@@ -75,7 +75,7 @@ class ContactAdminController extends Controller
      *
      * @return Response
      * @throws NotFoundHttpException If the object does not exist
-     * @throws AccessDeniedException If access is not granted
+     * @throws AccessDeniedHttpException If access is not granted
      */
     public function answerAction($id = null, Request $request = null)
     {

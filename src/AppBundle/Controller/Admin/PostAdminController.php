@@ -4,10 +4,10 @@ namespace AppBundle\Controller\Admin;
 
 use AppBundle\Entity\Post;
 use Sonata\AdminBundle\Controller\CRUDController as Controller;
-use Symfony\Component\HttpFoundation\File\Exception\AccessDeniedException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 
 /**
  * Class PostAdminController
@@ -26,7 +26,7 @@ class PostAdminController extends Controller
      *
      * @return Response
      * @throws NotFoundHttpException If the object does not exist
-     * @throws AccessDeniedException If access is not granted
+     * @throws AccessDeniedHttpException If access is not granted
      */
     public function showAction($id = null, Request $request = null)
     {

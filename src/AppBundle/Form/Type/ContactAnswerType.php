@@ -24,8 +24,8 @@ class ContactAnswerType extends ContactType
                 'name',
                 'text',
                 array(
-                    'label'    => 'frontend.index.contact.form.name',
-                    'required' => false,
+                    'label'     => 'frontend.index.contact.form.name',
+                    'required'  => false,
                     'read_only' => true,
                 )
             )
@@ -33,8 +33,8 @@ class ContactAnswerType extends ContactType
                 'email',
                 'email',
                 array(
-                    'label'    => 'frontend.index.contact.form.email',
-                    'required' => false,
+                    'label'     => 'frontend.index.contact.form.email',
+                    'required'  => false,
                     'read_only' => true,
                 )
             )
@@ -42,8 +42,8 @@ class ContactAnswerType extends ContactType
                 'phone',
                 'text',
                 array(
-                    'label'    => 'frontend.index.contact.form.phone',
-                    'required' => false,
+                    'label'     => 'frontend.index.contact.form.phone',
+                    'required'  => false,
                     'read_only' => true,
                 )
             )
@@ -51,10 +51,10 @@ class ContactAnswerType extends ContactType
                 'message',
                 'textarea',
                 array(
-                    'label'    => 'frontend.index.contact.form.message',
-                    'required' => false,
+                    'label'     => 'frontend.index.contact.form.message',
+                    'required'  => false,
                     'read_only' => true,
-                    'attr'     => array(
+                    'attr'      => array(
                         'rows' => 6,
                     ),
                 )

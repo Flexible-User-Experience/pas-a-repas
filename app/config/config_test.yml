@@ -28,8 +28,5 @@ liip_functional_test:
 
 doctrine:
     dbal:
-        default_connection: default
-        connections:
-            default:
-                driver: pdo_sqlite
-                path:   "%kernel.root_dir%/database/test.db3"
+        driver: pdo_sqlite
+        path:   "%kernel.root_dir%/database/test.db3"
