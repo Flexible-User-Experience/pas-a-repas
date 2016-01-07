@@ -3,6 +3,8 @@
 namespace AppBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\QueryBuilder;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Class CategoryRepository
@@ -13,12 +15,18 @@ use Doctrine\ORM\EntityRepository;
  */
 class CategoryRepository extends EntityRepository
 {
+    /**
+     * @return QueryBuilder
+     */
     public function getAllSortedByTitleQB()
     {
         return $this->createQueryBuilder('c')
             ->orderBy('c.title', 'ASC');
     }
 
+    /**
+     * @return ArrayCollection
+     */
     public function getAllEnabledSortedByTitle()
     {
         $query = $this->createQueryBuilder('c')
