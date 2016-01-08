@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -132,10 +133,26 @@ class Customer extends Base
     protected $enabled = true;
 
     /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="Phone", mappedBy="customer")
+     */
+    private $phones;
+
+    /**
      *
      * Methods
      *
      */
+
+    /**
+     * Customer constructor.
+     */
+    public function __construct()
+    {
+        $this->phones = new ArrayCollection();
+    }
+
 
     /**
      * Set Name
@@ -495,6 +512,34 @@ class Customer extends Base
     public function getAnnotations()
     {
         return $this->annotations;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getPhones()
+    {
+        return $this->phones;
+    }
+
+    /**
+     * @param ArrayCollection $phones
+     * @return Customer
+     */
+    public function setPhones($phones)
+    {
+        $this->phones = $phones;
+        return $this;
+    }
+
+    public function addPhone(Phone $phone)
+    {
+        $this->phones->add($phone);
+    }
+
+    public function removePhone(Phone $phone)
+    {
+        $this->phones->removeElement($phone);
     }
 
     /**
