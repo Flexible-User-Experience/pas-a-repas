@@ -87,6 +87,14 @@ AppBundle\Entity\Customer:
     annotations: <paragraph()>
     enabled: <boolean(70)>
 
+## Phones
+AppBundle\Entity\Phone:
+  phone{1..50}:
+    position: <numberBetween(0, 9)>
+    type: <word()>
+    number: <phoneNumber()>
+    customer: @customer<numberBetween(1, 50)>
+
 ## Users
 AppBundle\Entity\User:
     admin:
