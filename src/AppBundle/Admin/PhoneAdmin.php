@@ -2,23 +2,26 @@
 
 namespace AppBundle\Admin;
 
+use Doctrine\ORM\QueryBuilder;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\AdminBundle\Route\RouteCollection;
+use Sonata\AdminBundle\Show\ShowMapper;
 
 /**
- * Class CustomerAdmin
+ * Class PhoneAdmin
  *
  * @category Admin
  * @package  AppBundle\Admin
- * @author   David Romaní <david@flux.cat>
+ * @author   Anton Serra <aserratorta@gmail.com>
  */
-class CustomerAdmin extends BaseAdmin
+class PhoneAdmin extends BaseAdmin
 {
-    protected $classnameLabel = 'Alumne';
-    protected $baseRoutePattern = 'facturacio/alumne';
+    protected $classnameLabel = 'Telèfon';
+    protected $baseRoutePattern = 'facturacio/telefon';
     protected $datagridValues = array(
-        '_sort_by'    => 'surname',
+        '_sort_by'    => 'position',
         '_sort_order' => 'asc',
     );
 
@@ -28,52 +31,41 @@ class CustomerAdmin extends BaseAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->with('backend.admin.customer', $this->getFormMdSuccessBoxArray(6))
+            ->with('backend.admin.phone', $this->getFormMdSuccessBoxArray(6))
             ->add(
-                'name',
+                'number',
                 null,
                 array(
-                    'label'    => 'backend.admin.name',
+                    'label' => 'backend.admin.number',
+                )
+            )
+//            ->end()
+//            ->with('backend.admin.controls', $this->getFormMdSuccessBoxArray(6))
+            ->add(
+                'customer',
+                null,
+                array(
+                    'label'    => 'backend.admin.customer',
+                    'required' => true,
                 )
             )
             ->add(
-                'surname',
+                'type',
                 null,
                 array(
-                    'label'    => 'backend.admin.surname',
+                    'label'    => 'backend.admin.type',
+                    'required' => true,
                 )
             )
-            ->end()
-            ->with('backend.admin.controls', $this->getFormMdSuccessBoxArray(6))
             ->add(
-                'enabled',
+                'position',
                 null,
                 array(
-                    'label'    => 'backend.admin.enabled',
-                    'required' => false,
+                    'label'    => 'backend.admin.position',
                 )
             )
             ->end();
-        if ($this->id($this->getSubject())) { // is edit mode, disable on new subjects
-            $formMapper
-                ->with('backend.admin.phones', $this->getFormMdSuccessBoxArray(12))
-                ->add(
-                    'phones',
-                    'sonata_type_collection',
-                    array(
-                        'label'    => ' ',
-                        'required' => false,
-                        'cascade_validation' => true,
-                    ),
-                    array(
-                        'edit'     => 'inline',
-                        'inline'   => 'table',
-                        'sortable' => 'position',
-                    )
-                )
 
-                ->end();
-        }
     }
 
     /**
@@ -83,26 +75,27 @@ class CustomerAdmin extends BaseAdmin
     {
         $datagridMapper
             ->add(
-                'name',
+                'number',
                 null,
                 array(
-                    'label'    => 'backend.admin.name',
+                    'label' => 'backend.admin.number',
                 )
             )
             ->add(
-                'surname',
+                'customer',
                 null,
                 array(
-                    'label'    => 'backend.admin.surname',
+                    'label'    => 'backend.admin.customer',
                 )
             )
             ->add(
-                'enabled',
+                'type',
                 null,
                 array(
-                    'label'    => 'backend.admin.enabled',
+                    'label' => 'backend.admin.type',
                 )
             );
+
     }
 
     /**
@@ -113,27 +106,25 @@ class CustomerAdmin extends BaseAdmin
         unset($this->listModes['mosaic']);
         $listMapper
             ->add(
-                'name',
+                'number',
                 null,
                 array(
-                    'label'    => 'backend.admin.name',
+                    'label'    => 'backend.admin.number',
                     'editable' => true,
                 )
             )
             ->add(
-                'surname',
+                'customer',
                 null,
                 array(
-                    'label'    => 'backend.admin.surname',
-                    'editable' => true,
+                    'label'    => 'backend.admin.customer',
                 )
             )
             ->add(
-                'enabled',
+                'type',
                 null,
                 array(
-                    'label'    => 'backend.admin.enabled',
-                    'editable' => true,
+                    'label'    => 'backend.admin.type',
                 )
             )
             ->add(

@@ -119,6 +119,15 @@ class Phone extends Base
         return $this;
     }
 
+    /**
+     * To string
+     *
+     * @return string
+     */
+    public function __toString() {
+
+        return $this->number ? $this->getNumber().' '.$this->getCustomer() : '---';
+    }
 
 
 }
