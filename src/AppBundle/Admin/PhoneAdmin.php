@@ -39,16 +39,8 @@ class PhoneAdmin extends BaseAdmin
                     'label' => 'backend.admin.number',
                 )
             )
-//            ->end()
+            ->end()
 //            ->with('backend.admin.controls', $this->getFormMdSuccessBoxArray(6))
-            ->add(
-                'customer',
-                null,
-                array(
-                    'label'    => 'backend.admin.customer',
-                    'required' => true,
-                )
-            )
             ->add(
                 'type',
                 null,

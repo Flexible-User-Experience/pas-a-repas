@@ -121,6 +121,7 @@ backend:
         customer: Client
         position: Ordre
         type: Tipus
+        phones: Telèfons
         block:
             title: Notificacions
             text: missatges pendents de llegir
