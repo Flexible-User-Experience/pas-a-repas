@@ -140,6 +140,31 @@ class Customer extends Base
     private $phones;
 
     /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="MonthGroup", mappedBy="customer")
+     */
+    private $monthgroups;
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getMonthgroups()
+    {
+        return $this->monthgroups;
+    }
+
+    /**
+     * @param ArrayCollection $monthgroups
+     * @return Customer
+     */
+    public function setMonthgroups($monthgroups)
+    {
+        $this->monthgroups = $monthgroups;
+        return $this;
+    }
+
+    /**
      *
      * Methods
      *
@@ -151,8 +176,8 @@ class Customer extends Base
     public function __construct()
     {
         $this->phones = new ArrayCollection();
+        $this->monthgroups = new ArrayCollection();
     }
-
 
     /**
      * Set Name
@@ -540,6 +565,16 @@ class Customer extends Base
     public function removePhone(Phone $phone)
     {
         $this->phones->removeElement($phone);
+    }
+
+    public function addMonthGroup(MonthGroup $monthGroup)
+    {
+        $this->monthgroups->add($monthGroup);
+    }
+
+    public function removeMonthGroup(MonthGroup $monthGroup)
+    {
+        $this->monthgroups->removeElement($monthGroup);
     }
 
     /**
