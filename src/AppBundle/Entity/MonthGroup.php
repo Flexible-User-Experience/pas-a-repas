@@ -18,6 +18,30 @@ use Gedmo\Mapping\Annotation as Gedmo;
  */
 class MonthGroup extends Base
 {
+    use DateTrait;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(type="float", name="preu")
+     */
+    private $price;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(type="boolean", name="facturat", nullable=true)
+     */
+    private $invoiced;
+
+    /**
+     * @var Customer
+     *
+     * @ORM\ManyToOne(targetEntity="Customer", inversedBy="monthgroups")
+     * @ORM\JoinColumn(name="client_id", referencedColumnName="id")
+     */
+    private $customer;
+
     /**
      * @return float
      */
@@ -71,29 +95,6 @@ class MonthGroup extends Base
         $this->customer = $customer;
         return $this;
     }
-    use DateTrait;
-
-    /**
-     * @var float
-     *
-     * @ORM\Column(type="float", name="preu")
-     */
-    private $price;
-
-    /**
-     * @var boolean
-     *
-     * @ORM\Column(type="boolean", name="facturat", nullable=true)
-     */
-    private $invoiced;
-
-    /**
-     * @var Customer
-     *
-     * @ORM\ManyToOne(targetEntity="Customer", inversedBy="monthgroups")
-     * @ORM\JoinColumn(name="client_id", referencedColumnName="id")
-     */
-    private $customer;
 
      /**
      * To string
@@ -104,6 +105,5 @@ class MonthGroup extends Base
 
         return $this->price ? $this->getPrice().' '.$this->getCustomer() : '---';
     }
-
 
 }

@@ -95,6 +95,14 @@ AppBundle\Entity\Phone:
     number: <phoneNumber()>
     customer: @customer<numberBetween(1, 50)>
 
+## MonthGroups
+AppBundle\Entity\MonthGroup:
+  monthgroup{1..10}:
+    price: <randomFloat(2, 0, 10)>
+    invoiced: <boolean(70)>
+    date: <dateTimeThisMonth()>
+    customer: @customer<numberBetween(1, 10)>
+
 ## Users
 AppBundle\Entity\User:
     admin:
