@@ -122,6 +122,8 @@ backend:
         position: Ordre
         type: Tipus
         phones: Telèfons
+        invoiced: Facturat
+        price: Preu
         block:
             title: Notificacions
             text: missatges pendents de llegir
