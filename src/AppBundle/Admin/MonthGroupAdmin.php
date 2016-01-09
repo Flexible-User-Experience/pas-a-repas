@@ -13,7 +13,7 @@ use Sonata\AdminBundle\Form\FormMapper;
  * @package  AppBundle\Admin
  * @author   Anton Serra <aserratorta@gmail.com>
  */
-class MonthGroup extends BaseAdmin
+class MonthGroupAdmin extends BaseAdmin
 {
     protected $classnameLabel = 'Mes en grup';
     protected $baseRoutePattern = 'facturacio/mes_en_grup';
@@ -28,7 +28,7 @@ class MonthGroup extends BaseAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->with('backend.admin.phone', $this->getFormMdSuccessBoxArray(6))
+//            ->with('backend.admin.monthgroup', $this->getFormMdSuccessBoxArray(6))
             ->add(
                 'date',
                 null,
@@ -36,26 +36,25 @@ class MonthGroup extends BaseAdmin
                     'label' => 'backend.admin.date',
                 )
             )
-            ->end()
+//            ->end()
 //            ->with('backend.admin.controls', $this->getFormMdSuccessBoxArray(6))
             ->add(
                 'price',
                 null,
                 array(
-                    'label'    => 'backend.admin.price',
+                    'label' => 'backend.admin.price',
                     'required' => true,
                 )
             )
-
             ->add(
                 'invoiced',
                 null,
                 array(
-                    'label'    => 'backend.admin.invoidec',
+                    'label' => 'backend.admin.invoiced',
                     'required' => true,
                 )
-            )
-            ->end();
+            );
+//            ->end();
 
     }
 
@@ -80,6 +79,13 @@ class MonthGroup extends BaseAdmin
                 )
             )
             ->add(
+                'price',
+                null,
+                array(
+                    'label'    => 'backend.admin.price',
+                )
+            )
+            ->add(
                 'invoiced',
                 null,
                 array(
@@ -101,7 +107,7 @@ class MonthGroup extends BaseAdmin
                 null,
                 array(
                     'label'    => 'backend.admin.date',
-                    'editable' => true,
+                    'format'   => '('
                 )
             )
             ->add(
@@ -112,10 +118,18 @@ class MonthGroup extends BaseAdmin
                 )
             )
             ->add(
+                'price',
+                null,
+                array(
+                    'label'    => 'backend.admin.price',
+                )
+            )
+            ->add(
                 'invoiced',
                 null,
                 array(
                     'label'    => 'backend.admin.invoiced',
+                    'editable' => true,
                 )
             )
             ->add(
