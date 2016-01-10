@@ -127,6 +127,9 @@ backend:
         monthgroup: Mes en Grup
         amount: Quantitat
         hoursingle: Hora Particular
+        receipt: Rebut
+        payDate: Data pagament
+        collected: Cobrat
         block:
             title: Notificacions
             text: missatges pendents de llegir
