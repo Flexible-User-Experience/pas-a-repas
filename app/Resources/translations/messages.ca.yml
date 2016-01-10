@@ -124,6 +124,9 @@ backend:
         phones: Telèfons
         invoiced: Facturat
         price: Preu
+        monthgroup: Mes en Grup
+        amount: Quantitat
+        hoursingle: Hora Particular
         block:
             title: Notificacions
             text: missatges pendents de llegir

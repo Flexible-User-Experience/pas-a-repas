@@ -28,7 +28,7 @@ class MonthGroupAdmin extends BaseAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-//            ->with('backend.admin.monthgroup', $this->getFormMdSuccessBoxArray(6))
+            ->with('backend.admin.monthgroup', $this->getFormMdSuccessBoxArray(6))
             ->add(
                 'date',
                 null,
@@ -36,8 +36,6 @@ class MonthGroupAdmin extends BaseAdmin
                     'label' => 'backend.admin.date',
                 )
             )
-//            ->end()
-//            ->with('backend.admin.controls', $this->getFormMdSuccessBoxArray(6))
             ->add(
                 'price',
                 null,
@@ -53,8 +51,8 @@ class MonthGroupAdmin extends BaseAdmin
                     'label' => 'backend.admin.invoiced',
                     'required' => true,
                 )
-            );
-//            ->end();
+            )
+            ->end();
 
     }
 

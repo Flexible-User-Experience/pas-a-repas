@@ -28,7 +28,7 @@ class HourSingleAdmin extends BaseAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-//            ->with('backend.admin.monthgroup', $this->getFormMdSuccessBoxArray(6))
+            ->with('backend.admin.hoursingle', $this->getFormMdSuccessBoxArray(6))
             ->add(
                 'date',
                 null,
@@ -36,13 +36,19 @@ class HourSingleAdmin extends BaseAdmin
                     'label' => 'backend.admin.date',
                 )
             )
-//            ->end()
-//            ->with('backend.admin.controls', $this->getFormMdSuccessBoxArray(6))
             ->add(
                 'price',
                 null,
                 array(
                     'label' => 'backend.admin.price',
+                    'required' => true,
+                )
+            )
+            ->add(
+                'amount',
+                null,
+                array(
+                    'label' => 'backend.admin.amount',
                     'required' => true,
                 )
             )
@@ -53,9 +59,8 @@ class HourSingleAdmin extends BaseAdmin
                     'label' => 'backend.admin.invoiced',
                     'required' => true,
                 )
-            );
-//            ->end();
-
+            )
+            ->end();
     }
 
     /**
@@ -86,6 +91,13 @@ class HourSingleAdmin extends BaseAdmin
                 )
             )
             ->add(
+                'amount',
+                null,
+                array(
+                    'label'    => 'backend.admin.amount',
+                )
+            )
+            ->add(
                 'invoiced',
                 null,
                 array(
@@ -107,7 +119,7 @@ class HourSingleAdmin extends BaseAdmin
                 null,
                 array(
                     'label'    => 'backend.admin.date',
-                    'format'   => 'M-Y',
+                    'format'   => 'd-m-Y',
                 )
             )
             ->add(
@@ -118,10 +130,10 @@ class HourSingleAdmin extends BaseAdmin
                 )
             )
             ->add(
-                'shedule.hours',
+                'amount',
                 null,
                 array(
-                    'label'    => 'backend.admin.hours',
+                    'label'    => 'backend.admin.amount',
                 )
             )
             ->add(
