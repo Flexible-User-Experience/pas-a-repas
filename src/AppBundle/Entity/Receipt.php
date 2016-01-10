@@ -23,9 +23,9 @@ class Receipt extends Base
     /**
      * @var \DateTime
      *
-     * @ORM\Column(type="integer", name="fecha_pago", nullable=true)
+     * @ORM\Column(type="datetime", name="fecha_pago", nullable=true)
      */
-    private $payDay;
+    private $payDate;
 
     /**
      * @var string
@@ -45,7 +45,7 @@ class Receipt extends Base
     /**
      * @var int
      *
-     * @ORM\Column(type="integer", name="cobrat", nullable=true)
+     * @ORM\Column(type="boolean", name="cobrat", nullable=true)
      */
     private $collected;
 
@@ -71,18 +71,18 @@ class Receipt extends Base
     /**
      * @return \DateTime
      */
-    public function getPayDay()
+    public function getPayDate()
     {
-        return $this->payDay;
+        return $this->payDate;
     }
 
     /**
-     * @param \DateTime $payDay
+     * @param \DateTime $payDate
      * @return Receipt
      */
-    public function setPayDay($payDay)
+    public function setPayDate($payDate)
     {
-        $this->payDay = $payDay;
+        $this->payDate = $payDate;
         return $this;
     }
 

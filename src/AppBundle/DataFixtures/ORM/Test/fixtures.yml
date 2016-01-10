@@ -97,6 +97,16 @@ AppBundle\Entity\HourSingle:
     date: <dateTimeThisMonth()>
     customer: @customer<numberBetween(1, 5)>
 
+## Receipt
+AppBundle\Entity\Receipt:
+  receipt{1..5}:
+    amount: <numberBetween(0, 100)>
+    type: <word()>
+    date: <dateTimeThisMonth()>
+    paydate: <dateTimeThisMonth()>
+    collected: <boolean(70)>
+    customer: @customer<numberBetween(1, 5)>
+
 ## Users
 AppBundle\Entity\User:
     admin:
