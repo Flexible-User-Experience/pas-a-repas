@@ -154,6 +154,13 @@ class Customer extends Base
     private $hoursingles;
 
     /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="Receipt", mappedBy="customer")
+     */
+    private $receipts;
+
+    /**
      *
      * Methods
      *
@@ -582,6 +589,24 @@ class Customer extends Base
         return $this;
     }
 
+    /**
+     * @return ArrayCollection
+     */
+    public function getReceipts()
+    {
+        return $this->receipts;
+    }
+
+    /**
+     * @param ArrayCollection $receipts
+     * @return Customer
+     */
+    public function setReceipts($receipts)
+    {
+        $this->receipts = $receipts;
+        return $this;
+    }
+
     public function addPhone(Phone $phone)
     {
         $this->phones->add($phone);
@@ -609,6 +634,16 @@ class Customer extends Base
     public function removeHourSingle(HourSingle $hourSingle)
     {
         $this->hoursingles->removeElement($hourSingle);
+    }
+
+    public function addReceipt(Receipt $receipt)
+    {
+        $this->receipts->add($receipt);
+    }
+
+    public function removeReceipt(Receipt $receipt)
+    {
+        $this->receipts->removeElement($receipt);
     }
 
     /**
