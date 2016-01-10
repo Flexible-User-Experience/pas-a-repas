@@ -88,6 +88,15 @@ AppBundle\Entity\MonthGroup:
     date: <dateTimeThisMonth()>
     customer: @customer<numberBetween(1, 5)>
 
+## HourSingle
+AppBundle\Entity\HourSingle:
+  hoursingle{1..5}:
+    amount: <numberBetween(1, 5)>
+    price: <randomFloat(2, 0, 10)>
+    invoiced: <boolean(70)>
+    date: <dateTimeThisMonth()>
+    customer: @customer<numberBetween(1, 5)>
+
 ## Users
 AppBundle\Entity\User:
     admin:
