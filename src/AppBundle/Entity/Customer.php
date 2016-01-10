@@ -147,22 +147,11 @@ class Customer extends Base
     private $monthgroups;
 
     /**
-     * @return ArrayCollection
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="HourSingle", mappedBy="customer")
      */
-    public function getMonthgroups()
-    {
-        return $this->monthgroups;
-    }
-
-    /**
-     * @param ArrayCollection $monthgroups
-     * @return Customer
-     */
-    public function setMonthgroups($monthgroups)
-    {
-        $this->monthgroups = $monthgroups;
-        return $this;
-    }
+    private $hoursingles;
 
     /**
      *
@@ -557,6 +546,42 @@ class Customer extends Base
         return $this;
     }
 
+    /**
+     * @return ArrayCollection
+     */
+    public function getMonthgroups()
+    {
+        return $this->monthgroups;
+    }
+
+    /**
+     * @param ArrayCollection $monthgroups
+     * @return Customer
+     */
+    public function setMonthgroups($monthgroups)
+    {
+        $this->monthgroups = $monthgroups;
+        return $this;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getHoursingles()
+    {
+        return $this->hoursingles;
+    }
+
+    /**
+     * @param ArrayCollection $hoursingles
+     * @return Customer
+     */
+    public function setHoursingles($hoursingles)
+    {
+        $this->hoursingles = $hoursingles;
+        return $this;
+    }
+
     public function addPhone(Phone $phone)
     {
         $this->phones->add($phone);
@@ -575,6 +600,15 @@ class Customer extends Base
     public function removeMonthGroup(MonthGroup $monthGroup)
     {
         $this->monthgroups->removeElement($monthGroup);
+    }
+    public function addHourSingle(HourSingle $hourSingle)
+    {
+        $this->hoursingles->add($hourSingle);
+    }
+
+    public function removeHourSingle(HourSingle $hourSingle)
+    {
+        $this->hoursingles->removeElement($hourSingle);
     }
 
     /**

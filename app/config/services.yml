@@ -41,6 +41,11 @@ services:
         arguments: [ ~, AppBundle\Entity\MonthGroup, ~, "@vich_uploader.templating.helper.uploader_helper", "@liip_imagine.cache.manager" ]
         tags:
             - { name: sonata.admin, manager_type: orm, label: "Mes en grup", group: "Facturació" }
+    admin.hoursingle:
+        class: AppBundle\Admin\HourSingleAdmin
+        arguments: [ ~, AppBundle\Entity\HourSingle, ~, "@vich_uploader.templating.helper.uploader_helper", "@liip_imagine.cache.manager" ]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: "Hora Particular", group: "Facturació" }
     admin.user:
         class: AppBundle\Admin\UserAdmin
         arguments: [ ~, AppBundle\Entity\User, ~, "@fos_user.user_manager" ]
