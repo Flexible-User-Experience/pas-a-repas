@@ -19,7 +19,7 @@ class MonthGroupAdmin extends BaseAdmin
     protected $baseRoutePattern = 'facturacio/mes_en_grup';
     protected $datagridValues = array(
         '_sort_by'    => 'date',
-        '_sort_order' => 'asc',
+        '_sort_order' => 'desc',
     );
 
     /**
@@ -107,7 +107,7 @@ class MonthGroupAdmin extends BaseAdmin
                 null,
                 array(
                     'label'    => 'backend.admin.date',
-                    'format'   => '('
+                    'format'   => 'M-Y',
                 )
             )
             ->add(
@@ -118,10 +118,10 @@ class MonthGroupAdmin extends BaseAdmin
                 )
             )
             ->add(
-                'price',
+                'shedule.hours',
                 null,
                 array(
-                    'label'    => 'backend.admin.price',
+                    'label'    => 'backend.admin.hours',
                 )
             )
             ->add(
