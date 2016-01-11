@@ -31,7 +31,7 @@ class MonthGroupAdmin extends BaseAdmin
             ->with('backend.admin.monthgroup', $this->getFormMdSuccessBoxArray(6))
             ->add(
                 'date',
-                null,
+                'sonata_type_date_picker',
                 array(
                     'label' => 'backend.admin.date',
                 )
@@ -64,9 +64,10 @@ class MonthGroupAdmin extends BaseAdmin
         $datagridMapper
             ->add(
                 'date',
-                null,
+                'doctrine_orm_date',
                 array(
                     'label' => 'backend.admin.date',
+                    'field_type' => 'sonata_type_date_picker',
                 )
             )
             ->add(
@@ -106,6 +107,7 @@ class MonthGroupAdmin extends BaseAdmin
                 array(
                     'label'    => 'backend.admin.date',
                     'format'   => 'M-Y',
+                    'editable' => true,
                 )
             )
             ->add(

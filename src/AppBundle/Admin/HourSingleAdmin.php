@@ -31,11 +31,13 @@ class HourSingleAdmin extends BaseAdmin
             ->with('backend.admin.hoursingle', $this->getFormMdSuccessBoxArray(6))
             ->add(
                 'date',
-                null,
+                'sonata_type_date_picker',
                 array(
                     'label' => 'backend.admin.date',
                 )
             )
+            ->end()
+            ->with('backend.admin.controls', $this->getFormMdSuccessBoxArray(6))
             ->add(
                 'price',
                 null,
@@ -71,9 +73,10 @@ class HourSingleAdmin extends BaseAdmin
         $datagridMapper
             ->add(
                 'date',
-                null,
+                'doctrine_orm_date',
                 array(
                     'label' => 'backend.admin.date',
+                    'field_type' => 'sonata_type_date_picker',
                 )
             )
             ->add(
@@ -116,10 +119,11 @@ class HourSingleAdmin extends BaseAdmin
         $listMapper
             ->add(
                 'date',
-                null,
+                'date',
                 array(
                     'label'    => 'backend.admin.date',
                     'format'   => 'd-m-Y',
+                    'editable' => true,
                 )
             )
             ->add(

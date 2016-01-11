@@ -40,7 +40,7 @@ class PhoneAdmin extends BaseAdmin
                 )
             )
             ->end()
-//            ->with('backend.admin.controls', $this->getFormMdSuccessBoxArray(6))
+            ->with('backend.admin.controls', $this->getFormMdSuccessBoxArray(6))
             ->add(
                 'type',
                 null,
