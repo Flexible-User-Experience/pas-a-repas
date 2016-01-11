@@ -100,7 +100,7 @@ AppBundle\Entity\HourSingle:
 ## Receipt
 AppBundle\Entity\Receipt:
   receipt{1..5}:
-    amount: <numberBetween(0, 100)>
+    import: <numberBetween(0, 100)>
     type: <word()>
     date: <dateTimeThisMonth()>
     paydate: <dateTimeThisMonth()>
