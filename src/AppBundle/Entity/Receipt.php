@@ -40,7 +40,7 @@ class Receipt extends Base
      *
      * @ORM\Column(type="float", name="import")
      */
-    private $amount;
+    private $import;
 
     /**
      * @var int
@@ -65,7 +65,7 @@ class Receipt extends Base
      */
     public function __toString() {
 
-        return $this->amount ? $this->getAmount().' '.$this->getCustomer() : '---';
+        return $this->import ? $this->getImport().' '.$this->getCustomer() : '---';
     }
 
     /**
@@ -107,18 +107,18 @@ class Receipt extends Base
     /**
      * @return float
      */
-    public function getAmount()
+    public function getImport()
     {
-        return $this->amount;
+        return $this->import;
     }
 
     /**
-     * @param float $amount
+     * @param float $import
      * @return Receipt
      */
-    public function setAmount($amount)
+    public function setImport($import)
     {
-        $this->amount = $amount;
+        $this->import = $import;
         return $this;
     }
 
