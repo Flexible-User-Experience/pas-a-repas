@@ -28,28 +28,26 @@ class ReceiptAdmin extends BaseAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->with('backend.admin.receipt', $this->getFormMdSuccessBoxArray(9))
+            ->with('backend.admin.receipt', $this->getFormMdSuccessBoxArray(6))
             ->add(
                 'date',
-//                'sonata_type_date_picker',
-                null,
+                'sonata_type_date_picker',
                 array(
                     'label' => 'backend.admin.date',
                 )
             )
             ->add(
                 'payDate',
-                null,
+                'sonata_type_date_picker',
                 array(
                     'label' => 'backend.admin.payDate',
-//                    'sonata_type_date_picker',
                 )
             )
             ->add(
-                'amount',
+                'import',
                 null,
                 array(
-                    'label' => 'backend.admin.amount',
+                    'label' => 'backend.admin.import',
                     'required' => true,
                 )
             )
@@ -72,9 +70,10 @@ class ReceiptAdmin extends BaseAdmin
         $datagridMapper
             ->add(
                 'date',
-                null,
+                'doctrine_orm_date',
                 array(
                     'label' => 'backend.admin.date',
+                    'field_type' => 'sonata_type_date_picker',
                 )
             )
             ->add(
@@ -93,9 +92,10 @@ class ReceiptAdmin extends BaseAdmin
             )
             ->add(
                 'payDate',
-                null,
+                'doctrine_orm_date',
                 array(
                     'label' => 'backend.admin.payDate',
+                    'field_type' => 'sonata_type_date_picker',
                 )
             );
 
@@ -135,10 +135,10 @@ class ReceiptAdmin extends BaseAdmin
                 )
             )
             ->add(
-                'amount',
+                'import',
                 null,
                 array(
-                    'label' => 'backend.admin.amount',
+                    'label' => 'backend.admin.import',
                     'editable' => true,
                 )
             )

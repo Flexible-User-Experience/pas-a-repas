@@ -130,6 +130,7 @@ backend:
         receipt: Rebut
         payDate: Data pagament
         collected: Cobrat
+        import: Import
         block:
             title: Notificacions
             text: missatges pendents de llegir
