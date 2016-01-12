@@ -131,6 +131,7 @@ backend:
         payDate: Data pagament
         collected: Cobrat
         import: Import
+        total: Total despesa
         block:
             title: Notificacions
             text: missatges pendents de llegir

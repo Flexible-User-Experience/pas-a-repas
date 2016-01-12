@@ -129,6 +129,14 @@ class CustomerAdmin extends BaseAdmin
                 )
             )
             ->add(
+                'total',
+                null,
+                array(
+                    'label'    => 'backend.admin.total',
+                    'template' => '::Admin/Cells/list__cell_customer_total_field.html.twig',
+                )
+            )
+            ->add(
                 'enabled',
                 null,
                 array(

@@ -2,7 +2,9 @@
 
 namespace AppBundle\Entity;
 
+use AppBundle\Repository\ReceiptRepository;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -131,6 +133,12 @@ class Customer extends Base
      * @ORM\Column(name="actiu", type="boolean")
      */
     protected $enabled = true;
+
+    /**
+     * @var int
+     */
+    private $totalAmount;
+
 
     /**
      * @var ArrayCollection
@@ -536,6 +544,25 @@ class Customer extends Base
     }
 
     /**
+     * @return int
+     */
+    public function getTotalAmount()
+    {
+        // TODO implement doctrine listener
+        return $this->totalAmount;
+    }
+
+    /**
+     * @param int $totalAmount
+     * @return Customer
+     */
+    public function setTotalAmount($totalAmount)
+    {
+        $this->totalAmount = $totalAmount;
+        return $this;
+    }
+
+    /**
      * @return ArrayCollection
      */
     public function getPhones()
@@ -655,4 +682,4 @@ class Customer extends Base
 
         return $this->name ? $this->getName() . ' ' . $this->getSurname() : '---';
     }
-}
+    }
