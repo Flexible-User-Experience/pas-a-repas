@@ -125,7 +125,10 @@
         <div id="contacte" class="row extra-m-bottom">
             <div class="col-md-12">
                 <h2 class="my-h2 text-center">{{ 'frontend.layout.menu.contact' | trans | upper }}</h2>
-                <p class="text-center contacte">{{ 'frontend.index.contact.msg' | trans }}</p>
+                <p class="text-center contacte">
+                    {{ 'frontend.index.contact.msg1' | trans }}<br>
+                    {{ 'frontend.index.contact.msg2' | trans }}
+                </p>
                 {{ form_start(contactForm) }}
                     <div class="row">
                         <div class="col-sm-2 col-xs-1"></div>

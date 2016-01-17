@@ -42,7 +42,8 @@ frontend:
       cc: Certificats de Català
     university_txt: Classes particulars per a estudiants universitaris. Et puc ajudar a complementar els teus estudis superiors amb el reforç de les assignatures de <strong>Filologia Hispànica, Filologia Catalana i Llatí</strong>. Treballarem plegats per a que el teu esforç i compromís es vegin recompensats amb uns resultats excel·lents.
     contact:
-      msg: Si vols rebre més informació, omple aquest formulari i et resoldré qualsevol dubte que tinguis sobre les classes de repàs.
+      msg1: Si vols rebre més informació, omple aquest formulari
+      msg2: i et resoldré qualsevol dubte que tinguis sobre les classes de repàs.
       form:
         name: nom
         email: email
