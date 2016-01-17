@@ -99,7 +99,6 @@ class CategoryAdmin extends BaseAdmin
                 null,
                 array(
                     'label'    => 'backend.admin.posts',
-                    'editable' => true,
                 )
             )
             ->add(

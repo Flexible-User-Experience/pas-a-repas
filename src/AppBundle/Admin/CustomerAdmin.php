@@ -54,6 +54,26 @@ class CustomerAdmin extends BaseAdmin
                 )
             )
             ->end();
+        if ($this->id($this->getSubject())) { // is edit mode, disable on new subjects
+            $formMapper
+                ->with('backend.admin.phones', $this->getFormMdSuccessBoxArray(12))
+                ->add(
+                    'phones',
+                    'sonata_type_collection',
+                    array(
+                        'label'    => ' ',
+                        'required' => false,
+                        'cascade_validation' => true,
+                    ),
+                    array(
+                        'edit'     => 'inline',
+                        'inline'   => 'table',
+                        'sortable' => 'position',
+                    )
+                )
+
+                ->end();
+        }
     }
 
     /**
@@ -106,6 +126,14 @@ class CustomerAdmin extends BaseAdmin
                 array(
                     'label'    => 'backend.admin.surname',
                     'editable' => true,
+                )
+            )
+            ->add(
+                'total',
+                null,
+                array(
+                    'label'    => 'backend.admin.total',
+                    'template' => '::Admin/Cells/list__cell_customer_total_field.html.twig',
                 )
             )
             ->add(

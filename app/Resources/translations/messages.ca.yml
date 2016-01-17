@@ -117,6 +117,21 @@ backend:
         actions: Accions
         controls: Controls
         content: Contingut
+        number: Número
+        customer: Client
+        position: Ordre
+        type: Tipus
+        phones: Telèfons
+        invoiced: Facturat
+        price: Preu
+        monthgroup: Mes en Grup
+        amount: Quantitat
+        hoursingle: Hora Particular
+        receipt: Rebut
+        payDate: Data pagament
+        collected: Cobrat
+        import: Import
+        total: Total despesa
         block:
             title: Notificacions
             text: missatges pendents de llegir
