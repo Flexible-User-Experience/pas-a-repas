@@ -72,6 +72,41 @@ AppBundle\Entity\Customer:
     annotations: <paragraph()>
     enabled: <boolean(70)>
 
+## Phones
+AppBundle\Entity\Phone:
+  phone{1..10}:
+    position: <numberBetween(0, 9)>
+    type: <word()>
+    number: <phoneNumber()>
+    customer: @customer<numberBetween(1, 5)>
+
+## MonthGroups
+AppBundle\Entity\MonthGroup:
+  monthgroup{1..5}:
+    price: <randomFloat(2, 0, 10)>
+    invoiced: <boolean(10)>
+    date: <dateTimeThisMonth()>
+    customer: @customer<numberBetween(1, 5)>
+
+## HourSingle
+AppBundle\Entity\HourSingle:
+  hoursingle{1..5}:
+    amount: <numberBetween(1, 5)>
+    price: <randomFloat(2, 0, 10)>
+    invoiced: <boolean(70)>
+    date: <dateTimeThisMonth()>
+    customer: @customer<numberBetween(1, 5)>
+
+## Receipt
+AppBundle\Entity\Receipt:
+  receipt{1..5}:
+    import: <numberBetween(0, 100)>
+    type: <word()>
+    date: <dateTimeThisMonth()>
+    paydate: <dateTimeThisMonth()>
+    collected: <boolean(70)>
+    customer: @customer<numberBetween(1, 5)>
+
 ## Users
 AppBundle\Entity\User:
     admin:

@@ -1,4 +1,4 @@
-PasaRepas
-=========
+Pas a Repàs
+===========
 
-A Symfony project created on November 12, 2015, 4:21 pm.
+A custom ERP & CMS webapp developed with Symfony 2.

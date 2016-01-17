@@ -2,6 +2,9 @@
 
 namespace AppBundle\Entity;
 
+use AppBundle\Repository\ReceiptRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -132,10 +135,53 @@ class Customer extends Base
     protected $enabled = true;
 
     /**
+     * @var int
+     */
+    private $totalAmount;
+
+
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="Phone", mappedBy="customer")
+     */
+    private $phones;
+
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="MonthGroup", mappedBy="customer")
+     */
+    private $monthgroups;
+
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="HourSingle", mappedBy="customer")
+     */
+    private $hoursingles;
+
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="Receipt", mappedBy="customer")
+     */
+    private $receipts;
+
+    /**
      *
      * Methods
      *
      */
+
+    /**
+     * Customer constructor.
+     */
+    public function __construct()
+    {
+        $this->phones = new ArrayCollection();
+        $this->monthgroups = new ArrayCollection();
+    }
 
     /**
      * Set Name
@@ -498,6 +544,136 @@ class Customer extends Base
     }
 
     /**
+     * @return int
+     */
+    public function getTotalAmount()
+    {
+        // TODO implement doctrine listener
+        return $this->totalAmount;
+    }
+
+    /**
+     * @param int $totalAmount
+     * @return Customer
+     */
+    public function setTotalAmount($totalAmount)
+    {
+        $this->totalAmount = $totalAmount;
+        return $this;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getPhones()
+    {
+        return $this->phones;
+    }
+
+    /**
+     * @param ArrayCollection $phones
+     * @return Customer
+     */
+    public function setPhones($phones)
+    {
+        $this->phones = $phones;
+        return $this;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getMonthgroups()
+    {
+        return $this->monthgroups;
+    }
+
+    /**
+     * @param ArrayCollection $monthgroups
+     * @return Customer
+     */
+    public function setMonthgroups($monthgroups)
+    {
+        $this->monthgroups = $monthgroups;
+        return $this;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getHoursingles()
+    {
+        return $this->hoursingles;
+    }
+
+    /**
+     * @param ArrayCollection $hoursingles
+     * @return Customer
+     */
+    public function setHoursingles($hoursingles)
+    {
+        $this->hoursingles = $hoursingles;
+        return $this;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getReceipts()
+    {
+        return $this->receipts;
+    }
+
+    /**
+     * @param ArrayCollection $receipts
+     * @return Customer
+     */
+    public function setReceipts($receipts)
+    {
+        $this->receipts = $receipts;
+        return $this;
+    }
+
+    public function addPhone(Phone $phone)
+    {
+        $this->phones->add($phone);
+    }
+
+    public function removePhone(Phone $phone)
+    {
+        $this->phones->removeElement($phone);
+    }
+
+    public function addMonthGroup(MonthGroup $monthGroup)
+    {
+        $this->monthgroups->add($monthGroup);
+    }
+
+    public function removeMonthGroup(MonthGroup $monthGroup)
+    {
+        $this->monthgroups->removeElement($monthGroup);
+    }
+    public function addHourSingle(HourSingle $hourSingle)
+    {
+        $this->hoursingles->add($hourSingle);
+    }
+
+    public function removeHourSingle(HourSingle $hourSingle)
+    {
+        $this->hoursingles->removeElement($hourSingle);
+    }
+
+    public function addReceipt(Receipt $receipt)
+    {
+        $this->receipts->add($receipt);
+    }
+
+    public function removeReceipt(Receipt $receipt)
+    {
+        $this->receipts->removeElement($receipt);
+    }
+
+    /**
      * To string
      *
      * @return string
@@ -506,4 +682,4 @@ class Customer extends Base
 
         return $this->name ? $this->getName() . ' ' . $this->getSurname() : '---';
     }
-}
+    }

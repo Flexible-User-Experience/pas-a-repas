@@ -200,7 +200,7 @@ class PostAdmin extends BaseAdmin
         $listMapper
             ->add(
                 'image',
-                'date',
+                null,
                 array(
                     'label'    => 'backend.admin.image',
                     'template' => '::Admin/Cells/list__cell_image_field.html.twig'
