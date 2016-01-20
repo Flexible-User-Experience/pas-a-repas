@@ -21,6 +21,7 @@ class Phone extends Base
      * @var int
      *
      * @ORM\Column(type="integer", name="ordre", nullable=true)
+     *
      */
     private $position;
 

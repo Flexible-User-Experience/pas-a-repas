@@ -144,6 +144,7 @@ class Customer extends Base
      * @var ArrayCollection
      *
      * @ORM\OneToMany(targetEntity="Phone", mappedBy="customer")
+     * @ORM\OrderBy({"position" = "ASC"})
      */
     private $phones;
 
