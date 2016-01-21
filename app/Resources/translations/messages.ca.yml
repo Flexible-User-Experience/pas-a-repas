@@ -133,6 +133,18 @@ backend:
         collected: Cobrat
         import: Import
         total: Total despesa
+        father: Pare
+        mother: Mare
+        course: Curs
+        annotations: Notes
+        address: Adreça
+        city: Ciutat
+        postalCode: Codi postal
+        priceHourSingle: Preu hora individual
+        priceHourGroup: Preu hora en grup
+        singleClasses: Classes individuals
+        groupClasses: Classes en grup
+        school: Escola
         block:
             title: Notificacions
             text: missatges pendents de llegir

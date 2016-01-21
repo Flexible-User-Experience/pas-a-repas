@@ -87,7 +87,7 @@ class CustomerAdmin extends BaseAdmin
                 )
             )
             ->end()
-            ->with('backend.admin.adress', $this->getFormMdSuccessBoxArray(6))
+            ->with('backend.admin.address', $this->getFormMdSuccessBoxArray(6))
             ->add(
                 'address',
                 null,
