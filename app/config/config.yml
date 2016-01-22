@@ -167,7 +167,8 @@ sonata_admin:
     security:
         handler: sonata.admin.security.handler.role
     templates:
-        layout:    "::Admin/layout.html.twig"
+        layout: "::Admin/layout.html.twig"
+        show:   "::Admin/show.html.twig"
     dashboard:
         groups:
             Web:
