@@ -8,24 +8,26 @@
 
 {% block main %}
     <div class="container">
-        {% if post.imageName %}
-            <div class="row">
-                <div class="col-xs-12">
-                    <img src="{{ vich_uploader_asset(post, 'imageFile') | imagine_filter('1200xY') }}" class="img-responsive extra-m-bottom" alt="{{ post.title }}">
-                </div>
-            </div>
-        {% else %}
-            {# TODO improve this contanier-fuild view #}
-            {% include ':Front/Fragments:blog_heading_image.html.twig' %}
-        {% endif %}
         <div class="row">
-            <div class="col-xs-12">
+            <div class="col-xs-12">&nbsp;</div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8">
+                {# left side #}
+                {% if post.imageName %}
+                    <img src="{{ vich_uploader_asset(post, 'imageFile') | imagine_filter('1200xY') }}" class="img-responsive extra-m-bottom" alt="{{ post.title }}">
+                {% else %}
+                    <img src="{{ asset('bundles/app/images/blog-head.png') | imagine_filter('1200xY') }}" class="img-responsive extra-m-bottom" alt="{{ 'frontend.index.main.image' | trans | capitalize }}">
+                {% endif %}
                 <h1 class="c-violet no-m-top">{{ post.title }}</h1>
                 <h6>{{ post.publishedAt | date('d/m/Y') }}{% if post.categories | length > 0 %}&nbsp;&nbsp;|&nbsp;&nbsp;{{ post.categories | join(', ') }}{% endif %}</h6>
                 {{ post.description | raw }}<br><br><br>
-                {% for category in post.categories %}
-                    <a href="{{ path('category_detail', {slug: category.slug}) }}">{{ category.title }}</a>
-                {% endfor %}
+            </div>
+            <div class="col-sm-4">
+                {# right side #}
+                {% include ':Front/Fragments:categories_side.html.twig' with { categories: post.categories } %}
             </div>
         </div>
     </div>
