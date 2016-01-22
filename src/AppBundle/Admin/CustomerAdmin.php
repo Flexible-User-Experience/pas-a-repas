@@ -43,6 +43,72 @@ class CustomerAdmin extends BaseAdmin
                     'label'    => 'backend.admin.surname',
                 )
             )
+            ->add(
+                'father',
+                null,
+                array(
+                    'label'    => 'backend.admin.father',
+                )
+            )
+            ->add(
+                'mother',
+                null,
+                array(
+                    'label'    => 'backend.admin.mother',
+                )
+            )
+            ->add(
+                'course',
+                null,
+                array(
+                    'label'    => 'backend.admin.course',
+                )
+            )
+            ->add(
+                'school',
+                null,
+                array(
+                    'label'    => 'backend.admin.school',
+                )
+            )
+            ->add(
+                'email',
+                null,
+                array(
+                    'label'    => 'backend.admin.email',
+                )
+            )
+            ->add(
+                'annotations',
+                null,
+                array(
+                    'label'    => 'backend.admin.annotations',
+                    'required' => false,
+                )
+            )
+            ->end()
+            ->with('backend.admin.address', $this->getFormMdSuccessBoxArray(6))
+            ->add(
+                'address',
+                null,
+                array(
+                    'label'    => 'backend.admin.address',
+                )
+            )
+            ->add(
+                'city',
+                null,
+                array(
+                    'label'    => 'backend.admin.city',
+                )
+            )
+            ->add(
+                'postalCode',
+                null,
+                array(
+                    'label'    => 'backend.admin.postalCode',
+                )
+            )
             ->end()
             ->with('backend.admin.controls', $this->getFormMdSuccessBoxArray(6))
             ->add(
@@ -50,6 +116,38 @@ class CustomerAdmin extends BaseAdmin
                 null,
                 array(
                     'label'    => 'backend.admin.enabled',
+                    'required' => false,
+                )
+            )
+            ->add(
+                'priceHourSingle',
+                null,
+                array(
+                    'label'    => 'backend.admin.priceHourSingle',
+                    'required' => false,
+                )
+            )
+            ->add(
+                'priceHourGroup',
+                null,
+                array(
+                    'label'    => 'backend.admin.priceHourGroup',
+                    'required' => false,
+                )
+            )
+            ->add(
+                'singleClasses',
+                null,
+                array(
+                    'label'    => 'backend.admin.singleClasses',
+                    'required' => false,
+                )
+            )
+            ->add(
+                'groupClasses',
+                null,
+                array(
+                    'label'    => 'backend.admin.groupClasses',
                     'required' => false,
                 )
             )

@@ -5,6 +5,10 @@ namespace AppBundle\Form\Type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 /**
  * Class ContactType
@@ -24,7 +28,7 @@ class ContactType extends AbstractType
         $builder
             ->add(
                 'name',
-                'text',
+                TextType::class,
                 array(
                     'label'    => 'frontend.index.contact.form.name',
                     'required' => true,
@@ -32,7 +36,7 @@ class ContactType extends AbstractType
             )
             ->add(
                 'email',
-                'email',
+                EmailType::class,
                 array(
                     'label'    => 'frontend.index.contact.form.email',
                     'required' => true,
@@ -40,7 +44,7 @@ class ContactType extends AbstractType
             )
             ->add(
                 'phone',
-                'text',
+                TextType::class,
                 array(
                     'label'    => 'frontend.index.contact.form.phone',
                     'required' => false,
@@ -48,7 +52,7 @@ class ContactType extends AbstractType
             )
             ->add(
                 'message',
-                'textarea',
+                TextareaType::class,
                 array(
                     'label'    => 'frontend.index.contact.form.message',
                     'required' => false,
@@ -59,7 +63,7 @@ class ContactType extends AbstractType
             )
             ->add(
                 'send',
-                'submit',
+                SubmitType::class,
                 array(
                     'label' => 'frontend.index.contact.form.submit',
                     'attr'  => array(
@@ -82,8 +86,10 @@ class ContactType extends AbstractType
      */
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Contact',
-        ));
+        $resolver->setDefaults(
+            array(
+                'data_class' => 'AppBundle\Entity\Contact',
+            )
+        );
     }
 }

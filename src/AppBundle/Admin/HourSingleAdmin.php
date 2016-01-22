@@ -36,6 +36,13 @@ class HourSingleAdmin extends BaseAdmin
                     'label' => 'backend.admin.date',
                 )
             )
+            ->add(
+                'customer',
+                null,
+                array(
+                    'label' => 'backend.admin.customer',
+                )
+            )
             ->end()
             ->with('backend.admin.controls', $this->getFormMdSuccessBoxArray(6))
             ->add(
@@ -59,7 +66,7 @@ class HourSingleAdmin extends BaseAdmin
                 null,
                 array(
                     'label' => 'backend.admin.invoiced',
-                    'required' => true,
+                    'required' => false,
                 )
             )
             ->end();
@@ -118,6 +125,13 @@ class HourSingleAdmin extends BaseAdmin
         unset($this->listModes['mosaic']);
         $listMapper
             ->add(
+                'customer',
+                null,
+                array(
+                    'label'    => 'backend.admin.customer',
+                )
+            )
+            ->add(
                 'date',
                 'date',
                 array(
@@ -127,17 +141,17 @@ class HourSingleAdmin extends BaseAdmin
                 )
             )
             ->add(
-                'customer',
-                null,
-                array(
-                    'label'    => 'backend.admin.customer',
-                )
-            )
-            ->add(
                 'amount',
                 null,
                 array(
                     'label'    => 'backend.admin.amount',
+                )
+            )
+            ->add(
+                'price',
+                null,
+                array(
+                    'label'    => 'backend.admin.price',
                 )
             )
             ->add(

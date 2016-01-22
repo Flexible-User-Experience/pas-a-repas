@@ -128,6 +128,14 @@ class ReceiptAdmin extends BaseAdmin
                 )
             )
             ->add(
+                'type',
+                null,
+                array(
+                    'label'    => 'backend.admin.type',
+                    'editable' => true,
+                )
+            )
+            ->add(
                 'payDate',
                 null,
                 array(

@@ -3,6 +3,8 @@
 namespace AppBundle\Form\Type;
 
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 /**
  * Class ContactType
@@ -21,47 +23,8 @@ class ContactAnswerType extends ContactType
     {
         $builder
             ->add(
-                'name',
-                'text',
-                array(
-                    'label'     => 'frontend.index.contact.form.name',
-                    'required'  => false,
-                    'read_only' => true,
-                )
-            )
-            ->add(
-                'email',
-                'email',
-                array(
-                    'label'     => 'frontend.index.contact.form.email',
-                    'required'  => false,
-                    'read_only' => true,
-                )
-            )
-            ->add(
-                'phone',
-                'text',
-                array(
-                    'label'     => 'frontend.index.contact.form.phone',
-                    'required'  => false,
-                    'read_only' => true,
-                )
-            )
-            ->add(
-                'message',
-                'textarea',
-                array(
-                    'label'     => 'frontend.index.contact.form.message',
-                    'required'  => false,
-                    'read_only' => true,
-                    'attr'      => array(
-                        'rows' => 6,
-                    ),
-                )
-            )
-            ->add(
                 'description',
-                'textarea',
+                TextareaType::class,
                 array(
                     'label'    => 'backend.admin.answer',
                     'required' => true,
@@ -72,11 +35,10 @@ class ContactAnswerType extends ContactType
             )
             ->add(
                 'send',
-                'submit',
+                SubmitType::class,
                 array(
-                    'label' => 'frontend.index.contact.form.submit',
                     'attr'  => array(
-                        'class' => 'btn-violet',
+                        'class' => 'btn-primary',
                     ),
                 )
             );

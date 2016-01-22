@@ -2,9 +2,9 @@
 
 namespace AppBundle\Entity;
 
-use AppBundle\Entity\Traits\DateTrait;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Receipt Entity Class
@@ -18,7 +18,12 @@ use Gedmo\Mapping\Annotation as Gedmo;
  */
 class Receipt extends Base
 {
-    use DateTrait;
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(type="datetime", name="fecha", nullable=true, unique=true)
+     */
+    private $date;
 
     /**
      * @var \DateTime
@@ -57,15 +62,31 @@ class Receipt extends Base
      */
     private $customer;
 
-
-     /**
-     * To string
+    /**
      *
-     * @return string
+     *
+     * Methods
+     *
+     *
      */
-    public function __toString() {
 
-        return $this->import ? $this->getImport().' '.$this->getCustomer() : '---';
+    /**
+     * @return \DateTime
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * @param \DateTime $date
+     * @return Receipt
+     */
+    public function setDate(\DateTime $date)
+    {
+        $this->date = $date;
+
+        return $this;
     }
 
     /**
@@ -80,9 +101,10 @@ class Receipt extends Base
      * @param \DateTime $payDate
      * @return Receipt
      */
-    public function setPayDate($payDate)
+    public function setPayDate(\DateTime $payDate)
     {
         $this->payDate = $payDate;
+
         return $this;
     }
 
@@ -101,6 +123,7 @@ class Receipt extends Base
     public function setType($type)
     {
         $this->type = $type;
+
         return $this;
     }
 
@@ -119,6 +142,7 @@ class Receipt extends Base
     public function setImport($import)
     {
         $this->import = $import;
+
         return $this;
     }
 
@@ -137,6 +161,7 @@ class Receipt extends Base
     public function setCustomer($customer)
     {
         $this->customer = $customer;
+
         return $this;
     }
 
@@ -155,7 +180,17 @@ class Receipt extends Base
     public function setCollected($collected)
     {
         $this->collected = $collected;
+
         return $this;
     }
 
+    /**
+     * To string
+     *
+     * @return string
+     */
+    public function __toString() {
+
+        return $this->import ? $this->getImport().' '.$this->getCustomer() : '---';
+    }
 }

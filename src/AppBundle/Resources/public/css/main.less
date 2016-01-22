@@ -104,6 +104,10 @@ address { line-height: 1.65; }
 // Gaps
 .no-m-bottom { margin-bottom: 0; }
 .extra-m-bottom { margin-bottom: @gap-extra; }
+.no-h-padding {
+  padding-left: 0;
+  padding-right: 0;
+}
 
 // Buttons
 .btn-violet {
@@ -116,6 +120,20 @@ address { line-height: 1.65; }
   }
 }
 
+// Captions
+.my-carousel-caption {
+  position: absolute;
+  left: 5%;
+  right: 5%;
+  top: 0;
+  z-index: 10;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: #ffffff;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+
 // Customs
 h2.my-h2 {
   margin: 70px 0;
@@ -123,13 +141,6 @@ h2.my-h2 {
   &.c-white { color: @white; }
 }
 .google-maps-container { height: 400px; }
-div#sobre-mi div.col-md-12 {
-  background-image: url('/bundles/app/images/about.jpg');
-  background-size: cover;
-  background-clip: content-box;
-  min-height: 500px;
-  color: @white;
-}
 .banner-service {
   line-height: 1.65;
   min-height: 343px;
