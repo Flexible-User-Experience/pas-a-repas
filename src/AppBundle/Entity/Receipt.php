@@ -2,11 +2,9 @@
 
 namespace AppBundle\Entity;
 
-use AppBundle\Entity\Traits\DateTrait;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * Receipt Entity Class
@@ -15,18 +13,15 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  * @package  AppBundle\Entity
  * @author   Anton Serra <aserratorta@gmail.com>
  *
- * @ORM\Table(name="rebut", @UniqueEntity="date")
+ * @ORM\Table(name="rebut")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ReceiptRepository")
  */
 class Receipt extends Base
 {
-    use DateTrait;
-
     /**
      * @var \DateTime
      *
      * @ORM\Column(type="datetime", name="fecha", nullable=true, unique=true)
-     * @ORM\Assert\date()
      */
     private $date;
 
@@ -67,16 +62,13 @@ class Receipt extends Base
      */
     private $customer;
 
-
-     /**
-     * To string
+    /**
      *
-     * @return string
+     *
+     * Methods
+     *
+     *
      */
-    public function __toString() {
-
-        return $this->import ? $this->getImport().' '.$this->getCustomer() : '---';
-    }
 
     /**
      * @return \DateTime
@@ -90,9 +82,10 @@ class Receipt extends Base
      * @param \DateTime $date
      * @return Receipt
      */
-    public function setDate2($date)
+    public function setDate(\DateTime $date)
     {
         $this->date = $date;
+
         return $this;
     }
 
@@ -108,9 +101,10 @@ class Receipt extends Base
      * @param \DateTime $payDate
      * @return Receipt
      */
-    public function setPayDate($payDate)
+    public function setPayDate(\DateTime $payDate)
     {
         $this->payDate = $payDate;
+
         return $this;
     }
 
@@ -129,6 +123,7 @@ class Receipt extends Base
     public function setType($type)
     {
         $this->type = $type;
+
         return $this;
     }
 
@@ -147,6 +142,7 @@ class Receipt extends Base
     public function setImport($import)
     {
         $this->import = $import;
+
         return $this;
     }
 
@@ -165,6 +161,7 @@ class Receipt extends Base
     public function setCustomer($customer)
     {
         $this->customer = $customer;
+
         return $this;
     }
 
@@ -183,7 +180,17 @@ class Receipt extends Base
     public function setCollected($collected)
     {
         $this->collected = $collected;
+
         return $this;
     }
 
+    /**
+     * To string
+     *
+     * @return string
+     */
+    public function __toString() {
+
+        return $this->import ? $this->getImport().' '.$this->getCustomer() : '---';
+    }
 }
