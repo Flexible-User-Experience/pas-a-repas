@@ -34,7 +34,7 @@ twig:
         google_analytics_enabled: %google_analytics_enabled%
         google_analytics_account: "%google_analytics_account%"
         main_brand_title:         "Pas a Repàs"
-        admin_tag_version:        "v2.0.25"
+        admin_tag_version:        "v2.0.26"
 
 # Assetic Configuration
 assetic:
@@ -167,7 +167,8 @@ sonata_admin:
     security:
         handler: sonata.admin.security.handler.role
     templates:
-        layout:    "::Admin/layout.html.twig"
+        layout: "::Admin/layout.html.twig"
+        show:   "::Admin/show.html.twig"
     dashboard:
         groups:
             Web:

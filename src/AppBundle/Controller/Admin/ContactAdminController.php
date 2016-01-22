@@ -106,7 +106,7 @@ class ContactAdminController extends Controller
             $em->persist($object);
             $em->flush();
             // add view flash message
-            $this->addFlash('notice', 'frontend.index.main.sent');
+            $this->addFlash('successx', 'frontend.index.main.sent');
 
             return $this->redirectToRoute('admin_app_contact_list');
         }
