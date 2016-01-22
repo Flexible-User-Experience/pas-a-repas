@@ -21,7 +21,7 @@ class BlogController extends Controller
      */
     public function postsListAction()
     {
-        $posts = $this->getDoctrine()->getRepository('AppBundle:Post')->getAllEnabledSortedByPublishedDate();
+        $posts = $this->getDoctrine()->getRepository('AppBundle:Post')->getAllEnabledSortedByPublishedDateWithJoin();
         $categories = $this->getDoctrine()->getRepository('AppBundle:Category')->getAllEnabledSortedByTitleWithJoin();
 
         return $this->render('Front/Blog/blog.html.twig', array(
@@ -68,8 +68,8 @@ class BlogController extends Controller
         if (!$category || !$category->getEnabled()) {
             throw $this->createNotFoundException('Unable to find Category entity.');
         }
-        $posts = $this->getDoctrine()->getRepository('AppBundle:Post')->getPostsByCategoryEnabledSortedByPublishedDate($category);
-        $categories = $this->getDoctrine()->getRepository('AppBundle:Category')->getAllEnabledSortedByTitle();
+        $posts = $this->getDoctrine()->getRepository('AppBundle:Post')->getPostsByCategoryEnabledSortedByPublishedDateWithJoin($category);
+        $categories = $this->getDoctrine()->getRepository('AppBundle:Category')->getAllEnabledSortedByTitleWithJoin();
 
         return $this->render('Front/Blog/category_detail.html.twig', array(
             'selectedCategory' => $category,
