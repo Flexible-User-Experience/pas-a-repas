@@ -22,7 +22,7 @@ class BlogController extends Controller
     public function postsListAction()
     {
         $posts = $this->getDoctrine()->getRepository('AppBundle:Post')->getAllEnabledSortedByPublishedDate();
-        $categories = $this->getDoctrine()->getRepository('AppBundle:Category')->getAllEnabledSortedByTitle();
+        $categories = $this->getDoctrine()->getRepository('AppBundle:Category')->getAllEnabledSortedByTitleWithJoin();
 
         return $this->render('Front/Blog/blog.html.twig', array(
             'posts' => $posts,
