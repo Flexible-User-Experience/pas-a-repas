@@ -15,19 +15,21 @@
             <div class="col-xs-8">
                 {# main right side #}
                 {% for post in posts %}
-                    <div class="thumbnail">
+                    <div class="thumbnail no-overflow">
                         {% if post.imageName %}
-                            <a href="{{ path('blog_detail', { year: post.publishedDate | date('Y'), month: post.publishedDate | date('m'), day: post.publishedDate | date('d'), slug: post.slug }) }}"><img src="{{ vich_uploader_asset(post, 'imageFile') | imagine_filter('700x200') }}" alt="{{ post.title }} thumbnail"></a>
+                            <a href="{{ path('blog_detail', { year: post.publishedAt | date('Y'), month: post.publishedAt | date('m'), day: post.publishedAt | date('d'), slug: post.slug }) }}">
+                                <img src="{{ vich_uploader_asset(post, 'imageFile') | imagine_filter('750x250') }}" alt="{{ post.title }} thumbnail">
+                            </a>
                         {% endif %}
                         <div class="caption">
-                            <h2 class="c-violet">{{ post.title }}</h2>
+                            <h2 class="c-violet no-m-top">{{ post.title }}</h2>
                             <h5>{{ post.publishedAt | date('d/m/Y') }}</h5>
                             {#{% if post.categories | length > 0 %}
                                 {% for category in post.categories %}
                                     <span>{{ category.title }}</span>
                                 {% endfor %}
                             {% endif %}#}
-                            <p>{{ post.description | truncate(100) }}</p>
+                            <p>{{ post.description | truncate(100) | raw }}</p>
                             <a href="{{ path('blog_detail', { year: post.publishedAt | date('Y'), month: post.publishedAt | date('m'), day: post.publishedAt | date('d'), slug: post.slug }) }}" class="c-violet pull-right">{{ 'frontend.blog.main.keep_reading' | trans | upper }}</a>
                         </div>
                     </div>
