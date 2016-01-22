@@ -116,7 +116,7 @@ AppBundle\Entity\HourSingle:
 AppBundle\Entity\Receipt:
   receipt{1..50}:
     import: <numberBetween(0, 100)>
-    type: <word()>
+    type: <randomElement(array('HOUR_SINGLE', 'HOUR_GROUP'))>
     date: <dateTimeThisMonth()>
     paydate: <dateTimeThisMonth()>
     collected: <boolean(70)>

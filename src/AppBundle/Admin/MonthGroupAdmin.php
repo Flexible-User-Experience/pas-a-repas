@@ -16,7 +16,7 @@ use Sonata\AdminBundle\Form\FormMapper;
 class MonthGroupAdmin extends BaseAdmin
 {
     protected $classnameLabel = 'Mes en grup';
-    protected $baseRoutePattern = 'facturacio/mes_en_grup';
+    protected $baseRoutePattern = 'facturacio/mes-en-grup';
     protected $datagridValues = array(
         '_sort_by'    => 'date',
         '_sort_order' => 'desc',
@@ -49,7 +49,7 @@ class MonthGroupAdmin extends BaseAdmin
                 null,
                 array(
                     'label' => 'backend.admin.invoiced',
-                    'required' => true,
+                    'required' => false,
                 )
             )
             ->end();

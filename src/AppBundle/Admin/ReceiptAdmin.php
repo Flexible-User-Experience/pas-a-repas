@@ -2,7 +2,9 @@
 
 namespace AppBundle\Admin;
 
+use AppBundle\Enum\ReceiptTypeEnum;
 use Sonata\AdminBundle\Datagrid\ListMapper;
+use AppBundle\Enum\UserRolesEnum;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 
@@ -43,6 +45,14 @@ class ReceiptAdmin extends BaseAdmin
                     'label' => 'backend.admin.payDate',
                 )
             )
+            ->add(
+                'customer',
+                null,
+                array(
+                    'label'    => 'backend.admin.customer',
+                    'required' => true,
+                )
+            )
             ->end()
              ->with('backend.admin.controls', $this->getFormMdSuccessBoxArray(6))
             ->add(
@@ -58,7 +68,17 @@ class ReceiptAdmin extends BaseAdmin
                 null,
                 array(
                     'label' => 'backend.admin.collected',
-                    'required' => true,
+                    'required' => false,
+                )
+            )
+            ->add(
+                'type',
+                'choice',
+                array(
+                    'label' => 'backend.admin.type',
+                    'choices'  => ReceiptTypeEnum::getEnumArray(),
+                    'multiple' => false,
+                    'expanded' => true,
                 )
             )
             ->end();
@@ -132,7 +152,7 @@ class ReceiptAdmin extends BaseAdmin
                 null,
                 array(
                     'label'    => 'backend.admin.type',
-                    'editable' => true,
+                    'template' => '::Admin/Cells/list__cell_receipt_types.html.twig',
                 )
             )
             ->add(
