@@ -12,29 +12,26 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-xs-8">
+            <div class="col-sm-8">
                 {# main right side #}
                 {% for post in posts %}
-                    <div class="thumbnail">
+                    <div class="thumbnail no-overflow">
                         {% if post.imageName %}
-                            <a href="{{ path('blog_detail', { year: post.publishedDate | date('Y'), month: post.publishedDate | date('m'), day: post.publishedDate | date('d'), slug: post.slug }) }}"><img src="{{ vich_uploader_asset(post, 'imageFile') | imagine_filter('700x200') }}" alt="{{ post.title }} thumbnail"></a>
+                            <a href="{{ path('blog_detail', { year: post.publishedAt | date('Y'), month: post.publishedAt | date('m'), day: post.publishedAt | date('d'), slug: post.slug }) }}">
+                                <img src="{{ vich_uploader_asset(post, 'imageFile') | imagine_filter('750x250') }}" alt="{{ post.title }} thumbnail">
+                            </a>
                         {% endif %}
                         <div class="caption">
-                            <h2 class="c-violet">{{ post.title }}</h2>
-                            <h5>{{ post.publishedAt | date('d/m/Y') }}</h5>
-                            {#{% if post.categories | length > 0 %}
-                                {% for category in post.categories %}
-                                    <span>{{ category.title }}</span>
-                                {% endfor %}
-                            {% endif %}#}
-                            <p>{{ post.description | truncate(100) }}</p>
-                            <a href="{{ path('blog_detail', { year: post.publishedAt | date('Y'), month: post.publishedAt | date('m'), day: post.publishedAt | date('d'), slug: post.slug }) }}" class="c-violet pull-right">{{ 'frontend.blog.main.keep_reading' | trans | upper }}</a>
+                            <h2 class="c-violet no-m-top">{{ post.title }}</h2>
+                            <h6>{{ post.publishedAt | date('d/m/Y') }}{% if post.categories | length > 0 %}&nbsp;&nbsp;|&nbsp;&nbsp;{{ post.categories | join(', ') }}{% endif %}</h6>
+                            {{ post.description | truncate(100) | raw }}
+                            <a class="no-underline extra-m-top d-block" href="{{ path('blog_detail', { year: post.publishedAt | date('Y'), month: post.publishedAt | date('m'), day: post.publishedAt | date('d'), slug: post.slug }) }}" class="c-violet">{{ 'frontend.blog.main.keep_reading' | trans | upper }} <i class="icon-arrow-right"></i></a>
                         </div>
                     </div>
                 {% endfor %}
             </div>
-            <div class="col-xs-4">
-                {# left side #}
+            <div class="col-sm-4">
+                {# right side #}
                 {% if categories | length > 0 %}
                     <div class="thumbnail blog-categories">
                         <div class="caption">

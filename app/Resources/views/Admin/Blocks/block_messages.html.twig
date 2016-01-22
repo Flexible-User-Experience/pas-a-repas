@@ -2,7 +2,7 @@
 
 {% block block %}
     {% if is_granted('ROLE_CMS') %}
-        <div class="box{% if pendingMessages > 0 %} box-info{% endif %}">
+        <div class="box{% if pendingMessages > 0 %} box-danger{% endif %}">
             <div class="box-header">
                 <h3 class="box-title">
                     <i class="fa fa-envelope-o"></i>

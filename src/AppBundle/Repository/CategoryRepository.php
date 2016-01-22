@@ -37,4 +37,20 @@ class CategoryRepository extends EntityRepository
 
         return $query->getResult();
     }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getAllEnabledSortedByTitleWithJoin()
+    {
+        $query = $this->createQueryBuilder('c')
+            ->select('c, p')
+            ->join('c.posts', 'p')
+            ->where('c.enabled = :enabled')
+            ->setParameter('enabled', true)
+            ->orderBy('c.title', 'ASC')
+            ->getQuery();
+
+        return $query->getResult();
+    }
 }

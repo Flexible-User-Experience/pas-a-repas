@@ -34,14 +34,14 @@ twig:
         google_analytics_enabled: %google_analytics_enabled%
         google_analytics_account: "%google_analytics_account%"
         main_brand_title:         "Pas a Repàs"
-        admin_tag_version:        "v2.0.27"
+        admin_tag_version:        "v2.0.28"
 
 # Assetic Configuration
 assetic:
     debug:          "%kernel.debug%"
-    use_controller: false
     java:           "%assetic_path_java%"
     node:           "%assetic_path_node%"
+    use_controller: false
     filters:
         cssrewrite: ~
         less:
@@ -106,6 +106,10 @@ liip_imagine:
             quality: 75
             filters:
                 thumbnail: { size: [ 1200, null ], mode: outbound }
+        750x250:
+            quality: 80
+            filters:
+                thumbnail: { size: [ 750, 250 ], mode: outbound }
         700x200:
             quality: 80
             filters:

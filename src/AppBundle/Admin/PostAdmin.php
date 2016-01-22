@@ -224,11 +224,11 @@ class PostAdmin extends BaseAdmin
                 )
             )
             ->add(
-                'count',
+                'categories',
                 null,
                 array(
-                    'label'    => 'backend.admin.categories_amount',
-                    'template' => '::Admin/Cells/list__cell_categories_amount_field.html.twig',
+                    'label'    => 'backend.admin.categories',
+                    'editable' => true,
                 )
             )
             ->add(
