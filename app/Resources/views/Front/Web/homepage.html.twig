@@ -128,9 +128,9 @@
     </div>
     <div class="container-fluid">
         <div id="sobre-mi" class="row">
-            <div class="outer">
-                <div class="inner">
-                    <img src="{{ asset('bundles/app/images/about.jpg') | imagine_filter('2400xY') }}" class="img-responsive" alt="{{ 'frontend.index.main.image' | trans | capitalize }}">
+            <div class="col-xs-12 no-h-padding">
+                <img src="{{ asset('bundles/app/images/about.jpg') | imagine_filter('2400xY') }}" class="img-responsive" alt="{{ 'frontend.index.main.image' | trans | capitalize }}">
+                <div class="my-carousel-caption">
                     <h2 class="my-h2 c-white text-center">{{ 'frontend.layout.menu.about' | trans | upper }}</h2>
                     <p class="text-center banner-service sobre-mi">{{ 'frontend.index.about_mi' | trans | raw }}</p>
                 </div>
