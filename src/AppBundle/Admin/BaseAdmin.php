@@ -119,6 +119,6 @@ abstract class BaseAdmin extends Admin
         return ($this->getSubject()->getImageName() ? '<img src="' . $this->lis->getBrowserPath(
                 $this->vus->asset($this->getSubject(), 'imageFile'),
                 '480xY'
-            ) . '" class="admin-preview" alt="thumbnail"/>' : '') . '<span style="width:100%;display:block;">Màxim 10MB amb format PNG, JPG o GIF. Amplada mínima 1200px.</span>';
+            ) . '" class="img-responsive" alt="thumbnail"/>' : '') . '<span style="width:100%;display:block;">Màxim 10MB amb format PNG, JPG o GIF. Amplada mínima 1200px.</span>';
     }
 }
