@@ -16,7 +16,7 @@ use Sonata\AdminBundle\Form\FormMapper;
 class HourSingleAdmin extends BaseAdmin
 {
     protected $classnameLabel = 'Hora Particular';
-    protected $baseRoutePattern = 'facturacio/hora_particular';
+    protected $baseRoutePattern = 'facturacio/hora-particular';
     protected $datagridValues = array(
         '_sort_by'    => 'date',
         '_sort_order' => 'desc',

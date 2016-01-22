@@ -45,6 +45,14 @@ class ReceiptAdmin extends BaseAdmin
                     'label' => 'backend.admin.payDate',
                 )
             )
+            ->add(
+                'customer',
+                null,
+                array(
+                    'label'    => 'backend.admin.customer',
+                    'required' => true,
+                )
+            )
             ->end()
              ->with('backend.admin.controls', $this->getFormMdSuccessBoxArray(6))
             ->add(
@@ -60,7 +68,7 @@ class ReceiptAdmin extends BaseAdmin
                 null,
                 array(
                     'label' => 'backend.admin.collected',
-                    'required' => true,
+                    'required' => false,
                 )
             )
             ->add(
