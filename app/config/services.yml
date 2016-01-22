@@ -35,7 +35,7 @@ services:
         class: AppBundle\Admin\PhoneAdmin
         arguments: [ ~, AppBundle\Entity\Phone, ~, "@vich_uploader.templating.helper.uploader_helper", "@liip_imagine.cache.manager" ]
         tags:
-            - { name: sonata.admin, manager_type: orm, label: "Telèfons", group: "Facturació" }
+            - { name: sonata.admin, manager_type: orm, label: "Telèfons", group: "Facturació", show_in_dashboard: false }
     admin.monthgroup:
         class: AppBundle\Admin\MonthGroupAdmin
         arguments: [ ~, AppBundle\Entity\MonthGroup, ~, "@vich_uploader.templating.helper.uploader_helper", "@liip_imagine.cache.manager" ]

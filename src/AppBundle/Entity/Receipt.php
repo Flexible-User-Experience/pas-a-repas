@@ -5,6 +5,8 @@ namespace AppBundle\Entity;
 use AppBundle\Entity\Traits\DateTrait;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * Receipt Entity Class
@@ -13,12 +15,20 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * @package  AppBundle\Entity
  * @author   Anton Serra <aserratorta@gmail.com>
  *
- * @ORM\Table(name="rebut")
+ * @ORM\Table(name="rebut", @UniqueEntity="date")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ReceiptRepository")
  */
 class Receipt extends Base
 {
     use DateTrait;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(type="datetime", name="fecha", nullable=true, unique=true)
+     * @ORM\Assert\date()
+     */
+    private $date;
 
     /**
      * @var \DateTime
@@ -66,6 +76,24 @@ class Receipt extends Base
     public function __toString() {
 
         return $this->import ? $this->getImport().' '.$this->getCustomer() : '---';
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * @param \DateTime $date
+     * @return Receipt
+     */
+    public function setDate2($date)
+    {
+        $this->date = $date;
+        return $this;
     }
 
     /**
