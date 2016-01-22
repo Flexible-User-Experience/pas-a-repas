@@ -1,0 +1,13 @@
+{% extends 'SonataAdminBundle:CRUD:base_list_field.html.twig' %}
+
+{% block field %}
+    {% spaceless %}
+        <span class="label {% if object.type == 'HOUR_GROUP' %}label-primary{% else %}label-warning{% endif %}">
+            {% if object.type == 'HOUR_GROUP' %}
+                hora en grup
+            {% elseif object.type == 'HOUR_SINGLE' %}
+                hora particular
+            {% endif %}
+        </span>
+    {% endspaceless %}
+{% endblock %}

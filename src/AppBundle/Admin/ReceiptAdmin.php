@@ -152,7 +152,7 @@ class ReceiptAdmin extends BaseAdmin
                 null,
                 array(
                     'label'    => 'backend.admin.type',
-                    'editable' => true,
+                    'template' => '::Admin/Cells/list__cell_receipt_types.html.twig',
                 )
             )
             ->add(
