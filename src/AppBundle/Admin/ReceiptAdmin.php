@@ -2,6 +2,7 @@
 
 namespace AppBundle\Admin;
 
+use AppBundle\Enum\ReceiptTypeEnum;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use AppBundle\Enum\UserRolesEnum;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
@@ -60,6 +61,16 @@ class ReceiptAdmin extends BaseAdmin
                 array(
                     'label' => 'backend.admin.collected',
                     'required' => true,
+                )
+            )
+            ->add(
+                'type',
+                'choice',
+                array(
+                    'label' => 'backend.admin.type',
+                    'choices'  => ReceiptTypeEnum::getEnumArray(),
+                    'multiple' => false,
+                    'expanded' => true,
                 )
             )
             ->end();
