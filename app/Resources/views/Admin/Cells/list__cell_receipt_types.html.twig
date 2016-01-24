@@ -2,12 +2,10 @@
 
 {% block field %}
     {% spaceless %}
-        <span class="label {% if object.type == 'HOUR_GROUP' %}label-primary{% else %}label-warning{% endif %}">
-            {% if object.type == 'HOUR_GROUP' %}
-                hora en grup
-            {% elseif object.type == 'HOUR_SINGLE' %}
-                hora particular
-            {% endif %}
-        </span>
+        {% if object.type == 'HOUR_GROUP' %}
+            <span class="label label-primary">hora en grup</span>
+        {% else %}
+            <span class="label label-warning">hora particular</span>
+        {% endif %}
     {% endspaceless %}
 {% endblock %}
