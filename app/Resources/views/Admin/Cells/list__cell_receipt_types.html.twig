@@ -3,9 +3,9 @@
 {% block field %}
     {% spaceless %}
         {% if object.type == 'HOUR_GROUP' %}
-            <span class="label label-primary">hora en grup</span>
-        {% else %}
-            <span class="label label-warning">hora particular</span>
+            <span class="label label-primary">{{ 'backend.admin.groupClasses' | trans }}</span>
+        {% elseif %}
+            <span class="label label-warning">{{ 'backend.admin.singleClasses' | trans }}</span>
         {% endif %}
     {% endspaceless %}
 {% endblock %}
