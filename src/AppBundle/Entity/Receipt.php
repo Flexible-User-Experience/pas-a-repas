@@ -5,6 +5,7 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
+use AppBundle\Entity\Traits\DateTrait;
 
 /**
  * Receipt Entity Class
@@ -18,12 +19,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Receipt extends Base
 {
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(type="datetime", name="fecha", nullable=true, unique=true)
-     */
-    private $date;
+    use DateTrait;
 
     /**
      * @var \DateTime
@@ -69,25 +65,6 @@ class Receipt extends Base
      *
      *
      */
-
-    /**
-     * @return \DateTime
-     */
-    public function getDate()
-    {
-        return $this->date;
-    }
-
-    /**
-     * @param \DateTime $date
-     * @return Receipt
-     */
-    public function setDate(\DateTime $date)
-    {
-        $this->date = $date;
-
-        return $this;
-    }
 
     /**
      * @return \DateTime
