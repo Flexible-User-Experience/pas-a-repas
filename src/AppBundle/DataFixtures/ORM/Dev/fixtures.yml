@@ -66,7 +66,7 @@ AppBundle\Entity\Post:
 ## Schedules
 AppBundle\Entity\Schedule:
   schedule{1..10}:
-    date: <dateTimeThisMonth()>
+    date (unique): <dateTimeBetween('-4 months', '-1 months')>
     hours: <numberBetween(1, 4)>
 
 ## Customers
