@@ -4,8 +4,10 @@
     {% spaceless %}
         {% if object.type == 'HOUR_GROUP' %}
             <span class="label label-primary">{{ 'backend.admin.groupClasses' | trans }}</span>
-        {% elseif %}
+        {% elseif object.type == 'HOUR_SINGLE'%}
             <span class="label label-warning">{{ 'backend.admin.singleClasses' | trans }}</span>
+        {% else %}
+            <span class="label label-danger">????</span>
         {% endif %}
     {% endspaceless %}
 {% endblock %}

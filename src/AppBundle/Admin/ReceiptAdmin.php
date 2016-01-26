@@ -106,6 +106,17 @@ class ReceiptAdmin extends BaseAdmin
                 )
             )
             ->add(
+                'type',
+                null,
+                array(
+                    'label'    => 'backend.admin.type',
+                    'template' => '::Admin/Cells/list__cell_receipt_types.html.twig',
+                    'choices'  => ReceiptTypeEnum::getEnumArray(),
+                    'multiple' => false,
+                    'expanded' => true,
+                )
+            )
+            ->add(
                 'collected',
                 null,
                 array(

@@ -142,7 +142,7 @@ backend:
         postalCode: Codi postal
         priceHourSingle: Preu hora individual
         priceHourGroup: Preu hora en grup
-        singleClasses: Classes individuals
+        singleClasses: Classes particulars
         groupClasses: Classes en grup
         school: Escola
         block:
