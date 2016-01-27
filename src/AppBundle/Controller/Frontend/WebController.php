@@ -37,20 +37,27 @@ class WebController extends Controller
         $form = $this->createForm(ContactType::class, $contactEntity);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            // send notification email
-            $mailer = $this->get('app.mailer');
-            $mailer->sendEmail(
-                $contactEntity->getEmail(),
-                $this->container->getParameter('mailer_destination'),
-                'Missatge de contacte Pas a Repàs',
-                $this->renderView('Front/Web/email.html.twig', array('contactEntity' => $contactEntity))
-            );
-            // persist new contact message record
-            $contactEntity->setDescription('');
+            // persist entity
             $em = $this->getDoctrine()->getManager();
+            $contactEntity->setDescription('');
             $em->persist($contactEntity);
             $em->flush();
-            // add view flash message
+            // send notifications
+            $messenger = $this->get('app.notification');
+            $messenger->sendUserNotification($contactEntity);
+            $messenger->sendAdminNotification($contactEntity);
+
+            // send notification email
+//            $mailer = $this->get('app.mailer');
+//            $mailer->sendEmail(
+//                $contactEntity->getEmail(),
+//                $this->container->getParameter('mailer_destination'),
+//                'Missatge de contacte Pas a Repàs',
+//                $this->renderView('Front/Web/email.html.twig', array('contactEntity' => $contactEntity))
+//            );
+
+
+            // build flash message
             $this->addFlash('notice', 'frontend.index.main.sent');
         }
 
