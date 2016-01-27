@@ -53,6 +53,137 @@ class CustomerAdminController extends Controller
 //        );
     }
 
+    /// TODO fix legacy code
+    /**
+     * Rebuts
+     */
+//    public function executeNewRebut(sfWebRequest $request)
+//    {
+//        if ($request->isMethod(sfRequest::GET)) {
+//            $this->forward404Unless($request->hasParameter('id'));
+//            $this->client = ClientTable::getInstance()->find($request->getParameter('id'));
+//            $this->forward404Unless($this->client);
+//        } else if ($request->isMethod(sfRequest::POST)) {
+//            $this->forward404Unless($request->hasParameter('id') && $request->hasParameter('tipo') && $request->hasParameter('mes') && $request->hasParameter('any'));
+//            if ($request->getParameter('tipo') == 'particular') {
+//                // Proces de facturacio hores particulars
+//                $inici = date('Y-m-d', mktime(0, 0, 0, $request->getParameter('mes'), 1, $request->getParameter('any')));
+//                $fi    = date('Y-m-d', mktime(23, 59, 59, $request->getParameter('mes'), cal_days_in_month(CAL_GREGORIAN, $request->getParameter('mes'), $request->getParameter('any')), $request->getParameter('any')));
+//                $client = ClientTable::getInstance()->find($request->getParameter('id'));
+//                if ($client) {
+//                    $total = 0;
+//                    $quantitat = 0;
+//                    //foreach ($clients as $client) {
+//                    $import = 0;
+//                    $hores = HoraParticularTable::getInstance()->createQuery('h')->where('h.client_id = ? AND h.fecha >= ? AND h.fecha <= ? AND h.facturat = 0', array($client->getId(), $inici, $fi))->execute();
+//                    if (count($hores) > 0) {
+//                        foreach ($hores as $hora) {
+//                            $import = $import + ($hora->getPreu() * $hora->getQuantitat());
+//                            $hora->setFacturat(1);
+//                            $hora->save();
+//                        }
+//                        $rebut = new Rebut();
+//                        $rebut->setTipo('particular');
+//                        $rebut->setImport($import);
+//                        $rebut->setClientId($client->getId());
+//                        $rebut->setFecha(date('Y-m-d', mktime(0, 0, 0, $request->getParameter('mes'), 1, $request->getParameter('any'))));
+//                        $rebut->save();
+//                        $total = $total + $import;
+//                        $quantitat++;
+//                        $this->getUser()->setFlash('msg', "S'ha generat un rebut amb un import facturat total de ".Utils::getImportFormat($total)." â‚¬");
+//                    } else {
+//                        $this->getUser()->setFlash('msg', "Aquest client no disposa d'hores particulars facturables per aquest perÃ­ode");
+//                    }
+//                }
+//            } else if ($request->getParameter('tipo') == 'grup') {
+//                // Proces de facturacio hores en grup
+//                $client = ClientTable::getInstance()->find($request->getParameter('id'));
+//                if ($client && $client->getClassesEnGrup()) {
+//                    $total = 0;
+//                    $quantitat = 0;
+//                    //foreach ($clients as $client) {
+//                    $rebut = new Rebut();
+//                    $rebut->setTipo('grup');
+//                    $rebut->setImport($client->getPreuMensualEnGrup());
+//                    $rebut->setClientId($client->getId());
+//                    $rebut->setFecha(date('Y-m-d', mktime(0, 0, 0, $request->getParameter('mes'), 1, $request->getParameter('any'))));
+//                    $rebut->save();
+//                    $total = $total + $client->getPreuMensualEnGrup();
+//                    $quantitat++;
+//                    //}
+//                    $this->getUser()->setFlash('msg', "S'ha generat un rebut amb un import facturat total de ".Utils::getImportFormat($total)." â‚¬");
+//                } else {
+//                    $this->getUser()->setFlash('msg', "Aquest client no disposa d'hores en grup facturables");
+//                }
+//            }
+//            $this->client = ClientTable::getInstance()->find($request->getParameter('id'));
+//            $this->forward404Unless($this->client);
+//        }
+//    }
+//
+//    public function executeCreateRebut(sfWebRequest $request)
+//    {
+//        $this->forward404Unless($request->isMethod(sfRequest::POST) && $request->hasParameter('id') && $request->hasParameter('tipo') && $request->hasParameter('mes') && $request->hasParameter('any'));
+//        if ($request->getParameter('tipo') == 'particular') {
+//            // Proces de facturacio hores particulars
+//            $inici = date('Y-m-d', mktime(0, 0, 0, $request->getParameter('mes'), 1, $request->getParameter('any')));
+//            $fi    = date('Y-m-d', mktime(23, 59, 59, $request->getParameter('mes'), cal_days_in_month(CAL_GREGORIAN, $request->getParameter('mes'), $request->getParameter('any')), $request->getParameter('any')));
+//            $client = ClientTable::getInstance()->find($request->getParameter('id'));
+//            if ($client) {
+//                $total = 0;
+//                $quantitat = 0;
+//                //foreach ($clients as $client) {
+//                $import = 0;
+//                $hores = HoraParticularTable::getInstance()->createQuery('h')->where('h.client_id = ? AND h.fecha >= ? AND h.fecha <= ? AND h.facturat = 0', array($client->getId(), $inici, $fi))->execute();
+//                if (count($hores) > 0) {
+//                    foreach ($hores as $hora) {
+//                        $import = $import + ($hora->getPreu() * $hora->getQuantitat());
+//                        $hora->setFacturat(1);
+//                        $hora->save();
+//                    }
+//                    $rebut = new Rebut();
+//                    $rebut->setTipo('particular');
+//                    $rebut->setImport($import);
+//                    $rebut->setClientId($client->getId());
+//                    $rebut->setFecha(date('Y-m-d', mktime(0, 0, 0, $request->getParameter('mes'), 1, $request->getParameter('any'))));
+//                    $rebut->save();
+//                    $total = $total + $import;
+//                    $quantitat++;
+//                }
+//                //}
+//                $this->getUser()->setFlash('msg', "S'ha generat un rebut amb un import facturat total de ".Utils::getImportFormat($total)." â‚¬");
+//            } else {
+//                $this->getUser()->setFlash('msg', "Aquest client no disposa d'hores particulars facturables per aquest perÃ­ode");
+//            }
+//        } else if ($request->getParameter('tipo') == 'grup') {
+//            // Proces de facturacio hores en grup
+//            $client = ClientTable::getInstance()->find($request->getParameter('id'));
+//            if ($client) {
+//                $total = 0;
+//                $quantitat = 0;
+//                //foreach ($clients as $client) {
+//                $rebut = new Rebut();
+//                $rebut->setTipo('grup');
+//                $rebut->setImport($client->getPreuMensualEnGrup());
+//                $rebut->setClientId($client->getId());
+//                $rebut->setFecha(date('Y-m-d', mktime(0, 0, 0, $request->getParameter('mes'), 1, $request->getParameter('any'))));
+//                $rebut->save();
+//                $total = $total + $client->getPreuMensualEnGrup();
+//                $quantitat++;
+//                //}
+//                $this->getUser()->setFlash('msg', "S'ha generat un rebut amb un import facturat total de ".Utils::getImportFormat($total)." â‚¬");
+//            } else {
+//                $this->getUser()->setFlash('msg', "Aquest client no disposa d'hores en grup facturables");
+//            }
+//        }
+//        $this->redirect('client/newRebut');
+//    }
+
+    /**
+     * @param Request|null $request
+     *
+     * @return Request
+     */
     private function resolveRequest(Request $request = null)
     {
         if (null === $request) {
@@ -61,5 +192,4 @@ class CustomerAdminController extends Controller
 
         return $request;
     }
-
 }
