@@ -50,6 +50,7 @@ class CustomerAdminController extends Controller
         }
 
         return $this->render(':Admin/Customer:receipt_form.html.twig', array(
+            'action' => 'receipt',
             'receiptType' => $form->createView(),
             'object' => $object,
         ));

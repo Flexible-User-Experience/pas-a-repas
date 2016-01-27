@@ -2,12 +2,11 @@
 
 namespace AppBundle\Form\Type;
 
+use AppBundle\Enum\ReceiptTypeEnum;
+use AppBundle\Enum\YearEnum;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\EmailType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 /**
@@ -21,17 +20,49 @@ class ReceiptType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
-     * @param array                $options
+     * @param array $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add(
-                'name',
-                TextType::class,
+                'type',
+                ChoiceType::class,
                 array(
-                    'label'    => 'frontend.index.contact.form.name',
+                    'label' => 'frontend.index.contact.form.type',
                     'required' => true,
+                    'choices' => ReceiptTypeEnum::getEnumArray()
+                )
+            )
+            ->add(
+                'month',
+                ChoiceType::class,
+                array(
+                    'label' => 'frontend.index.contact.form.month',
+                    'required' => true,
+                    'choices' => array(
+                        1 => 'Gener',
+                        2 => 'Febrer',
+                        3 => 'Març',
+                        4 => 'Abril',
+                        5 => 'Maig',
+                        6 => 'Juny',
+                        7 => 'Juliol',
+                        8 => 'Agost',
+                        9 => 'Setembre',
+                        10 => 'Octubre',
+                        11 => 'Novembre',
+                        12 => 'Desembre',
+                    )
+                )
+            )
+            ->add(
+                'year',
+                ChoiceType::class,
+                array(
+                    'label' => 'frontend.index.contact.form.year',
+                    'required' => true,
+                    'choices' => YearEnum::getEnumArray()
                 )
             )
             ->add(
@@ -39,7 +70,7 @@ class ReceiptType extends AbstractType
                 SubmitType::class,
                 array(
                     'label' => 'frontend.index.contact.form.submit',
-                    'attr'  => array(
+                    'attr' => array(
                         'class' => 'btn-violet',
                     ),
                 )
