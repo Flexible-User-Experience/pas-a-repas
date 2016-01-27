@@ -18,20 +18,6 @@
 {% endblock %}
 
 {% block main %}
-    {% if app.session.flashbag.get('notice') | length > 0 %}
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12 text-center">
-                    {% for flashMessage in app.session.flashbag.get('notice') %}
-                        <div class="alert alert-success" role="alert">
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            {{ flashMessage | trans | capitalize }}
-                        </div>
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
-    {% endif %}
     <div class="container-fluid">
         <div class="row">
             <div class="text-center">
@@ -151,6 +137,18 @@
                     {{ 'frontend.index.contact.msg1' | trans }}<br>
                     {{ 'frontend.index.contact.msg2' | trans }}
                 </p>
+                {% if flash is not null %}
+                    <div class="row">
+                        <div class="col-sm-2 col-xs-1"></div>
+                        <div class="col-sm-8 col-xs-10">
+                            <div class="alert alert-success" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <i class="fa fa-paper-plane-o"></i> {{ flash | trans }}
+                            </div>
+                        </div>
+                        <div class="col-sm-2 col-xs-1"></div>
+                    </div>
+                {% endif %}
                 {{ form_start(contactForm) }}
                     <div class="row">
                         <div class="col-sm-2 col-xs-1"></div>
@@ -193,6 +191,14 @@
                 jQuery(jQuery(this).attr('href'))[0].scrollIntoView();
                 scrollBy(0, -offset);
             });
+            var errorNode = jQuery(".has-error");
+            var envelopeNode = jQuery(".fa-paper-plane-o");
+            if (errorNode.length > 0) {
+                jQuery('html,body').animate({scrollTop: errorNode.offset().top - 200}, "slow");
+            }
+            if (envelopeNode.length > 0) {
+                jQuery('html,body').animate({scrollTop: envelopeNode.offset().top - 200}, "slow");
+            }
         });
     </script>
 {% endblock %}

@@ -29,6 +29,7 @@ class WebController extends Controller
      */
     public function homepageAction(Request $request)
     {
+        $flash = null;
         /** @var GoogleMapsService $gms */
         $gms = $this->get('app.google_maps_service');
         $mapObject = $gms->buildMap(40.7061278, 0.5817055555555556, $this->container->getParameter('locale'), 15);
@@ -37,26 +38,26 @@ class WebController extends Controller
         $form = $this->createForm(ContactType::class, $contactEntity);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            // send notification email
-            $mailer = $this->get('app.mailer');
-            $mailer->sendEmail(
-                $contactEntity->getEmail(),
-                $this->container->getParameter('mailer_destination'),
-                'Missatge de contacte Pas a Repàs',
-                $this->renderView('Front/Web/email.html.twig', array('contactEntity' => $contactEntity))
-            );
-            // persist new contact message record
-            $contactEntity->setDescription('');
+            // persist entity
             $em = $this->getDoctrine()->getManager();
+            $contactEntity->setDescription('');
             $em->persist($contactEntity);
             $em->flush();
-            // add view flash message
-            $this->addFlash('notice', 'frontend.index.main.sent');
+            // send notifications
+            $messenger = $this->get('app.notification');
+            $messenger->sendUserNotification($contactEntity);
+            $messenger->sendAdminNotification($contactEntity);
+            // reset form
+            $contactEntity = new Contact();
+            $form = $this->createForm(ContactType::class, $contactEntity);
+            // build flash message
+            $flash = 'frontend.index.main.sent';
         }
 
         return $this->render('Front/Web/homepage.html.twig', array(
             'mapView' => $mapObject,
             'contactForm' => $form->createView(),
+            'flash' => $flash,
         ));
     }
 }

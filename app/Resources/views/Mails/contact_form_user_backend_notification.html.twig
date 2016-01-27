@@ -1,0 +1,13 @@
+{% block body %}
+    <h1>Hola de nou!</h1>
+    <p>{{ contact.description | raw }}</p>
+    <br>
+    <br>
+    <p>
+        Has rebut aquest email en resposta a la teva consulta del dia {{ contact.createdAt | date('d/m/Y') }} a les {{ contact.createdAt | date('H:i') }}:<br>
+        <em>"{{ contact.message | raw }}"</em>
+    </p>
+    <br>
+    <br>
+    <p>Gràcies per contactar amb nosaltres.</p>
+{% endblock %}

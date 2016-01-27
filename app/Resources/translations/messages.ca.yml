@@ -22,7 +22,7 @@ frontend:
   index:
     main:
       image: el pas definitiu
-      sent: el seu missatge s'ha enviat satisfactoriament !
+      sent: el seu missatge s'ha enviat satisfactoriament!
     courses:
       primary: primària
       eso: eso

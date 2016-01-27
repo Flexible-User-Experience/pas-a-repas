@@ -92,21 +92,16 @@ class ContactAdminController extends Controller
         $form = $this->createForm(ContactAnswerType::class, $object);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            // send notification email
-            $mailer = $this->get('app.mailer');
-            $mailer->sendEmail(
-                $this->container->getParameter('mailer_destination'),
-                $object->getEmail(),
-                'Resposta formulari de contacte Pas A Repàs',
-                $this->renderView(':Admin/Contact:email.html.twig', array('object' => $object))
-            );
-            // persist new contact message record
+            // Persist new contact message form record
             $object->setAnswered(true);
             $em = $this->getDoctrine()->getManager();
             $em->persist($object);
             $em->flush();
-            // add view flash message
-            $this->addFlash('success', 'frontend.index.main.sent');
+            // Send notifications
+            $messenger = $this->get('app.notification');
+            $messenger->senddUserBackendNotification($object);
+            // Build flash message
+            $this->addFlash('success', 'Resposta enviada correctament.');
 
             return $this->redirectToRoute('admin_app_contact_list');
         }
