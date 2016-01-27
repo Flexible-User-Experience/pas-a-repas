@@ -2,30 +2,32 @@
 
 namespace AppBundle\Service;
 
+use \Swift_Message;
+
 /**
- * Class MailerService
+ * Class CourierService
  *
  * @category Service
  * @package  AppBundle\Service
  * @author   David Romaní <david@flux.cat>
  */
-class MailerService
+class CourierService
 {
     /** @var \Swift_Mailer */
-    private $swiftMailer;
+    private $mailer;
 
     /**
-     * MailerService constructor.
+     * CourierService constructor
      *
      * @param \Swift_Mailer $mailer
      */
     public function __construct(\Swift_Mailer $mailer)
     {
-        $this->swiftMailer = $mailer;
+        $this->mailer = $mailer;
     }
 
     /**
-     * Send email
+     * Send an email
      *
      * @param string $from
      * @param string $to
@@ -34,7 +36,8 @@ class MailerService
      */
     public function sendEmail($from, $to, $subject, $body)
     {
-        $message = \Swift_Message::newInstance()
+        $message = new \Swift_Message();
+        $message
             ->setSubject($subject)
             ->setFrom($from)
             ->setTo($to)
@@ -42,6 +45,6 @@ class MailerService
             ->setCharset('UTF-8')
             ->setContentType('text/html');
 
-        $this->swiftMailer->send($message);
+        $this->mailer->send($message);
     }
 }
