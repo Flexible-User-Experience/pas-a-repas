@@ -2,9 +2,9 @@
 
 namespace AppBundle\Entity;
 
-use AppBundle\Entity\Traits\DateTrait;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * Schedule
@@ -15,10 +15,16 @@ use Gedmo\Mapping\Annotation as Gedmo;
  *
  * @ORM\Table(name="parte")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ScheduleRepository")
+ * @UniqueEntity("date")
  */
 class Schedule extends Base
 {
-    use DateTrait;
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(type="datetime", name="fecha", nullable=true, unique=true)
+     */
+    private $date;
 
     /**
      * @var float
@@ -32,6 +38,25 @@ class Schedule extends Base
      * Methods
      *
      */
+
+    /**
+     * @return \DateTime
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * @param \DateTime $date
+     * @return Schedule
+     */
+    public function setDate(\DateTime $date)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
 
     /**
      * Set Hours
@@ -55,6 +80,16 @@ class Schedule extends Base
     public function getHours()
     {
         return $this->hours;
+    }
+
+    /**
+     * Get Date
+     *
+     * @return string
+     */
+    public function getDateString()
+    {
+        return $this->getDate()->format('d/m/Y');
     }
 
     /**

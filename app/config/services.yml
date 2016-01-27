@@ -28,7 +28,7 @@ services:
             - { name: sonata.admin, manager_type: orm, label: "Partes", group: "Facturació" }
     admin.customer:
         class: AppBundle\Admin\CustomerAdmin
-        arguments: [ ~, AppBundle\Entity\Customer, ~, "@vich_uploader.templating.helper.uploader_helper", "@liip_imagine.cache.manager" ]
+        arguments: [ ~, AppBundle\Entity\Customer, AppBundle:Admin\CustomerAdmin, "@vich_uploader.templating.helper.uploader_helper", "@liip_imagine.cache.manager" ]
         tags:
             - { name: sonata.admin, manager_type: orm, label: "Alumnes", group: "Facturació" }
     admin.phone:

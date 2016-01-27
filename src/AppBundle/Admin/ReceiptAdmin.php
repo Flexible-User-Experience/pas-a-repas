@@ -105,6 +105,26 @@ class ReceiptAdmin extends BaseAdmin
                     'label'    => 'backend.admin.customer',
                 )
             )
+            //TODO fix choice selector grid
+            ->add(
+                'type',
+                'doctrine_orm_string',
+                array(
+                    'label' => 'backend.admin.type',
+                    'choice',
+                    'choices' => ReceiptTypeEnum::getEnumArray(),
+                )
+            )
+//            ->add(
+//                'type',
+//                'doctrine_orm_string',
+//                array(
+//                    'label'    => 'backend.admin.type',
+//                    'choices'  => ReceiptTypeEnum::getEnumArray(),
+//                    'multiple' => false,
+//                    'expanded' => false,
+//                )
+//            )
             ->add(
                 'collected',
                 null,

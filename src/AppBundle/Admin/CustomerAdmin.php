@@ -5,6 +5,7 @@ namespace AppBundle\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\AdminBundle\Route\RouteCollection;
 
 /**
  * Class CustomerAdmin
@@ -21,6 +22,19 @@ class CustomerAdmin extends BaseAdmin
         '_sort_by'    => 'surname',
         '_sort_order' => 'asc',
     );
+
+    /**
+     * Configure route collection
+     *
+     * @param RouteCollection $collection
+     */
+    protected function configureRoutes(RouteCollection $collection)
+    {
+        $collection
+            ->remove('show')
+            ->remove('batch')
+            ->add('receipt', $this->getRouterIdParameter() . '/receipt');
+    }
 
     /**
      * @param FormMapper $formMapper
@@ -249,6 +263,9 @@ class CustomerAdmin extends BaseAdmin
                     'actions' => array(
                         'edit'   => array(),
                         'delete' => array(),
+                        'receipt'=> array(
+                            'template' => '::Admin/Cells/list__action_receipt.html.twig'
+                        ),
                     ),
                     'label'   => 'backend.admin.actions',
                 )

@@ -34,7 +34,7 @@ twig:
         google_analytics_enabled: %google_analytics_enabled%
         google_analytics_account: "%google_analytics_account%"
         main_brand_title:         "Pas a Repàs"
-        admin_tag_version:        "v2.0.28"
+        admin_tag_version:        "v2.0.29"
 
 # Assetic Configuration
 assetic:
@@ -73,6 +73,10 @@ doctrine:
         auto_generate_proxy_classes: "%kernel.debug%"
         naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
+
+doctrine_migrations:
+    dir_name: "%kernel.root_dir%/../src/AppBundle/DoctrineMigrations"
+    namespace: AppBundle\DoctrineMigrations
 
 # Swiftmailer Configuration
 swiftmailer:
