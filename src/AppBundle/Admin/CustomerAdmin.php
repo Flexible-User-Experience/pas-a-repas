@@ -31,7 +31,7 @@ class CustomerAdmin extends BaseAdmin
     protected function configureRoutes(RouteCollection $collection)
     {
         $collection
-            ->remove('create')
+            ->remove('show')
             ->remove('batch')
             ->add('receipt', $this->getRouterIdParameter() . '/receipt');
     }
