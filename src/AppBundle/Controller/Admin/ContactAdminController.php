@@ -101,7 +101,7 @@ class ContactAdminController extends Controller
             $messenger = $this->get('app.notification');
             $messenger->senddUserBackendNotification($object);
             // Build flash message
-            $this->addFlash('success', 'frontend.index.main.sent');
+            $this->addFlash('success', 'Resposta enviada correctament.');
 
             return $this->redirectToRoute('admin_app_contact_list');
         }

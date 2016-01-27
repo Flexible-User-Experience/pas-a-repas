@@ -46,16 +46,9 @@ class WebController extends Controller
             $messenger = $this->get('app.notification');
             $messenger->sendUserNotification($contactEntity);
             $messenger->sendAdminNotification($contactEntity);
-
-            // send notification email
-//            $mailer = $this->get('app.mailer');
-//            $mailer->sendEmail(
-//                $contactEntity->getEmail(),
-//                $this->container->getParameter('mailer_destination'),
-//                'Missatge de contacte Pas a Repàs',
-//                $this->renderView('Front/Web/email.html.twig', array('contactEntity' => $contactEntity))
-//            );
-
+            // reset form
+            $contactEntity = new Contact();
+            $form = $this->createForm(ContactType::class, $contactEntity);
 
             // build flash message
             $this->addFlash('notice', 'frontend.index.main.sent');
