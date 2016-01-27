@@ -193,6 +193,14 @@
                 jQuery(jQuery(this).attr('href'))[0].scrollIntoView();
                 scrollBy(0, -offset);
             });
+            var errorNode = jQuery(".has-error");
+            var envelopeNode = jQuery(".fa-paper-plane-o");
+            if (errorNode.length > 0) {
+                jQuery('html,body').animate({scrollTop: errorNode.offset().top - 200}, "slow");
+            }
+            if (envelopeNode.length > 0) {
+                jQuery('html,body').animate({scrollTop: envelopeNode.offset().top - 200}, "slow");
+            }
         });
     </script>
 {% endblock %}
