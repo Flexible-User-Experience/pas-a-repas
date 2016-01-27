@@ -3,6 +3,8 @@
 namespace AppBundle\Controller\Admin;
 
 use AppBundle\Entity\Customer;
+use AppBundle\Entity\Receipt;
+use AppBundle\Form\Type\ReceiptType;
 use Sonata\AdminBundle\Controller\CRUDController as Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,7 +21,7 @@ use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 class CustomerAdminController extends Controller
 {
     /**
-     * Customer show action.
+     * Customer receipt action.
      *
      * @param int|string|null $id
      * @param Request $request
@@ -28,7 +30,7 @@ class CustomerAdminController extends Controller
      * @throws NotFoundHttpException If the object does not exist
      * @throws AccessDeniedHttpException If access is not granted
      */
-    public function showAction($id = null, Request $request = null)
+    public function receiptAction($id = null, Request $request = null)
     {
         $request = $this->resolveRequest($request);
         $id = $request->get($this->admin->getIdParameter());
@@ -40,18 +42,29 @@ class CustomerAdminController extends Controller
             throw $this->createNotFoundException(sprintf('unable to find the object with id : %s', $id));
         }
 
-        //TODO fix render
+        //TODO create receipt form
 
-//        return $this->redirectToRoute(
-//            'admin_app_receipt_edit',
-//            array(
-//                'year'  => $object->getPublishedAt()->format('Y'),
-//                'month' => $object->getPublishedAt()->format('m'),
-//                'day'   => $object->getPublishedAt()->format('d'),
-//                'slug'  => $object->getSlug(),
-//            )
-//        );
+        $form = $this->createForm(ReceiptType::class);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+        }
+
+        return $this->render(':Admin/Customer:receipt_form.html.twig', array(
+            'receiptType' => $form->createView(),
+            'object' => $object,
+        ));
     }
+
+//        return $this->render(
+//            $this->admin->getTemplate('show'),
+//            array(
+//                'action' => 'show',
+//                'object' => $object,
+//                'elements' => $this->admin->getShow(),
+//            ),
+//            null,
+//            $request
+//        );
 
     /// TODO fix legacy code
     /**
