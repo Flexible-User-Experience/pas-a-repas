@@ -29,6 +29,7 @@ class WebController extends Controller
      */
     public function homepageAction(Request $request)
     {
+        $flash = null;
         /** @var GoogleMapsService $gms */
         $gms = $this->get('app.google_maps_service');
         $mapObject = $gms->buildMap(40.7061278, 0.5817055555555556, $this->container->getParameter('locale'), 15);
@@ -49,14 +50,14 @@ class WebController extends Controller
             // reset form
             $contactEntity = new Contact();
             $form = $this->createForm(ContactType::class, $contactEntity);
-
             // build flash message
-            $this->addFlash('notice', 'frontend.index.main.sent');
+            $flash = 'frontend.index.main.sent';
         }
 
         return $this->render('Front/Web/homepage.html.twig', array(
             'mapView' => $mapObject,
             'contactForm' => $form->createView(),
+            'flash' => $flash,
         ));
     }
 }
