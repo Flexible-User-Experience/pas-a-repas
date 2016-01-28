@@ -29,7 +29,7 @@ class ReceiptType extends AbstractType
                 'type',
                 ChoiceType::class,
                 array(
-                    'label' => 'frontend.index.contact.form.type',
+                    'label' => 'backend.admin.type',
                     'required' => true,
                     'choices' => ReceiptTypeEnum::getEnumArray()
                 )
@@ -38,7 +38,7 @@ class ReceiptType extends AbstractType
                 'month',
                 ChoiceType::class,
                 array(
-                    'label' => 'frontend.index.contact.form.month',
+                    'label' => 'backend.admin.month',
                     'required' => true,
                     'choices' => array(
                         1 => 'Gener',
@@ -60,7 +60,7 @@ class ReceiptType extends AbstractType
                 'year',
                 ChoiceType::class,
                 array(
-                    'label' => 'frontend.index.contact.form.year',
+                    'label' => 'backend.admin.year',
                     'required' => true,
                     'choices' => YearEnum::getEnumArray()
                 )
