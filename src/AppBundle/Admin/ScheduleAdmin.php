@@ -90,7 +90,7 @@ class ScheduleAdmin extends BaseAdmin
             )
             ->add(
                 'hours',
-                null,
+                'integer',
                 array(
                     'label'    => 'backend.admin.hours',
                     'editable' => true,

@@ -33,7 +33,7 @@ class Post extends Base
     /**
      * @var \DateTime
      *
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="date")
      */
     private $publishedAt;
 

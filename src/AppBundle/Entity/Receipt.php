@@ -24,7 +24,7 @@ class Receipt extends Base
     /**
      * @var \DateTime
      *
-     * @ORM\Column(type="datetime", name="fecha_pago", nullable=true)
+     * @ORM\Column(type="date", name="fecha_pago", nullable=true)
      */
     private $payDate;
 
