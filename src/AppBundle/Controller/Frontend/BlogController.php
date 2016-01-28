@@ -21,7 +21,7 @@ class BlogController extends Controller
      */
     public function postsListAction()
     {
-        $posts = $this->getDoctrine()->getRepository('AppBundle:Post')->getAllEnabledSortedByPublishedDateWithJoin();
+        $posts = $this->getDoctrine()->getRepository('AppBundle:Post')->getAllEnabledSortedByPublishedDateWithJoinUntilNow();
         $categories = $this->getDoctrine()->getRepository('AppBundle:Category')->getAllEnabledSortedByTitleWithJoin();
 
         return $this->render('Front/Blog/blog.html.twig', array(
@@ -32,10 +32,10 @@ class BlogController extends Controller
 
     /**
      * @Route("/blog/{year}/{month}/{day}/{slug}", name="blog_detail")
-     * @param $year
-     * @param $month
-     * @param $day
-     * @param $slug
+     * @param         $year
+     * @param         $month
+     * @param         $day
+     * @param         $slug
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
@@ -43,7 +43,10 @@ class BlogController extends Controller
     {
         /** @var Post $post */
         $post = $this->getDoctrine()->getRepository('AppBundle:Post')->findOneBySlug($slug);
-        if (!$post || !$post->getEnabled()) {
+        if (!$post) {
+            throw $this->createNotFoundException('Unable to find Post entity.');
+        }
+        if (!$post->getEnabled() && !$this->get('security.authorization_checker')->isGranted('ROLE_CMS')) {
             throw $this->createNotFoundException('Unable to find Post entity.');
         }
         if ($post->getPublishedAt()->format('Y-m-d') != $year . '-' . $month . '-' . $day) {

@@ -24,7 +24,7 @@ class Receipt extends Base
     /**
      * @var \DateTime
      *
-     * @ORM\Column(type="datetime", name="fecha_pago", nullable=true)
+     * @ORM\Column(type="date", name="fecha_pago", nullable=true)
      */
     private $payDate;
 
@@ -57,6 +57,13 @@ class Receipt extends Base
      * @ORM\JoinColumn(name="client_id", referencedColumnName="id")
      */
     private $customer;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="text", length=4000, nullable=true)
+     */
+    private $description;
 
     /**
      *
@@ -159,6 +166,30 @@ class Receipt extends Base
         $this->collected = $collected;
 
         return $this;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return $this
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
     }
 
     /**

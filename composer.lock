@@ -1682,16 +1682,16 @@
         },
         {
             "name": "gedmo/doctrine-extensions",
-            "version": "v2.4.11",
+            "version": "v2.4.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Atlantic18/DoctrineExtensions.git",
-                "reference": "20745a15ecedcdeb55653df00db98b50f6a1afdb"
+                "reference": "2527d8f93779458e097447b5f92132bc65e672f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Atlantic18/DoctrineExtensions/zipball/20745a15ecedcdeb55653df00db98b50f6a1afdb",
-                "reference": "20745a15ecedcdeb55653df00db98b50f6a1afdb",
+                "url": "https://api.github.com/repos/Atlantic18/DoctrineExtensions/zipball/2527d8f93779458e097447b5f92132bc65e672f4",
+                "reference": "2527d8f93779458e097447b5f92132bc65e672f4",
                 "shasum": ""
             },
             "require": {
@@ -1757,7 +1757,7 @@
                 "tree",
                 "uploadable"
             ],
-            "time": "2016-01-27 17:42:38"
+            "time": "2016-01-28 10:00:33"
         },
         {
             "name": "hautelook/alice-bundle",
@@ -2962,12 +2962,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataAdminBundle.git",
-                "reference": "fba67eeacd1c549bc209a3c5416d1594d30bcb58"
+                "reference": "750b26988c90a1004710a3d950a4caa755d55b39"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/fba67eeacd1c549bc209a3c5416d1594d30bcb58",
-                "reference": "fba67eeacd1c549bc209a3c5416d1594d30bcb58",
+                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/750b26988c90a1004710a3d950a4caa755d55b39",
+                "reference": "750b26988c90a1004710a3d950a4caa755d55b39",
                 "shasum": ""
             },
             "require": {
@@ -3040,7 +3040,7 @@
                 "bootstrap",
                 "sonata"
             ],
-            "time": "2016-01-24 12:19:41"
+            "time": "2016-01-28 15:33:52"
         },
         {
             "name": "sonata-project/block-bundle",

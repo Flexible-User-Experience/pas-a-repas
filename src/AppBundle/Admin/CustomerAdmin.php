@@ -6,6 +6,8 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Route\RouteCollection;
+use Sonata\CoreBundle\Form\Type\BooleanType;
+use Sonata\CoreBundle\Form\Type\EqualType;
 
 /**
  * Class CustomerAdmin
@@ -21,6 +23,7 @@ class CustomerAdmin extends BaseAdmin
     protected $datagridValues = array(
         '_sort_by'    => 'surname',
         '_sort_order' => 'asc',
+        'enabled'     => array('type' => EqualType::TYPE_IS_EQUAL, 'value' => BooleanType::TYPE_YES),
     );
 
     /**
@@ -98,6 +101,10 @@ class CustomerAdmin extends BaseAdmin
                 array(
                     'label'    => 'backend.admin.annotations',
                     'required' => false,
+                    'attr'     => array(
+                        'style' => 'resize:vertical',
+                        'rows'  => 5,
+                    )
                 )
             )
             ->end()
@@ -209,6 +216,27 @@ class CustomerAdmin extends BaseAdmin
                 )
             )
             ->add(
+                'course',
+                null,
+                array(
+                    'label'    => 'backend.admin.course',
+                )
+            )
+            ->add(
+                'singleClasses',
+                null,
+                array(
+                    'label'    => 'backend.admin.singleClasses',
+                )
+            )
+            ->add(
+                'groupClasses',
+                null,
+                array(
+                    'label'    => 'backend.admin.groupClasses',
+                )
+            )
+            ->add(
                 'enabled',
                 null,
                 array(
@@ -241,11 +269,34 @@ class CustomerAdmin extends BaseAdmin
                 )
             )
             ->add(
-                'total',
+                'phones',
                 null,
                 array(
-                    'label'    => 'backend.admin.total',
-                    'template' => '::Admin/Cells/list__cell_customer_total_field.html.twig',
+                    'label'    => 'backend.admin.phone',
+                )
+            )
+            ->add(
+                'course',
+                null,
+                array(
+                    'label'    => 'backend.admin.course',
+                    'editable' => true,
+                )
+            )
+            ->add(
+                'singleClasses',
+                null,
+                array(
+                    'label'    => 'backend.admin.singleClasses',
+                    'editable' => true,
+                )
+            )
+            ->add(
+                'groupClasses',
+                null,
+                array(
+                    'label'    => 'backend.admin.groupClasses',
+                    'editable' => true,
                 )
             )
             ->add(

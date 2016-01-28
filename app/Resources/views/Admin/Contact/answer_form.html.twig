@@ -1,4 +1,9 @@
-{% extends ':Admin:layout.html.twig' %}
+{% extends 'SonataAdminBundle:CRUD:base_show.html.twig' %}
+
+{% block actions %}
+    {{ parent() }}
+    <li>{% include 'SonataAdminBundle:Button:show_button.html.twig' %}</li>
+{% endblock %}
 
 {% block sonata_admin_content %}
     <div class="sonata-ba-show">
