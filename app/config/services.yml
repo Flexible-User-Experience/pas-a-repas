@@ -1,8 +1,5 @@
 services:
 # App
-    app.mailer:
-        class: AppBundle\Service\MailerService
-        arguments: [ "@swiftmailer.mailer" ]
     app.google_maps_service:
         class: AppBundle\Service\GoogleMapsService
 # Sonata Admins
@@ -36,16 +33,16 @@ services:
         arguments: [ ~, AppBundle\Entity\Phone, ~, "@vich_uploader.templating.helper.uploader_helper", "@liip_imagine.cache.manager" ]
         tags:
             - { name: sonata.admin, manager_type: orm, label: "Telèfons", group: "Facturació", show_in_dashboard: false }
-    admin.monthgroup:
-        class: AppBundle\Admin\MonthGroupAdmin
-        arguments: [ ~, AppBundle\Entity\MonthGroup, ~, "@vich_uploader.templating.helper.uploader_helper", "@liip_imagine.cache.manager" ]
-        tags:
-            - { name: sonata.admin, manager_type: orm, label: "Mes en grup", group: "Facturació" }
     admin.hoursingle:
         class: AppBundle\Admin\HourSingleAdmin
         arguments: [ ~, AppBundle\Entity\HourSingle, ~, "@vich_uploader.templating.helper.uploader_helper", "@liip_imagine.cache.manager" ]
         tags:
             - { name: sonata.admin, manager_type: orm, label: "Hora Particular", group: "Facturació" }
+    admin.monthgroup:
+        class: AppBundle\Admin\MonthGroupAdmin
+        arguments: [ ~, AppBundle\Entity\MonthGroup, ~, "@vich_uploader.templating.helper.uploader_helper", "@liip_imagine.cache.manager" ]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: "Mes en grup", group: "Facturació" }
     admin.receipt:
         class: AppBundle\Admin\ReceiptAdmin
         arguments: [ ~, AppBundle\Entity\Receipt, ~, "@vich_uploader.templating.helper.uploader_helper", "@liip_imagine.cache.manager" ]
