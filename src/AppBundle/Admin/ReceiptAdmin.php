@@ -7,6 +7,8 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use AppBundle\Enum\UserRolesEnum;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\CoreBundle\Form\Type\BooleanType;
+use Sonata\CoreBundle\Form\Type\EqualType;
 
 /**
  * Class ReceiptAdmin
@@ -22,6 +24,7 @@ class ReceiptAdmin extends BaseAdmin
     protected $datagridValues = array(
         '_sort_by'    => 'date',
         '_sort_order' => 'asc',
+        'collected'   => array('type' => EqualType::TYPE_IS_EQUAL, 'value' => BooleanType::TYPE_NO),
     );
 
     /**
@@ -99,13 +102,14 @@ class ReceiptAdmin extends BaseAdmin
                 )
             )
             ->add(
-                'customer',
-                null,
+                'payDate',
+                'doctrine_orm_date',
                 array(
-                    'label'    => 'backend.admin.customer',
+                    'label' => 'backend.admin.payDate',
+                    'field_type' => 'sonata_type_date_picker',
                 )
             )
-            //TODO fix choice selector grid
+            // TODO fix choice selector grid
             ->add(
                 'type',
                 'doctrine_orm_string',
@@ -115,16 +119,20 @@ class ReceiptAdmin extends BaseAdmin
                     'choices' => ReceiptTypeEnum::getEnumArray(),
                 )
             )
-//            ->add(
-//                'type',
-//                'doctrine_orm_string',
-//                array(
-//                    'label'    => 'backend.admin.type',
-//                    'choices'  => ReceiptTypeEnum::getEnumArray(),
-//                    'multiple' => false,
-//                    'expanded' => false,
-//                )
-//            )
+            ->add(
+                'customer',
+                null,
+                array(
+                    'label'    => 'backend.admin.customer',
+                )
+            )
+            ->add(
+                'import',
+                null,
+                array(
+                    'label'    => 'backend.admin.import',
+                )
+            )
             ->add(
                 'collected',
                 null,
@@ -132,14 +140,7 @@ class ReceiptAdmin extends BaseAdmin
                     'label'    => 'backend.admin.collected',
                 )
             )
-            ->add(
-                'payDate',
-                'doctrine_orm_date',
-                array(
-                    'label' => 'backend.admin.payDate',
-                    'field_type' => 'sonata_type_date_picker',
-                )
-            );
+            ;
 
     }
 
@@ -151,6 +152,14 @@ class ReceiptAdmin extends BaseAdmin
         unset($this->listModes['mosaic']);
         $listMapper
             ->add(
+                'id',
+                null,
+                array(
+                    'label'    => 'Núm.',
+                    'editable' => false,
+                )
+            )
+            ->add(
                 'date',
                 null,
                 array(
@@ -160,10 +169,11 @@ class ReceiptAdmin extends BaseAdmin
                 )
             )
             ->add(
-                'customer',
+                'payDate',
                 null,
                 array(
-                    'label'    => 'backend.admin.customer',
+                    'label'    => 'backend.admin.payDate',
+                    'format'   => 'd/m/Y',
                     'editable' => true,
                 )
             )
@@ -176,17 +186,16 @@ class ReceiptAdmin extends BaseAdmin
                 )
             )
             ->add(
-                'payDate',
+                'customer',
                 null,
                 array(
-                    'label' => 'backend.admin.payDate',
-                    'format'   => 'd/m/Y',
+                    'label'    => 'backend.admin.customer',
                     'editable' => true,
                 )
             )
             ->add(
                 'import',
-                null,
+                'integer',
                 array(
                     'label' => 'backend.admin.import',
                     'editable' => true,
@@ -197,7 +206,7 @@ class ReceiptAdmin extends BaseAdmin
                 null,
                 array(
                     'label' => 'backend.admin.collected',
-                    'editable' => true,
+                    'editable' => false,
                 )
             )
             ->add(

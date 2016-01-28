@@ -3,11 +3,11 @@
 {% block field %}
     {% spaceless %}
         {% if object.type == 'HOUR_GROUP' %}
-            <span class="label label-primary">{{ 'backend.admin.groupClasses' | trans }}</span>
+            <span class="label label-primary">grup</span>
         {% elseif object.type == 'HOUR_SINGLE'%}
-            <span class="label label-warning">{{ 'backend.admin.singleClasses' | trans }}</span>
+            <span class="label label-warning">particular</span>
         {% else %}
-            <span class="label label-danger">????</span>
+            <span class="label label-danger">???</span>
         {% endif %}
     {% endspaceless %}
 {% endblock %}
