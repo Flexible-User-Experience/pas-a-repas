@@ -1,0 +1,3 @@
+{% if admin.hasroute('receipt') and admin.id(object) %}
+    <a class="sonata-action-element" href="{{ admin.generateObjectUrl('receipt', object) }}"><i class="fa fa-pencil-square-o"></i> {{ 'backend.admin.receipt' | trans }}</a>
+{% endif %}
