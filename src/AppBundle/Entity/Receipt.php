@@ -59,6 +59,13 @@ class Receipt extends Base
     private $customer;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(type="text", length=4000, nullable=true)
+     */
+    private $description;
+
+    /**
      *
      *
      * Methods
@@ -159,6 +166,30 @@ class Receipt extends Base
         $this->collected = $collected;
 
         return $this;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return $this
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
     }
 
     /**

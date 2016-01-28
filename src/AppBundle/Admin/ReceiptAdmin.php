@@ -56,6 +56,18 @@ class ReceiptAdmin extends BaseAdmin
                     'required' => true,
                 )
             )
+            ->add(
+                'description',
+                null,
+                array(
+                    'label'    => 'backend.admin.annotations',
+                    'required' => false,
+                    'attr'     => array(
+                        'style' => 'resize:vertical',
+                        'rows'  => 5,
+                    )
+                )
+            )
             ->end()
              ->with('backend.admin.controls', $this->getFormMdSuccessBoxArray(6))
             ->add(
@@ -140,8 +152,13 @@ class ReceiptAdmin extends BaseAdmin
                     'label'    => 'backend.admin.collected',
                 )
             )
-            ;
-
+            ->add(
+                'description',
+                null,
+                array(
+                    'label'    => 'backend.admin.annotations',
+                )
+            );
     }
 
     /**
