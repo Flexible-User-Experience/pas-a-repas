@@ -121,13 +121,14 @@ class ReceiptAdmin extends BaseAdmin
                     'field_type' => 'sonata_type_date_picker',
                 )
             )
-            // TODO fix choice selector grid
             ->add(
                 'type',
-                'doctrine_orm_string',
+                null,
+                array('label' => 'backend.admin.type'),
+                'choice',
                 array(
-                    'label' => 'backend.admin.type',
-                    'choice',
+                    'expanded' => false,
+                    'multiple' => false,
                     'choices' => ReceiptTypeEnum::getEnumArray(),
                 )
             )

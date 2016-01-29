@@ -126,6 +126,7 @@ backend:
         invoiced: Facturat
         price: Preu
         monthgroup: Mes en Grup
+        month: Mes
         amount: Quantitat
         hoursingle: Hora Particular
         receipt: Rebut
@@ -138,6 +139,7 @@ backend:
         course: Curs
         annotations: Notes
         address: Adreça
+        year: Any
         city: Ciutat
         postalCode: Codi postal
         priceHourSingle: Preu hora individual
