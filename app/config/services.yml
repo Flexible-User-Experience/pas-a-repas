@@ -48,6 +48,11 @@ services:
         arguments: [ ~, AppBundle\Entity\Receipt, ~, "@vich_uploader.templating.helper.uploader_helper", "@liip_imagine.cache.manager" ]
         tags:
             - { name: sonata.admin, manager_type: orm, label: "Rebut", group: "Facturació" }
+    admin.spending:
+        class: AppBundle\Admin\SpendingAdmin
+        arguments: [ ~, AppBundle\Entity\Spending, ~, "@vich_uploader.templating.helper.uploader_helper", "@liip_imagine.cache.manager" ]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: "Despesa", group: "Facturació" }
     admin.user:
         class: AppBundle\Admin\UserAdmin
         arguments: [ ~, AppBundle\Entity\User, ~, "@fos_user.user_manager" ]
