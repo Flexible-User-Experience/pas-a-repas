@@ -54,6 +54,7 @@ class Spending extends Base
     public function setAmount($amount)
     {
         $this->amount = $amount;
+
         return $this;
     }
 
@@ -72,6 +73,7 @@ class Spending extends Base
     public function setSpendingCategory($spendingCategory)
     {
         $this->spendingCategory = $spendingCategory;
+
         return $this;
     }
 
