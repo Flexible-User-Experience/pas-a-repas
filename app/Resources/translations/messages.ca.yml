@@ -147,6 +147,7 @@ backend:
         singleClasses: Classes particulars
         groupClasses: Classes en grup
         school: Escola
+        spending: Despesa
         block:
             title: Notificacions
             text: missatges pendents de llegir

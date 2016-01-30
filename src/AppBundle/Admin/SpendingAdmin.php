@@ -36,13 +36,13 @@ class SpendingAdmin extends BaseAdmin
                     'label' => 'backend.admin.date',
                 )
             )
-            ->add(
-                'name',
-                null,
-                array(
-                    'label' => 'backend.admin.name',
-                )
-            )
+//            ->add(
+//                'spending_category',
+//                null,
+//                array(
+//                    'label' => 'backend.admin.name',
+//                )
+//            )
             ->add(
                 'amount',
                 null,
@@ -67,13 +67,13 @@ class SpendingAdmin extends BaseAdmin
                     'field_type' => 'sonata_type_date_picker',
                 )
             )
-            ->add(
-                'name',
-                null,
-                array(
-                    'label' => 'backend.admin.name',
-                )
-            )
+//            ->add(
+//                'spendingCategory',
+//                null,
+//                array(
+//                    'label' => 'backend.admin.name',
+//                )
+//            )
             ->add(
                 'amount',
                 null,
@@ -99,14 +99,14 @@ class SpendingAdmin extends BaseAdmin
                     'editable' => true,
                 )
             )
-            ->add(
-                'name',
-                null,
-                array(
-                    'label' => 'backend.admin.name',
-                    'editable' => true,
-                )
-            )
+//            ->add(
+//                'spendingcategory',
+//                null,
+//                array(
+//                    'label' => 'backend.admin.name',
+//                    'editable' => true,
+//                )
+//            )
             ->add(
                 'amount',
                 null,
