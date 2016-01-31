@@ -7,18 +7,18 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 
 /**
- * Class SpendingAdmin
+ * Class SpendingCategoryAdmin
  *
  * @category Admin
  * @package  AppBundle\Admin
  * @author   Anton Serra <aserratorta@gmail.com>
  */
-class SpendingAdmin extends BaseAdmin
+class SpendingCategoryAdmin extends BaseAdmin
 {
-    protected $classnameLabel = 'Despesa';
-    protected $baseRoutePattern = 'facturacio/despesa';
+    protected $classnameLabel = 'Categoria de Despesa';
+    protected $baseRoutePattern = 'facturacio/categoria-despesa';
     protected $datagridValues = array(
-        '_sort_by'    => 'date',
+        '_sort_by'    => 'name',
         '_sort_order' => 'asc',
     );
 
@@ -28,28 +28,21 @@ class SpendingAdmin extends BaseAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->with('backend.admin.spending', $this->getFormMdSuccessBoxArray(6))
+            ->with('backend.admin.spendingcategory', $this->getFormMdSuccessBoxArray(6))
             ->add(
-                'date',
-                'sonata_type_date_picker',
-                array(
-                    'label' => 'backend.admin.date',
-                )
-            )
-            ->add(
-                'spendingCategory',
+                'name',
                 null,
                 array(
                     'label' => 'backend.admin.name',
                 )
             )
-            ->add(
-                'amount',
-                null,
-                array(
-                    'label' => 'backend.admin.amount',
-                )
-            )
+//            ->add(
+//                'amount',
+//                null,
+//                array(
+//                    'label' => 'backend.admin.amount',
+//                )
+//            )
             ->end();
     }
 
@@ -60,27 +53,19 @@ class SpendingAdmin extends BaseAdmin
     {
         $datagridMapper
             ->add(
-                'date',
-                'doctrine_orm_date',
-                array(
-                    'label' => 'backend.admin.date',
-                    'field_type' => 'sonata_type_date_picker',
-                )
-            )
-            ->add(
-                'spendingCategory',
+                'name',
                 null,
                 array(
                     'label' => 'backend.admin.name',
                 )
-            )
-            ->add(
-                'amount',
-                null,
-                array(
-                    'label' => 'backend.admin.amount',
-                )
             );
+//            ->add(
+//                'amount',
+//                null,
+//                array(
+//                    'label' => 'backend.admin.amount',
+//                )
+//            );
     }
 
     /**
@@ -91,30 +76,22 @@ class SpendingAdmin extends BaseAdmin
         unset($this->listModes['mosaic']);
         $listMapper
             ->add(
-                'date',
-                null,
-                array(
-                    'label'    => 'backend.admin.date',
-                    'format'   => 'd/m/Y',
-                    'editable' => true,
-                )
-            )
-            ->add(
-                'spendingCategory',
+                'name',
                 null,
                 array(
                     'label' => 'backend.admin.name',
                     'editable' => true,
                 )
             )
-            ->add(
-                'amount',
-                null,
-                array(
-                    'label' => 'backend.admin.amount',
-                    'editable' => true,
-                )
-            )
+//            TODO get the spending import amount
+//            ->add(
+//                'amount',
+//                null,
+//                array(
+//                    'label' => 'backend.admin.amount',
+//                    'editable' => false,
+//                )
+//            )
             ->add(
                 '_action',
                 'actions',

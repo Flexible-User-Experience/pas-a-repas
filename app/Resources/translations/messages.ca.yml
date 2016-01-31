@@ -148,6 +148,7 @@ backend:
         groupClasses: Classes en grup
         school: Escola
         spending: Despesa
+        spendingcategory: Categoria de Despesa
         block:
             title: Notificacions
             text: missatges pendents de llegir
