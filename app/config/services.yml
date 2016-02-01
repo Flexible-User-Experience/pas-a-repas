@@ -76,6 +76,11 @@ services:
         tags:
             - { name: sonata.block }
         arguments: [ "sonata.admin.block.messages", "@templating", "@doctrine.orm.entity_manager" ]
+    admin.block.graphs:
+        class: AppBundle\Admin\Block\GraphsBlock
+        tags:
+            - { name: sonata.block }
+        arguments: [ "sonata.admin.block.graphs", "@templating", "@doctrine.orm.entity_manager" ]
 # Twig
     twig.extension.text:
         class: Twig_Extensions_Extension_Text
