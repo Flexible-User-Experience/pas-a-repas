@@ -119,6 +119,10 @@ class BackendTest extends BaseTest
             array('/admin/facturacio/alumne/batch'),
             array('/admin/facturacio/telefon/1/show'),
             array('/admin/facturacio/telefon/batch'),
+            array('/admin/despesa/despesa/1/show'),
+            array('/admin/despesa/despesa/batch'),
+            array('/admin/despesa/categoria/1/show'),
+            array('/admin/despesa/categoria/batch'),
             array('/admin/administrador/usuari/show'),
             array('/admin/administrador/usuari/batch'),
         );
