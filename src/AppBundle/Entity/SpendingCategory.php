@@ -90,8 +90,15 @@ class SpendingCategory extends Base
      *
      * @return string
      */
-    public function __toString() {
+    public function __toString()
+    {
+        if ($this->getName() == null) {
 
-        return '---';
+            return '---';
+
+        } else {
+
+            return $this->getName();
+        }
     }
 }

@@ -16,7 +16,7 @@ use Sonata\AdminBundle\Form\FormMapper;
 class SpendingCategoryAdmin extends BaseAdmin
 {
     protected $classnameLabel = 'Categoria de Despesa';
-    protected $baseRoutePattern = 'facturacio/categoria-despesa';
+    protected $baseRoutePattern = 'despesa/categoria';
     protected $datagridValues = array(
         '_sort_by'    => 'name',
         '_sort_order' => 'asc',

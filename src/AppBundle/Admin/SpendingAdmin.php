@@ -16,7 +16,7 @@ use Sonata\AdminBundle\Form\FormMapper;
 class SpendingAdmin extends BaseAdmin
 {
     protected $classnameLabel = 'Despesa';
-    protected $baseRoutePattern = 'facturacio/despesa';
+    protected $baseRoutePattern = 'despesa/despesa';
     protected $datagridValues = array(
         '_sort_by'    => 'date',
         '_sort_order' => 'asc',
@@ -40,7 +40,7 @@ class SpendingAdmin extends BaseAdmin
                 'spendingCategory',
                 null,
                 array(
-                    'label' => 'backend.admin.name',
+                    'label' => 'backend.admin.category',
                 )
             )
             ->add(
@@ -71,7 +71,7 @@ class SpendingAdmin extends BaseAdmin
                 'spendingCategory',
                 null,
                 array(
-                    'label' => 'backend.admin.name',
+                    'label' => 'backend.admin.category',
                 )
             )
             ->add(
@@ -103,7 +103,7 @@ class SpendingAdmin extends BaseAdmin
                 'spendingCategory',
                 null,
                 array(
-                    'label' => 'backend.admin.name',
+                    'label' => 'backend.admin.category',
                     'editable' => true,
                 )
             )
