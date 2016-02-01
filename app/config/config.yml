@@ -183,6 +183,8 @@ sonata_admin:
                 icon: "<i class='fa fa-chrome'></i>"
             Facturació:
                 icon: "<i class='fa fa-file-text'></i>"
+            Despesa:
+                icon: "<i class='fa fa-eur'></i>"
             Administrador:
                 icon: "<i class='fa fa-cog'></i>"
         blocks:
@@ -210,7 +212,13 @@ sonata_admin:
                 settings:
                     groups: [ Facturació ]
             -
-                position: top
+                position: left
+                type: sonata.admin.block.admin_list
+                class: col-md-6
+                settings:
+                    groups: [ Despesa ]
+            -
+                position: right
                 type: sonata.admin.block.admin_list
                 class: col-md-6
                 settings:

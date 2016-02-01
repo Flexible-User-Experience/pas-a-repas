@@ -52,12 +52,12 @@ services:
         class: AppBundle\Admin\SpendingAdmin
         arguments: [ ~, AppBundle\Entity\Spending, ~, "@vich_uploader.templating.helper.uploader_helper", "@liip_imagine.cache.manager" ]
         tags:
-            - { name: sonata.admin, manager_type: orm, label: "Despesa", group: "Facturació" }
+            - { name: sonata.admin, manager_type: orm, label: "Despesa", group: "Despesa" }
     admin.spendingcategory:
         class: AppBundle\Admin\SpendingCategoryAdmin
         arguments: [ ~, AppBundle\Entity\SpendingCategory, ~, "@vich_uploader.templating.helper.uploader_helper", "@liip_imagine.cache.manager" ]
         tags:
-            - { name: sonata.admin, manager_type: orm, label: "Categoria de Despesa", group: "Facturació" }
+            - { name: sonata.admin, manager_type: orm, label: "Categoria", group: "Despesa" }
     admin.user:
         class: AppBundle\Admin\UserAdmin
         arguments: [ ~, AppBundle\Entity\User, ~, "@fos_user.user_manager" ]
