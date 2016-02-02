@@ -2,7 +2,6 @@
 
 namespace AppBundle\Repository;
 
-use AppBundle\Entity\Spending;
 use Doctrine\ORM\EntityRepository;
 
 /**
@@ -15,16 +14,16 @@ use Doctrine\ORM\EntityRepository;
 class SpendingRepository extends EntityRepository
 {
     /**
-     * @param Spending $amount
+     * @return int
      */
-    public function getAmountImports(Spending $amount)
+    public function getSpendingImportsAmount()
     {
         $query = $this->createQueryBuilder('s')
-            ->select('sum(s.amount) as total')
-            ->where('s.spendingCategory = :spendingCategory')
-            ->setParameter('amount', $amount)
+            ->select('sum(s.amount)')
+            ->where('s.amount = :amount')
+            ->setParameter('amount', false)
             ->getQuery();
 
-        return $query->getArrayResult()[0]['total'];
+        return count($query->getSingleResult());
     }
 }
