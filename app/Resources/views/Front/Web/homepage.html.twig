@@ -14,7 +14,7 @@
             {% set label = name|humanize %}
         {%- endif -%}
     {%- endif -%}
-    <button type="submit" {{ block('button_attributes') }}>{{ label|trans({}, translation_domain) }} <i class="fa icon-arrow-right"></i></button>
+    <button type="submit" {{ block('button_attributes') }}><span class="hack">{{ label|trans({}, translation_domain) }}</span> <i class="fa icon-arrow-right" style="float:right;margin: 3px 0 0 7px;"></i></button>
 {% endblock %}
 
 {% block main %}
