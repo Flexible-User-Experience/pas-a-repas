@@ -23,7 +23,7 @@ class Spending extends Base
     /**
      * @var float
      *
-     * @ORM\Column(type="float", name="quantitat")
+     * @ORM\Column(type="float", name="quantitat", nullable=false)
      */
     private $amount;
 

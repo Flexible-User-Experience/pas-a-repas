@@ -14,7 +14,7 @@
             {% set label = name|humanize %}
         {%- endif -%}
     {%- endif -%}
-    <button type="submit" {{ block('button_attributes') }}>{{ label|trans({}, translation_domain) }} <i class="fa icon-arrow-right"></i></button>
+    <button type="submit" {{ block('button_attributes') }}><span class="hack">{{ label|trans({}, translation_domain) }}</span> <i class="fa icon-arrow-right" style="float:right;margin: 3px 0 0 7px;"></i></button>
 {% endblock %}
 
 {% block main %}
@@ -32,7 +32,7 @@
                 {#<!-- Nav tabs -->#}
                 <div class="navbar no-m-bottom">
                     <ul class="nav nav-justified" role="tablist">
-                        <li role="presentation"><a href="#primaria" class="c-magenta" aria-controls="primaria" role="tab" data-toggle="tab"><i class="icon-pencil fa-4x"></i>{{ 'frontend.index.courses.primary' | trans | upper }}<i class="current-mark icon-arrow fa-3x"></i></a></li>
+                        <li role="presentation" class="active"><a href="#primaria" class="c-magenta" aria-controls="primaria" role="tab" data-toggle="tab"><i class="icon-pencil fa-4x"></i>{{ 'frontend.index.courses.primary' | trans | upper }}<i class="current-mark icon-arrow fa-3x"></i></a></li>
                         <li role="presentation"><a href="#eso" class="c-wine" aria-controls="eso" role="tab" data-toggle="tab"><i class="icon-ruler fa-4x"></i>{{ 'frontend.index.courses.eso' | trans | upper }}<i class="current-mark icon-arrow fa-3x"></i></a></li>
                         <li role="presentation"><a href="#batxillerat" class="c-violet" aria-controls="batxillerat" role="tab" data-toggle="tab"><i class="icon-book fa-4x"></i>{{ 'frontend.index.courses.school' | trans | upper }}<i class="current-mark icon-arrow fa-3x"></i></a></li>
                         <li role="presentation"><a href="#selectivitat" class="c-lviolet" aria-controls="selectivitat" role="tab" data-toggle="tab"><i class="icon-check fa-4x"></i>{{ 'frontend.index.courses.selectivity' | trans | upper }}<i class="current-mark icon-arrow fa-3x"></i></a></li>
@@ -44,73 +44,71 @@
     </div>
     <div class="container-fluid">
         <div class="row">
-            <div class="">
-                {#<!-- Tab panes -->#}
-                <div class="tab-content">
-                    <div role="tabpanel" class="tab-pane fade in bc-magenta" id="primaria">
-                        <div class="row">
-                            <div class="col-sm-5">
-                                <img class="img-responsive" src="{{ asset('bundles/app/images/c1-primary.jpg') }}" alt="{# TODO set alt img #}"/>
-                            </div>
-                            <div class="col-sm-7 c-white">
-                                <div class="banner-service">
-                                    {{ 'frontend.index.primary_txt' | trans | raw }}
-                                </div>
+            {#<!-- Tab panes -->#}
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane fade in bc-magenta active" id="primaria">
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <img class="img-responsive" src="{{ asset('bundles/app/images/c1-primary.jpg') }}" alt="heart shape lovely girls and colors zenit"/>
+                        </div>
+                        <div class="col-sm-7 c-white">
+                            <div class="banner-service">
+                                {{ 'frontend.index.primary_txt' | trans | raw }}
                             </div>
                         </div>
                     </div>
-                    <div role="tabpanel" class="tab-pane fade bc-wine" id="eso">
-                        <div class="row">
-                            <div class="col-sm-7 c-white">
-                                <div class="banner-service">
-                                    {{ 'frontend.index.eso_txt' | trans | raw }}
-                                </div>
+                </div>
+                <div role="tabpanel" class="tab-pane fade bc-wine" id="eso">
+                    <div class="row">
+                        <div class="col-sm-7 c-white">
+                            <div class="banner-service">
+                                {{ 'frontend.index.eso_txt' | trans | raw }}
                             </div>
-                            <div class="col-sm-5">
-                                <img class="img-responsive" src="{{ asset('bundles/app/images/c2-eso.jpg') }}" alt="{# TODO set alt img #}"/>
+                        </div>
+                        <div class="col-sm-5">
+                            <img class="img-responsive" src="{{ asset('bundles/app/images/c2-eso.jpg') }}" alt="{# TODO set alt img #}"/>
+                        </div>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane fade bc-violet" id="batxillerat">
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <img class="img-responsive" src="{{ asset('bundles/app/images/c3-school.jpg') }}" alt="{# TODO set alt img #}"/>
+                        </div>
+                        <div class="col-sm-7 c-white">
+                            <div class="banner-service">
+                                {{ 'frontend.index.sc_school' | trans | raw  }}
                             </div>
                         </div>
                     </div>
-                    <div role="tabpanel" class="tab-pane fade bc-violet" id="batxillerat">
-                        <div class="row">
-                            <div class="col-sm-5">
-                                <img class="img-responsive" src="{{ asset('bundles/app/images/c3-school.jpg') }}" alt="{# TODO set alt img #}"/>
-                            </div>
-                            <div class="col-sm-7 c-white">
-                                <div class="banner-service">
-                                    {{ 'frontend.index.sc_school' | trans | raw  }}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div role="tabpanel" class="tab-pane fade bc-lviolet" id="selectivitat">
-                        <div class="row">
-                            <div class="col-sm-7 c-white">
-                                <div class="banner-service">
-                                    <p>{{ 'frontend.index.selectivity_txt' | trans | raw }}</p>
-                                    <ul>
-                                        <li>{{ 'frontend.index.selectivity_list.pau' | trans }}</li>
-                                        <li>{{ 'frontend.index.selectivity_list.pacfs' | trans }}</li>
-                                        <li>{{ 'frontend.index.selectivity_list.pacfm' | trans }}</li>
-                                        <li>{{ 'frontend.index.selectivity_list.pau25' | trans }}</li>
-                                        <li>{{ 'frontend.index.selectivity_list.cc' | trans }}</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-sm-5">
-                                <img class="img-responsive" src="{{ asset('bundles/app/images/c4-selectivity.jpg') }}" alt="{# TODO set alt img #}"/>
+                </div>
+                <div role="tabpanel" class="tab-pane fade bc-lviolet" id="selectivitat">
+                    <div class="row">
+                        <div class="col-sm-7 c-white">
+                            <div class="banner-service">
+                                <p>{{ 'frontend.index.selectivity_txt' | trans | raw }}</p>
+                                <ul>
+                                    <li>{{ 'frontend.index.selectivity_list.pau' | trans }}</li>
+                                    <li>{{ 'frontend.index.selectivity_list.pacfs' | trans }}</li>
+                                    <li>{{ 'frontend.index.selectivity_list.pacfm' | trans }}</li>
+                                    <li>{{ 'frontend.index.selectivity_list.pau25' | trans }}</li>
+                                    <li>{{ 'frontend.index.selectivity_list.cc' | trans }}</li>
+                                </ul>
                             </div>
                         </div>
+                        <div class="col-sm-5">
+                            <img class="img-responsive" src="{{ asset('bundles/app/images/c4-selectivity.jpg') }}" alt="{# TODO set alt img #}"/>
+                        </div>
                     </div>
-                    <div role="tabpanel" class="tab-pane fade bc-cyan" id="universitat">
-                        <div class="row">
-                            <div class="col-sm-5">
-                                <img class="img-responsive" src="{{ asset('bundles/app/images/c5-university.jpg') }}" alt="{# TODO set alt img #}"/>
-                            </div>
-                            <div class="col-sm-7 c-white">
-                                <div class="banner-service">
-                                    {{ 'frontend.index.university_txt' | trans | raw }}
-                                </div>
+                </div>
+                <div role="tabpanel" class="tab-pane fade bc-cyan" id="universitat">
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <img class="img-responsive" src="{{ asset('bundles/app/images/c5-university.jpg') }}" alt="{# TODO set alt img #}"/>
+                        </div>
+                        <div class="col-sm-7 c-white">
+                            <div class="banner-service">
+                                {{ 'frontend.index.university_txt' | trans | raw }}
                             </div>
                         </div>
                     </div>
@@ -124,8 +122,14 @@
                 <img src="{{ asset('bundles/app/images/about.jpg') | imagine_filter('2400xY') }}" class="img-responsive" alt="{{ 'frontend.index.main.image' | trans | capitalize }}">
                 <div class="my-carousel-caption">
                     <h2 class="my-h2 c-white text-center">{{ 'frontend.layout.menu.about' | trans | upper }}</h2>
-                    <p class="text-center banner-service sobre-mi">{{ 'frontend.index.about_mi' | trans | raw }}</p>
                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row bc-grey">
+            <div class="col-xs-12">
+                <p class="c-white banner-service">{{ 'frontend.index.about_mi' | trans | raw }}</p>
             </div>
         </div>
     </div>
@@ -151,19 +155,19 @@
                 {% endif %}
                 {{ form_start(contactForm) }}
                     <div class="row">
-                        <div class="col-sm-2 col-xs-1"></div>
-                        <div class="col-sm-4 col-xs-5">
+                        <div class="col-sm-2 hidden-xs"></div>
+                        <div class="col-sm-4 col-xs-6">
                             {{ form_errors(contactForm) }}
                             {{ form_row(contactForm.name) }}
                             {{ form_row(contactForm.email) }}
                             {{ form_row(contactForm.phone) }}
                         </div>
-                        <div class="col-sm-4 col-xs-5">
+                        <div class="col-sm-4 col-xs-6">
                             {{ form_row(contactForm.message) }}
                             {{ form_row(contactForm.send) }}
                             {{ form_rest(contactForm) }}
                         </div>
-                        <div class="col-sm-2 col-xs-1"></div>
+                        <div class="col-sm-2 hidden-xs"></div>
                     </div>
                 {{ form_end(contactForm) }}
             </div>
@@ -171,11 +175,9 @@
     </div>
     <div class="container-fluid">
         <div id="localitzacio" class="row">
-            <div class="">
-                {#<h2 class="my-h2 text-center">{{ 'frontend.layout.menu.location' | trans | upper }}</h2>#}
-                <div class="google-maps-container">
-                    {{ google_map(mapView) }}
-                </div>
+            {#<h2 class="my-h2 text-center">{{ 'frontend.layout.menu.location' | trans | upper }}</h2>#}
+            <div class="google-maps-container">
+                {{ google_map(mapView) }}
             </div>
         </div>
     </div>

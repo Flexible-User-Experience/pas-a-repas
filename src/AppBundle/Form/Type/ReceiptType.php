@@ -53,7 +53,17 @@ class ReceiptType extends AbstractType
                         10 => 'Octubre',
                         11 => 'Novembre',
                         12 => 'Desembre',
-                    )
+                    ),
+                    'choices_as_values' => false,
+//                    'preferred_choices' => function() {
+//
+//                        return $choices = new \DateTime('now');
+//                    }
+                    'preferred_choices' => function($currentdate) {
+                        if ($currentdate = time())
+
+                        return $month = new \DateTime('now');
+                    },
                 )
             )
             ->add(

@@ -122,6 +122,18 @@ AppBundle\Entity\Receipt:
     collected: <boolean(70)>
     customer: @customer<numberBetween(1, 50)>
 
+## Spendings
+AppBundle\Entity\Spending:
+  spending{1..50}:
+    date: <dateTimeThisMonth()>
+    amount: <numberBetween(1, 100)>
+    spendingcategory: @spendingcategory<numberBetween(1, 10)>
+
+## SpendingCategory
+AppBundle\Entity\SpendingCategory:
+  spendingcategory{1..10}:
+    name: <sentence()>
+
 ## Users
 AppBundle\Entity\User:
     admin:

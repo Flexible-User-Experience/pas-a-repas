@@ -34,7 +34,7 @@ twig:
         google_analytics_enabled: %google_analytics_enabled%
         google_analytics_account: "%google_analytics_account%"
         main_brand_title:         "Pas a Repàs"
-        admin_tag_version:        "v2.0.32"
+        admin_tag_version:        "v2.0.33"
 
 # Assetic Configuration
 assetic:
@@ -183,6 +183,8 @@ sonata_admin:
                 icon: "<i class='fa fa-chrome'></i>"
             Facturació:
                 icon: "<i class='fa fa-file-text'></i>"
+            Despesa:
+                icon: "<i class='fa fa-eur'></i>"
             Administrador:
                 icon: "<i class='fa fa-cog'></i>"
         blocks:
@@ -210,11 +212,21 @@ sonata_admin:
                 settings:
                     groups: [ Facturació ]
             -
-                position: top
+                position: left
+                type: sonata.admin.block.admin_list
+                class: col-md-6
+                settings:
+                    groups: [ Despesa ]
+            -
+                position: right
                 type: sonata.admin.block.admin_list
                 class: col-md-6
                 settings:
                     groups: [ Administrador ]
+            -
+                position: bottom
+                type: admin.block.graphs
+                class: col-md-12
             -
                 position: bottom
                 type: sonata.block.service.text
@@ -230,6 +242,7 @@ sonata_block:
         sonata.block.service.text:      ~
         sonata.admin.block.admin_list:  ~
         admin.block.messages:           ~
+        admin.block.graphs:             ~
 
 sonata_doctrine_orm_admin:
     templates:

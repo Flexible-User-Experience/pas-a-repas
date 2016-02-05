@@ -7,14 +7,14 @@ use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Spending
+ * SpendingCategory
  *
  * @category Entity
  * @package  AppBundle\Entity
  * @author   Anton Serra <aserratorta@gmail.com>
  *
  * @ORM\Table(name="categoria_despesa")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\SpendingRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\SpendingCategoryRepository")
  */
 class SpendingCategory extends Base
 {
@@ -22,7 +22,7 @@ class SpendingCategory extends Base
     /**
      * @var string
      *
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=false)
      */
     private $name;
 
@@ -90,8 +90,15 @@ class SpendingCategory extends Base
      *
      * @return string
      */
-    public function __toString() {
+    public function __toString()
+    {
+        if ($this->getName() == null) {
 
-        return '---';
+            return '---';
+
+        } else {
+
+            return $this->getName();
+        }
     }
 }
