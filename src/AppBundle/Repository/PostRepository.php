@@ -106,4 +106,27 @@ class PostRepository extends EntityRepository
 
         return $query->getResult();
     }
+
+    /**
+     * @param Category $category
+     * @return ArrayCollection
+     */
+    public function getPostsByCategoryEnabledSortedByPublishedDateWithJoinUntilNow(Category $category)
+    {
+        $now = new \DateTime();
+        $query = $this->createQueryBuilder('p')
+            ->select('p, c')
+            ->join('p.categories', 'c')
+            ->where('p.enabled = :enabled')
+            ->andWhere('c.id = :cid')
+            ->andWhere('p.publishedAt <= :published')
+            ->setParameter('enabled', true)
+            ->setParameter('published', $now->format('Y-m-d'))
+            ->setParameter('cid', $category->getId())
+            ->orderBy('p.publishedAt', 'DESC')
+            ->addOrderBy('p.title', 'ASC')
+            ->getQuery();
+
+        return $query->getResult();
+    }
 }

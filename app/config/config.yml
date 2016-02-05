@@ -34,7 +34,7 @@ twig:
         google_analytics_enabled: %google_analytics_enabled%
         google_analytics_account: "%google_analytics_account%"
         main_brand_title:         "Pas a Repàs"
-        admin_tag_version:        "v2.0.33"
+        admin_tag_version:        "v2.0.34"
 
 # Assetic Configuration
 assetic:
