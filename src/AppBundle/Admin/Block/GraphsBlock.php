@@ -50,8 +50,9 @@ class GraphsBlock extends BaseBlockService
                 'block'           => $blockContext->getBlock(),
                 'settings'        => $blockContext->getSettings(),
                 'title'           => 'backend.admin.block.title',
-                'graphs' => 'Hello world',
-//                'graphs' => $this->em->getRepository('AppBundle:Contact')->getPendingMessagesAmount(),
+//              'graphs' => $this->em->getRepository('AppBundle:Contact')->getPendingMessagesAmount(),
+                'graphs' => $this->em->getRepository('AppBundle:Receipt')->getReceiptCollectedAmount(),
+                'graphs2' => $this->em->getRepository('AppBundle:Receipt')->getReceiptNotCollectedAmount(),
             ),
             $response
         );
