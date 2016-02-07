@@ -16,6 +16,11 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
  * @package  AppBundle\Form\Type
  * @author   David Romaní <david@flux.cat>
  */
+
+//$now = new \DateTime;
+$currentDate = date('F');
+$monthCounter = 0;
+
 class ReceiptType extends AbstractType
 {
     /**
@@ -54,16 +59,24 @@ class ReceiptType extends AbstractType
                         11 => 'Novembre',
                         12 => 'Desembre',
                     ),
-                    'choices_as_values' => false,
-//                    'preferred_choices' => function() {
+                    'choices_as_values' => true,
+//                    'preferred_choices' => function($month, $currentDate) {
 //
-//                        return $choices = new \DateTime('now');
+//                        foreach($choices as $month) {
+//                            $monthCounter = $monthCounter + 1;
+//                        }
+//
+//                            if($monthCounter = $currentDate) {
+//
+//                                return $currentDate;
+//                            }
 //                    }
-                    'preferred_choices' => function($currentdate) {
-                        if ($currentdate = time())
 
-                        return $month = new \DateTime('now');
-                    },
+//                    'preferred_choices' => function($currentdate) {
+//                        if ($currentdate = time())
+//
+//                        return $month = new \DateTime('now');
+//                    },
                 )
             )
             ->add(
