@@ -16,11 +16,6 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
  * @package  AppBundle\Form\Type
  * @author   David Romaní <david@flux.cat>
  */
-
-//$now = new \DateTime;
-$currentDate = date('F');
-$monthCounter = 0;
-
 class ReceiptType extends AbstractType
 {
     /**
@@ -29,6 +24,10 @@ class ReceiptType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $now = new \DateTime;
+        $currentnumbermonth = $now->format('n');
+        $currentyear = $now->format('Y');
+
         $builder
             ->add(
                 'type',
@@ -44,7 +43,7 @@ class ReceiptType extends AbstractType
                 ChoiceType::class,
                 array(
                     'label' => 'backend.admin.month',
-                    'required' => true,
+//                    'required' => true,
                     'choices' => array(
                         1 => 'Gener',
                         2 => 'Febrer',
@@ -60,23 +59,7 @@ class ReceiptType extends AbstractType
                         12 => 'Desembre',
                     ),
                     'choices_as_values' => true,
-//                    'preferred_choices' => function($month, $currentDate) {
-//
-//                        foreach($choices as $month) {
-//                            $monthCounter = $monthCounter + 1;
-//                        }
-//
-//                            if($monthCounter = $currentDate) {
-//
-//                                return $currentDate;
-//                            }
-//                    }
-
-//                    'preferred_choices' => function($currentdate) {
-//                        if ($currentdate = time())
-//
-//                        return $month = new \DateTime('now');
-//                    },
+                    'preferred_choices' => array($currentnumbermonth),
                 )
             )
             ->add(
@@ -85,7 +68,9 @@ class ReceiptType extends AbstractType
                 array(
                     'label' => 'backend.admin.year',
                     'required' => true,
-                    'choices' => YearEnum::getEnumArray()
+                    'choices' => YearEnum::getEnumArray(),
+                    'choices_as_values' => false,
+                    'preferred_choices' => array($currentyear),
                 )
             )
             ->add(
