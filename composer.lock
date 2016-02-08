@@ -1761,22 +1761,22 @@
         },
         {
             "name": "hautelook/alice-bundle",
-            "version": "v1.1.0",
+            "version": "v1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hautelook/AliceBundle.git",
-                "reference": "c4d97c842dc11a5c7bc588d2cd5d9d4bd6ffa821"
+                "reference": "c2bb26ebb4e4f6056b38a1494b03cc989dcfe27a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hautelook/AliceBundle/zipball/c4d97c842dc11a5c7bc588d2cd5d9d4bd6ffa821",
-                "reference": "c4d97c842dc11a5c7bc588d2cd5d9d4bd6ffa821",
+                "url": "https://api.github.com/repos/hautelook/AliceBundle/zipball/c2bb26ebb4e4f6056b38a1494b03cc989dcfe27a",
+                "reference": "c2bb26ebb4e4f6056b38a1494b03cc989dcfe27a",
                 "shasum": ""
             },
             "require": {
                 "nelmio/alice": "~2.1",
                 "php": ">=5.4.0",
-                "symfony/finder": "^2.7"
+                "symfony/finder": "^2.7|~3.0"
             },
             "require-dev": {
                 "doctrine/doctrine-bundle": "~1.2",
@@ -1788,12 +1788,11 @@
                 "doctrine/phpcr-odm": "^1.2",
                 "jackalope/jackalope-doctrine-dbal": "^1.2",
                 "sllh/php-cs-fixer-styleci-bridge": "~1.0",
-                "symfony/console": "~2.3",
-                "symfony/framework-bundle": "~2.3",
-                "symfony/phpunit-bridge": "^2.7.4",
-                "symfony/validator": "~2.3",
-                "symfony/yaml": "~2.3",
-                "theofidry/psysh-bundle": "^1.1.2"
+                "symfony/console": "~2.3|~3.0",
+                "symfony/framework-bundle": "~2.3|~3.0",
+                "symfony/phpunit-bridge": "^2.7.4|~3.0",
+                "symfony/validator": "~2.3|~3.0",
+                "symfony/yaml": "~2.3|~3.0"
             },
             "suggest": {
                 "doctrine/data-fixtures": "To use Doctrine fixtures loader",
@@ -1807,6 +1806,11 @@
                 "theofidry/alice-bundle-extension": "Behat extension for HautelookAliceBundle"
             },
             "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "Hautelook\\AliceBundle\\": "src"
@@ -1835,7 +1839,7 @@
                 "orm",
                 "symfony"
             ],
-            "time": "2015-10-29 20:57:57"
+            "time": "2016-02-07 19:30:47"
         },
         {
             "name": "imagine/imagine",
@@ -2631,16 +2635,16 @@
         },
         {
             "name": "paragonie/random_compat",
-            "version": "1.1.6",
+            "version": "v1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paragonie/random_compat.git",
-                "reference": "e6f80ab77885151908d0ec743689ca700886e8b0"
+                "reference": "b0e69d10852716b2ccbdff69c75c477637220790"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/e6f80ab77885151908d0ec743689ca700886e8b0",
-                "reference": "e6f80ab77885151908d0ec743689ca700886e8b0",
+                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/b0e69d10852716b2ccbdff69c75c477637220790",
+                "reference": "b0e69d10852716b2ccbdff69c75c477637220790",
                 "shasum": ""
             },
             "require": {
@@ -2675,7 +2679,7 @@
                 "pseudorandom",
                 "random"
             ],
-            "time": "2016-01-29 16:19:52"
+            "time": "2016-02-06 03:52:05"
         },
         {
             "name": "phpcollection/phpcollection",
