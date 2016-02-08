@@ -24,7 +24,7 @@ class ReceiptType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $now = new \DateTime;
+        $now = new \DateTime();
         $currentnumbermonth = $now->format('n');
         $currentyear = $now->format('Y');
 
@@ -43,11 +43,14 @@ class ReceiptType extends AbstractType
                 ChoiceType::class,
                 array(
                     'label' => 'backend.admin.month',
-//                    'required' => true,
+                    'required' => true,
                     'choices' => array(
-                        1 => 'Gener',
-                        2 => 'Febrer',
-                        3 => 'Març',
+                        'Gener' => 1,
+                        'Febrer' => 2,
+                        'Març' => 3,
+//                        1 => 'Gener',
+//                        2 => 'Febrer',
+//                        3 => 'Març',
                         4 => 'Abril',
                         5 => 'Maig',
                         6 => 'Juny',
