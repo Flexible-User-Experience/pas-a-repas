@@ -98,6 +98,16 @@ nav.my-nav {
 body.my-body {
   margin-top: 90px;
   position: relative;
+  font-size: 8px;
+  @media (min-width: @screen-xs) {
+    font-size: 9px;
+  }
+  @media (min-width: @screen-sm) {
+    font-size: 10px;
+  }
+  @media (min-width: @screen-md) {
+    font-size: 14px;
+  }
 }
 
 // Strongs
@@ -158,15 +168,29 @@ address { line-height: 1.65; }
 
 // Customs
 h2.my-h2 {
-  margin: 70px 0;
-  font-size: 24px;
+  margin: 30px 0;
+  font-size: 18px;
   &.c-white { color: @white; }
+  @media (min-width: @screen-sm) {
+    margin: 50px 0;
+    font-size: 22px;
+  }
+  @media (min-width: @screen-md) {
+    margin: 70px 0;
+    font-size: 24px;
+  }
 }
 .google-maps-container { height: 400px; }
 .banner-service {
   line-height: 1.65;
   margin-bottom: 0;
-  padding: 70px;
+  padding: 25px;
+  @media (min-width: @screen-sm) {
+    padding: 35px;
+  }
+  @media (min-width: @screen-md) {
+    padding: 70px;
+  }
   &.sobre-mi { padding: 0 20px 70px 20px; }
 }
 div.navbar ul.nav.nav-justified {
@@ -186,13 +210,15 @@ div.navbar ul.nav.nav-justified {
     a.c-wine:hover,    a.c-wine:focus    { color: @wine }
     a.c-violet:hover,  a.c-violet:focus  { color: @violet }
     a.c-lviolet:hover, a.c-lviolet:focus { color: @lviolet }
-    &.active { background-color: #EEE }
+    &.active {
+      background-color: #EEE;
+      & > a {
+        margin-bottom: 0;
+      }
+    }
     &.active, & a:hover {
-      //background-color: transparent;
       .current-mark {
         visibility: visible;
-        //margin-top: 20px;
-        //display: block;
       }
     }
   }
@@ -215,6 +241,15 @@ p.text-center.contacte { margin: 0 0 40px 0; }
         text-decoration: none;
       }
     }
+  }
+}
+.fa-4x {
+  font-size: 3em;
+  @media (min-width: @screen-sm) {
+    font-size: 3.5em;
+  }
+  @media (min-width: @screen-md) {
+    font-size: 4em;
   }
 }
 
