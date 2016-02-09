@@ -81,6 +81,11 @@ services:
         tags:
             - { name: sonata.block }
         arguments: [ "sonata.admin.block.graphs", "@templating", "@doctrine.orm.entity_manager" ]
+# Sitemap
+    app.sitemap:
+        class: AppBundle\Listener\SitemapListener
+        arguments: [ "@router", "@doctrine.orm.entity_manager" ]
+        tags: [ { name: "presta.sitemap.listener" } ]
 # Twig
     twig.extension.text:
         class: Twig_Extensions_Extension_Text
