@@ -21,7 +21,7 @@
     <div class="container-fluid">
         <div class="row bc-brown">
             <div class="text-center">
-                <img src="{{ asset('bundles/app/images/head.jpg') | imagine_filter('2400xY') }}" class="img-responsive" alt="{{ 'frontend.index.main.image' | trans | capitalize }}">
+                <img src="{{ asset('bundles/app/images/head.jpg') | imagine_filter('2400xY') }}" class="img-responsive center-block" alt="{{ 'frontend.index.main.image' | trans | capitalize }}">
             </div>
         </div>
     </div>
@@ -124,7 +124,7 @@
     <div class="container-fluid">
         <div id="sobre-mi" class="row bc-lbrown">
             <div class="col-xs-12 no-h-padding">
-                <img src="{{ asset('bundles/app/images/about.jpg') | imagine_filter('2400xY') }}" class="img-responsive" alt="{{ 'frontend.index.main.image' | trans | capitalize }}">
+                <img src="{{ asset('bundles/app/images/about.jpg') | imagine_filter('2400xY') }}" class="img-responsive center-block" alt="{{ 'frontend.index.main.image' | trans | capitalize }}">
                 <div class="my-carousel-caption">
                     <h2 class="my-h2 c-white text-center">{{ 'frontend.layout.menu.about' | trans | upper }}</h2>
                     <p class="text-center banner-service sobre-mi hidden-xs">{{ 'frontend.index.about_mi' | trans | raw }}</p>
@@ -181,7 +181,6 @@
     </div>
     <div class="container-fluid">
         <div id="localitzacio" class="row">
-            {#<h2 class="my-h2 text-center">{{ 'frontend.layout.menu.location' | trans | upper }}</h2>#}
             <div class="google-maps-container">
                 {{ google_map(mapView) }}
             </div>
