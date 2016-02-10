@@ -33,9 +33,6 @@ class SitemapListener implements SitemapListenerInterface
     /** @var ArrayCollection */
     private $posts;
 
-//    /** @var ArrayCollection */
-//    private $staticPages;
-
     /**
      * SitemapListener constructor
      *
@@ -49,7 +46,6 @@ class SitemapListener implements SitemapListenerInterface
         $this->categories = $this->em->getRepository('AppBundle:Category')->getAllEnabledSortedByTitle();
         $this->posts = $this->em->getRepository('AppBundle:Post')->getAllEnabledSortedByPublishedDateWithJoin(
         );
-//        $this->staticPages = $this->em->getRepository('AppBundle:Page')->findAllSortedByTitle();
     }
 
     /**
@@ -96,6 +92,9 @@ class SitemapListener implements SitemapListenerInterface
                 $url = $this->router->generate(
                     'blog',
                     array(
+                        'year' => $post->getPublishedAt()->format('Y'),
+                        'month' => $post->getPublishedAt()->format('m'),
+                        'day' => $post->getPublishedAt()->format('d'),
                         'slug' => $post->getSlug(),
                     ),
                     UrlGeneratorInterface::ABSOLUTE_URL
@@ -112,27 +111,6 @@ class SitemapListener implements SitemapListenerInterface
                         'default'
                     );
             }
-//            /** @var Page $staticPage */
-//            foreach ($this->staticPages as $staticPage) {
-//                $url = $this->router->generate(
-//                    'app_static_page',
-//                    array(
-//                        'slug' => $staticPage->getSlug(),
-//                    ),
-//                    UrlGeneratorInterface::ABSOLUTE_URL
-//                );
-//                $event
-//                    ->getGenerator()
-//                    ->addUrl(
-//                        new UrlConcrete(
-//                            $url,
-//                            new \DateTime(),
-//                            UrlConcrete::CHANGEFREQ_HOURLY,
-//                            1
-//                        ),
-//                        'default'
-//                    );
-//            }
         }
     }
 }
