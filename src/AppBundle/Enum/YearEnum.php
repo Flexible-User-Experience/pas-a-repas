@@ -7,7 +7,7 @@ namespace AppBundle\Enum;
  *
  * @category Enum
  * @package  AppBundle\Enum
- * @author   Anton Serra <aserratorta@gmial.com>
+ * @author   Anton Serra <aserratorta@gmail.com>
  */
 class YearEnum
 {
@@ -22,7 +22,6 @@ class YearEnum
 
             array_push($result, $year);
         }
-
 
         return $result;
     }
