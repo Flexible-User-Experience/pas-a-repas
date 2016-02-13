@@ -21,3 +21,8 @@ sonata_user_admin_resetting:
 
 _liip_imagine:
     resource: "@LiipImagineBundle/Resources/config/routing.xml"
+
+_presta_sitemap:
+    resource: "@PrestaSitemapBundle/Resources/config/routing.yml"
+    prefix:   /sitemap
+

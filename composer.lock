@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3acc9c2500398ead36293bf0e2ba4fa5",
-    "content-hash": "a9d4e86c282b51e5682eae00446daf57",
+    "hash": "c231ed3bdb1974b07b637debd8a9e0b8",
+    "content-hash": "abf27543f1cc7c0b255c39a6c719b60b",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -49,16 +49,16 @@
         },
         {
             "name": "cocur/slugify",
-            "version": "v1.4",
+            "version": "v1.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cocur/slugify.git",
-                "reference": "05f00fa75f1c53edfcf4d0425e7e62e95b8888dd"
+                "reference": "16cdd7e792657d524cde931ea666436623b23301"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cocur/slugify/zipball/05f00fa75f1c53edfcf4d0425e7e62e95b8888dd",
-                "reference": "05f00fa75f1c53edfcf4d0425e7e62e95b8888dd",
+                "url": "https://api.github.com/repos/cocur/slugify/zipball/16cdd7e792657d524cde931ea666436623b23301",
+                "reference": "16cdd7e792657d524cde931ea666436623b23301",
                 "shasum": ""
             },
             "require": {
@@ -108,7 +108,7 @@
                 "slug",
                 "slugify"
             ],
-            "time": "2015-09-29 18:26:32"
+            "time": "2016-02-11 09:53:46"
         },
         {
             "name": "components/font-awesome",
@@ -1762,16 +1762,16 @@
         },
         {
             "name": "hautelook/alice-bundle",
-            "version": "v1.1.1",
+            "version": "v1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hautelook/AliceBundle.git",
-                "reference": "c2bb26ebb4e4f6056b38a1494b03cc989dcfe27a"
+                "reference": "39cba589a786dd51f1b34c420cdd9a2d6ecad9cc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hautelook/AliceBundle/zipball/c2bb26ebb4e4f6056b38a1494b03cc989dcfe27a",
-                "reference": "c2bb26ebb4e4f6056b38a1494b03cc989dcfe27a",
+                "url": "https://api.github.com/repos/hautelook/AliceBundle/zipball/39cba589a786dd51f1b34c420cdd9a2d6ecad9cc",
+                "reference": "39cba589a786dd51f1b34c420cdd9a2d6ecad9cc",
                 "shasum": ""
             },
             "require": {
@@ -1840,7 +1840,7 @@
                 "orm",
                 "symfony"
             ],
-            "time": "2016-02-07 19:30:47"
+            "time": "2016-02-12 09:40:12"
         },
         {
             "name": "imagine/imagine",
@@ -2367,16 +2367,16 @@
         },
         {
             "name": "liip/imagine-bundle",
-            "version": "1.4.3",
+            "version": "1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/liip/LiipImagineBundle.git",
-                "reference": "22d625e92337c1c25338922dc08706182be9b02f"
+                "reference": "708785a70160280b10fb48533e49c084b2fe6da5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/liip/LiipImagineBundle/zipball/22d625e92337c1c25338922dc08706182be9b02f",
-                "reference": "22d625e92337c1c25338922dc08706182be9b02f",
+                "url": "https://api.github.com/repos/liip/LiipImagineBundle/zipball/708785a70160280b10fb48533e49c084b2fe6da5",
+                "reference": "708785a70160280b10fb48533e49c084b2fe6da5",
                 "shasum": ""
             },
             "require": {
@@ -2437,7 +2437,7 @@
                 "image",
                 "imagine"
             ],
-            "time": "2016-01-14 07:16:25"
+            "time": "2016-02-12 10:32:15"
         },
         {
             "name": "monolog/monolog",
@@ -2786,6 +2786,67 @@
             "time": "2015-07-25 16:39:46"
         },
         {
+            "name": "presta/sitemap-bundle",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/prestaconcept/PrestaSitemapBundle.git",
+                "reference": "62a78b9b70fece250799bcdb674e55ee86c68677"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/prestaconcept/PrestaSitemapBundle/zipball/62a78b9b70fece250799bcdb674e55ee86c68677",
+                "reference": "62a78b9b70fece250799bcdb674e55ee86c68677",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0",
+                "symfony/symfony": "~2.2|~3.0"
+            },
+            "require-dev": {
+                "symfony/phpunit-bridge": "~2.7|~3.0"
+            },
+            "suggest": {
+                "liip/doctrine-cache-bundle": "Allows to store sitemaps in cache"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.3.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Presta\\SitemapBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "David Epely",
+                    "homepage": "http://www.prestaconcept.net/",
+                    "role": "Initial developer"
+                },
+                {
+                    "name": "Alain Flaus",
+                    "homepage": "http://www.prestaconcept.net/",
+                    "role": "Maintainer, Developer"
+                }
+            ],
+            "description": "A symfony 2 bundle that provides tools to build your application sitemap.",
+            "keywords": [
+                "Sitemap",
+                "Symfony2",
+                "bundle",
+                "prestaconcept",
+                "xml"
+            ],
+            "time": "2015-12-28 10:54:30"
+        },
+        {
             "name": "psr/log",
             "version": "1.0.0",
             "source": {
@@ -2980,12 +3041,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataAdminBundle.git",
-                "reference": "ceffa1321dff2be07568e8bef0f74dd1cfb36384"
+                "reference": "d7d796503d2a94cfbeb0d6214891dcb5d56deec5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/ceffa1321dff2be07568e8bef0f74dd1cfb36384",
-                "reference": "ceffa1321dff2be07568e8bef0f74dd1cfb36384",
+                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/d7d796503d2a94cfbeb0d6214891dcb5d56deec5",
+                "reference": "d7d796503d2a94cfbeb0d6214891dcb5d56deec5",
                 "shasum": ""
             },
             "require": {
@@ -3057,7 +3118,7 @@
                 "bootstrap",
                 "sonata"
             ],
-            "time": "2016-02-08 09:18:11"
+            "time": "2016-02-13 11:00:52"
         },
         {
             "name": "sonata-project/block-bundle",
@@ -3617,12 +3678,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataUserBundle.git",
-                "reference": "82a00e9145c1c96f822e9c2da022661038a04ebe"
+                "reference": "8018609769233d931dba4350621bce04b39590e7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataUserBundle/zipball/82a00e9145c1c96f822e9c2da022661038a04ebe",
-                "reference": "82a00e9145c1c96f822e9c2da022661038a04ebe",
+                "url": "https://api.github.com/repos/sonata-project/SonataUserBundle/zipball/8018609769233d931dba4350621bce04b39590e7",
+                "reference": "8018609769233d931dba4350621bce04b39590e7",
                 "shasum": ""
             },
             "require": {
@@ -3687,7 +3748,7 @@
                 "sonata",
                 "user"
             ],
-            "time": "2016-01-24 12:19:01"
+            "time": "2016-02-11 04:33:21"
         },
         {
             "name": "stof/doctrine-extensions-bundle",
@@ -4978,6 +5039,7 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "cypresslab/gitelephant-bundle": 20,
+        "presta/sitemap-bundle": 20,
         "sonata-project/admin-bundle": 20,
         "sonata-project/datagrid-bundle": 20,
         "sonata-project/doctrine-orm-admin-bundle": 20,
