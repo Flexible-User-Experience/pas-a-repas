@@ -90,7 +90,7 @@ class SitemapListener implements SitemapListenerInterface
             /** @var Post $post */
             foreach ($this->posts as $post) {
                 $url = $this->router->generate(
-                    'blog',
+                    'blog_detail',
                     array(
                         'year' => $post->getPublishedAt()->format('Y'),
                         'month' => $post->getPublishedAt()->format('m'),
