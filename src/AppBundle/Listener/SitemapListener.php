@@ -89,6 +89,28 @@ class SitemapListener implements SitemapListenerInterface
             }
             /** @var Post $post */
             foreach ($this->posts as $post) {
+//            foreach ($this->posts as $post) {
+                $url = $this->router->generate(
+                    'blog',
+                    array(
+                        'slug' => $post->getSlug(),
+                    ),
+                    UrlGeneratorInterface::ABSOLUTE_URL
+                );
+                $event
+                    ->getGenerator()
+                    ->addUrl(
+                        new UrlConcrete(
+                            $url,
+                            new \DateTime(),
+                            UrlConcrete::CHANGEFREQ_HOURLY,
+                            1
+                        ),
+                        'default'
+                    );
+            }
+            /** @var Post $post */
+            foreach ($this->posts as $post) {
                 $url = $this->router->generate(
                     'blog_detail',
                     array(
