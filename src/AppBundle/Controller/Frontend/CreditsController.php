@@ -19,7 +19,6 @@ class CreditsController extends Controller
      */
     public function creditsAction()
     {
-        return $this->render('Front/Web/credits.html.twig', array(
-        ));
+        return $this->render('Front/Web/credits.html.twig');
     }
 }
