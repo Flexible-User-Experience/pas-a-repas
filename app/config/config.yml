@@ -26,15 +26,14 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
-    form:
-        resources:
-            - "bootstrap_3_layout.html.twig"
-            - "SonataCoreBundle:Form:datepicker.html.twig"
+    form_themes:
+        - "bootstrap_3_layout.html.twig"
+        - "SonataCoreBundle:Form:datepicker.html.twig"
     globals:
         google_analytics_enabled: %google_analytics_enabled%
         google_analytics_account: "%google_analytics_account%"
         main_brand_title:         "Pas a Repàs"
-        admin_tag_version:        "v2.0.42"
+        admin_tag_version:        "v2.0.43"
 
 # Assetic Configuration
 assetic:

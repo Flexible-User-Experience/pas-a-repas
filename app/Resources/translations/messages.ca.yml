@@ -87,6 +87,8 @@ frontend:
       categories: categories
       keep_reading: seguir llegint
       post_detail: detall de l'article
+  credits:
+    credits: crèdits
 backend:
     admin:
         title: Títol

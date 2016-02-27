@@ -55,6 +55,7 @@ class SitemapListener implements SitemapListenerInterface
     {
         $section = $event->getSection();
         if (is_null($section) || $section == 'default') {
+            // Homepage
             $event
                 ->getGenerator()
                 ->addUrl(
@@ -66,6 +67,7 @@ class SitemapListener implements SitemapListenerInterface
                     ),
                     'default'
                 );
+            // Blog categories list
             /** @var Category $category */
             foreach ($this->categories as $category) {
                 $url = $this->router->generate(
@@ -87,7 +89,7 @@ class SitemapListener implements SitemapListenerInterface
                         'default'
                     );
             }
-
+            // Blog main view
             $url = $this->router->generate(
                 'blog', array(), UrlGeneratorInterface::ABSOLUTE_URL
             );
@@ -102,7 +104,7 @@ class SitemapListener implements SitemapListenerInterface
                     ),
                     'default'
                 );
-
+            // Posts detail view list
             /** @var Post $post */
             foreach ($this->posts as $post) {
                 $url = $this->router->generate(
@@ -127,6 +129,21 @@ class SitemapListener implements SitemapListenerInterface
                         'default'
                     );
             }
+            // Credits view
+            $url = $this->router->generate(
+                'credits', array(), UrlGeneratorInterface::ABSOLUTE_URL
+            );
+            $event
+                ->getGenerator()
+                ->addUrl(
+                    new UrlConcrete(
+                        $url,
+                        new \DateTime(),
+                        UrlConcrete::CHANGEFREQ_HOURLY,
+                        1
+                    ),
+                    'default'
+                );
         }
     }
 }
