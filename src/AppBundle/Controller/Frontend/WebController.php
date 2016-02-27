@@ -60,4 +60,12 @@ class WebController extends Controller
             'flash' => $flash,
         ));
     }
+
+    /**
+     * @Route("/credits", name="credits")
+     */
+    public function creditsAction()
+    {
+        return $this->render('Front/Web/credits.html.twig');
+    }
 }
