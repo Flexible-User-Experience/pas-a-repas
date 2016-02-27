@@ -39,6 +39,7 @@ class FrontendTest extends BaseTest
         return array(
             array('/'),
             array('/blog'),
+            array('/credits'),
         );
     }
 
@@ -101,6 +102,15 @@ class FrontendTest extends BaseTest
         )));
         $this->assertStatusCode(200, $client);
         $client->request('GET', $this->getUrl('category_detail', array(
+            'slug' => 'broken',
+        )));
+        $this->assertStatusCode(404, $client);
+
+        $client->request('GET', $this->getUrl('credits', array(
+            'slug' => $category->getSlug(),
+        )));
+        $this->assertStatusCode(200, $client);
+        $client->request('GET', $this->getUrl('credits', array(
             'slug' => 'broken',
         )));
         $this->assertStatusCode(404, $client);
