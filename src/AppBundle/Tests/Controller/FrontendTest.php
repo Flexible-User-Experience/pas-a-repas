@@ -105,15 +105,6 @@ class FrontendTest extends BaseTest
             'slug' => 'broken',
         )));
         $this->assertStatusCode(404, $client);
-
-        $client->request('GET', $this->getUrl('credits', array(
-            'slug' => $category->getSlug(),
-        )));
-        $this->assertStatusCode(200, $client);
-        $client->request('GET', $this->getUrl('credits', array(
-            'slug' => 'broken',
-        )));
-        $this->assertStatusCode(404, $client);
     }
 
     /**
