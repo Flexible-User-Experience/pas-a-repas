@@ -46,7 +46,7 @@ class NotificationService
         $this->messenger->sendEmail(
             $contactMessage->getEmail(),
             $this->amd,
-            'www.asbelesteve.com contact form received',
+            'www.pasarepas.cat missatge de contacte rebut',
             $this->twig->render(':Mails:contact_form_admin_notification.html.twig', array(
                 'contact' => $contactMessage,
             ))
@@ -63,7 +63,7 @@ class NotificationService
         $this->messenger->sendEmail(
             $this->amd,
             $contactMessage->getEmail(),
-            'www.asbelesteve.com question received',
+            'www.pasarepas.cat pregunta rebuda',
             $this->twig->render(':Mails:contact_form_user_notification.html.twig', array(
                 'contact' => $contactMessage,
             ))
@@ -80,7 +80,7 @@ class NotificationService
         $this->messenger->sendEmail(
             $this->amd,
             $contactMessage->getEmail(),
-            'www.asbelesteve.com contact form answer',
+            'www.pasarepas.cat resposta formulari de contacte',
             $this->twig->render(':Mails:contact_form_user_backend_notification.html.twig', array(
                 'contact' => $contactMessage,
             ))
