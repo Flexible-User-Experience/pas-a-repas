@@ -39,6 +39,7 @@ class FrontendTest extends BaseTest
         return array(
             array('/'),
             array('/blog'),
+            array('/credits'),
         );
     }
 
