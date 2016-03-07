@@ -22,18 +22,23 @@ class NotificationService
     /** @var string */
     private $amd;
 
+    /** @var string */
+    private $urlBase;
+
     /**
      * NotificationService constructor
      *
      * @param CourierService    $messenger
      * @param \Twig_Environment $twig
      * @param string            $amd
+     * @param string            $urlBase
      */
-    public function __construct(CourierService $messenger, \Twig_Environment $twig, $amd)
+    public function __construct(CourierService $messenger, \Twig_Environment $twig, $amd, $urlBase)
     {
         $this->messenger = $messenger;
         $this->twig = $twig;
         $this->amd = $amd;
+        $this->urlBase = $urlBase;
     }
 
     /**
@@ -46,7 +51,7 @@ class NotificationService
         $this->messenger->sendEmail(
             $contactMessage->getEmail(),
             $this->amd,
-            'www.pasarepas.cat missatge de contacte rebut',
+            $this->urlBase . ' missatge de contacte rebut',
             $this->twig->render(':Mails:contact_form_admin_notification.html.twig', array(
                 'contact' => $contactMessage,
             ))
@@ -63,7 +68,7 @@ class NotificationService
         $this->messenger->sendEmail(
             $this->amd,
             $contactMessage->getEmail(),
-            'www.pasarepas.cat pregunta rebuda',
+            $this->urlBase . ' pregunta rebuda',
             $this->twig->render(':Mails:contact_form_user_notification.html.twig', array(
                 'contact' => $contactMessage,
             ))
@@ -80,7 +85,7 @@ class NotificationService
         $this->messenger->sendEmail(
             $this->amd,
             $contactMessage->getEmail(),
-            'www.pasarepas.cat resposta formulari de contacte',
+            $this->urlBase . ' resposta formulari de contacte',
             $this->twig->render(':Mails:contact_form_user_backend_notification.html.twig', array(
                 'contact' => $contactMessage,
             ))

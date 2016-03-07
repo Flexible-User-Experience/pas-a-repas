@@ -69,7 +69,7 @@ services:
         arguments: [ "@swiftmailer.mailer" ]
     app.notification:
         class: AppBundle\Service\NotificationService
-        arguments: [ "@app.courier", "@twig", "%mailer_destination%" ]
+        arguments: [ "@app.courier", "@twig", "%mailer_url_base%" ]
 # Sonata Blocks
     admin.block.messages:
         class: AppBundle\Admin\Block\PendingMessagesBlock
