@@ -25,4 +25,3 @@ _liip_imagine:
 _presta_sitemap:
     resource: "@PrestaSitemapBundle/Resources/config/routing.yml"
     prefix:   /sitemap
-
