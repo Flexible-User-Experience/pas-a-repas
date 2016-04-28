@@ -16,7 +16,7 @@ use Symfony\Component\Routing\RouterInterface;
  * Class SitemapListener
  *
  * @category Listener
- * @package  Acme\DemoBundle\EventListener
+ * @package  AppBundle\Listener
  * @author   Anton Serra <aserratorta@gmail.com>
  */
 class SitemapListener implements SitemapListenerInterface

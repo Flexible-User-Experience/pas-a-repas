@@ -33,7 +33,7 @@ twig:
         google_analytics_enabled: %google_analytics_enabled%
         google_analytics_account: "%google_analytics_account%"
         main_brand_title:         "Pas a Repàs"
-        admin_tag_version:        "v2.0.47"
+        admin_tag_version:        "v2.0.48"
 
 # Assetic Configuration
 assetic:
@@ -83,8 +83,6 @@ swiftmailer:
     host:       "%mailer_host%"
     username:   "%mailer_user%"
     password:   "%mailer_password%"
-    encryption: ssl
-    auth_mode:  login
     spool:      { type: memory }
 
 # CKEditor
@@ -242,11 +240,6 @@ sonata_block:
         sonata.admin.block.admin_list:  ~
         admin.block.messages:           ~
         admin.block.graphs:             ~
-
-sonata_doctrine_orm_admin:
-    templates:
-        form:
-            - "::Admin/Forms/custom_checkbox_form_template_hack.html.twig"
 
 sonata_user:
     security_acl: true
