@@ -119,7 +119,6 @@ AppBundle\Entity\SpendingCategory:
   spendingcategory{1..3}:
     name: <sentence()>
 
-
 ## Users
 AppBundle\Entity\User:
     admin:
