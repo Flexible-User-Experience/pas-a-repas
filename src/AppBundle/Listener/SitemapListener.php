@@ -57,7 +57,7 @@ class SitemapListener implements SitemapListenerInterface
         if (is_null($section) || $section == 'default') {
             // Homepage
             $event
-                ->getGenerator()
+                ->getUrlContainer()
                 ->addUrl(
                     new UrlConcrete(
                         $this->router->generate('homepage', array(), UrlGeneratorInterface::ABSOLUTE_URL),
@@ -78,7 +78,7 @@ class SitemapListener implements SitemapListenerInterface
                     UrlGeneratorInterface::ABSOLUTE_URL
                 );
                 $event
-                    ->getGenerator()
+                    ->getUrlContainer()
                     ->addUrl(
                         new UrlConcrete(
                             $url,
@@ -94,7 +94,7 @@ class SitemapListener implements SitemapListenerInterface
                 'blog', array(), UrlGeneratorInterface::ABSOLUTE_URL
             );
             $event
-                ->getGenerator()
+                ->getUrlContainer()
                 ->addUrl(
                     new UrlConcrete(
                         $url,
@@ -118,7 +118,7 @@ class SitemapListener implements SitemapListenerInterface
                     UrlGeneratorInterface::ABSOLUTE_URL
                 );
                 $event
-                    ->getGenerator()
+                    ->getUrlContainer()
                     ->addUrl(
                         new UrlConcrete(
                             $url,
@@ -134,7 +134,7 @@ class SitemapListener implements SitemapListenerInterface
                 'credits', array(), UrlGeneratorInterface::ABSOLUTE_URL
             );
             $event
-                ->getGenerator()
+                ->getUrlContainer()
                 ->addUrl(
                     new UrlConcrete(
                         $url,
