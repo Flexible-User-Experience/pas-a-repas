@@ -14,11 +14,15 @@
 /web/bundles/
 /web/assetic/*
 /web/css/*
+!/web/css/.gitkeep
 /web/js/*
+!/web/js/.gitkeep
 /web/media/*
 !/web/media/.gitkeep
 /web/uploads/*
 !/web/uploads/.gitkeep
+/web/images/*
+!/web/images/.gitkeep
 /.idea
 /Capfile
 /dbreset.sh
