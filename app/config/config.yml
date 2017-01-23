@@ -30,7 +30,7 @@ twig:
         - "bootstrap_3_layout.html.twig"
         - "SonataCoreBundle:Form:datepicker.html.twig"
     globals:
-        google_analytics_enabled: %google_analytics_enabled%
+        google_analytics_enabled: "%google_analytics_enabled%"
         google_analytics_account: "%google_analytics_account%"
         main_brand_title:         "Pas a Repàs"
         admin_tag_version:        "v2.0.51"
@@ -41,6 +41,7 @@ assetic:
     java:           "%assetic_path_java%"
     node:           "%assetic_path_node%"
     use_controller: false
+    bundles:        [ AppBundle ]
     filters:
         cssrewrite: ~
         less:
@@ -138,7 +139,7 @@ vich_uploader:
     mappings:
         uploads:
             uri_prefix:         /uploads
-            upload_destination: %kernel.root_dir%/../web/uploads
+            upload_destination: "%kernel.root_dir%/../web/uploads"
 
 # Stof
 stof_doctrine_extensions:
