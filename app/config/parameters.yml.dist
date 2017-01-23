@@ -1,12 +1,11 @@
 parameters:
     locale: ca
-    database_driver:   pdo_sqlite
     database_host:     127.0.0.1
     database_port:     ~
     database_name:     symfony
     database_user:     travis
     database_password: ~
-    database_path: "%kernel.root_dir%/database/data.db3"
+    database_server_version: 5.5
     mailer_transport:  smtp
     mailer_host:       127.0.0.1
     mailer_user:       ~
