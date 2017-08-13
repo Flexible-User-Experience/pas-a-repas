@@ -2,6 +2,8 @@
 
 namespace AppBundle\Form\Type;
 
+use EWZ\Bundle\RecaptchaBundle\Form\Type\EWZRecaptchaType;
+use EWZ\Bundle\RecaptchaBundle\Validator\Constraints\IsTrue as RecaptchaTrue;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -55,7 +57,7 @@ class ContactType extends AbstractType
                 TextareaType::class,
                 array(
                     'label'    => 'frontend.index.contact.form.message',
-                    'required' => false,
+                    'required' => true,
                     'attr'     => array(
                         'rows' => 6,
                     ),
@@ -70,7 +72,26 @@ class ContactType extends AbstractType
                         'class' => 'btn-violet',
                     ),
                 )
-            );
+            )
+            ->add(
+                'captcha',
+                EWZRecaptchaType::class,
+                array(
+                    'label' => ' ',
+                    'attr' => array(
+                        'options' => array(
+                            'theme' => 'light',
+                            'type'  => 'image',
+                            'size'  => 'normal',
+                        )
+                    ),
+                    'mapped' => false,
+                    'constraints' => array(
+                        new RecaptchaTrue(),
+                    )
+                )
+            )
+        ;
     }
 
     /**

@@ -17,4 +17,4 @@
         login_user: "{{ mysql_db_remote_root_user }}"
         login_password: "{{ mysql_db_remote_root_password }}"
         append_privs: yes
-        priv: "{{ mysql_db_name }}.*:ALL"
+        priv: "{{ mysql_db_remote_name }}.*:ALL"

@@ -24,3 +24,5 @@ parameters:
     private_editor_test_user: user
     private_editor_test_pass: user
     main_brand_title: "Pas a Repàs"
+    recaptcha_site_key: "your_key"
+    recaptcha_secret: "your_secret"
