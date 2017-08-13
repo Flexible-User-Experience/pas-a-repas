@@ -2,24 +2,26 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
+    - { resource: sonata.yml }
+    - { resource: media.yml }
 
 framework:
     translator:      { fallbacks: [ "%locale%" ] }
+    validation:      { enable_annotations: true }
     secret:          "%secret%"
+    default_locale:  "%locale%"
+    form:            ~
+    csrf_protection: ~
+    fragments:       ~
+    trusted_hosts:   ~
+    trusted_proxies: ~
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
         strict_requirements: ~
-    form:            ~
-    csrf_protection: ~
-    validation:      { enable_annotations: true }
     templating:
         engines: [ "twig" ]
-    default_locale:  "%locale%"
-    trusted_hosts:   ~
-    trusted_proxies: ~
     session:
         handler_id:  ~
-    fragments:       ~
     http_method_override: true
 
 # Twig Configuration
@@ -32,8 +34,8 @@ twig:
     globals:
         google_analytics_enabled: "%google_analytics_enabled%"
         google_analytics_account: "%google_analytics_account%"
-        main_brand_title:         "Pas a Repàs"
-        admin_tag_version:        "v2.0.54"
+        main_brand_title:         "%main_brand_title%"
+        admin_tag_version:        "v2.0.55"
 
 # Assetic Configuration
 assetic:
@@ -72,20 +74,20 @@ doctrine:
             json: Sonata\Doctrine\Types\JsonType
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
-        naming_strategy: doctrine.orm.naming_strategy.underscore
-        auto_mapping: true
+        naming_strategy:             doctrine.orm.naming_strategy.underscore
+        auto_mapping:                true
 
 doctrine_migrations:
-    dir_name: "%kernel.root_dir%/../src/AppBundle/DoctrineMigrations"
+    dir_name:  "%kernel.root_dir%/../src/AppBundle/DoctrineMigrations"
     namespace: AppBundle\DoctrineMigrations
 
 # Swiftmailer Configuration
 swiftmailer:
-    transport:  "%mailer_transport%"
-    host:       "%mailer_host%"
-    username:   "%mailer_user%"
-    password:   "%mailer_password%"
-    spool:      { type: memory }
+    transport: "%mailer_transport%"
+    host:      "%mailer_host%"
+    username:  "%mailer_user%"
+    password:  "%mailer_password%"
+    spool:     { type: memory }
 
 # CKEditor
 ivory_ck_editor:
@@ -94,54 +96,6 @@ ivory_ck_editor:
         my_config:
             toolbar: standard
 
-# Liip Imagine
-liip_imagine:
-    resolvers:
-       default:
-          web_path: ~
-    filter_sets:
-        cache: ~
-        2400xY:
-            quality: 75
-            filters:
-                thumbnail: { size: [ 2400, null ], mode: outbound }
-        1200xY:
-            quality: 75
-            filters:
-                thumbnail: { size: [ 1200, null ], mode: outbound }
-        750x250:
-            quality: 80
-            filters:
-                thumbnail: { size: [ 750, 250 ], mode: outbound }
-        700x200:
-            quality: 80
-            filters:
-                thumbnail: { size: [ 700, 200 ], mode: outbound }
-        480xY:
-            quality: 80
-            filters:
-                thumbnail: { size: [ 480, null ], mode: outbound }
-        256xY:
-            quality: 80
-            filters:
-                thumbnail: { size: [ 256, null ], mode: outbound }
-        128x128:
-            quality: 85
-            filters:
-                thumbnail: { size: [ 128, 128 ], mode: outbound }
-        60x60:
-            quality: 95
-            filters:
-                thumbnail: { size: [ 60, 60 ], mode: outbound }
-
-# Vich
-vich_uploader:
-    db_driver: orm
-    mappings:
-        uploads:
-            uri_prefix:         /uploads
-            upload_destination: "%kernel.root_dir%/../web/uploads"
-
 # Stof
 stof_doctrine_extensions:
     default_locale:        "%locale%"
@@ -149,101 +103,15 @@ stof_doctrine_extensions:
     orm:
         default:
             timestampable: true
-            sluggable: true
+            sluggable:     true
 
 # FOS User
 fos_user:
-    db_driver:      orm
-    firewall_name:  admin
-    user_class:     AppBundle\Entity\User
+    db_driver:     orm
+    firewall_name: admin
+    user_class:    AppBundle\Entity\User
     group:
         group_class:   AppBundle\Entity\Group
         group_manager: sonata.user.orm.group_manager
     service:
         user_manager: sonata.user.orm.user_manager
-
-# Sonata configs
-sonata_admin:
-    title: "Pas a Repàs"
-    title_logo: "/bundles/app/images/backend-favicon.png"
-    options:
-        html5_validate: true
-        confirm_exit:   true
-        use_select2:    true
-        pager_links:    10
-    persist_filters: true
-    security:
-        handler: sonata.admin.security.handler.role
-    templates:
-        layout: "::Admin/layout.html.twig"
-        show:   "::Admin/show.html.twig"
-    dashboard:
-        groups:
-            Web:
-                icon: "<i class='fa fa-chrome'></i>"
-            Facturació:
-                icon: "<i class='fa fa-file-text'></i>"
-            Despesa:
-                icon: "<i class='fa fa-eur'></i>"
-            Administrador:
-                icon: "<i class='fa fa-cog'></i>"
-        blocks:
-            -
-                position: top
-                type: sonata.block.service.text
-                class: col-md-12
-                settings:
-                    content: >
-                        <h1 style="margin-top:0">CMS v2.0</h1>
-            -
-                position: top
-                type: sonata.admin.block.admin_list
-                class: col-md-6
-                settings:
-                    groups: [ Web ]
-            -
-                position: top
-                type: admin.block.messages
-                class: col-md-6
-            -
-                position: top
-                type: sonata.admin.block.admin_list
-                class: col-md-6
-                settings:
-                    groups: [ Facturació ]
-            -
-                position: left
-                type: sonata.admin.block.admin_list
-                class: col-md-6
-                settings:
-                    groups: [ Despesa ]
-            -
-                position: right
-                type: sonata.admin.block.admin_list
-                class: col-md-6
-                settings:
-                    groups: [ Administrador ]
-            -
-                position: bottom
-                type: admin.block.graphs
-                class: col-md-12
-            -
-                position: bottom
-                type: sonata.block.service.text
-                class: col-md-12
-                settings:
-                    content: >
-                        <div><hr style="margin-top:40px;border-top:solid 1px #d2d6de"><p><i class="fa fa-info-circle"></i> Per rebre assistència tècnica envieu un missatge a <a href="mailto:suport@flux.cat?subject=Ajuda CMS v2" style="color:#000">suport@flux.cat</a></p></div>
-
-sonata_block:
-    default_contexts: [ cms ]
-    blocks:
-        sonata.user.block.menu:         ~
-        sonata.block.service.text:      ~
-        sonata.admin.block.admin_list:  ~
-        admin.block.messages:           ~
-        admin.block.graphs:             ~
-
-sonata_user:
-    security_acl: true
-    manager_type: orm

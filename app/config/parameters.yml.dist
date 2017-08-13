@@ -23,4 +23,4 @@ parameters:
     private_admin_test_pass: admin
     private_editor_test_user: user
     private_editor_test_pass: user
-    liip_imagine_loader_data_root_prod: "/path/to/current/web/ (with trailslash)"
+    main_brand_title: "Pas a Repàs"
