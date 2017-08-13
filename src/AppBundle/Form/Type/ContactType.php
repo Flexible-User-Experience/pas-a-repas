@@ -57,7 +57,7 @@ class ContactType extends AbstractType
                 TextareaType::class,
                 array(
                     'label'    => 'frontend.index.contact.form.message',
-                    'required' => false,
+                    'required' => true,
                     'attr'     => array(
                         'rows' => 6,
                     ),
