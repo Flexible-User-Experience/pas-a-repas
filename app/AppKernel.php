@@ -27,6 +27,7 @@ class AppKernel extends Kernel
             new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
             new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
             // Vendors
+            new EWZ\Bundle\RecaptchaBundle\EWZRecaptchaBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
             new Ivory\GoogleMapBundle\IvoryGoogleMapBundle(),
