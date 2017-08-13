@@ -1,0 +1,87 @@
+# Sonata Admin
+sonata_admin:
+    title:      "Pas a Repàs"
+    title_logo: "/bundles/app/images/backend-favicon.png"
+    options:
+        html5_validate: true
+        confirm_exit:   true
+        use_select2:    true
+        pager_links:    10
+    persist_filters: true
+    security:
+        handler: sonata.admin.security.handler.role
+    templates:
+        layout: "::Admin/layout.html.twig"
+        show:   "::Admin/show.html.twig"
+    dashboard:
+        groups:
+            Web:
+                icon: "<i class='fa fa-chrome'></i>"
+            Facturació:
+                icon: "<i class='fa fa-file-text'></i>"
+            Despesa:
+                icon: "<i class='fa fa-eur'></i>"
+            Administrador:
+                icon: "<i class='fa fa-cog'></i>"
+        blocks:
+            -
+                position: top
+                type: sonata.block.service.text
+                class: col-md-12
+                settings:
+                    content: >
+                        <h1 style="margin-top:0">CMS v2.0</h1>
+            -
+                position: top
+                type: sonata.admin.block.admin_list
+                class: col-md-6
+                settings:
+                    groups: [ Web ]
+            -
+                position: top
+                type: admin.block.messages
+                class: col-md-6
+            -
+                position: top
+                type: sonata.admin.block.admin_list
+                class: col-md-6
+                settings:
+                    groups: [ Facturació ]
+            -
+                position: left
+                type: sonata.admin.block.admin_list
+                class: col-md-6
+                settings:
+                    groups: [ Despesa ]
+            -
+                position: right
+                type: sonata.admin.block.admin_list
+                class: col-md-6
+                settings:
+                    groups: [ Administrador ]
+            -
+                position: bottom
+                type: admin.block.graphs
+                class: col-md-12
+            -
+                position: bottom
+                type: sonata.block.service.text
+                class: col-md-12
+                settings:
+                    content: >
+                        <div><hr style="margin-top:40px;border-top:solid 1px #d2d6de"><p><i class="fa fa-info-circle"></i> Per rebre assistència tècnica envieu un missatge a <a href="mailto:suport@flux.cat?subject=Ajuda CMS v2" style="color:#000">suport@flux.cat</a></p></div>
+
+# Sonata Block
+sonata_block:
+    default_contexts: [ cms ]
+    blocks:
+        sonata.user.block.menu:         ~
+        sonata.block.service.text:      ~
+        sonata.admin.block.admin_list:  ~
+        admin.block.messages:           ~
+        admin.block.graphs:             ~
+
+# Sonata User
+sonata_user:
+    security_acl: true
+    manager_type: orm
