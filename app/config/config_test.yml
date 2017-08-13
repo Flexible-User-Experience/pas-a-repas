@@ -30,3 +30,6 @@ doctrine:
     dbal:
         driver: "pdo_sqlite"
         path:   "%kernel.root_dir%/database/test.db3"
+
+ewz_recaptcha:
+    enabled: false
