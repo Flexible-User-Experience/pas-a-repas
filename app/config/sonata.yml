@@ -1,6 +1,6 @@
 # Sonata Admin
 sonata_admin:
-    title:      "Pas a Repàs"
+    title:      "%main_brand_title%"
     title_logo: "/bundles/app/images/backend-favicon.png"
     options:
         html5_validate: true
