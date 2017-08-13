@@ -15,7 +15,7 @@
             <div class="col-sm-8">
                 {# main right side #}
                 {% for post in posts %}
-                    <div class="thumbnail no-overflow">
+                    <div class="thumbnail no-overflow extra-m-bottom">
                         {% if post.imageName %}
                             <a href="{{ path('blog_detail', { year: post.publishedAt | date('Y'), month: post.publishedAt | date('m'), day: post.publishedAt | date('d'), slug: post.slug }) }}">
                                 <img src="{{ vich_uploader_asset(post, 'imageFile') | imagine_filter('750x250') }}" alt="{{ post.title }} thumbnail">
