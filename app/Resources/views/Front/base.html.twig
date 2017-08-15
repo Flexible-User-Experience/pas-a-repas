@@ -9,7 +9,7 @@
         <meta name="author" content="www.flux.cat">
         <meta charset="UTF-8">
         <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
-        <title>{% block title %}{{ 'frontend.layout.main.title' | trans | title }}{% endblock %}</title>
+        <title>{% block title %}{{ main_brand_title }}{% endblock %}</title>
         {% block stylesheets %}
             {% stylesheets filter="cssrewrite,less" '@mycss' %}
                 <link rel="stylesheet" type="text/css" href="{{ asset_url }}"/>

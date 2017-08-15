@@ -93,6 +93,7 @@ class ContactAdminController extends Controller
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             // Persist new contact message form record
+            $object->setChecked(true);
             $object->setAnswered(true);
             $em = $this->getDoctrine()->getManager();
             $em->persist($object);

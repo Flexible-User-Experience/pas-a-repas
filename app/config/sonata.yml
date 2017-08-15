@@ -26,21 +26,18 @@ sonata_admin:
         blocks:
             -
                 position: top
-                type: sonata.block.service.text
-                class: col-md-12
-                settings:
-                    content: >
-                        <h1 style="margin-top:0">CMS v2.0</h1>
+                type: admin.block.messages
+                class: col-md-6
+            -
+                position: top
+                type: admin.block.graphs
+                class: col-md-6
             -
                 position: top
                 type: sonata.admin.block.admin_list
                 class: col-md-6
                 settings:
                     groups: [ Web ]
-            -
-                position: top
-                type: admin.block.messages
-                class: col-md-6
             -
                 position: top
                 type: sonata.admin.block.admin_list
@@ -59,10 +56,6 @@ sonata_admin:
                 class: col-md-6
                 settings:
                     groups: [ Administrador ]
-            -
-                position: bottom
-                type: admin.block.graphs
-                class: col-md-12
             -
                 position: bottom
                 type: sonata.block.service.text

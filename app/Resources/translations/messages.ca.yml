@@ -90,68 +90,68 @@ frontend:
   credits:
     credits: crèdits
 backend:
-    admin:
-        title: Títol
-        description: Descripció
-        metakeywords: Paraules clau
-        metakeywordshelp: Separades per coma
-        metadescription: Metadescripció
-        image: Imatge
-        checked: Llegit
-        answered: Contestat
-        answer: Resposta
-        answer_action: Respon
-        enabled: Actiu
-        date: Data
-        name: Nom
-        surname: Cognoms
-        email: Email
-        phone: Telèfon
-        message: Missatge
-        category: Categoria
-        categories: Categories
-        post: Article
-        posts: Articles
-        posts_amount: Articles vinculats
-        categories_amount: Categories vinculades
-        published_date: Data publicació
-        schedule: Parte
-        hours: Hores
-        actions: Accions
-        controls: Controls
-        content: Contingut
-        number: Número
-        customer: Client
-        position: Ordre
-        type: Tipus
-        phones: Telèfons
-        invoiced: Facturat
-        price: Preu
-        monthgroup: Mes en Grup
-        month: Mes
-        amount: Quantitat
-        hoursingle: Hora Particular
-        receipt: Rebut
-        payDate: Data pagament
-        collected: Cobrat
-        import: Import
-        total: Total despesa
-        father: Pare
-        mother: Mare
-        course: Curs
-        annotations: Notes
-        address: Adreça
-        year: Any
-        city: Ciutat
-        postalCode: Codi postal
-        priceHourSingle: Preu hora individual
-        priceHourGroup: Preu hora en grup
-        singleClasses: Classes particulars
-        groupClasses: Classes en grup
-        school: Escola
-        spending: Despesa
-        spendingcategory: Categoria de Despesa
-        block:
-            title: Notificacions
-            text: missatges pendents de llegir
-            notext: no tens cap missatge pendent de llegir
+  admin:
+    title: Títol
+    description: Descripció
+    metakeywords: Paraules clau
+    metakeywordshelp: Separades per coma
+    metadescription: Metadescripció
+    image: Imatge
+    checked: Llegit
+    answered: Contestat
+    answer: Resposta
+    answer_action: Respon
+    enabled: Actiu
+    date: Data
+    name: Nom
+    surname: Cognoms
+    email: Email
+    phone: Telèfon
+    message: Missatge
+    category: Categoria
+    categories: Categories
+    post: Article
+    posts: Articles
+    posts_amount: Articles vinculats
+    categories_amount: Categories vinculades
+    published_date: Data publicació
+    schedule: Parte
+    hours: Hores
+    actions: Accions
+    controls: Controls
+    content: Contingut
+    number: Número
+    customer: Client
+    position: Ordre
+    type: Tipus
+    phones: Telèfons
+    invoiced: Facturat
+    price: Preu
+    monthgroup: Mes en Grup
+    month: Mes
+    amount: Quantitat
+    hoursingle: Hora Particular
+    receipt: Rebut
+    payDate: Data pagament
+    collected: Cobrat
+    import: Import
+    total: Total despesa
+    father: Pare
+    mother: Mare
+    course: Curs
+    annotations: Notes
+    address: Adreça
+    year: Any
+    city: Ciutat
+    postalCode: Codi postal
+    priceHourSingle: Preu hora individual
+    priceHourGroup: Preu hora en grup
+    singleClasses: Classes particulars
+    groupClasses: Classes en grup
+    school: Escola
+    spending: Despesa
+    spendingcategory: Categoria de Despesa
+    block:
+      title: Notificacions
+      text: missatges pendents de llegir
+      notext: no tens cap missatge pendent de llegir
