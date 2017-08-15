@@ -194,14 +194,10 @@
     {{ parent() }}
     <script type="text/javascript">
         jQuery(document).ready(function() {
-            var offset = 90;
             jQuery('div#navbar li a').click(function(event) {
-                console.log('event', event);
-                target = event.target.innerHTML;
                 if (event.target.innerHTML != 'BLOG') {
                     event.preventDefault();
-                    jQuery(jQuery(this).attr('href'))[0].scrollIntoView();
-                    scrollBy(0, -offset);
+                    jQuery('html,body').animate({scrollTop: jQuery(event.target.hash).offset().top - 90}, "slow");
                 }
             });
             var errorNode = jQuery(".has-error");
