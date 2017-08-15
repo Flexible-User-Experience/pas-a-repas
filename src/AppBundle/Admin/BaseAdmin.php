@@ -16,11 +16,19 @@ use Vich\UploaderBundle\Templating\Helper\UploaderHelper;
  */
 abstract class BaseAdmin extends Admin
 {
-    /** @var UploaderHelper */
+    /**
+     * @var UploaderHelper
+     */
     private $vus;
 
-    /** @var CacheManager */
+    /**
+     * @var CacheManager
+     */
     private $lis;
+
+    /**
+     * Methods
+     */
 
     /**
      * @param string         $code
