@@ -44,22 +44,22 @@
                 {% block head %}
                     <a class="navbar-brand" href="{{ path('homepage') }}"><img src="{{ asset('bundles/app/images/menu.png') }}" alt="{{ 'frontend.layout.main.title' | trans | capitalize }}"/></a>
                 {% endblock %}
-                    <h1 class="text-hide">{{ 'frontend.layout.main.title' | trans | capitalize }}</h1>
+                    <h1 class="text-hide">{{ 'frontend.layout.main.title' | trans | capitalize }}. Classes de repàs a Amposta.</h1>
                 </div>
                 {% block menu %}
-                    <div class="navbar-collapse collapse float-right">
-                        <ul class="nav navbar-nav navbar-right">
-                            <li><a href="{{ path('blog') }}">{{ 'frontend.layout.menu.blog' | trans | upper }}</a></li>
-                            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                                <li><a href="{{ path('sonata_admin_dashboard') }}"><i class="fa fa-cog"></i></a></li>
-                            {% endif %}
-                        </ul>
-                    </div>
+                    {#<div class="navbar-collapse collapse float-right">#}
+                        {#<ul class="nav navbar-nav navbar-right">#}
+                        {#</ul>#}
+                    {#</div>#}
                     <div id="navbar" class="navbar-collapse collapse float-right">
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="#classes-de-repas">{{ 'frontend.layout.menu.courses' | trans | upper }}</a></li>
                             <li><a href="#sobre-mi">{{ 'frontend.layout.menu.about' | trans | upper }}</a></li>
                             <li><a href="#contacte">{{ 'frontend.layout.menu.contact' | trans | upper }}</a></li>
+                            <li><a href="{{ path('blog') }}">{{ 'frontend.layout.menu.blog' | trans | upper }}</a></li>
+                            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                <li><a href="{{ path('sonata_admin_dashboard') }}"><i class="fa fa-cog"></i></a></li>
+                            {% endif %}
                             {#<li><a href="#localitzacio">{{ 'frontend.layout.menu.location' | trans | upper }}</a></li>#}
                         </ul>
                     </div>
