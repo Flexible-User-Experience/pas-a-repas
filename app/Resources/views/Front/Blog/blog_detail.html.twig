@@ -1,8 +1,6 @@
-{% extends 'Front/base.html.twig' %}
+{% extends 'Front/Blog/blog.html.twig' %}
 
 {% block title %}{{ post.title }} · {{ parent() }}{% endblock %}
-
-{% block menu_blog_active %} class="active"{% endblock %}
 
 {% block main %}
     <div class="container">
@@ -34,7 +32,24 @@
             </div>
             <div class="col-sm-4">
                 {# right side #}
-                {% include ':Front/Fragments:categories_side.html.twig' with { categories: post.categories } %}
+                {% if categories | length > 0 %}
+                    <div class="thumbnail blog-categories">
+                        <div class="caption">
+                            <h3 class="c-cyan">{{ 'frontend.blog.main.categories' | trans | upper }}</h3>
+                            {% block categories %}
+                                <ul class="list-unstyled">
+                                    {% for category in categories %}
+                                        {% if category.posts | length > 0 %}
+                                            <li>
+                                                <a href="{{ path('category_detail', {slug: category.slug}) }}">{{ category.title }}</a>
+                                            </li>
+                                        {% endif %}
+                                    {% endfor %}
+                                </ul>
+                            {% endblock %}
+                        </div>
+                    </div>
+                {% endif %}
             </div>
         </div>
     </div>

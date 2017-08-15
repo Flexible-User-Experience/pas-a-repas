@@ -43,6 +43,7 @@ class BlogController extends Controller
     {
         /** @var Post $post */
         $post = $this->getDoctrine()->getRepository('AppBundle:Post')->findOneBySlug($slug);
+        $categories = $this->getDoctrine()->getRepository('AppBundle:Category')->getAllEnabledSortedByTitleWithJoin();
         if (!$post) {
             throw $this->createNotFoundException('Unable to find Post entity.');
         }
@@ -55,6 +56,7 @@ class BlogController extends Controller
 
         return $this->render('Front/Blog/blog_detail.html.twig', array(
             'post' => $post,
+            'categories' => $categories,
         ));
     }
 
