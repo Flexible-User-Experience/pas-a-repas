@@ -1,8 +1,6 @@
-{% extends 'Front/base.html.twig' %}
+{% extends 'Front/Blog/blog.html.twig' %}
 
 {% block title %}{{ post.title }} · {{ parent() }}{% endblock %}
-
-{% block menu_blog_active %} class="active"{% endblock %}
 
 {% block main %}
     <div class="container">
