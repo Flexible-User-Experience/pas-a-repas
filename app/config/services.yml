@@ -2,6 +2,7 @@ services:
 # App
     app.google_maps_service:
         class: AppBundle\Service\GoogleMapsService
+        arguments: [ "%locale%" ]
 # Sonata Admins
     admin.contact:
         class: AppBundle\Admin\ContactAdmin

@@ -14,8 +14,9 @@ parameters:
     mailer_delivery_dev:   ~
     mailer_url_base: www.dummy.com
     secret:            ThisTokenIsNotSoSecretChangeIt
-    google_analytics_enabled:   false
-    google_analytics_account:   "UA-xxxxxxxx-x"
+    google_analytics_enabled: false
+    google_analytics_account: "UA-xxxxxxxx-x"
+    google_maps_api_key:      "your_api_key"
     assetic_path_java:         /usr/bin/java
     assetic_path_node:         /usr/bin/nodejs
     assetic_path_node_modules: /home/<user>/node_modules

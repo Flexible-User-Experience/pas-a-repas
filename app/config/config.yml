@@ -116,6 +116,12 @@ fos_user:
     service:
         user_manager: sonata.user.orm.user_manager
 
+# Google Map
+ivory_google_map:
+    map:
+        language: "%locale%"
+        api_key:  "%google_maps_api_key%"
+
 # Google reCaptcha
 ewz_recaptcha:
     public_key:  "%recaptcha_site_key%"

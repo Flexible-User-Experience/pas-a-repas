@@ -183,7 +183,8 @@
     <div class="container-fluid">
         <div id="localitzacio" class="row">
             <div class="google-maps-container">
-                {{ google_map(mapView) }}
+                {{ ivory_google_map(mapView) }}
+                {{ ivory_google_api([mapView]) }}
             </div>
         </div>
     </div>
