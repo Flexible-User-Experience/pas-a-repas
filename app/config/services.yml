@@ -2,6 +2,7 @@ services:
 # App
     app.google_maps_service:
         class: AppBundle\Service\GoogleMapsService
+        arguments: [ "%locale%" ]
 # Sonata Admins
     admin.contact:
         class: AppBundle\Admin\ContactAdmin
@@ -89,5 +90,10 @@ services:
 # Twig
     twig.extension.text:
         class: Twig_Extensions_Extension_Text
+        tags:
+            - { name: twig.extension }
+    app.twig_extension:
+        class: AppBundle\Twig\AppExtension
+        public: false
         tags:
             - { name: twig.extension }

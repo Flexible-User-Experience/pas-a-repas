@@ -23,16 +23,13 @@ class WebController extends Controller
      * @param Request $request
      *
      * @return \Symfony\Component\HttpFoundation\Response
-     * @throws \Ivory\GoogleMap\Exception\AssetException
-     * @throws \Ivory\GoogleMap\Exception\MapException
-     * @throws \Ivory\GoogleMap\Exception\OverlayException
      */
     public function homepageAction(Request $request)
     {
         $flash = null;
         /** @var GoogleMapsService $gms */
         $gms = $this->get('app.google_maps_service');
-        $mapObject = $gms->buildMap(40.7061278, 0.5817055555555556, $this->container->getParameter('locale'), 15);
+        $mapObject = $gms->buildMap(40.7061278, 0.5817055555555556, 15);
         /** @var Contact $contactEntity */
         $contactEntity = new Contact();
         $form = $this->createForm(ContactType::class, $contactEntity);

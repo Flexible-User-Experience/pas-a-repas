@@ -2,8 +2,9 @@
 
 namespace AppBundle\Service;
 
-use Ivory\GoogleMap\Overlays\Animation;
-use Ivory\GoogleMap\Overlays\Marker;
+use Ivory\GoogleMap\Base\Coordinate;
+use Ivory\GoogleMap\Overlay\Animation;
+use Ivory\GoogleMap\Overlay\Marker;
 use Ivory\GoogleMap\Map;
 
 /**
@@ -16,41 +17,42 @@ use Ivory\GoogleMap\Map;
 class GoogleMapsService
 {
     /**
-     * GoogleMapsService constructor
+     * @var string
      */
-    public function __construct()
+    private $locale;
+
+    /**
+     * GoogleMapsService constructor
+     *
+     * @param string $locale
+     */
+    public function __construct($locale)
     {
+        $this->locale = $locale;
     }
 
     /**
      * Build a Google Map
      *
-     * @param float  $latitude
-     * @param float  $longitude
-     * @param string $language
-     * @param int    $zoom
+     * @param float $latitude
+     * @param float $longitude
+     * @param int   $zoom
      *
      * @return Map
-     * @throws \Ivory\GoogleMap\Exception\AssetException
-     * @throws \Ivory\GoogleMap\Exception\MapException
-     * @throws \Ivory\GoogleMap\Exception\OverlayException
      */
-    public function buildMap($latitude, $longitude, $language = 'es', $zoom = 15)
+    public function buildMap($latitude, $longitude, $zoom = 15)
     {
+        $position = new Coordinate($latitude, $longitude);
         /** @var Marker $marker */
-        $marker = new Marker();
-        $marker->setPrefixJavascriptVariable('marker_');
-        $marker->setPosition($latitude, $longitude, true);
+        $marker = new Marker($position);
         $marker->setAnimation(Animation::DROP);
         /** @var Map $map */
         $map = new Map();
         $map->setStylesheetOption('width', '100%');
         $map->setStylesheetOption('height', '100%');
-        $map->setLanguage($language);
-        $map->setCenter($latitude, $longitude, true);
+        $map->setCenter($position);
         $map->setMapOption('zoom', $zoom);
-//        $map->setBound(-2.1, -3.9, 2.6, 1.4, true, true);
-        $map->addMarker($marker);
+        $map->getOverlayManager()->addMarker($marker);
 
         return $map;
     }

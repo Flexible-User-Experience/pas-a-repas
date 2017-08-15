@@ -35,7 +35,7 @@ twig:
         google_analytics_enabled: "%google_analytics_enabled%"
         google_analytics_account: "%google_analytics_account%"
         main_brand_title:         "%main_brand_title%"
-        admin_tag_version:        "v2.0.57"
+        admin_tag_version:        "v2.0.58"
 
 # Assetic Configuration
 assetic:
@@ -115,6 +115,12 @@ fos_user:
         group_manager: sonata.user.orm.group_manager
     service:
         user_manager: sonata.user.orm.user_manager
+
+# Google Map
+ivory_google_map:
+    map:
+        language: "%locale%"
+        api_key:  "%google_maps_api_key%"
 
 # Google reCaptcha
 ewz_recaptcha:
