@@ -27,6 +27,11 @@ abstract class BaseAdmin extends Admin
     private $lis;
 
     /**
+     * @var string
+     */
+    protected $translationDomain = 'messages';
+
+    /**
      * Methods
      */
 
