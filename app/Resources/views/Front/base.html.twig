@@ -44,7 +44,7 @@
                 {% block head %}
                     <a class="navbar-brand" href="{{ path('homepage') }}"><img src="{{ asset('bundles/app/images/menu.png') }}" alt="{{ 'frontend.layout.main.title' | trans | capitalize }}"/></a>
                 {% endblock %}
-                    <p class="navbar-text text-hide">{{ 'frontend.layout.main.title' | trans | capitalize }}</p>
+                    <h1 class="text-hide">{{ 'frontend.layout.main.title' | trans | capitalize }}</h1>
                 </div>
                 {% block menu %}
                     <div class="navbar-collapse collapse float-right">
