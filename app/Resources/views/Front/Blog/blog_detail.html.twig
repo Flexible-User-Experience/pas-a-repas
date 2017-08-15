@@ -2,9 +2,7 @@
 
 {% block title %}{{ post.title }} · {{ parent() }}{% endblock %}
 
-{% block menu %}
-    {% include ':Front/Fragments:blog_menu.html.twig' %}
-{% endblock %}
+{% block menu_blog_active %} class="active"{% endblock %}
 
 {% block main %}
     <div class="container">
