@@ -1,3 +1,5 @@
+Contacte_list: Contactes
+Contacte_delete: Esborrar
 frontend:
   layout:
     browser:

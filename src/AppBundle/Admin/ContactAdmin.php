@@ -225,11 +225,15 @@ class ContactAdmin extends BaseAdmin
                 'actions',
                 array(
                     'actions' => array(
-                        'show' => array(),
-                        'answer' => array(
-                            'template' => '::Admin/Cells/list__action_answer.html.twig'
+                        'show' => array(
+                            'template' => '::Admin/Buttons/list__action_show_button.html.twig',
                         ),
-                        'delete' => array(),
+                        'answer' => array(
+                            'template' => '::Admin/Buttons/list__action_answer.html.twig',
+                        ),
+                        'delete' => array(
+                            'template' => '::Admin/Buttons/list__action_delete_button.html.twig',
+                        ),
                     ),
                     'label'   => 'backend.admin.actions',
                 )

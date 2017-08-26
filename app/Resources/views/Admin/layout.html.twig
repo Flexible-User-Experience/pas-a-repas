@@ -13,6 +13,7 @@
     <div class="navbar-custom-menu">
         <ul class="nav navbar-nav navbar-right">
             <li><a href="{{ path('homepage') }}"><i class="fa fa-globe"></i></a></li>
+            <li><a>{{ app.user.fullname }}</a></li>
             <li><a href="{{ path('sonata_user_admin_security_logout') }}"><i class="fa fa-power-off text-success"></i></a></li>
         </ul>
     </div>

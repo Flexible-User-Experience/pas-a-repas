@@ -1,3 +1,0 @@
-{% if not object.answered %}
-    <a class="btn btn-sm btn-default" href="{{ admin.generateObjectUrl('answer', object) }}" title="{{ 'backend.admin.answer_action' | trans }}"><i class="fa fa-envelope-o"></i> {{ 'backend.admin.answer_action' | trans }}</a>
-{% endif %}
