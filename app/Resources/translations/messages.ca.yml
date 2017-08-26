@@ -1,5 +1,9 @@
 Contacte_list: Contactes
 Contacte_delete: Esborrar
+Categoria_list: Categories
+Categoria_delete: Esborrar
+Article_list: Articles
+Article_delete: Esborrar
 frontend:
   layout:
     browser:
