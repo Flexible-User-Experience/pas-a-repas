@@ -14,6 +14,12 @@ Parte_delete: Esborrar
 "Mes en grup_delete": Esborrar
 Rebut_list: Rebuts
 Rebut_delete: Esborrar
+Despesa_list: Despesa
+Despesa_delete: Esborrar
+"Categoria de Despesa_list": Categories de despesa
+"Categoria de Despesa_delete": Esborrar
+Usuari_list: Usuaris
+Usuari_delete: Esborrar
 frontend:
   layout:
     browser:
