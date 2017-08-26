@@ -1,3 +1,25 @@
+Contacte_list: Contactes
+Contacte_delete: Esborrar
+Categoria_list: Categories
+Categoria_delete: Esborrar
+Article_list: Articles
+Article_delete: Esborrar
+Alumne_list: Alumnes
+Alumne_delete: Esborrar
+Parte_list: Partes
+Parte_delete: Esborrar
+"Hora Particular_list": Hores particulars
+"Hora Particular_delete": Esborrar
+"Mes en grup_list": Mes en grup
+"Mes en grup_delete": Esborrar
+Rebut_list: Rebuts
+Rebut_delete: Esborrar
+Despesa_list: Despesa
+Despesa_delete: Esborrar
+"Categoria de Despesa_list": Categories de despesa
+"Categoria de Despesa_delete": Esborrar
+Usuari_list: Usuaris
+Usuari_delete: Esborrar
 frontend:
   layout:
     browser:
