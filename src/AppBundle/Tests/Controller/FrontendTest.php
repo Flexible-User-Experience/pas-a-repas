@@ -66,7 +66,6 @@ class FrontendTest extends BaseTest
     {
         return array(
             array('/this-is-a-broken-route'),
-            array('/blog/this-is-a-broken-route'),
             array('/blog/categoria/this-is-a-broken-route'),
         );
     }
