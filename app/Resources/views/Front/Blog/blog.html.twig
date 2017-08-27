@@ -39,6 +39,7 @@
                         </div>
                     </div>
                 {% endfor %}
+                {% include "::Front/Fragments/paginator_buttons_bar.html.twig" with {pagination: posts} %}
             </div>
             <div class="col-sm-4">
                 {# right side #}

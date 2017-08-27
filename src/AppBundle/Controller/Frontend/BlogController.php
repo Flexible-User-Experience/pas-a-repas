@@ -6,6 +6,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use AppBundle\Entity\Category;
 use AppBundle\Entity\Post;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Class BlogController
@@ -16,16 +17,24 @@ use AppBundle\Entity\Post;
  */
 class BlogController extends Controller
 {
+    const PAGE_LIMIT = 5;
+
     /**
-     * @Route("/blog", name="blog")
+     * @Route("/blog/{pagina}", name="blog")
+     *
+     * @param int pagina
+     *
+     * @return Response
      */
-    public function postsListAction()
+    public function postsListAction($pagina = 1)
     {
+        $paginator = $this->get('knp_paginator');
         $posts = $this->getDoctrine()->getRepository('AppBundle:Post')->getAllEnabledSortedByPublishedDateWithJoinUntilNow();
+        $postsPaginator = $paginator->paginate($posts, $pagina, self::PAGE_LIMIT);
         $categories = $this->getDoctrine()->getRepository('AppBundle:Category')->getAllEnabledSortedByTitleWithJoin();
 
         return $this->render('Front/Blog/blog.html.twig', array(
-            'posts' => $posts,
+            'posts' => $postsPaginator,
             'categories' => $categories,
         ));
     }
