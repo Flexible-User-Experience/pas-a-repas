@@ -22,7 +22,7 @@ class BlogController extends Controller
     /**
      * @Route("/blog/{pagina}", name="blog")
      *
-     * @param int pagina
+     * @param int $pagina
      *
      * @return Response
      */
@@ -41,12 +41,13 @@ class BlogController extends Controller
 
     /**
      * @Route("/blog/{year}/{month}/{day}/{slug}", name="blog_detail")
+     *
      * @param         $year
      * @param         $month
      * @param         $day
      * @param         $slug
      *
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      */
     public function postDetailAction($year, $month, $day, $slug)
     {
@@ -70,24 +71,28 @@ class BlogController extends Controller
     }
 
     /**
-     * @Route("/blog/categoria/{slug}", name="category_detail")
-     * @param $slug
+     * @Route("/blog/categoria/{slug}/{pagina}", name="category_detail")
      *
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @param string $slug
+     * @param int    $pagina
+     *
+     * @return Response
      */
-    public function categoryDetailAction($slug)
+    public function categoryDetailAction($slug, $pagina = 1)
     {
         /** @var Category $category */
         $category = $this->getDoctrine()->getRepository('AppBundle:Category')->findOneBySlug($slug);
         if (!$category || !$category->getEnabled()) {
             throw $this->createNotFoundException('Unable to find Category entity.');
         }
-        $posts = $this->getDoctrine()->getRepository('AppBundle:Post')->getPostsByCategoryEnabledSortedByPublishedDateWithJoinUntilNow($category);
         $categories = $this->getDoctrine()->getRepository('AppBundle:Category')->getAllEnabledSortedByTitleWithJoin();
+        $paginator = $this->get('knp_paginator');
+        $posts = $this->getDoctrine()->getRepository('AppBundle:Post')->getPostsByCategoryEnabledSortedByPublishedDateWithJoinUntilNow($category);
+        $postsPaginator = $paginator->paginate($posts, $pagina, self::PAGE_LIMIT);
 
         return $this->render('Front/Blog/category_detail.html.twig', array(
             'selectedCategory' => $category,
-            'posts' => $posts,
+            'posts' => $postsPaginator,
             'categories' => $categories,
         ));
     }
