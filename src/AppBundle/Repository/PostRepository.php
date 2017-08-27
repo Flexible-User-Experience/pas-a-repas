@@ -3,7 +3,6 @@
 namespace AppBundle\Repository;
 
 use AppBundle\Entity\Category;
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\EntityRepository;
 
 /**
@@ -16,7 +15,7 @@ use Doctrine\ORM\EntityRepository;
 class PostRepository extends EntityRepository
 {
     /**
-     * @return ArrayCollection
+     * @return array
      */
     public function getAllEnabledSortedByPublishedDate()
     {
@@ -31,7 +30,7 @@ class PostRepository extends EntityRepository
     }
 
     /**
-     * @return ArrayCollection
+     * @return array
      */
     public function getAllEnabledSortedByPublishedDateWithJoin()
     {
@@ -48,7 +47,7 @@ class PostRepository extends EntityRepository
     }
 
     /**
-     * @return ArrayCollection
+     * @return array
      */
     public function getAllEnabledSortedByPublishedDateWithJoinUntilNow()
     {
@@ -69,7 +68,8 @@ class PostRepository extends EntityRepository
 
     /**
      * @param Category $category
-     * @return ArrayCollection
+     *
+     * @return array
      */
     public function getPostsByCategoryEnabledSortedByPublishedDate(Category $category)
     {
@@ -89,7 +89,8 @@ class PostRepository extends EntityRepository
 
     /**
      * @param Category $category
-     * @return ArrayCollection
+     *
+     * @return array
      */
     public function getPostsByCategoryEnabledSortedByPublishedDateWithJoin(Category $category)
     {
@@ -109,7 +110,8 @@ class PostRepository extends EntityRepository
 
     /**
      * @param Category $category
-     * @return ArrayCollection
+     *
+     * @return array
      */
     public function getPostsByCategoryEnabledSortedByPublishedDateWithJoinUntilNow(Category $category)
     {
