@@ -5,6 +5,7 @@ imports:
     - { resource: sonata.yml }
     - { resource: media.yml }
 
+# Symfony
 framework:
     translator:      { fallbacks: [ "%locale%" ] }
     validation:      { enable_annotations: true }
@@ -24,7 +25,7 @@ framework:
         handler_id:  ~
     http_method_override: true
 
-# Twig Configuration
+# Twig
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
@@ -37,7 +38,7 @@ twig:
         main_brand_title:         "%main_brand_title%"
         admin_tag_version:        "v2.0.61"
 
-# Assetic Configuration
+# Assetic
 assetic:
     debug:          "%kernel.debug%"
     java:           "%assetic_path_java%"
@@ -59,7 +60,7 @@ assetic:
                 - "%kernel.root_dir%/../vendor/components/jquery/jquery.js"
                 - "%kernel.root_dir%/../vendor/twbs/bootstrap/dist/js/bootstrap.js"
 
-# Doctrine Configuration
+# Doctrine
 doctrine:
     dbal:
         driver:         "pdo_mysql"
@@ -81,7 +82,7 @@ doctrine_migrations:
     dir_name:  "%kernel.root_dir%/../src/AppBundle/DoctrineMigrations"
     namespace: AppBundle\DoctrineMigrations
 
-# Swiftmailer Configuration
+# Swiftmailer
 swiftmailer:
     transport: "%mailer_transport%"
     host:      "%mailer_host%"
@@ -96,7 +97,7 @@ ivory_ck_editor:
         my_config:
             toolbar: standard
 
-# Stof
+# Stof Doctrine Extensions
 stof_doctrine_extensions:
     default_locale:        "%locale%"
     translation_fallback:  true
@@ -129,3 +130,11 @@ ewz_recaptcha:
     locale_key:  "%locale%"
     enabled:     true
     ajax:        false
+
+# KNP Paginator
+knp_paginator:
+    page_range: 5
+    default_options:
+        page_name: pagina
+    template:
+        pagination: "::Pagination/custom_pagination.html.twig"
