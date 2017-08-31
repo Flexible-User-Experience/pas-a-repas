@@ -1,4 +1,4 @@
-{% extends 'Front/base.html.twig' %}
+{% extends "Front/base.html.twig" %}
 
 {% form_theme contactForm _self %}
 
@@ -49,7 +49,7 @@
                 <div role="tabpanel" class="tab-pane fade in bc-magenta active" id="primaria">
                     <div class="row no-m-right">
                         <div class="col-md-5 col-sm-6 no-p-right">
-                            <img class="img-responsive" src="{{ asset('bundles/app/images/c1-primary.jpg') }}" alt="heart shape lovely girls and colors zenit"/>
+                            <img class="img-responsive" src="{{ asset('bundles/app/images/c1-primary.jpg') | imagine_filter('1050xY') }}" alt="heart shape lovely girls and colors zenit"/>
                         </div>
                         <div class="col-md-7 col-sm-6 c-white no-p-right">
                             <div class="banner-service">
@@ -68,14 +68,14 @@
                             </div>
                         </div>
                         <div class="col-md-5 col-sm-6 no-p-right">
-                            <img class="img-responsive" src="{{ asset('bundles/app/images/c2-eso.jpg') }}" alt="teacher and student boys on a colorful background"/>
+                            <img class="img-responsive" src="{{ asset('bundles/app/images/c2-eso.jpg') | imagine_filter('1050xY') }}" alt="teacher and student boys on a colorful background"/>
                         </div>
                     </div>
                 </div>
                 <div role="tabpanel" class="tab-pane fade bc-violet" id="batxillerat">
                     <div class="row no-m-right">
                         <div class="col-md-5 col-sm-6 no-p-right">
-                            <img class="img-responsive" src="{{ asset('bundles/app/images/c3-school.jpg') }}" alt="student making maths on chalkboard"/>
+                            <img class="img-responsive" src="{{ asset('bundles/app/images/c3-school.jpg') | imagine_filter('1050xY') }}" alt="student making maths on chalkboard"/>
                         </div>
                         <div class="col-md-7 col-sm-6 c-white no-p-right">
                             <div class="banner-service">
@@ -101,14 +101,14 @@
                             </div>
                         </div>
                         <div class="col-md-5 col-sm-6 no-p-right">
-                            <img class="img-responsive" src="{{ asset('bundles/app/images/c4-selectivity.jpg') }}" alt="a shiny maths book over a dark background"/>
+                            <img class="img-responsive" src="{{ asset('bundles/app/images/c4-selectivity.jpg') | imagine_filter('1050xY') }}" alt="a shiny maths book over a dark background"/>
                         </div>
                     </div>
                 </div>
                 <div role="tabpanel" class="tab-pane fade bc-cyan" id="universitat">
                     <div class="row no-m-right">
                         <div class="col-md-5 col-sm-6 no-p-right">
-                            <img class="img-responsive" src="{{ asset('bundles/app/images/c5-university.jpg') }}" alt="pretty girl smiling with laptop in a classroom"/>
+                            <img class="img-responsive" src="{{ asset('bundles/app/images/c5-university.jpg') | imagine_filter('1050xY') }}" alt="pretty girl smiling with laptop in a classroom"/>
                         </div>
                         <div class="col-md-7 col-sm-6 c-white no-p-right">
                             <div class="banner-service">
