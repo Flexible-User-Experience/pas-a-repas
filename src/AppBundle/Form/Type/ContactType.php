@@ -13,10 +13,10 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 /**
- * Class ContactType
+ * Class ContactType.
  *
  * @category FormType
- * @package  AppBundle\Form\Type
+ *
  * @author   David Romaní <david@flux.cat>
  */
 class ContactType extends AbstractType
@@ -32,7 +32,7 @@ class ContactType extends AbstractType
                 'name',
                 TextType::class,
                 array(
-                    'label'    => 'frontend.index.contact.form.name',
+                    'label' => 'frontend.index.contact.form.name',
                     'required' => true,
                 )
             )
@@ -40,7 +40,7 @@ class ContactType extends AbstractType
                 'email',
                 EmailType::class,
                 array(
-                    'label'    => 'frontend.index.contact.form.email',
+                    'label' => 'frontend.index.contact.form.email',
                     'required' => true,
                 )
             )
@@ -48,7 +48,7 @@ class ContactType extends AbstractType
                 'phone',
                 TextType::class,
                 array(
-                    'label'    => 'frontend.index.contact.form.phone',
+                    'label' => 'frontend.index.contact.form.phone',
                     'required' => false,
                 )
             )
@@ -56,9 +56,9 @@ class ContactType extends AbstractType
                 'message',
                 TextareaType::class,
                 array(
-                    'label'    => 'frontend.index.contact.form.message',
+                    'label' => 'frontend.index.contact.form.message',
                     'required' => true,
-                    'attr'     => array(
+                    'attr' => array(
                         'rows' => 6,
                     ),
                 )
@@ -68,7 +68,7 @@ class ContactType extends AbstractType
                 SubmitType::class,
                 array(
                     'label' => 'frontend.index.contact.form.submit',
-                    'attr'  => array(
+                    'attr' => array(
                         'class' => 'btn-violet',
                     ),
                 )
@@ -81,14 +81,14 @@ class ContactType extends AbstractType
                     'attr' => array(
                         'options' => array(
                             'theme' => 'light',
-                            'type'  => 'image',
-                            'size'  => 'normal',
-                        )
+                            'type' => 'image',
+                            'size' => 'normal',
+                        ),
                     ),
                     'mapped' => false,
                     'constraints' => array(
                         new RecaptchaTrue(),
-                    )
+                    ),
                 )
             )
         ;
