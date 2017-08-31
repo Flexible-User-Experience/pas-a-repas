@@ -17,6 +17,14 @@ liip_imagine:
             quality: 75
             filters:
                 thumbnail: { size: [ 1200, null ], mode: outbound }
+        1050xY:
+            quality: 80
+            filters:
+                thumbnail: { size: [ 1050, null ], mode: outbound }
+        750xY:
+            quality: 80
+            filters:
+                thumbnail: { size: [ 750, null ], mode: outbound }
         750x250:
             quality: 80
             filters:
@@ -49,3 +57,4 @@ vich_uploader:
         uploads:
             uri_prefix:         /uploads
             upload_destination: "%kernel.root_dir%/../web/uploads"
+            namer:              vich_uploader.namer_uniqid

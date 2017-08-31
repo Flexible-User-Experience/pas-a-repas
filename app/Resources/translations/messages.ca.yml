@@ -26,8 +26,8 @@ frontend:
       happy: |
         Vostè està utilitzant un navegador <strong>obsolet</strong>. Si us plau, <a href="http://browsehappy.com/">actualitzi el seu navegador</a> per millorar la visualització d'aquesta pàgina.
     tags:
-      title: Pas a Repàs. Classes particulars a Amposta per Isabel Porres
-      description: "Classes de repàs a Amposta per a tots els nivells: Primària, ESO, Batxillerat, Universitat. Preparació de proves d'accés. Aprèn al teu ritme i com a casa"
+      title: Pas a Repàs. Acadèmia escolar i classes particulars a Amposta
+      description: "Acadèmia escolar i classes de repàs a Amposta per a tots els nivells: Primària, ESO, Batxillerat, Universitat. Preparació de proves d'accés. Aprèn al teu ritme i com a casa"
     toggle:
       navigation: mostrar menú
     main:

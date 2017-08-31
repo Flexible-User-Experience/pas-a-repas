@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-    <!--[if lt IE 7]>     <html lang="{{ app.request.locale }}" class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
-    <!--[if IE 7]>        <html lang="{{ app.request.locale }}" class="no-js lt-ie9 lt-ie8"><![endif]-->
-    <!--[if IE 8]>        <html lang="{{ app.request.locale }}" class="no-js lt-ie9"><![endif]-->
+    <!--[if lt IE 7]><html lang="{{ app.request.locale }}" class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+    <!--[if IE 7]><html lang="{{ app.request.locale }}" class="no-js lt-ie9 lt-ie8"><![endif]-->
+    <!--[if IE 8]><html lang="{{ app.request.locale }}" class="no-js lt-ie9"><![endif]-->
     <!--[if gt IE 8]><!--><html lang="{{ app.request.locale }}" class="no-js"><!--<![endif]-->
     <head>
         <meta name="description" content="{{ 'frontend.layout.tags.description' | trans | title }}">
@@ -16,6 +16,7 @@
             {% endstylesheets %}
         {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+        <link rel="alternate" href="{{ path('homepage') }}" hreflang="{{ app.request.locale }}">
     </head>
     <body class="my-body" data-spy="scroll" data-target="#navbar" data-offset="200">
         {#<!-- Browser Happy -->#}
@@ -41,10 +42,10 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                {% block head %}
-                    <a class="navbar-brand" href="{{ path('homepage') }}"><img src="{{ asset('bundles/app/images/menu.png') }}" alt="{{ 'frontend.layout.main.title' | trans | capitalize }}"/></a>
-                {% endblock %}
-                    <h1 class="text-hide">{{ 'frontend.layout.main.title' | trans | capitalize }}. Classes de repàs a Amposta.</h1>
+                    {% block head %}
+                        <a class="navbar-brand" href="{{ path('homepage') }}"><img src="{{ asset('bundles/app/images/menu.png') }}" alt="{{ 'frontend.layout.main.title' | trans | capitalize }}"/></a>
+                    {% endblock %}
+                    <h1 class="text-hide">{{ 'frontend.layout.main.title' | trans | capitalize }}. Acadèmia escolar i classes de repàs a Amposta.</h1>
                 </div>
                 {% block menu %}
                     <div id="navbar" class="navbar-collapse collapse float-right">

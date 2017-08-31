@@ -13,10 +13,3 @@ monolog:
             level: debug
         console:
             type:  console
-
-#liip_imagine:
-#    loaders:
-#        default:
-#            filesystem:
-#                data_root:
-#                    - "%liip_imagine_loader_data_root_prod%"

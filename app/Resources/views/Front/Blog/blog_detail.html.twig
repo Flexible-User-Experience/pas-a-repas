@@ -22,9 +22,9 @@
             <div class="col-sm-8">
                 {# left side #}
                 {% if post.imageName %}
-                    <img src="{{ vich_uploader_asset(post, 'imageFile') | imagine_filter('1200xY') }}" class="img-responsive extra-m-bottom" alt="{{ post.title }}">
+                    <img src="{{ vich_uploader_asset(post, 'imageFile') | imagine_filter('750xY') }}" class="img-responsive extra-m-bottom" alt="{{ post.title }}">
                 {% else %}
-                    <img src="{{ asset('bundles/app/images/blog-head.png') | imagine_filter('1200xY') }}" class="img-responsive extra-m-bottom" alt="{{ 'frontend.index.main.image' | trans | capitalize }}">
+                    <img src="{{ asset('bundles/app/images/blog-head.png') | imagine_filter('750xY') }}" class="img-responsive extra-m-bottom" alt="{{ 'frontend.index.main.image' | trans | capitalize }}">
                 {% endif %}
                 <h1 class="c-violet no-m-top">{{ post.title }}</h1>
                 <h6>{{ post.publishedAt | date('d/m/Y') }}{% if post.categories | length > 0 %}&nbsp;&nbsp;|&nbsp;&nbsp;{{ post.categories | join(', ') }}{% endif %}</h6>
