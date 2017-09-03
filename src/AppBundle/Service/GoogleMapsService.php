@@ -17,21 +17,6 @@ use Ivory\GoogleMap\Map;
 class GoogleMapsService
 {
     /**
-     * @var string
-     */
-    private $locale;
-
-    /**
-     * GoogleMapsService constructor
-     *
-     * @param string $locale
-     */
-    public function __construct($locale)
-    {
-        $this->locale = $locale;
-    }
-
-    /**
      * Build a Google Map
      *
      * @param float $latitude
