@@ -11,7 +11,7 @@
         <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
         <title>{% block title %}{{ main_brand_title }}{% endblock %}</title>
         {% block stylesheets %}
-            {% stylesheets filter="cssrewrite,less" '@mycss' %}
+            {% stylesheets filter="cssrewrite,less" "@mycss" %}
                 <link rel="stylesheet" type="text/css" href="{{ asset_url }}"/>
             {% endstylesheets %}
         {% endblock %}
@@ -108,7 +108,7 @@
         {% endblock %}
         {#<!-- Javascripts -->#}
         {% block javascripts %}
-            {% javascripts '@myjs' %}
+            {% javascripts "@myjs" %}
                 <script type="text/javascript" src="{{ asset_url }}"></script>
             {% endjavascripts %}
             <script type="text/javascript">
