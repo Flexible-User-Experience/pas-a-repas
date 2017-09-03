@@ -27,7 +27,7 @@ frontend:
         Vostè està utilitzant un navegador <strong>obsolet</strong>. Si us plau, <a href="http://browsehappy.com/">actualitzi el seu navegador</a> per millorar la visualització d'aquesta pàgina.
     tags:
       title: Pas a Repàs. Acadèmia escolar i classes particulars a Amposta
-      description: "Acadèmia escolar i classes de repàs a Amposta per a tots els nivells: Primària, ESO, Batxillerat, Universitat i proves d'accés."
+      description: "Acadèmia escolar i classes de repàs a Amposta per a tots els nivells: primària, ESO, batxillerat, universitat i proves d'accés."
     toggle:
       navigation: mostrar menú
     main:
