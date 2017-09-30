@@ -112,6 +112,24 @@
                 <script type="text/javascript" src="{{ asset_url }}"></script>
             {% endjavascripts %}
             <script type="text/javascript">
+                jQuery(document).ready(function() {
+                    {% block inside_on_ready_javascripts_node %}
+                        jQuery('div#navbar li a').click(function(event) {
+                            if (event.target.innerHTML != 'BLOG') {
+                                event.preventDefault();
+                                jQuery('html,body').animate({scrollTop: jQuery(event.target.hash).offset().top - 90}, "slow");
+                            }
+                        });
+                    {% endblock %}
+                    var errorNode = jQuery(".has-error");
+                    var envelopeNode = jQuery(".fa-paper-plane-o");
+                    if (errorNode.length > 0) {
+                        jQuery('html,body').animate({scrollTop: errorNode.offset().top - 200}, "slow");
+                    }
+                    if (envelopeNode.length > 0) {
+                        jQuery('html,body').animate({scrollTop: envelopeNode.offset().top - 200}, "slow");
+                    }
+                });
                 jQuery(document).on('scroll', function() {
                     if (jQuery(window).scrollTop() > 100) {
                         jQuery('.scroll-top-wrapper').addClass('show');
