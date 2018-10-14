@@ -3,15 +3,12 @@
 namespace AppBundle\Entity;
 
 use AppBundle\Entity\Traits\DateTrait;
-use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Spending
+ * Spending.
  *
  * @category Entity
- * @package  AppBundle\Entity
- * @author   Anton Serra <aserratorta@gmail.com>
  *
  * @ORM\Table(name="despesa")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\SpendingRepository")
@@ -35,10 +32,9 @@ class Spending extends Base
     private $spendingCategory;
 
     /**
-     *
-     * Methods
-     *
+     * Methods.
      */
+
     /**
      * @return float
      */
@@ -49,7 +45,8 @@ class Spending extends Base
 
     /**
      * @param float $amount
-     * @return Spending
+     *
+     * @return $this
      */
     public function setAmount($amount)
     {
@@ -68,7 +65,8 @@ class Spending extends Base
 
     /**
      * @param SpendingCategory $spendingCategory
-     * @return Spending
+     *
+     * @return $this
      */
     public function setSpendingCategory($spendingCategory)
     {
@@ -78,12 +76,10 @@ class Spending extends Base
     }
 
     /**
-     * To string
-     *
      * @return string
      */
-    public function __toString() {
-
+    public function __toString()
+    {
         return $this->amount ? $this->getAmount().' '.$this->getSpendingCategory() : '---';
     }
 }

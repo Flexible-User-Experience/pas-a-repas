@@ -4,14 +4,11 @@ namespace AppBundle\Entity;
 
 use AppBundle\Entity\Traits\DateTrait;
 use Doctrine\ORM\Mapping as ORM;
-use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
- * HourSingle Entity Class
+ * HourSingle Entity Class.
  *
  * @category Entity
- * @package  AppBundle\Entity
- * @author   Anton Serra <aserratorta@gmail.com>
  *
  * @ORM\Table(name="hora_particular")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\HourSingleRepository")
@@ -27,7 +24,6 @@ class HourSingle extends Base
      */
     private $amount;
 
-
     /**
      * @var float
      *
@@ -36,7 +32,7 @@ class HourSingle extends Base
     private $price;
 
     /**
-     * @var boolean
+     * @var bool
      *
      * @ORM\Column(type="boolean", name="facturat", nullable=true)
      */
@@ -51,6 +47,10 @@ class HourSingle extends Base
     private $customer;
 
     /**
+     * Methods.
+     */
+
+    /**
      * @return float
      */
     public function getAmount()
@@ -60,11 +60,13 @@ class HourSingle extends Base
 
     /**
      * @param float $amount
-     * @return HourSingle
+     *
+     * @return $this
      */
     public function setAmount($amount)
     {
         $this->amount = $amount;
+
         return $this;
     }
 
@@ -78,16 +80,18 @@ class HourSingle extends Base
 
     /**
      * @param float $price
-     * @return MonthGroup
+     *
+     * @return $this
      */
     public function setPrice($price)
     {
         $this->price = $price;
+
         return $this;
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function isInvoiced()
     {
@@ -95,12 +99,14 @@ class HourSingle extends Base
     }
 
     /**
-     * @param boolean $invoiced
-     * @return MonthGroup
+     * @param bool $invoiced
+     *
+     * @return $this
      */
     public function setInvoiced($invoiced)
     {
         $this->invoiced = $invoiced;
+
         return $this;
     }
 
@@ -114,22 +120,21 @@ class HourSingle extends Base
 
     /**
      * @param Customer $customer
-     * @return MonthGroup
+     *
+     * @return $this
      */
     public function setCustomer($customer)
     {
         $this->customer = $customer;
+
         return $this;
     }
 
-     /**
-     * To string
-     *
+    /**
      * @return string
      */
-    public function __toString() {
-
+    public function __toString()
+    {
         return $this->price ? $this->getPrice().' '.$this->getCustomer() : '---';
     }
-
 }

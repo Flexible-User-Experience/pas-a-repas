@@ -3,16 +3,12 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Gedmo\Mapping\Annotation as Gedmo;
-use Symfony\Component\Validator\Constraints as Assert;
 use AppBundle\Entity\Traits\DateTrait;
 
 /**
- * Receipt Entity Class
+ * Receipt Entity Class.
  *
  * @category Entity
- * @package  AppBundle\Entity
- * @author   Anton Serra <aserratorta@gmail.com>
  *
  * @ORM\Table(name="rebut")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ReceiptRepository")
@@ -34,7 +30,6 @@ class Receipt extends Base
      * @ORM\Column(type="string", name="tipo")
      */
     private $type;
-
 
     /**
      * @var float
@@ -66,11 +61,7 @@ class Receipt extends Base
     private $description;
 
     /**
-     *
-     *
-     * Methods
-     *
-     *
+     * Methods.
      */
 
     /**
@@ -83,7 +74,8 @@ class Receipt extends Base
 
     /**
      * @param \DateTime $payDate
-     * @return Receipt
+     *
+     * @return $this
      */
     public function setPayDate(\DateTime $payDate)
     {
@@ -102,7 +94,8 @@ class Receipt extends Base
 
     /**
      * @param string $type
-     * @return Receipt
+     *
+     * @return $this
      */
     public function setType($type)
     {
@@ -121,7 +114,8 @@ class Receipt extends Base
 
     /**
      * @param float $import
-     * @return Receipt
+     *
+     * @return $this
      */
     public function setImport($import)
     {
@@ -140,7 +134,8 @@ class Receipt extends Base
 
     /**
      * @param Customer $customer
-     * @return Receipt
+     *
+     * @return $this
      */
     public function setCustomer($customer)
     {
@@ -159,7 +154,8 @@ class Receipt extends Base
 
     /**
      * @param int $collected
-     * @return Receipt
+     *
+     * @return $this
      */
     public function setCollected($collected)
     {
@@ -169,8 +165,6 @@ class Receipt extends Base
     }
 
     /**
-     * Set description
-     *
      * @param string $description
      *
      * @return $this
@@ -183,8 +177,6 @@ class Receipt extends Base
     }
 
     /**
-     * Get description
-     *
      * @return string
      */
     public function getDescription()
@@ -193,12 +185,10 @@ class Receipt extends Base
     }
 
     /**
-     * To string
-     *
      * @return string
      */
-    public function __toString() {
-
+    public function __toString()
+    {
         return $this->import ? $this->getImport().' '.$this->getCustomer() : '---';
     }
 }

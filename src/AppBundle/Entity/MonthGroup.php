@@ -104,8 +104,6 @@ class MonthGroup extends Base
     }
 
     /**
-     * To string.
-     *
      * @return string
      */
     public function __toString()

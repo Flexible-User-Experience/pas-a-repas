@@ -7,11 +7,9 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * Contact
+ * Contact.
  *
  * @category Entity
- * @package  AppBundle\Entity
- * @author   David Romaní <david@flux.cat>
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ContactRepository")
@@ -31,7 +29,7 @@ class Contact extends Base
      * @var string
      *
      * @ORM\Column(type="string", length=255)
-     * @Assert\Email(strict = true, checkMX = true, checkHost = true)
+     * @Assert\Email(strict=true, checkMX=true, checkHost=true)
      */
     private $email;
 
@@ -50,31 +48,27 @@ class Contact extends Base
     private $message;
 
     /**
-     * @var boolean
+     * @var bool
      *
      * @ORM\Column(type="boolean")
      */
     private $checked = false;
 
     /**
-     * @var boolean
+     * @var bool
      *
      * @ORM\Column(type="boolean")
      */
     private $answered = false;
 
     /**
-     *
-     * Methods
-     *
+     * Methods.
      */
 
     /**
-     * Set name
-     *
      * @param string $name
      *
-     * @return Contact
+     * @return $this
      */
     public function setName($name)
     {
@@ -84,8 +78,6 @@ class Contact extends Base
     }
 
     /**
-     * Get name
-     *
      * @return string
      */
     public function getName()
@@ -94,11 +86,9 @@ class Contact extends Base
     }
 
     /**
-     * Set email
-     *
      * @param string $email
      *
-     * @return Contact
+     * @return $this
      */
     public function setEmail($email)
     {
@@ -108,8 +98,6 @@ class Contact extends Base
     }
 
     /**
-     * Get email
-     *
      * @return string
      */
     public function getEmail()
@@ -118,11 +106,9 @@ class Contact extends Base
     }
 
     /**
-     * Set phone
-     *
      * @param string $phone
      *
-     * @return Contact
+     * @return $this
      */
     public function setPhone($phone)
     {
@@ -132,8 +118,6 @@ class Contact extends Base
     }
 
     /**
-     * Get phone
-     *
      * @return string
      */
     public function getPhone()
@@ -142,11 +126,9 @@ class Contact extends Base
     }
 
     /**
-     * Set message
-     *
      * @param string $message
      *
-     * @return Contact
+     * @return $this
      */
     public function setMessage($message)
     {
@@ -156,8 +138,6 @@ class Contact extends Base
     }
 
     /**
-     * Get message
-     *
      * @return string
      */
     public function getMessage()
@@ -166,11 +146,9 @@ class Contact extends Base
     }
 
     /**
-     * Set checked
+     * @param bool $checked
      *
-     * @param boolean $checked
-     *
-     * @return Contact
+     * @return $this
      */
     public function setChecked($checked)
     {
@@ -180,9 +158,7 @@ class Contact extends Base
     }
 
     /**
-     * Get checked
-     *
-     * @return boolean
+     * @return bool
      */
     public function getChecked()
     {
@@ -190,11 +166,17 @@ class Contact extends Base
     }
 
     /**
-     * Set answered
+     * @return bool
+     */
+    public function isChecked()
+    {
+        return $this->getChecked();
+    }
+
+    /**
+     * @param bool $answered
      *
-     * @param boolean $answered
-     *
-     * @return Contact
+     * @return $this
      */
     public function setAnswered($answered)
     {
@@ -204,9 +186,7 @@ class Contact extends Base
     }
 
     /**
-     * Get answered
-     *
-     * @return boolean
+     * @return bool
      */
     public function getAnswered()
     {
@@ -214,12 +194,18 @@ class Contact extends Base
     }
 
     /**
-     * To string
-     *
+     * @return bool
+     */
+    public function isAnswered()
+    {
+        return $this->getAnswered();
+    }
+
+    /**
      * @return string
      */
     public function __toString()
     {
-        return $this->name ? $this->getCreatedAt()->format('d/m/Y') . ' · ' . $this->getName() : '---';
+        return $this->name ? $this->getCreatedAt()->format('d/m/Y').' · '.$this->getName() : '---';
     }
 }

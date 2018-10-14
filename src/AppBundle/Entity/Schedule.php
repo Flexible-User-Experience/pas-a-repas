@@ -3,15 +3,12 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
- * Schedule
+ * Schedule.
  *
  * @category Entity
- * @package  AppBundle\Entity
- * @author   David Romaní <david@flux.cat>
  *
  * @ORM\Table(name="parte")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ScheduleRepository")
@@ -34,9 +31,7 @@ class Schedule extends Base
     private $hours = 0;
 
     /**
-     *
-     * Methods
-     *
+     * Methods.
      */
 
     /**
@@ -49,7 +44,8 @@ class Schedule extends Base
 
     /**
      * @param \DateTime $date
-     * @return Schedule
+     *
+     * @return $this
      */
     public function setDate(\DateTime $date)
     {
@@ -59,8 +55,6 @@ class Schedule extends Base
     }
 
     /**
-     * Set Hours
-     *
      * @param float $hours
      *
      * @return $this
@@ -73,8 +67,6 @@ class Schedule extends Base
     }
 
     /**
-     * Get Hours
-     *
      * @return float
      */
     public function getHours()
@@ -83,8 +75,6 @@ class Schedule extends Base
     }
 
     /**
-     * Get Date
-     *
      * @return string
      */
     public function getDateString()
@@ -93,12 +83,10 @@ class Schedule extends Base
     }
 
     /**
-     * To string
-     *
      * @return string
      */
-    public function __toString() {
-
-        return $this->date ? $this->getDateString() . ' · ' . $this->getHours() : '---';
+    public function __toString()
+    {
+        return $this->date ? $this->getDateString().' · '.$this->getHours() : '---';
     }
 }

@@ -3,11 +3,9 @@
 namespace AppBundle\Enum;
 
 /**
- * UserRolesEnum class
+ * UserRolesEnum class.
  *
  * @category Enum
- * @package  AppBundle\Enum
- * @author   David Romaní <david@flux.cat>
  */
 class UserRolesEnum
 {

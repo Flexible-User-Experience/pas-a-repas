@@ -5,15 +5,12 @@ namespace AppBundle\Entity;
 use AppBundle\Entity\Traits\SlugTrait;
 use AppBundle\Entity\Traits\TitleTrait;
 use Doctrine\ORM\Mapping as ORM;
-use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * Category
+ * Category.
  *
  * @category Entity
- * @package  AppBundle\Entity
- * @author   David Romaní <david@flux.cat>
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="AppBundle\Repository\CategoryRepository")
@@ -31,13 +28,11 @@ class Category extends Base
     private $posts;
 
     /**
-     *
-     * Methods
-     *
+     * Methods.
      */
 
     /**
-     * Category constructor
+     * Category constructor.
      */
     public function __construct()
     {
@@ -45,11 +40,9 @@ class Category extends Base
     }
 
     /**
-     * Set posts
-     *
      * @param ArrayCollection $posts
      *
-     * @return Category
+     * @return $this
      */
     public function setPosts(ArrayCollection $posts)
     {
@@ -59,8 +52,6 @@ class Category extends Base
     }
 
     /**
-     * Get posts
-     *
      * @return ArrayCollection
      */
     public function getPosts()
@@ -69,11 +60,9 @@ class Category extends Base
     }
 
     /**
-     * Add post
-     *
      * @param Post $post
      *
-     * @return Category
+     * @return $this
      */
     public function addPost(Post $post)
     {
@@ -83,11 +72,9 @@ class Category extends Base
     }
 
     /**
-     * Remove post
-     *
      * @param Post $post
      *
-     * @return Category
+     * @return $this
      */
     public function removePost(Post $post)
     {
@@ -97,12 +84,10 @@ class Category extends Base
     }
 
     /**
-     * To string
-     *
      * @return string
      */
-    public function __toString() {
-
+    public function __toString()
+    {
         return $this->title ? $this->getTitle() : '---';
     }
 }

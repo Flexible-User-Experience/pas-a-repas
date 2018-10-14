@@ -3,14 +3,11 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
- * Phone Entity Class
+ * Phone Entity Class.
  *
  * @category Entity
- * @package  AppBundle\Entity
- * @author   Anton Serra <aserratorta@gmail.com>
  *
  * @ORM\Table(name="telefon")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\PhoneRepository")
@@ -21,7 +18,6 @@ class Phone extends Base
      * @var int
      *
      * @ORM\Column(type="integer", name="ordre", nullable=true)
-     *
      */
     private $position;
 
@@ -39,7 +35,6 @@ class Phone extends Base
      */
     private $number;
 
-
     /**
      * @var Customer
      *
@@ -47,6 +42,10 @@ class Phone extends Base
      * @ORM\JoinColumn(name="client_id", referencedColumnName="id")
      */
     private $customer;
+
+    /**
+     * Methods.
+     */
 
     /**
      * @return int
@@ -58,11 +57,13 @@ class Phone extends Base
 
     /**
      * @param int $position
-     * @return Phone
+     *
+     * @return $this
      */
     public function setPosition($position)
     {
         $this->position = $position;
+
         return $this;
     }
 
@@ -76,11 +77,13 @@ class Phone extends Base
 
     /**
      * @param Customer $customer
-     * @return Phone
+     *
+     * @return $this
      */
     public function setCustomer($customer)
     {
         $this->customer = $customer;
+
         return $this;
     }
 
@@ -94,11 +97,13 @@ class Phone extends Base
 
     /**
      * @param string $number
-     * @return Phone
+     *
+     * @return $this
      */
     public function setNumber($number)
     {
         $this->number = $number;
+
         return $this;
     }
 
@@ -112,23 +117,21 @@ class Phone extends Base
 
     /**
      * @param string $type
-     * @return Phone
+     *
+     * @return $this
      */
     public function setType($type)
     {
         $this->type = $type;
+
         return $this;
     }
 
     /**
-     * To string
-     *
      * @return string
      */
-    public function __toString() {
-
+    public function __toString()
+    {
         return $this->number ? $this->getNumber().' '.$this->getCustomer() : '---';
     }
-
-
 }

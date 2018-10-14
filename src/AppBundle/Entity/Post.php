@@ -6,7 +6,6 @@ use AppBundle\Entity\Traits\DescriptionTrait;
 use AppBundle\Entity\Traits\TitleTrait;
 use AppBundle\Entity\Traits\SlugTrait;
 use Doctrine\Common\Collections\ArrayCollection;
-use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -14,11 +13,9 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * Post
+ * Post.
  *
  * @category Entity
- * @package  AppBundle\Entity
- * @author   David Romaní <david@flux.cat>
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="AppBundle\Repository\PostRepository")
@@ -79,13 +76,11 @@ class Post extends Base
     private $categories;
 
     /**
-     *
-     * Methods
-     *
+     * Methods.
      */
 
     /**
-     * Post constructor
+     * Post constructor.
      */
     public function __construct()
     {
@@ -93,11 +88,9 @@ class Post extends Base
     }
 
     /**
-     * Set publishedAt
-     *
      * @param \DateTime $publishedAt
      *
-     * @return Post
+     * @return $this
      */
     public function setPublishedAt(\DateTime $publishedAt)
     {
@@ -107,8 +100,6 @@ class Post extends Base
     }
 
     /**
-     * Get publishedAt
-     *
      * @return \DateTime
      */
     public function getPublishedAt()
@@ -117,11 +108,9 @@ class Post extends Base
     }
 
     /**
-     * Set imageFile
-     *
      * @param File|UploadedFile $imageFile
      *
-     * @return Post
+     * @return $this
      */
     public function setImageFile(File $imageFile = null)
     {
@@ -136,8 +125,6 @@ class Post extends Base
     }
 
     /**
-     * Get imageFile
-     *
      * @return File|UploadedFile
      */
     public function getImageFile()
@@ -146,11 +133,9 @@ class Post extends Base
     }
 
     /**
-     * Set imageName
-     *
      * @param string $imageName
      *
-     * @return Post
+     * @return $this
      */
     public function setImageName($imageName)
     {
@@ -160,8 +145,6 @@ class Post extends Base
     }
 
     /**
-     * Get imageName
-     *
      * @return string
      */
     public function getImageName()
@@ -170,11 +153,9 @@ class Post extends Base
     }
 
     /**
-     * Set MetaKeywords
-     *
      * @param string $metaKeywords
      *
-     * @return Post
+     * @return $this
      */
     public function setMetaKeywords($metaKeywords)
     {
@@ -184,8 +165,6 @@ class Post extends Base
     }
 
     /**
-     * Get MetaKeywords
-     *
      * @return string
      */
     public function getMetaKeywords()
@@ -194,11 +173,9 @@ class Post extends Base
     }
 
     /**
-     * Set MetaDescription
-     *
      * @param string $metaDescription
      *
-     * @return Post
+     * @return $this
      */
     public function setMetaDescription($metaDescription)
     {
@@ -208,8 +185,6 @@ class Post extends Base
     }
 
     /**
-     * Get MetaDescription
-     *
      * @return string
      */
     public function getMetaDescription()
@@ -218,11 +193,9 @@ class Post extends Base
     }
 
     /**
-     * Set categories
-     *
      * @param ArrayCollection $categories
      *
-     * @return Post
+     * @return $this
      */
     public function setCategories(ArrayCollection $categories)
     {
@@ -232,8 +205,6 @@ class Post extends Base
     }
 
     /**
-     * Get categories
-     *
      * @return ArrayCollection
      */
     public function getCategories()
@@ -242,11 +213,9 @@ class Post extends Base
     }
 
     /**
-     * Add category
-     *
      * @param Category $category
      *
-     * @return Post
+     * @return $this
      */
     public function addCategory(Category $category)
     {
@@ -257,8 +226,6 @@ class Post extends Base
     }
 
     /**
-     * Remove category
-     *
      * @param Category $category
      */
     public function removeCategory(Category $category)
@@ -267,12 +234,10 @@ class Post extends Base
     }
 
     /**
-     * To string
-     *
      * @return string
      */
-    public function __toString() {
-
+    public function __toString()
+    {
         return $this->title ? $this->getTitle() : '---';
     }
 }

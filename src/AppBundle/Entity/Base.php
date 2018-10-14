@@ -6,16 +6,14 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
- * Abstract Base class
+ * Abstract Base class.
  *
  * @category Entity
- * @package  AppBundle\Entity
- * @author   David Romaní <david@flux.cat>
  */
 abstract class Base
 {
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
@@ -47,15 +45,11 @@ abstract class Base
     protected $enabled = true;
 
     /**
-     *
-     * Methods
-     *
+     * Methods.
      */
 
     /**
-     * Get id
-     *
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -63,8 +57,6 @@ abstract class Base
     }
 
     /**
-     * Set createdAt
-     *
      * @param \DateTime $createdAt
      *
      * @return $this
@@ -77,8 +69,6 @@ abstract class Base
     }
 
     /**
-     * Get createdAt
-     *
      * @return \DateTime
      */
     public function getCreatedAt()
@@ -87,8 +77,6 @@ abstract class Base
     }
 
     /**
-     * Set updatedAt
-     *
      * @param \DateTime $updatedAt
      *
      * @return $this
@@ -101,8 +89,6 @@ abstract class Base
     }
 
     /**
-     * Get updatedAt
-     *
      * @return \DateTime
      */
     public function getUpdatedAt()
@@ -111,9 +97,7 @@ abstract class Base
     }
 
     /**
-     * Set enabled
-     *
-     * @param boolean $enabled
+     * @param bool $enabled
      *
      * @return $this
      */
@@ -125,9 +109,7 @@ abstract class Base
     }
 
     /**
-     * Get enabled
-     *
-     * @return boolean
+     * @return bool
      */
     public function getEnabled()
     {
