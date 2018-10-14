@@ -8,23 +8,21 @@ use Sonata\AdminBundle\Route\RouteCollection;
 use Sonata\AdminBundle\Show\ShowMapper;
 
 /**
- * Class ContactAdmin
+ * Class ContactAdmin.
  *
  * @category Admin
- * @package  AppBundle\Admin
- * @author   David Romaní <david@flux.cat>
  */
 class ContactAdmin extends BaseAdmin
 {
     protected $classnameLabel = 'Contacte';
     protected $baseRoutePattern = 'web/missatge';
     protected $datagridValues = array(
-        '_sort_by'    => 'createdAt',
+        '_sort_by' => 'createdAt',
         '_sort_order' => 'desc',
     );
 
     /**
-     * Configure route collection
+     * Configure route collection.
      *
      * @param RouteCollection $collection
      */
@@ -34,7 +32,7 @@ class ContactAdmin extends BaseAdmin
             ->remove('create')
             ->remove('edit')
             ->remove('batch')
-            ->add('answer', $this->getRouterIdParameter() . '/answer');
+            ->add('answer', $this->getRouterIdParameter().'/answer');
     }
 
     /**
@@ -54,7 +52,7 @@ class ContactAdmin extends BaseAdmin
                 'createdAt',
                 'doctrine_orm_date',
                 array(
-                    'label'      => 'backend.admin.date',
+                    'label' => 'backend.admin.date',
                     'field_type' => 'sonata_type_date_picker',
                 )
             )
@@ -112,7 +110,7 @@ class ContactAdmin extends BaseAdmin
                 'createdAt',
                 'date',
                 array(
-                    'label'  => 'backend.admin.date',
+                    'label' => 'backend.admin.date',
                     'format' => 'd/m/Y H:i',
                 )
             )
@@ -188,8 +186,8 @@ class ContactAdmin extends BaseAdmin
                 'createdAt',
                 'date',
                 array(
-                    'label'  => 'backend.admin.date',
-                    'format' => 'd/m/Y'
+                    'label' => 'backend.admin.date',
+                    'format' => 'd/m/Y',
                 )
             )
             ->add(
@@ -235,8 +233,9 @@ class ContactAdmin extends BaseAdmin
                             'template' => '::Admin/Buttons/list__action_delete_button.html.twig',
                         ),
                     ),
-                    'label'   => 'backend.admin.actions',
+                    'label' => 'backend.admin.actions',
                 )
-            );
+            )
+        ;
     }
 }

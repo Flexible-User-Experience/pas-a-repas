@@ -17,23 +17,23 @@
                         <table class="table">
                             <tbody>
                             <tr class="sonata-ba-view-container">
-                                <th>Data</th>
+                                <th>{{ 'backend.admin.date' | trans }}</th>
                                 <td>{{ object.createdAt | date('d/m/Y H:i') }}</td>
                             </tr>
                             <tr class="sonata-ba-view-container">
-                                <th>Nom</th>
+                                <th>{{ 'backend.admin.name' | trans }}</th>
                                 <td>{{ object.name }}</td>
                             </tr>
                             <tr class="sonata-ba-view-container">
-                                <th>Email</th>
+                                <th>{{ 'backend.admin.email' | trans }}</th>
                                 <td>{{ object.email }}</td>
                             </tr>
                             <tr class="sonata-ba-view-container">
-                                <th>Telèfon</th>
+                                <th>{{ 'backend.admin.phone' | trans }}</th>
                                 <td>{{ object.phone }}</td>
                             </tr>
                             <tr class="sonata-ba-view-container">
-                                <th>Message</th>
+                                <th>{{ 'backend.admin.message' | trans }}</th>
                                 <td>{{ object.message | raw }}</td>
                             </tr>
                             </tbody>

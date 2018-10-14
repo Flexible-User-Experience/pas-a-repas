@@ -7,11 +7,9 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 /**
- * Class ContactType
+ * Class ContactType.
  *
- * @category ContactAnswerType
- * @package  AppBundle\Form\Type
- * @author   David Romaní <david@flux.cat>
+ * @category FormType
  */
 class ContactAnswerType extends ContactType
 {
@@ -26,9 +24,9 @@ class ContactAnswerType extends ContactType
                 'description',
                 TextareaType::class,
                 array(
-                    'label'    => 'backend.admin.answer',
+                    'label' => 'backend.admin.answer',
                     'required' => true,
-                    'attr'     => array(
+                    'attr' => array(
                         'rows' => 6,
                     ),
                 )
@@ -37,8 +35,9 @@ class ContactAnswerType extends ContactType
                 'send',
                 SubmitType::class,
                 array(
-                    'attr'  => array(
+                    'attr' => array(
                         'class' => 'btn-primary',
+                        'label' => 'backend.admin.send',
                     ),
                 )
             );
