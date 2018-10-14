@@ -85,7 +85,6 @@ frontend:
     category_list: llista de categories
     category_show: detall de categoria
     back-list: torna a la llista
-    send: Enviar
     edit: editar
     delete: esborrar
     show: mostrar
@@ -133,6 +132,8 @@ backend:
     message: Missatge
     category: Categoria
     categories: Categories
+    send: Enviar
+    your_message: El teu missatge
     post: Article
     posts: Articles
     posts_amount: Articles vinculats
