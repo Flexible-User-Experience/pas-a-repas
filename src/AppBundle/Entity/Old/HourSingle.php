@@ -1,21 +1,29 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace AppBundle\Entity\Old;
 
+use AppBundle\Entity\Base;
 use AppBundle\Entity\Traits\DateTrait;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * MonthGroup Entity Class.
+ * HourSingle Entity Class.
  *
  * @category Entity
  *
- * @ORM\Table(name="mes_en_grup")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\MonthGroupRepository")
+ * @ORM\Table(name="hora_particular")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\Old\HourSingleRepository")
  */
-class MonthGroup extends Base
+class HourSingle extends Base
 {
     use DateTrait;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(type="float", name="quantitat")
+     */
+    private $amount;
 
     /**
      * @var float
@@ -34,7 +42,7 @@ class MonthGroup extends Base
     /**
      * @var Customer
      *
-     * @ORM\ManyToOne(targetEntity="Customer", inversedBy="monthgroups")
+     * @ORM\ManyToOne(targetEntity="Customer", inversedBy="hoursingles")
      * @ORM\JoinColumn(name="client_id", referencedColumnName="id")
      */
     private $customer;
@@ -42,6 +50,26 @@ class MonthGroup extends Base
     /**
      * Methods.
      */
+
+    /**
+     * @return float
+     */
+    public function getAmount()
+    {
+        return $this->amount;
+    }
+
+    /**
+     * @param float $amount
+     *
+     * @return $this
+     */
+    public function setAmount($amount)
+    {
+        $this->amount = $amount;
+
+        return $this;
+    }
 
     /**
      * @return float
@@ -54,7 +82,7 @@ class MonthGroup extends Base
     /**
      * @param float $price
      *
-     * @return MonthGroup
+     * @return $this
      */
     public function setPrice($price)
     {
@@ -74,7 +102,7 @@ class MonthGroup extends Base
     /**
      * @param bool $invoiced
      *
-     * @return MonthGroup
+     * @return $this
      */
     public function setInvoiced($invoiced)
     {
@@ -94,7 +122,7 @@ class MonthGroup extends Base
     /**
      * @param Customer $customer
      *
-     * @return MonthGroup
+     * @return $this
      */
     public function setCustomer($customer)
     {

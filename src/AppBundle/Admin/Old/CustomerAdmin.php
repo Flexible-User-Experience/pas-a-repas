@@ -1,7 +1,8 @@
 <?php
 
-namespace AppBundle\Admin;
+namespace AppBundle\Admin\Old;
 
+use AppBundle\Admin\BaseAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
@@ -13,8 +14,6 @@ use Sonata\CoreBundle\Form\Type\EqualType;
  * Class CustomerAdmin
  *
  * @category Admin
- * @package  AppBundle\Admin
- * @author   David Romaní <david@flux.cat>
  */
 class CustomerAdmin extends BaseAdmin
 {
@@ -172,7 +171,8 @@ class CustomerAdmin extends BaseAdmin
                     'required' => false,
                 )
             )
-            ->end();
+            ->end()
+        ;
         if ($this->id($this->getSubject())) { // is edit mode, disable on new subjects
             $formMapper
                 ->with('backend.admin.phones', $this->getFormMdSuccessBoxArray(12))
@@ -190,8 +190,8 @@ class CustomerAdmin extends BaseAdmin
                         'sortable' => 'position',
                     )
                 )
-
-                ->end();
+                ->end()
+            ;
         }
     }
 
@@ -242,7 +242,8 @@ class CustomerAdmin extends BaseAdmin
                 array(
                     'label'    => 'backend.admin.enabled',
                 )
-            );
+            )
+        ;
     }
 
     /**
@@ -324,6 +325,7 @@ class CustomerAdmin extends BaseAdmin
                     ),
                     'label'   => 'backend.admin.actions',
                 )
-            );
+            )
+        ;
     }
 }

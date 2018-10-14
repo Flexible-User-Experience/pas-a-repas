@@ -1,7 +1,8 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace AppBundle\Entity\Old;
 
+use AppBundle\Entity\Base;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -11,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @category Entity
  *
  * @ORM\Table(name="categoria_despesa")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\SpendingCategoryRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\Old\SpendingCategoryRepository")
  */
 class SpendingCategory extends Base
 {

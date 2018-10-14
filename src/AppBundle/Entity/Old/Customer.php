@@ -1,7 +1,8 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace AppBundle\Entity\Old;
 
+use AppBundle\Entity\Base;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -12,7 +13,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @category Entity
  *
  * @ORM\Table(name="client")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\CustomerRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\Old\CustomerRepository")
  */
 class Customer extends Base
 {

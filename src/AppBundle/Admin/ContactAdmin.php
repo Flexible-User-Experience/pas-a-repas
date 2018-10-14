@@ -32,7 +32,8 @@ class ContactAdmin extends BaseAdmin
             ->remove('create')
             ->remove('edit')
             ->remove('batch')
-            ->add('answer', $this->getRouterIdParameter().'/answer');
+            ->add('answer', $this->getRouterIdParameter().'/answer')
+        ;
     }
 
     /**
@@ -97,7 +98,8 @@ class ContactAdmin extends BaseAdmin
                 array(
                     'label' => 'backend.admin.answer',
                 )
-            );
+            )
+        ;
     }
 
     /**
@@ -155,7 +157,8 @@ class ContactAdmin extends BaseAdmin
                 array(
                     'label' => 'backend.admin.answered',
                 )
-            );
+            )
+        ;
         if ($this->getSubject()->getAnswered()) {
             $showMapper
                 ->add(
@@ -164,7 +167,8 @@ class ContactAdmin extends BaseAdmin
                     array(
                         'label' => 'backend.admin.answer',
                     )
-                );
+                )
+            ;
         }
     }
 

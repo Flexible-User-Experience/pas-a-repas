@@ -1,7 +1,8 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace AppBundle\Entity\Old;
 
+use AppBundle\Entity\Base;
 use Doctrine\ORM\Mapping as ORM;
 use AppBundle\Entity\Traits\DateTrait;
 
@@ -11,7 +12,7 @@ use AppBundle\Entity\Traits\DateTrait;
  * @category Entity
  *
  * @ORM\Table(name="rebut")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\ReceiptRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\Old\ReceiptRepository")
  */
 class Receipt extends Base
 {

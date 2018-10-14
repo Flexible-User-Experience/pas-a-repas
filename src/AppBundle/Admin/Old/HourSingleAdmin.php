@@ -1,7 +1,8 @@
 <?php
 
-namespace AppBundle\Admin;
+namespace AppBundle\Admin\Old;
 
+use AppBundle\Admin\BaseAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
@@ -12,8 +13,6 @@ use Sonata\CoreBundle\Form\Type\EqualType;
  * Class HourSingleAdmin
  *
  * @category Admin
- * @package  AppBundle\Admin
- * @author   Anton Serra <aserratorta@gmail.com>
  */
 class HourSingleAdmin extends BaseAdmin
 {
@@ -72,7 +71,8 @@ class HourSingleAdmin extends BaseAdmin
                     'required' => false,
                 )
             )
-            ->end();
+            ->end()
+        ;
     }
 
     /**
@@ -116,8 +116,8 @@ class HourSingleAdmin extends BaseAdmin
                 array(
                     'label' => 'backend.admin.invoiced',
                 )
-            );
-
+            )
+        ;
     }
 
     /**
@@ -181,6 +181,7 @@ class HourSingleAdmin extends BaseAdmin
                     ),
                     'label'   => 'backend.admin.actions',
                 )
-            );
+            )
+        ;
     }
 }

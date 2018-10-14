@@ -1,7 +1,8 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace AppBundle\Entity\Old;
 
+use AppBundle\Entity\Base;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @category Entity
  *
  * @ORM\Table(name="telefon")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\PhoneRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\Old\PhoneRepository")
  */
 class Phone extends Base
 {

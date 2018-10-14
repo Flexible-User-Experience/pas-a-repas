@@ -1,7 +1,8 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace AppBundle\Entity\Old;
 
+use AppBundle\Entity\Base;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
@@ -11,7 +12,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  * @category Entity
  *
  * @ORM\Table(name="parte")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\ScheduleRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\Old\ScheduleRepository")
  * @UniqueEntity("date")
  */
 class Schedule extends Base

@@ -1,7 +1,8 @@
 <?php
 
-namespace AppBundle\Admin;
+namespace AppBundle\Admin\Old;
 
+use AppBundle\Admin\BaseAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
@@ -10,8 +11,6 @@ use Sonata\AdminBundle\Form\FormMapper;
  * Class SpendingCategoryAdmin
  *
  * @category Admin
- * @package  AppBundle\Admin
- * @author   Anton Serra <aserratorta@gmail.com>
  */
 class SpendingCategoryAdmin extends BaseAdmin
 {
@@ -36,14 +35,8 @@ class SpendingCategoryAdmin extends BaseAdmin
                     'label' => 'backend.admin.name',
                 )
             )
-//            ->add(
-//                'amount',
-//                null,
-//                array(
-//                    'label' => 'backend.admin.amount',
-//                )
-//            )
-            ->end();
+            ->end()
+        ;
     }
 
     /**
@@ -58,14 +51,8 @@ class SpendingCategoryAdmin extends BaseAdmin
                 array(
                     'label' => 'backend.admin.name',
                 )
-            );
-//            ->add(
-//                'amount',
-//                null,
-//                array(
-//                    'label' => 'backend.admin.amount',
-//                )
-//            );
+            )
+        ;
     }
 
     /**
@@ -83,15 +70,6 @@ class SpendingCategoryAdmin extends BaseAdmin
                     'editable' => true,
                 )
             )
-//            TODO get the spending import amount
-//            ->add(
-//                'amount',
-//                null,
-//                array(
-//                    'label' => 'backend.admin.amount',
-//                    'editable' => false,
-//                )
-//            )
             ->add(
                 '_action',
                 'actions',
@@ -106,6 +84,7 @@ class SpendingCategoryAdmin extends BaseAdmin
                     ),
                     'label'   => 'backend.admin.actions',
                 )
-            );
+            )
+        ;
     }
 }

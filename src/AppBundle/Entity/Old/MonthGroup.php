@@ -1,28 +1,22 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace AppBundle\Entity\Old;
 
+use AppBundle\Entity\Base;
 use AppBundle\Entity\Traits\DateTrait;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * HourSingle Entity Class.
+ * MonthGroup Entity Class.
  *
  * @category Entity
  *
- * @ORM\Table(name="hora_particular")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\HourSingleRepository")
+ * @ORM\Table(name="mes_en_grup")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\Old\MonthGroupRepository")
  */
-class HourSingle extends Base
+class MonthGroup extends Base
 {
     use DateTrait;
-
-    /**
-     * @var float
-     *
-     * @ORM\Column(type="float", name="quantitat")
-     */
-    private $amount;
 
     /**
      * @var float
@@ -41,7 +35,7 @@ class HourSingle extends Base
     /**
      * @var Customer
      *
-     * @ORM\ManyToOne(targetEntity="Customer", inversedBy="hoursingles")
+     * @ORM\ManyToOne(targetEntity="Customer", inversedBy="monthgroups")
      * @ORM\JoinColumn(name="client_id", referencedColumnName="id")
      */
     private $customer;
@@ -49,26 +43,6 @@ class HourSingle extends Base
     /**
      * Methods.
      */
-
-    /**
-     * @return float
-     */
-    public function getAmount()
-    {
-        return $this->amount;
-    }
-
-    /**
-     * @param float $amount
-     *
-     * @return $this
-     */
-    public function setAmount($amount)
-    {
-        $this->amount = $amount;
-
-        return $this;
-    }
 
     /**
      * @return float
@@ -81,7 +55,7 @@ class HourSingle extends Base
     /**
      * @param float $price
      *
-     * @return $this
+     * @return MonthGroup
      */
     public function setPrice($price)
     {
@@ -101,7 +75,7 @@ class HourSingle extends Base
     /**
      * @param bool $invoiced
      *
-     * @return $this
+     * @return MonthGroup
      */
     public function setInvoiced($invoiced)
     {
@@ -121,7 +95,7 @@ class HourSingle extends Base
     /**
      * @param Customer $customer
      *
-     * @return $this
+     * @return MonthGroup
      */
     public function setCustomer($customer)
     {

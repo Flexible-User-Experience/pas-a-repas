@@ -1,25 +1,24 @@
 <?php
 
-namespace AppBundle\Admin;
+namespace AppBundle\Admin\Old;
 
+use AppBundle\Admin\BaseAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 
 /**
- * Class SpendingAdmin
+ * Class MonthGroupAdmin
  *
  * @category Admin
- * @package  AppBundle\Admin
- * @author   Anton Serra <aserratorta@gmail.com>
  */
-class SpendingAdmin extends BaseAdmin
+class MonthGroupAdmin extends BaseAdmin
 {
-    protected $classnameLabel = 'Despesa';
-    protected $baseRoutePattern = 'despesa/despesa';
+    protected $classnameLabel = 'Mes en grup';
+    protected $baseRoutePattern = 'facturacio/mes-en-grup';
     protected $datagridValues = array(
         '_sort_by'    => 'date',
-        '_sort_order' => 'asc',
+        '_sort_order' => 'desc',
     );
 
     /**
@@ -28,7 +27,7 @@ class SpendingAdmin extends BaseAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->with('backend.admin.spending', $this->getFormMdSuccessBoxArray(6))
+            ->with('backend.admin.monthgroup', $this->getFormMdSuccessBoxArray(6))
             ->add(
                 'date',
                 'sonata_type_date_picker',
@@ -37,20 +36,23 @@ class SpendingAdmin extends BaseAdmin
                 )
             )
             ->add(
-                'spendingCategory',
+                'price',
                 null,
                 array(
-                    'label' => 'backend.admin.category',
+                    'label' => 'backend.admin.price',
+                    'required' => true,
                 )
             )
             ->add(
-                'amount',
+                'invoiced',
                 null,
                 array(
-                    'label' => 'backend.admin.amount',
+                    'label' => 'backend.admin.invoiced',
+                    'required' => false,
                 )
             )
-            ->end();
+            ->end()
+        ;
     }
 
     /**
@@ -68,19 +70,27 @@ class SpendingAdmin extends BaseAdmin
                 )
             )
             ->add(
-                'spendingCategory',
+                'customer',
                 null,
                 array(
-                    'label' => 'backend.admin.category',
+                    'label'    => 'backend.admin.customer',
                 )
             )
             ->add(
-                'amount',
+                'price',
                 null,
                 array(
-                    'label' => 'backend.admin.amount',
+                    'label'    => 'backend.admin.price',
                 )
-            );
+            )
+            ->add(
+                'invoiced',
+                null,
+                array(
+                    'label' => 'backend.admin.invoiced',
+                )
+            )
+        ;
     }
 
     /**
@@ -95,23 +105,29 @@ class SpendingAdmin extends BaseAdmin
                 null,
                 array(
                     'label'    => 'backend.admin.date',
-                    'format'   => 'd/m/Y',
+                    'format'   => 'M-Y',
                     'editable' => true,
                 )
             )
             ->add(
-                'spendingCategory',
+                'customer',
                 null,
                 array(
-                    'label' => 'backend.admin.category',
-                    'editable' => true,
+                    'label'    => 'backend.admin.customer',
                 )
             )
             ->add(
-                'amount',
+                'shedule.hours',
                 null,
                 array(
-                    'label' => 'backend.admin.amount',
+                    'label'    => 'backend.admin.hours',
+                )
+            )
+            ->add(
+                'invoiced',
+                null,
+                array(
+                    'label'    => 'backend.admin.invoiced',
                     'editable' => true,
                 )
             )
@@ -129,6 +145,7 @@ class SpendingAdmin extends BaseAdmin
                     ),
                     'label'   => 'backend.admin.actions',
                 )
-            );
+            )
+        ;
     }
 }
