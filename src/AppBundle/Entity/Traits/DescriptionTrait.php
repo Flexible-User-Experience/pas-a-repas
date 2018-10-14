@@ -5,13 +5,11 @@ namespace AppBundle\Entity\Traits;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Description trait
+ * Description trait.
  *
  * @category Trait
- * @package  AppBundle\Entity\Traits
- * @author   David Romaní <david@flux.cat>
  */
-Trait DescriptionTrait
+trait DescriptionTrait
 {
     /**
      * @var string
@@ -21,8 +19,10 @@ Trait DescriptionTrait
     private $description;
 
     /**
-     * Set description
-     *
+     * Methods.
+     */
+
+    /**
      * @param string $description
      *
      * @return $this
@@ -35,8 +35,6 @@ Trait DescriptionTrait
     }
 
     /**
-     * Get description
-     *
      * @return string
      */
     public function getDescription()

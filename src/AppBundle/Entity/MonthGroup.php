@@ -4,14 +4,11 @@ namespace AppBundle\Entity;
 
 use AppBundle\Entity\Traits\DateTrait;
 use Doctrine\ORM\Mapping as ORM;
-use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
- * MonthGroup Entity Class
+ * MonthGroup Entity Class.
  *
  * @category Entity
- * @package  AppBundle\Entity
- * @author   Anton Serra <aserratorta@gmail.com>
  *
  * @ORM\Table(name="mes_en_grup")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\MonthGroupRepository")
@@ -28,7 +25,7 @@ class MonthGroup extends Base
     private $price;
 
     /**
-     * @var boolean
+     * @var bool
      *
      * @ORM\Column(type="boolean", name="facturat", nullable=true)
      */
@@ -43,6 +40,10 @@ class MonthGroup extends Base
     private $customer;
 
     /**
+     * Methods.
+     */
+
+    /**
      * @return float
      */
     public function getPrice()
@@ -52,16 +53,18 @@ class MonthGroup extends Base
 
     /**
      * @param float $price
+     *
      * @return MonthGroup
      */
     public function setPrice($price)
     {
         $this->price = $price;
+
         return $this;
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function isInvoiced()
     {
@@ -69,12 +72,14 @@ class MonthGroup extends Base
     }
 
     /**
-     * @param boolean $invoiced
+     * @param bool $invoiced
+     *
      * @return MonthGroup
      */
     public function setInvoiced($invoiced)
     {
         $this->invoiced = $invoiced;
+
         return $this;
     }
 
@@ -88,22 +93,23 @@ class MonthGroup extends Base
 
     /**
      * @param Customer $customer
+     *
      * @return MonthGroup
      */
     public function setCustomer($customer)
     {
         $this->customer = $customer;
+
         return $this;
     }
 
-     /**
-     * To string
+    /**
+     * To string.
      *
      * @return string
      */
-    public function __toString() {
-
+    public function __toString()
+    {
         return $this->price ? $this->getPrice().' '.$this->getCustomer() : '---';
     }
-
 }
