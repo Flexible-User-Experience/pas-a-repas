@@ -5,7 +5,7 @@ services:
 # Sonata Admins
     admin.contact:
         class: AppBundle\Admin\ContactAdmin
-        arguments: [ ~, AppBundle\Entity\Contact, AppBundle:Admin\ContactAdmin, "@vich_uploader.templating.helper.uploader_helper", "@liip_imagine.cache.manager" ]
+        arguments: [ ~, AppBundle\Entity\Contact, AppBundle\Controller\Admin\ContactAdminController, "@vich_uploader.templating.helper.uploader_helper", "@liip_imagine.cache.manager" ]
         tags:
             - { name: sonata.admin, manager_type: orm, label: "Missatges de contacte", group: "Web", label_translator_strategy: "sonata.admin.label.strategy.noop" }
     admin.category:
@@ -15,12 +15,12 @@ services:
             - { name: sonata.admin, manager_type: orm, label: "Categories", group: "Web", label_translator_strategy: "sonata.admin.label.strategy.noop" }
     admin.post:
         class: AppBundle\Admin\PostAdmin
-        arguments: [ ~, AppBundle\Entity\Post, AppBundle:Admin\PostAdmin, "@vich_uploader.templating.helper.uploader_helper", "@liip_imagine.cache.manager" ]
+        arguments: [ ~, AppBundle\Entity\Post, AppBundle\Controller\Admin\PostAdminController, "@vich_uploader.templating.helper.uploader_helper", "@liip_imagine.cache.manager" ]
         tags:
             - { name: sonata.admin, manager_type: orm, label: "Articles", group: "Web", label_translator_strategy: "sonata.admin.label.strategy.noop" }
     admin.customer:
         class: AppBundle\Admin\CustomerAdmin
-        arguments: [ ~, AppBundle\Entity\Customer, AppBundle:Admin\CustomerAdmin, "@vich_uploader.templating.helper.uploader_helper", "@liip_imagine.cache.manager" ]
+        arguments: [ ~, AppBundle\Entity\Customer, AppBundle\Controller\Admin\CustomerAdminController, "@vich_uploader.templating.helper.uploader_helper", "@liip_imagine.cache.manager" ]
         tags:
             - { name: sonata.admin, manager_type: orm, label: "Alumnes", group: "Facturació", label_translator_strategy: "sonata.admin.label.strategy.noop" }
     admin.schedule:
