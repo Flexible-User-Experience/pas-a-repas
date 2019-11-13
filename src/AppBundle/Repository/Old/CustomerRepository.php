@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Repository;
+namespace AppBundle\Repository\Old;
 
 use Doctrine\ORM\EntityRepository;
 
@@ -8,8 +8,6 @@ use Doctrine\ORM\EntityRepository;
  * Class CustomerRepository
  *
  * @category Repository
- * @package  AppBundle\Repository
- * @author   David Romaní <david@flux.cat>
  */
 class CustomerRepository extends EntityRepository
 {

@@ -3,11 +3,9 @@
 namespace AppBundle\Enum;
 
 /**
- * ReceiptTypeEnum class
+ * ReceiptTypeEnum class.
  *
  * @category Enum
- * @package  AppBundle\Enum
- * @author   Anton Serra <aserratorta@gmial.com>
  */
 class ReceiptTypeEnum
 {

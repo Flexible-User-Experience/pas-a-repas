@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Repository;
+namespace AppBundle\Repository\Old;
 
 use Doctrine\ORM\EntityRepository;
 
@@ -8,8 +8,6 @@ use Doctrine\ORM\EntityRepository;
  * Class ScheduleRepository
  *
  * @category Repository
- * @package  AppBundle\Repository
- * @author   David Romaní <david@flux.cat>
  */
 class ScheduleRepository extends EntityRepository
 {
@@ -25,5 +23,4 @@ class ScheduleRepository extends EntityRepository
 
         return count($query->getResult());
     }
-
 }

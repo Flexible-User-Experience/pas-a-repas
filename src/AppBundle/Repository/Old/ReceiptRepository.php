@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Repository;
+namespace AppBundle\Repository\Old;
 
 use Doctrine\ORM\EntityRepository;
 
@@ -8,8 +8,6 @@ use Doctrine\ORM\EntityRepository;
  * Class ReceiptRepository
  *
  * @category Repository
- * @package  AppBundle\Repository
- * @author   Anton Serra <aserratorta@gmail.com>
  */
 class ReceiptRepository extends EntityRepository
 {
@@ -19,7 +17,6 @@ class ReceiptRepository extends EntityRepository
     public function getReceiptCollectedAmount()
     {
         $query = $this->createQueryBuilder('r')
-//            ->select('sum(r.import)')
             ->where('r.collected = :collected')
             ->setParameter('collected', true)
             ->getQuery();
@@ -33,7 +30,6 @@ class ReceiptRepository extends EntityRepository
     public function getReceiptNotCollectedAmount()
     {
         $query = $this->createQueryBuilder('r')
-//            ->select('sum(r.import)')
             ->where('r.collected = :collected')
             ->setParameter('collected', false)
             ->getQuery();
@@ -47,12 +43,10 @@ class ReceiptRepository extends EntityRepository
     public function getReceiptImportAmount()
     {
         $query = $this->createQueryBuilder('r')
-//            ->select('sum(r.import)')
             ->where('r.collected = :collected')
             ->setParameter('collected', false)
             ->getQuery();
 
         return count($query->getResult());
     }
-
 }

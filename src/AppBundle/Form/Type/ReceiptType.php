@@ -10,17 +10,15 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 /**
- * Class ReceiptType
+ * Class ReceiptType.
  *
  * @category FormType
- * @package  AppBundle\Form\Type
- * @author   David Romaní <david@flux.cat>
  */
 class ReceiptType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
-     * @param array $options
+     * @param array                $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -35,26 +33,26 @@ class ReceiptType extends AbstractType
                 array(
                     'label' => 'backend.admin.type',
                     'required' => true,
-                    'choices' => ReceiptTypeEnum::getEnumArray()
+                    'choices' => ReceiptTypeEnum::getEnumArray(),
                 )
             )
             ->add(
                 'month',
                 ChoiceType::class,
                 array(
-                    'label'    => 'backend.admin.month',
+                    'label' => 'backend.admin.month',
                     'required' => true,
-                    'choices'  => array(
-                        'Gener'    => '1',
-                        'Febrer'   => '2',
-                        'Març'     => '3',
-                        'Abril'    => '4',
-                        'Maig'     => '5',
-                        'Juny'     => '6',
-                        'Juliol'   => '7',
-                        'Agost'    => '8',
+                    'choices' => array(
+                        'Gener' => '1',
+                        'Febrer' => '2',
+                        'Març' => '3',
+                        'Abril' => '4',
+                        'Maig' => '5',
+                        'Juny' => '6',
+                        'Juliol' => '7',
+                        'Agost' => '8',
                         'Setembre' => '9',
-                        'Octubre'  => '10',
+                        'Octubre' => '10',
                         'Novembre' => '11',
                         'Desembre' => '12',
                     ),

@@ -1,32 +1,22 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace AppBundle\Entity\Old;
 
+use AppBundle\Entity\Base;
 use AppBundle\Entity\Traits\DateTrait;
 use Doctrine\ORM\Mapping as ORM;
-use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
- * HourSingle Entity Class
+ * MonthGroup Entity Class.
  *
  * @category Entity
- * @package  AppBundle\Entity
- * @author   Anton Serra <aserratorta@gmail.com>
  *
- * @ORM\Table(name="hora_particular")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\HourSingleRepository")
+ * @ORM\Table(name="mes_en_grup")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\Old\MonthGroupRepository")
  */
-class HourSingle extends Base
+class MonthGroup extends Base
 {
     use DateTrait;
-
-    /**
-     * @var float
-     *
-     * @ORM\Column(type="float", name="quantitat")
-     */
-    private $amount;
-
 
     /**
      * @var float
@@ -36,7 +26,7 @@ class HourSingle extends Base
     private $price;
 
     /**
-     * @var boolean
+     * @var bool
      *
      * @ORM\Column(type="boolean", name="facturat", nullable=true)
      */
@@ -45,28 +35,14 @@ class HourSingle extends Base
     /**
      * @var Customer
      *
-     * @ORM\ManyToOne(targetEntity="Customer", inversedBy="hoursingles")
+     * @ORM\ManyToOne(targetEntity="Customer", inversedBy="monthgroups")
      * @ORM\JoinColumn(name="client_id", referencedColumnName="id")
      */
     private $customer;
 
     /**
-     * @return float
+     * Methods.
      */
-    public function getAmount()
-    {
-        return $this->amount;
-    }
-
-    /**
-     * @param float $amount
-     * @return HourSingle
-     */
-    public function setAmount($amount)
-    {
-        $this->amount = $amount;
-        return $this;
-    }
 
     /**
      * @return float
@@ -78,16 +54,18 @@ class HourSingle extends Base
 
     /**
      * @param float $price
+     *
      * @return MonthGroup
      */
     public function setPrice($price)
     {
         $this->price = $price;
+
         return $this;
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function isInvoiced()
     {
@@ -95,12 +73,14 @@ class HourSingle extends Base
     }
 
     /**
-     * @param boolean $invoiced
+     * @param bool $invoiced
+     *
      * @return MonthGroup
      */
     public function setInvoiced($invoiced)
     {
         $this->invoiced = $invoiced;
+
         return $this;
     }
 
@@ -114,22 +94,21 @@ class HourSingle extends Base
 
     /**
      * @param Customer $customer
+     *
      * @return MonthGroup
      */
     public function setCustomer($customer)
     {
         $this->customer = $customer;
+
         return $this;
     }
 
-     /**
-     * To string
-     *
+    /**
      * @return string
      */
-    public function __toString() {
-
+    public function __toString()
+    {
         return $this->price ? $this->getPrice().' '.$this->getCustomer() : '---';
     }
-
 }

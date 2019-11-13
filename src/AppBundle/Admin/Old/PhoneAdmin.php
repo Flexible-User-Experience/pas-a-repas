@@ -1,20 +1,16 @@
 <?php
 
-namespace AppBundle\Admin;
+namespace AppBundle\Admin\Old;
 
-use Doctrine\ORM\QueryBuilder;
+use AppBundle\Admin\BaseAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
-use Sonata\AdminBundle\Route\RouteCollection;
-use Sonata\AdminBundle\Show\ShowMapper;
 
 /**
  * Class PhoneAdmin
  *
  * @category Admin
- * @package  AppBundle\Admin
- * @author   Anton Serra <aserratorta@gmail.com>
  */
 class PhoneAdmin extends BaseAdmin
 {
@@ -56,8 +52,8 @@ class PhoneAdmin extends BaseAdmin
                     'label'    => 'backend.admin.position',
                 )
             )
-            ->end();
-
+            ->end()
+        ;
     }
 
     /**
@@ -86,8 +82,8 @@ class PhoneAdmin extends BaseAdmin
                 array(
                     'label' => 'backend.admin.type',
                 )
-            );
-
+            )
+        ;
     }
 
     /**
@@ -129,6 +125,7 @@ class PhoneAdmin extends BaseAdmin
                     ),
                     'label'   => 'backend.admin.actions',
                 )
-            );
+            )
+        ;
     }
 }

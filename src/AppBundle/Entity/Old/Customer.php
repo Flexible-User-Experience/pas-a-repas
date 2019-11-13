@@ -1,23 +1,19 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace AppBundle\Entity\Old;
 
-use AppBundle\Repository\ReceiptRepository;
+use AppBundle\Entity\Base;
 use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Mapping as ORM;
-use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * Customer
+ * Customer.
  *
  * @category Entity
- * @package  AppBundle\Entity
- * @author   David Romaní <david@flux.cat>
  *
  * @ORM\Table(name="client")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\CustomerRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\Old\CustomerRepository")
  */
 class Customer extends Base
 {
@@ -88,7 +84,7 @@ class Customer extends Base
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=255, nullable=true)
-     * @Assert\Email(strict = true, checkMX = true, checkHost = true)
+     * @Assert\Email(strict=true, checkMX=true, checkHost=true)
      */
     private $email;
 
@@ -107,14 +103,14 @@ class Customer extends Base
     private $priceHourGroup = 0;
 
     /**
-     * @var boolean
+     * @var bool
      *
      * @ORM\Column(name="classes_particulars", type="boolean")
      */
     private $singleClasses = false;
 
     /**
-     * @var boolean
+     * @var bool
      *
      * @ORM\Column(name="classes_en_grup", type="boolean")
      */
@@ -128,7 +124,7 @@ class Customer extends Base
     private $annotations;
 
     /**
-     * @var boolean
+     * @var bool
      *
      * @ORM\Column(name="actiu", type="boolean")
      */
@@ -138,7 +134,6 @@ class Customer extends Base
      * @var int
      */
     private $totalAmount;
-
 
     /**
      * @var ArrayCollection
@@ -170,9 +165,7 @@ class Customer extends Base
     private $receipts;
 
     /**
-     *
-     * Methods
-     *
+     * Methods.
      */
 
     /**
@@ -185,11 +178,9 @@ class Customer extends Base
     }
 
     /**
-     * Set Name
-     *
      * @param string $name
      *
-     * @return Customer
+     * @return $this
      */
     public function setName($name)
     {
@@ -199,8 +190,6 @@ class Customer extends Base
     }
 
     /**
-     * Get Name
-     *
      * @return string
      */
     public function getName()
@@ -209,11 +198,9 @@ class Customer extends Base
     }
 
     /**
-     * Set Surname
-     *
      * @param string $surname
      *
-     * @return Customer
+     * @return $this
      */
     public function setSurname($surname)
     {
@@ -223,8 +210,6 @@ class Customer extends Base
     }
 
     /**
-     * Get Surname
-     *
      * @return string
      */
     public function getSurname()
@@ -233,11 +218,9 @@ class Customer extends Base
     }
 
     /**
-     * Set Father
-     *
      * @param string $father
      *
-     * @return Customer
+     * @return $this
      */
     public function setFather($father)
     {
@@ -247,8 +230,6 @@ class Customer extends Base
     }
 
     /**
-     * Get Father
-     *
      * @return string
      */
     public function getFather()
@@ -257,11 +238,9 @@ class Customer extends Base
     }
 
     /**
-     * Set Mother
-     *
      * @param string $mother
      *
-     * @return Customer
+     * @return $this
      */
     public function setMother($mother)
     {
@@ -271,8 +250,6 @@ class Customer extends Base
     }
 
     /**
-     * Get Mother
-     *
      * @return string
      */
     public function getMother()
@@ -281,11 +258,9 @@ class Customer extends Base
     }
 
     /**
-     * Set Address
-     *
      * @param string $address
      *
-     * @return Customer
+     * @return $this
      */
     public function setAddress($address)
     {
@@ -295,8 +270,6 @@ class Customer extends Base
     }
 
     /**
-     * Get Address
-     *
      * @return string
      */
     public function getAddress()
@@ -305,11 +278,9 @@ class Customer extends Base
     }
 
     /**
-     * Set City
-     *
      * @param string $city
      *
-     * @return Customer
+     * @return $this
      */
     public function setCity($city)
     {
@@ -319,8 +290,6 @@ class Customer extends Base
     }
 
     /**
-     * Get City
-     *
      * @return string
      */
     public function getCity()
@@ -329,11 +298,9 @@ class Customer extends Base
     }
 
     /**
-     * Set PostalCode
-     *
      * @param string $postalCode
      *
-     * @return Customer
+     * @return $this
      */
     public function setPostalCode($postalCode)
     {
@@ -343,8 +310,6 @@ class Customer extends Base
     }
 
     /**
-     * Get PostalCode
-     *
      * @return string
      */
     public function getPostalCode()
@@ -353,11 +318,9 @@ class Customer extends Base
     }
 
     /**
-     * Set Course
-     *
      * @param string $course
      *
-     * @return Customer
+     * @return $this
      */
     public function setCourse($course)
     {
@@ -367,8 +330,6 @@ class Customer extends Base
     }
 
     /**
-     * Get Course
-     *
      * @return string
      */
     public function getCourse()
@@ -377,11 +338,9 @@ class Customer extends Base
     }
 
     /**
-     * Set School
-     *
      * @param string $school
      *
-     * @return Customer
+     * @return $this
      */
     public function setSchool($school)
     {
@@ -391,8 +350,6 @@ class Customer extends Base
     }
 
     /**
-     * Get School
-     *
      * @return string
      */
     public function getSchool()
@@ -401,11 +358,9 @@ class Customer extends Base
     }
 
     /**
-     * Set Email
-     *
      * @param string $email
      *
-     * @return Customer
+     * @return $this
      */
     public function setEmail($email)
     {
@@ -415,8 +370,6 @@ class Customer extends Base
     }
 
     /**
-     * Get Email
-     *
      * @return string
      */
     public function getEmail()
@@ -425,11 +378,9 @@ class Customer extends Base
     }
 
     /**
-     * Set PriceHourSingle
-     *
      * @param float $priceHourSingle
      *
-     * @return Customer
+     * @return $this
      */
     public function setPriceHourSingle($priceHourSingle)
     {
@@ -439,8 +390,6 @@ class Customer extends Base
     }
 
     /**
-     * Get PriceHourSingle
-     *
      * @return float
      */
     public function getPriceHourSingle()
@@ -449,11 +398,9 @@ class Customer extends Base
     }
 
     /**
-     * Set PriceHourGroup
-     *
      * @param float $priceHourGroup
      *
-     * @return Customer
+     * @return $this
      */
     public function setPriceHourGroup($priceHourGroup)
     {
@@ -463,8 +410,6 @@ class Customer extends Base
     }
 
     /**
-     * Get PriceHourGroup
-     *
      * @return float
      */
     public function getPriceHourGroup()
@@ -473,11 +418,9 @@ class Customer extends Base
     }
 
     /**
-     * Set SingleClasses
+     * @param bool $singleClasses
      *
-     * @param boolean $singleClasses
-     *
-     * @return Customer
+     * @return $this
      */
     public function setSingleClasses($singleClasses)
     {
@@ -487,9 +430,7 @@ class Customer extends Base
     }
 
     /**
-     * Get SingleClasses
-     *
-     * @return boolean
+     * @return bool
      */
     public function getSingleClasses()
     {
@@ -497,11 +438,9 @@ class Customer extends Base
     }
 
     /**
-     * Set GroupClasses
+     * @param bool $groupClasses
      *
-     * @param boolean $groupClasses
-     *
-     * @return Customer
+     * @return $this
      */
     public function setGroupClasses($groupClasses)
     {
@@ -511,9 +450,7 @@ class Customer extends Base
     }
 
     /**
-     * Get GroupClasses
-     *
-     * @return boolean
+     * @return bool
      */
     public function getGroupClasses()
     {
@@ -521,11 +458,9 @@ class Customer extends Base
     }
 
     /**
-     * Set Annotations
-     *
      * @param string $annotations
      *
-     * @return Customer
+     * @return $this
      */
     public function setAnnotations($annotations)
     {
@@ -535,8 +470,6 @@ class Customer extends Base
     }
 
     /**
-     * Get Annotations
-     *
      * @return string
      */
     public function getAnnotations()
@@ -549,17 +482,18 @@ class Customer extends Base
      */
     public function getTotalAmount()
     {
-        // TODO implement doctrine listener
         return $this->totalAmount;
     }
 
     /**
      * @param int $totalAmount
-     * @return Customer
+     *
+     * @return $this
      */
     public function setTotalAmount($totalAmount)
     {
         $this->totalAmount = $totalAmount;
+
         return $this;
     }
 
@@ -573,11 +507,13 @@ class Customer extends Base
 
     /**
      * @param ArrayCollection $phones
-     * @return Customer
+     *
+     * @return $this
      */
     public function setPhones($phones)
     {
         $this->phones = $phones;
+
         return $this;
     }
 
@@ -591,11 +527,13 @@ class Customer extends Base
 
     /**
      * @param ArrayCollection $monthgroups
-     * @return Customer
+     *
+     * @return $this
      */
     public function setMonthgroups($monthgroups)
     {
         $this->monthgroups = $monthgroups;
+
         return $this;
     }
 
@@ -609,11 +547,13 @@ class Customer extends Base
 
     /**
      * @param ArrayCollection $hoursingles
-     * @return Customer
+     *
+     * @return $this
      */
     public function setHoursingles($hoursingles)
     {
         $this->hoursingles = $hoursingles;
+
         return $this;
     }
 
@@ -627,60 +567,85 @@ class Customer extends Base
 
     /**
      * @param ArrayCollection $receipts
-     * @return Customer
+     *
+     * @return $this
      */
     public function setReceipts($receipts)
     {
         $this->receipts = $receipts;
+
         return $this;
     }
 
+    /**
+     * @param Phone $phone
+     */
     public function addPhone(Phone $phone)
     {
         $this->phones->add($phone);
     }
 
+    /**
+     * @param Phone $phone
+     */
     public function removePhone(Phone $phone)
     {
         $this->phones->removeElement($phone);
     }
 
+    /**
+     * @param MonthGroup $monthGroup
+     */
     public function addMonthGroup(MonthGroup $monthGroup)
     {
         $this->monthgroups->add($monthGroup);
     }
 
+    /**
+     * @param MonthGroup $monthGroup
+     */
     public function removeMonthGroup(MonthGroup $monthGroup)
     {
         $this->monthgroups->removeElement($monthGroup);
     }
+
+    /**
+     * @param HourSingle $hourSingle
+     */
     public function addHourSingle(HourSingle $hourSingle)
     {
         $this->hoursingles->add($hourSingle);
     }
 
+    /**
+     * @param HourSingle $hourSingle
+     */
     public function removeHourSingle(HourSingle $hourSingle)
     {
         $this->hoursingles->removeElement($hourSingle);
     }
 
+    /**
+     * @param Receipt $receipt
+     */
     public function addReceipt(Receipt $receipt)
     {
         $this->receipts->add($receipt);
     }
 
+    /**
+     * @param Receipt $receipt
+     */
     public function removeReceipt(Receipt $receipt)
     {
         $this->receipts->removeElement($receipt);
     }
 
     /**
-     * To string
-     *
      * @return string
      */
-    public function __toString() {
-
-        return $this->name ? $this->getName() . ' ' . $this->getSurname() : '---';
+    public function __toString()
+    {
+        return $this->name ? $this->getName().' '.$this->getSurname() : '---';
     }
-    }
+}

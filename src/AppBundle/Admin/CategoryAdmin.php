@@ -10,34 +10,31 @@ use Sonata\AdminBundle\Route\RouteCollection;
 use Sonata\AdminBundle\Show\ShowMapper;
 
 /**
- * Class CategoryAdmin
+ * Class CategoryAdmin.
  *
  * @category Admin
- * @package  AppBundle\Admin
- * @author   David Romaní <david@flux.cat>
  */
 class CategoryAdmin extends BaseAdmin
 {
     protected $classnameLabel = 'Categoria';
     protected $baseRoutePattern = 'web/categoria';
     protected $datagridValues = array(
-        '_sort_by'    => 'title',
+        '_sort_by' => 'title',
         '_sort_order' => 'asc',
     );
 
     /**
-     * Configure route collection
+     * Configure route collection.
      *
      * @param RouteCollection $collection
      */
     protected function configureRoutes(RouteCollection $collection)
     {
-        $collection
-            ->remove('batch');
+        $collection->remove('batch');
     }
 
     /**
-     * Override query list to reduce queries amount on list view (apply join strategy)
+     * Override query list to reduce queries amount on list view (apply join strategy).
      *
      * @param string $context context
      *
@@ -48,8 +45,8 @@ class CategoryAdmin extends BaseAdmin
         /** @var QueryBuilder $query */
         $query = parent::createQuery($context);
         $query
-            ->select($query->getRootAliases()[0] . ', p')
-            ->leftJoin($query->getRootAliases()[0] . '.posts', 'p');
+            ->select($query->getRootAliases()[0].', p')
+            ->leftJoin($query->getRootAliases()[0].'.posts', 'p');
 
         return $query;
     }
@@ -74,11 +71,12 @@ class CategoryAdmin extends BaseAdmin
                 'enabled',
                 'checkbox',
                 array(
-                    'label'    => 'backend.admin.enabled',
+                    'label' => 'backend.admin.enabled',
                     'required' => false,
                 )
             )
-            ->end();
+            ->end()
+        ;
     }
 
     /**
@@ -98,7 +96,7 @@ class CategoryAdmin extends BaseAdmin
                 'posts',
                 null,
                 array(
-                    'label'    => 'backend.admin.posts',
+                    'label' => 'backend.admin.posts',
                 )
             )
             ->add(
@@ -107,7 +105,8 @@ class CategoryAdmin extends BaseAdmin
                 array(
                     'label' => 'backend.admin.enabled',
                 )
-            );
+            )
+        ;
     }
 
     /**
@@ -120,7 +119,7 @@ class CategoryAdmin extends BaseAdmin
                 'createdAt',
                 'date',
                 array(
-                    'label'  => 'backend.admin.date',
+                    'label' => 'backend.admin.date',
                     'format' => 'd/m/Y H:i',
                 )
             )
@@ -144,7 +143,8 @@ class CategoryAdmin extends BaseAdmin
                 array(
                     'label' => 'backend.admin.enabled',
                 )
-            );
+            )
+        ;
     }
 
     /**
@@ -158,7 +158,7 @@ class CategoryAdmin extends BaseAdmin
                 'title',
                 null,
                 array(
-                    'label'    => 'backend.admin.title',
+                    'label' => 'backend.admin.title',
                     'editable' => true,
                 )
             )
@@ -166,7 +166,7 @@ class CategoryAdmin extends BaseAdmin
                 'count',
                 null,
                 array(
-                    'label'    => 'backend.admin.posts_amount',
+                    'label' => 'backend.admin.posts_amount',
                     'template' => '::Admin/Cells/list__cell_posts_amount_field.html.twig',
                 )
             )
@@ -174,7 +174,7 @@ class CategoryAdmin extends BaseAdmin
                 'enabled',
                 null,
                 array(
-                    'label'    => 'backend.admin.enabled',
+                    'label' => 'backend.admin.enabled',
                     'editable' => true,
                 )
             )
@@ -193,8 +193,9 @@ class CategoryAdmin extends BaseAdmin
                             'template' => '::Admin/Buttons/list__action_delete_button.html.twig',
                         ),
                     ),
-                    'label'   => 'backend.admin.actions',
+                    'label' => 'backend.admin.actions',
                 )
-            );
+            )
+        ;
     }
 }

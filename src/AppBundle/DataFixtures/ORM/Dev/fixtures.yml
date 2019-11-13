@@ -64,13 +64,13 @@ AppBundle\Entity\Post:
     categories: [ ]
 
 ## Schedules
-AppBundle\Entity\Schedule:
+AppBundle\Entity\Old\Schedule:
   schedule{1..10}:
     date (unique): <dateTimeBetween('-4 months', '-1 months')>
     hours: <numberBetween(1, 4)>
 
 ## Customers
-AppBundle\Entity\Customer:
+AppBundle\Entity\Old\Customer:
   customer{1..50}:
     name: <firstName()>
     surname: <lastName()>
@@ -88,7 +88,7 @@ AppBundle\Entity\Customer:
     enabled: <boolean(70)>
 
 ## Phones
-AppBundle\Entity\Phone:
+AppBundle\Entity\Old\Phone:
   phone{1..50}:
     position: <numberBetween(0, 9)>
     type: <word()>
@@ -96,7 +96,7 @@ AppBundle\Entity\Phone:
     customer: @customer<numberBetween(1, 50)>
 
 ## MonthGroups
-AppBundle\Entity\MonthGroup:
+AppBundle\Entity\Old\MonthGroup:
   monthgroup{1..50}:
     price: <randomFloat(2, 0, 10)>
     invoiced: <boolean(70)>
@@ -104,7 +104,7 @@ AppBundle\Entity\MonthGroup:
     customer: @customer<numberBetween(1, 50)>
 
 ## HourSingle
-AppBundle\Entity\HourSingle:
+AppBundle\Entity\Old\HourSingle:
   hoursingle{1..50}:
     amount: <numberBetween(1, 5)>
     price: <randomFloat(2, 0, 10)>
@@ -113,7 +113,7 @@ AppBundle\Entity\HourSingle:
     customer: @customer<numberBetween(1, 50)>
 
 ## Receipt
-AppBundle\Entity\Receipt:
+AppBundle\Entity\Old\Receipt:
   receipt{1..50}:
     import: <numberBetween(0, 100)>
     type: <randomElement(array('HOUR_SINGLE', 'HOUR_GROUP'))>
@@ -123,14 +123,14 @@ AppBundle\Entity\Receipt:
     customer: @customer<numberBetween(1, 50)>
 
 ## Spendings
-AppBundle\Entity\Spending:
+AppBundle\Entity\Old\Spending:
   spending{1..50}:
     date: <dateTimeThisMonth()>
     amount: <numberBetween(1, 100)>
     spendingcategory: @spendingcategory<numberBetween(1, 10)>
 
 ## SpendingCategory
-AppBundle\Entity\SpendingCategory:
+AppBundle\Entity\Old\SpendingCategory:
   spendingcategory{1..10}:
     name: <sentence()>
 

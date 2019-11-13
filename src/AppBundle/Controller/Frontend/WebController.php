@@ -10,16 +10,17 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * Class WebController
+ * Class WebController.
  *
  * @category Controller
- * @package  AppBundle\Controller\Frontend
+ *
  * @author   David Romaní <david@flux.cat>
  */
 class WebController extends Controller
 {
     /**
      * @Route("/", name="homepage")
+     *
      * @param Request $request
      *
      * @return \Symfony\Component\HttpFoundation\Response
@@ -64,5 +65,13 @@ class WebController extends Controller
     public function creditsAction()
     {
         return $this->render('Front/Web/credits.html.twig');
+    }
+
+    /**
+     * @Route("/politica-de-privacitat", name="privacy_policy")
+     */
+    public function privacyPolicyAction()
+    {
+        return $this->render('Front/Web/privacy_policy.html.twig');
     }
 }

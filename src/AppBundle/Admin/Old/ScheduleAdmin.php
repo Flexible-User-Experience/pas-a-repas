@@ -1,22 +1,21 @@
 <?php
 
-namespace AppBundle\Admin;
+namespace AppBundle\Admin\Old;
 
+use AppBundle\Admin\BaseAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 
 /**
- * Class MonthGroupAdmin
+ * Class ScheduleAdmin
  *
  * @category Admin
- * @package  AppBundle\Admin
- * @author   Anton Serra <aserratorta@gmail.com>
  */
-class MonthGroupAdmin extends BaseAdmin
+class ScheduleAdmin extends BaseAdmin
 {
-    protected $classnameLabel = 'Mes en grup';
-    protected $baseRoutePattern = 'facturacio/mes-en-grup';
+    protected $classnameLabel = 'Parte';
+    protected $baseRoutePattern = 'facturacio/parte';
     protected $datagridValues = array(
         '_sort_by'    => 'date',
         '_sort_order' => 'desc',
@@ -28,7 +27,7 @@ class MonthGroupAdmin extends BaseAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->with('backend.admin.monthgroup', $this->getFormMdSuccessBoxArray(6))
+            ->with('backend.admin.schedule', $this->getFormMdSuccessBoxArray(6))
             ->add(
                 'date',
                 'sonata_type_date_picker',
@@ -36,24 +35,18 @@ class MonthGroupAdmin extends BaseAdmin
                     'label' => 'backend.admin.date',
                 )
             )
+            ->end()
+            ->with('backend.admin.controls', $this->getFormMdSuccessBoxArray(6))
             ->add(
-                'price',
+                'hours',
                 null,
                 array(
-                    'label' => 'backend.admin.price',
+                    'label'    => 'backend.admin.hours',
                     'required' => true,
                 )
             )
-            ->add(
-                'invoiced',
-                null,
-                array(
-                    'label' => 'backend.admin.invoiced',
-                    'required' => false,
-                )
-            )
-            ->end();
-
+            ->end()
+        ;
     }
 
     /**
@@ -66,32 +59,18 @@ class MonthGroupAdmin extends BaseAdmin
                 'date',
                 'doctrine_orm_date',
                 array(
-                    'label' => 'backend.admin.date',
+                    'label'      => 'backend.admin.date',
                     'field_type' => 'sonata_type_date_picker',
                 )
             )
             ->add(
-                'customer',
+                'hours',
                 null,
                 array(
-                    'label'    => 'backend.admin.customer',
+                    'label'    => 'backend.admin.hours',
                 )
             )
-            ->add(
-                'price',
-                null,
-                array(
-                    'label'    => 'backend.admin.price',
-                )
-            )
-            ->add(
-                'invoiced',
-                null,
-                array(
-                    'label' => 'backend.admin.invoiced',
-                )
-            );
-
+        ;
     }
 
     /**
@@ -103,32 +82,18 @@ class MonthGroupAdmin extends BaseAdmin
         $listMapper
             ->add(
                 'date',
-                null,
+                'date',
                 array(
                     'label'    => 'backend.admin.date',
-                    'format'   => 'M-Y',
+                    'format'   => 'd/m/Y',
                     'editable' => true,
                 )
             )
             ->add(
-                'customer',
-                null,
-                array(
-                    'label'    => 'backend.admin.customer',
-                )
-            )
-            ->add(
-                'shedule.hours',
-                null,
+                'hours',
+                'integer',
                 array(
                     'label'    => 'backend.admin.hours',
-                )
-            )
-            ->add(
-                'invoiced',
-                null,
-                array(
-                    'label'    => 'backend.admin.invoiced',
                     'editable' => true,
                 )
             )
@@ -146,6 +111,7 @@ class MonthGroupAdmin extends BaseAdmin
                     ),
                     'label'   => 'backend.admin.actions',
                 )
-            );
+            )
+        ;
     }
 }

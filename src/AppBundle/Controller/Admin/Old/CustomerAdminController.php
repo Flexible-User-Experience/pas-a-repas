@@ -1,9 +1,8 @@
 <?php
 
-namespace AppBundle\Controller\Admin;
+namespace AppBundle\Controller\Admin\Old;
 
-use AppBundle\Entity\Customer;
-use AppBundle\Entity\Receipt;
+use AppBundle\Entity\Old\Customer;
 use AppBundle\Form\Type\ReceiptType;
 use Sonata\AdminBundle\Controller\CRUDController as Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -15,8 +14,6 @@ use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
  * Class CustomerAdminController
  *
  * @category Controller
- * @package  AppBundle\Controller\Admin
- * @author   Anton Serra <aserratorta@gmail.com>
  */
 class CustomerAdminController extends Controller
 {

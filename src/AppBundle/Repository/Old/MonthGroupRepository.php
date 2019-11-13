@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Repository;
+namespace AppBundle\Repository\Old;
 
 use Doctrine\ORM\EntityRepository;
 
@@ -8,10 +8,7 @@ use Doctrine\ORM\EntityRepository;
  * Class MonthGroupRepository
  *
  * @category Repository
- * @package  AppBundle\Repository
- * @author   Anton Serra <aserratorta@gmail.com>
  */
 class MonthGroupRepository extends EntityRepository
 {
-
 }

@@ -1,25 +1,24 @@
 <?php
 
-namespace AppBundle\Admin;
+namespace AppBundle\Admin\Old;
 
+use AppBundle\Admin\BaseAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 
 /**
- * Class ScheduleAdmin
+ * Class SpendingAdmin
  *
  * @category Admin
- * @package  AppBundle\Admin
- * @author   David Romaní <david@flux.cat>
  */
-class ScheduleAdmin extends BaseAdmin
+class SpendingAdmin extends BaseAdmin
 {
-    protected $classnameLabel = 'Parte';
-    protected $baseRoutePattern = 'facturacio/parte';
+    protected $classnameLabel = 'Despesa';
+    protected $baseRoutePattern = 'despesa/despesa';
     protected $datagridValues = array(
         '_sort_by'    => 'date',
-        '_sort_order' => 'desc',
+        '_sort_order' => 'asc',
     );
 
     /**
@@ -28,7 +27,7 @@ class ScheduleAdmin extends BaseAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->with('backend.admin.schedule', $this->getFormMdSuccessBoxArray(6))
+            ->with('backend.admin.spending', $this->getFormMdSuccessBoxArray(6))
             ->add(
                 'date',
                 'sonata_type_date_picker',
@@ -36,17 +35,22 @@ class ScheduleAdmin extends BaseAdmin
                     'label' => 'backend.admin.date',
                 )
             )
-            ->end()
-            ->with('backend.admin.controls', $this->getFormMdSuccessBoxArray(6))
             ->add(
-                'hours',
+                'spendingCategory',
                 null,
                 array(
-                    'label'    => 'backend.admin.hours',
-                    'required' => true,
+                    'label' => 'backend.admin.category',
                 )
             )
-            ->end();
+            ->add(
+                'amount',
+                null,
+                array(
+                    'label' => 'backend.admin.amount',
+                )
+            )
+            ->end()
+        ;
     }
 
     /**
@@ -59,17 +63,25 @@ class ScheduleAdmin extends BaseAdmin
                 'date',
                 'doctrine_orm_date',
                 array(
-                    'label'      => 'backend.admin.date',
+                    'label' => 'backend.admin.date',
                     'field_type' => 'sonata_type_date_picker',
                 )
             )
             ->add(
-                'hours',
+                'spendingCategory',
                 null,
                 array(
-                    'label'    => 'backend.admin.hours',
+                    'label' => 'backend.admin.category',
                 )
-            );
+            )
+            ->add(
+                'amount',
+                null,
+                array(
+                    'label' => 'backend.admin.amount',
+                )
+            )
+        ;
     }
 
     /**
@@ -81,7 +93,7 @@ class ScheduleAdmin extends BaseAdmin
         $listMapper
             ->add(
                 'date',
-                'date',
+                null,
                 array(
                     'label'    => 'backend.admin.date',
                     'format'   => 'd/m/Y',
@@ -89,10 +101,18 @@ class ScheduleAdmin extends BaseAdmin
                 )
             )
             ->add(
-                'hours',
-                'integer',
+                'spendingCategory',
+                null,
                 array(
-                    'label'    => 'backend.admin.hours',
+                    'label' => 'backend.admin.category',
+                    'editable' => true,
+                )
+            )
+            ->add(
+                'amount',
+                null,
+                array(
+                    'label' => 'backend.admin.amount',
                     'editable' => true,
                 )
             )
@@ -110,6 +130,7 @@ class ScheduleAdmin extends BaseAdmin
                     ),
                     'label'   => 'backend.admin.actions',
                 )
-            );
+            )
+        ;
     }
 }

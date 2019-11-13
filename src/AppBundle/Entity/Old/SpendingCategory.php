@@ -1,24 +1,21 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace AppBundle\Entity\Old;
 
+use AppBundle\Entity\Base;
 use Doctrine\Common\Collections\ArrayCollection;
-use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * SpendingCategory
+ * SpendingCategory.
  *
  * @category Entity
- * @package  AppBundle\Entity
- * @author   Anton Serra <aserratorta@gmail.com>
  *
  * @ORM\Table(name="categoria_despesa")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\SpendingCategoryRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\Old\SpendingCategoryRepository")
  */
 class SpendingCategory extends Base
 {
-
     /**
      * @var string
      *
@@ -34,13 +31,11 @@ class SpendingCategory extends Base
     private $spendings;
 
     /**
-     *
-     * Methods
-     *
+     * Methods.
      */
 
     /**
-     * Category constructor
+     * SpendingCategory constructor.
      */
     public function __construct()
     {
@@ -57,7 +52,8 @@ class SpendingCategory extends Base
 
     /**
      * @param string $name
-     * @return SpendingCategory
+     *
+     * @return $this
      */
     public function setName($name)
     {
@@ -76,7 +72,8 @@ class SpendingCategory extends Base
 
     /**
      * @param ArrayCollection $spendings
-     * @return SpendingCategory
+     *
+     * @return $this
      */
     public function setSpendings($spendings)
     {
@@ -86,19 +83,10 @@ class SpendingCategory extends Base
     }
 
     /**
-     * To string
-     *
      * @return string
      */
     public function __toString()
     {
-        if ($this->getName() == null) {
-
-            return '---';
-
-        } else {
-
-            return $this->getName();
-        }
+        return null == $this->getName() ? '---' : $this->getName();
     }
 }

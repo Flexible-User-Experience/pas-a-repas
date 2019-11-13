@@ -16,8 +16,6 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
  * Class ContactType.
  *
  * @category FormType
- *
- * @author   David Romaní <david@flux.cat>
  */
 class ContactType extends AbstractType
 {

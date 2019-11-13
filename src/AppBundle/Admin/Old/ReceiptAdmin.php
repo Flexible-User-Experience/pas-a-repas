@@ -1,10 +1,10 @@
 <?php
 
-namespace AppBundle\Admin;
+namespace AppBundle\Admin\Old;
 
+use AppBundle\Admin\BaseAdmin;
 use AppBundle\Enum\ReceiptTypeEnum;
 use Sonata\AdminBundle\Datagrid\ListMapper;
-use AppBundle\Enum\UserRolesEnum;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\CoreBundle\Form\Type\BooleanType;
@@ -14,8 +14,6 @@ use Sonata\CoreBundle\Form\Type\EqualType;
  * Class ReceiptAdmin
  *
  * @category Admin
- * @package  AppBundle\Admin
- * @author   Anton Serra <aserratorta@gmail.com>
  */
 class ReceiptAdmin extends BaseAdmin
 {
@@ -69,7 +67,7 @@ class ReceiptAdmin extends BaseAdmin
                 )
             )
             ->end()
-             ->with('backend.admin.controls', $this->getFormMdSuccessBoxArray(6))
+            ->with('backend.admin.controls', $this->getFormMdSuccessBoxArray(6))
             ->add(
                 'import',
                 null,
@@ -96,7 +94,8 @@ class ReceiptAdmin extends BaseAdmin
                     'expanded' => true,
                 )
             )
-            ->end();
+            ->end()
+        ;
     }
 
     /**
@@ -159,7 +158,8 @@ class ReceiptAdmin extends BaseAdmin
                 array(
                     'label'    => 'backend.admin.annotations',
                 )
-            );
+            )
+        ;
     }
 
     /**
@@ -241,6 +241,7 @@ class ReceiptAdmin extends BaseAdmin
                     ),
                     'label'   => 'backend.admin.actions',
                 )
-            );
+            )
+        ;
     }
 }
