@@ -8,6 +8,7 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\CoreBundle\Form\Type\BooleanType;
+use Sonata\CoreBundle\Form\Type\DatePickerType;
 use Sonata\CoreBundle\Form\Type\EqualType;
 
 /**
@@ -34,14 +35,14 @@ class ReceiptAdmin extends BaseAdmin
             ->with('backend.admin.receipt', $this->getFormMdSuccessBoxArray(6))
             ->add(
                 'date',
-                'sonata_type_date_picker',
+                DatePickerType::class,
                 array(
                     'label' => 'backend.admin.date',
                 )
             )
             ->add(
                 'payDate',
-                'sonata_type_date_picker',
+                DatePickerType::class,
                 array(
                     'label' => 'backend.admin.payDate',
                 )
@@ -109,7 +110,7 @@ class ReceiptAdmin extends BaseAdmin
                 'doctrine_orm_date',
                 array(
                     'label' => 'backend.admin.date',
-                    'field_type' => 'sonata_type_date_picker',
+                    'field_type' => DatePickerType::class,
                 )
             )
             ->add(
@@ -117,7 +118,7 @@ class ReceiptAdmin extends BaseAdmin
                 'doctrine_orm_date',
                 array(
                     'label' => 'backend.admin.payDate',
-                    'field_type' => 'sonata_type_date_picker',
+                    'field_type' => DatePickerType::class,
                 )
             )
             ->add(
@@ -135,28 +136,28 @@ class ReceiptAdmin extends BaseAdmin
                 'customer',
                 null,
                 array(
-                    'label'    => 'backend.admin.customer',
+                    'label' => 'backend.admin.customer',
                 )
             )
             ->add(
                 'import',
                 null,
                 array(
-                    'label'    => 'backend.admin.import',
+                    'label' => 'backend.admin.import',
                 )
             )
             ->add(
                 'collected',
                 null,
                 array(
-                    'label'    => 'backend.admin.collected',
+                    'label' => 'backend.admin.collected',
                 )
             )
             ->add(
                 'description',
                 null,
                 array(
-                    'label'    => 'backend.admin.annotations',
+                    'label' => 'backend.admin.annotations',
                 )
             )
         ;
