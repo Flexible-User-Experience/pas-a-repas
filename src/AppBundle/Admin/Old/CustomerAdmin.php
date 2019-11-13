@@ -6,6 +6,7 @@ use AppBundle\Admin\BaseAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\AdminBundle\Form\Type\CollectionType;
 use Sonata\AdminBundle\Route\RouteCollection;
 use Sonata\CoreBundle\Form\Type\BooleanType;
 use Sonata\CoreBundle\Form\Type\EqualType;
@@ -178,7 +179,7 @@ class CustomerAdmin extends BaseAdmin
                 ->with('backend.admin.phones', $this->getFormMdSuccessBoxArray(12))
                 ->add(
                     'phones',
-                    'sonata_type_collection',
+                    CollectionType::class,
                     array(
                         'label'    => ' ',
                         'required' => false,

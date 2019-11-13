@@ -40,6 +40,7 @@ class FrontendTest extends BaseTest
             array('/'),
             array('/blog'),
             array('/credits'),
+            array('/politica-de-privacitat'),
         );
     }
 

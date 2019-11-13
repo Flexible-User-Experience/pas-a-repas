@@ -4,10 +4,14 @@ namespace AppBundle\Admin;
 
 use AppBundle\Repository\CategoryRepository;
 use Doctrine\ORM\QueryBuilder;
+use Ivory\CKEditorBundle\Form\Type\CKEditorType;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Route\RouteCollection;
+use Sonata\CoreBundle\Form\Type\DatePickerType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 /**
  * Class PostAdmin.
@@ -60,14 +64,14 @@ class PostAdmin extends BaseAdmin
             ->with('backend.admin.post', $this->getFormMdSuccessBoxArray(6))
             ->add(
                 'publishedAt',
-                'sonata_type_date_picker',
+                DatePickerType::class,
                 array(
                     'label' => 'backend.admin.published_date',
                 )
             )
             ->add(
                 'imageFile',
-                'file',
+                FileType::class,
                 array(
                     'label' => 'backend.admin.image',
                     'help' => $this->getImageHelperFormMapperWithThumbnail(),
@@ -103,7 +107,7 @@ class PostAdmin extends BaseAdmin
             )
             ->add(
                 'enabled',
-                'checkbox',
+                CheckboxType::class,
                 array(
                     'label' => 'backend.admin.enabled',
                     'required' => false,
@@ -120,7 +124,7 @@ class PostAdmin extends BaseAdmin
             )
             ->add(
                 'description',
-                'ckeditor',
+                CKEditorType::class,
                 array(
                     'label' => 'backend.admin.description',
                     'config_name' => 'my_config',
@@ -142,7 +146,7 @@ class PostAdmin extends BaseAdmin
                 'doctrine_orm_date',
                 array(
                     'label' => 'backend.admin.published_date',
-                    'field_type' => 'sonata_type_date_picker',
+                    'field_type' => DatePickerType::class,
                 )
             )
             ->add(

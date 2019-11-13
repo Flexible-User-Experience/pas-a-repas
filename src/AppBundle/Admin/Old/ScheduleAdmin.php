@@ -6,6 +6,7 @@ use AppBundle\Admin\BaseAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\CoreBundle\Form\Type\DatePickerType;
 
 /**
  * Class ScheduleAdmin
@@ -30,7 +31,7 @@ class ScheduleAdmin extends BaseAdmin
             ->with('backend.admin.schedule', $this->getFormMdSuccessBoxArray(6))
             ->add(
                 'date',
-                'sonata_type_date_picker',
+                DatePickerType::class,
                 array(
                     'label' => 'backend.admin.date',
                 )
@@ -60,7 +61,7 @@ class ScheduleAdmin extends BaseAdmin
                 'doctrine_orm_date',
                 array(
                     'label'      => 'backend.admin.date',
-                    'field_type' => 'sonata_type_date_picker',
+                    'field_type' => DatePickerType::class,
                 )
             )
             ->add(

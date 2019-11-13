@@ -7,6 +7,7 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\CoreBundle\Form\Type\BooleanType;
+use Sonata\CoreBundle\Form\Type\DatePickerType;
 use Sonata\CoreBundle\Form\Type\EqualType;
 
 /**
@@ -33,7 +34,7 @@ class HourSingleAdmin extends BaseAdmin
             ->with('backend.admin.hoursingle', $this->getFormMdSuccessBoxArray(6))
             ->add(
                 'date',
-                'sonata_type_date_picker',
+                DatePickerType::class,
                 array(
                     'label' => 'backend.admin.date',
                 )
@@ -93,7 +94,7 @@ class HourSingleAdmin extends BaseAdmin
                 'doctrine_orm_date',
                 array(
                     'label' => 'backend.admin.date',
-                    'field_type' => 'sonata_type_date_picker',
+                    'field_type' => DatePickerType::class,
                 )
             )
             ->add(
