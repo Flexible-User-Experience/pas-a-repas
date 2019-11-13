@@ -2,11 +2,10 @@ services:
 # App
     app.google_maps_service:
         class: AppBundle\Service\GoogleMapsService
-        arguments: [ "%locale%" ]
 # Sonata Admins
     admin.contact:
         class: AppBundle\Admin\ContactAdmin
-        arguments: [ ~, AppBundle\Entity\Contact, AppBundle:Admin\ContactAdmin, "@vich_uploader.templating.helper.uploader_helper", "@liip_imagine.cache.manager" ]
+        arguments: [ ~, AppBundle\Entity\Contact, AppBundle\Controller\Admin\ContactAdminController, "@vich_uploader.templating.helper.uploader_helper", "@liip_imagine.cache.manager" ]
         tags:
             - { name: sonata.admin, manager_type: orm, label: "Missatges de contacte", group: "Web", label_translator_strategy: "sonata.admin.label.strategy.noop" }
     admin.category:
@@ -16,47 +15,47 @@ services:
             - { name: sonata.admin, manager_type: orm, label: "Categories", group: "Web", label_translator_strategy: "sonata.admin.label.strategy.noop" }
     admin.post:
         class: AppBundle\Admin\PostAdmin
-        arguments: [ ~, AppBundle\Entity\Post, AppBundle:Admin\PostAdmin, "@vich_uploader.templating.helper.uploader_helper", "@liip_imagine.cache.manager" ]
+        arguments: [ ~, AppBundle\Entity\Post, AppBundle\Controller\Admin\PostAdminController, "@vich_uploader.templating.helper.uploader_helper", "@liip_imagine.cache.manager" ]
         tags:
             - { name: sonata.admin, manager_type: orm, label: "Articles", group: "Web", label_translator_strategy: "sonata.admin.label.strategy.noop" }
     admin.customer:
-        class: AppBundle\Admin\CustomerAdmin
-        arguments: [ ~, AppBundle\Entity\Customer, AppBundle:Admin\CustomerAdmin, "@vich_uploader.templating.helper.uploader_helper", "@liip_imagine.cache.manager" ]
+        class: AppBundle\Admin\Old\CustomerAdmin
+        arguments: [ ~, AppBundle\Entity\Old\Customer, AppBundle\Controller\Admin\Old\CustomerAdminController, "@vich_uploader.templating.helper.uploader_helper", "@liip_imagine.cache.manager" ]
         tags:
             - { name: sonata.admin, manager_type: orm, label: "Alumnes", group: "Facturació", label_translator_strategy: "sonata.admin.label.strategy.noop" }
     admin.schedule:
-        class: AppBundle\Admin\ScheduleAdmin
-        arguments: [ ~, AppBundle\Entity\Schedule, ~, "@vich_uploader.templating.helper.uploader_helper", "@liip_imagine.cache.manager" ]
+        class: AppBundle\Admin\Old\ScheduleAdmin
+        arguments: [ ~, AppBundle\Entity\Old\Schedule, ~, "@vich_uploader.templating.helper.uploader_helper", "@liip_imagine.cache.manager" ]
         tags:
             - { name: sonata.admin, manager_type: orm, label: "Partes", group: "Facturació", label_translator_strategy: "sonata.admin.label.strategy.noop" }
     admin.phone:
-        class: AppBundle\Admin\PhoneAdmin
-        arguments: [ ~, AppBundle\Entity\Phone, ~, "@vich_uploader.templating.helper.uploader_helper", "@liip_imagine.cache.manager" ]
+        class: AppBundle\Admin\Old\PhoneAdmin
+        arguments: [ ~, AppBundle\Entity\Old\Phone, ~, "@vich_uploader.templating.helper.uploader_helper", "@liip_imagine.cache.manager" ]
         tags:
             - { name: sonata.admin, manager_type: orm, label: "Telèfons", group: "Facturació", label_translator_strategy: "sonata.admin.label.strategy.noop", show_in_dashboard: false }
     admin.hoursingle:
-        class: AppBundle\Admin\HourSingleAdmin
-        arguments: [ ~, AppBundle\Entity\HourSingle, ~, "@vich_uploader.templating.helper.uploader_helper", "@liip_imagine.cache.manager" ]
+        class: AppBundle\Admin\Old\HourSingleAdmin
+        arguments: [ ~, AppBundle\Entity\Old\HourSingle, ~, "@vich_uploader.templating.helper.uploader_helper", "@liip_imagine.cache.manager" ]
         tags:
             - { name: sonata.admin, manager_type: orm, label: "Hora Particular", group: "Facturació", label_translator_strategy: "sonata.admin.label.strategy.noop" }
     admin.monthgroup:
-        class: AppBundle\Admin\MonthGroupAdmin
-        arguments: [ ~, AppBundle\Entity\MonthGroup, ~, "@vich_uploader.templating.helper.uploader_helper", "@liip_imagine.cache.manager" ]
+        class: AppBundle\Admin\Old\MonthGroupAdmin
+        arguments: [ ~, AppBundle\Entity\Old\MonthGroup, ~, "@vich_uploader.templating.helper.uploader_helper", "@liip_imagine.cache.manager" ]
         tags:
             - { name: sonata.admin, manager_type: orm, label: "Mes en grup", group: "Facturació", label_translator_strategy: "sonata.admin.label.strategy.noop" }
     admin.receipt:
-        class: AppBundle\Admin\ReceiptAdmin
-        arguments: [ ~, AppBundle\Entity\Receipt, ~, "@vich_uploader.templating.helper.uploader_helper", "@liip_imagine.cache.manager" ]
+        class: AppBundle\Admin\Old\ReceiptAdmin
+        arguments: [ ~, AppBundle\Entity\Old\Receipt, ~, "@vich_uploader.templating.helper.uploader_helper", "@liip_imagine.cache.manager" ]
         tags:
             - { name: sonata.admin, manager_type: orm, label: "Rebut", group: "Facturació", label_translator_strategy: "sonata.admin.label.strategy.noop" }
     admin.spending:
-        class: AppBundle\Admin\SpendingAdmin
-        arguments: [ ~, AppBundle\Entity\Spending, ~, "@vich_uploader.templating.helper.uploader_helper", "@liip_imagine.cache.manager" ]
+        class: AppBundle\Admin\Old\SpendingAdmin
+        arguments: [ ~, AppBundle\Entity\Old\Spending, ~, "@vich_uploader.templating.helper.uploader_helper", "@liip_imagine.cache.manager" ]
         tags:
             - { name: sonata.admin, manager_type: orm, label: "Despesa", group: "Despesa", label_translator_strategy: "sonata.admin.label.strategy.noop" }
     admin.spendingcategory:
-        class: AppBundle\Admin\SpendingCategoryAdmin
-        arguments: [ ~, AppBundle\Entity\SpendingCategory, ~, "@vich_uploader.templating.helper.uploader_helper", "@liip_imagine.cache.manager" ]
+        class: AppBundle\Admin\Old\SpendingCategoryAdmin
+        arguments: [ ~, AppBundle\Entity\Old\SpendingCategory, ~, "@vich_uploader.templating.helper.uploader_helper", "@liip_imagine.cache.manager" ]
         tags:
             - { name: sonata.admin, manager_type: orm, label: "Categoria", group: "Despesa", label_translator_strategy: "sonata.admin.label.strategy.noop" }
     admin.user:

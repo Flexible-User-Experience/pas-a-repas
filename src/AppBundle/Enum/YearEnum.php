@@ -3,11 +3,9 @@
 namespace AppBundle\Enum;
 
 /**
- * YearEnum class
+ * YearEnum class.
  *
  * @category Enum
- * @package  AppBundle\Enum
- * @author   Anton Serra <aserratorta@gmail.com>
  */
 class YearEnum
 {
@@ -17,9 +15,7 @@ class YearEnum
     public static function getEnumArray()
     {
         $result = array();
-
-        for ($year = 2010; $year <= date('Y') + 1; $year++) {
-
+        for ($year = 2010; $year <= date('Y') + 1; ++$year) {
             array_push($result, $year);
         }
 

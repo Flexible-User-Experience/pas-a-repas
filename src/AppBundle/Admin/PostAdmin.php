@@ -10,34 +10,31 @@ use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Route\RouteCollection;
 
 /**
- * Class PostAdmin
+ * Class PostAdmin.
  *
  * @category Admin
- * @package  AppBundle\Admin
- * @author   David Romaní <david@flux.cat>
  */
 class PostAdmin extends BaseAdmin
 {
     protected $classnameLabel = 'Article';
     protected $baseRoutePattern = 'web/article';
     protected $datagridValues = array(
-        '_sort_by'    => 'publishedAt',
+        '_sort_by' => 'publishedAt',
         '_sort_order' => 'desc',
     );
 
     /**
-     * Configure route collection
+     * Configure route collection.
      *
      * @param RouteCollection $collection
      */
     protected function configureRoutes(RouteCollection $collection)
     {
-        $collection
-            ->remove('batch');
+        $collection->remove('batch');
     }
 
     /**
-     * Override query list to reduce queries amount on list view (apply join strategy)
+     * Override query list to reduce queries amount on list view (apply join strategy).
      *
      * @param string $context context
      *
@@ -48,8 +45,8 @@ class PostAdmin extends BaseAdmin
         /** @var QueryBuilder $query */
         $query = parent::createQuery($context);
         $query
-            ->select($query->getRootAliases()[0] . ', c')
-            ->leftJoin($query->getRootAliases()[0] . '.categories', 'c');
+            ->select($query->getRootAliases()[0].', c')
+            ->leftJoin($query->getRootAliases()[0].'.categories', 'c');
 
         return $query;
     }
@@ -72,8 +69,8 @@ class PostAdmin extends BaseAdmin
                 'imageFile',
                 'file',
                 array(
-                    'label'    => 'backend.admin.image',
-                    'help'     => $this->getImageHelperFormMapperWithThumbnail(),
+                    'label' => 'backend.admin.image',
+                    'help' => $this->getImageHelperFormMapperWithThumbnail(),
                     'required' => false,
                 )
             )
@@ -94,7 +91,7 @@ class PostAdmin extends BaseAdmin
                 null,
                 array(
                     'label' => 'backend.admin.metakeywords',
-                    'help'  => 'backend.admin.metakeywordshelp',
+                    'help' => 'backend.admin.metakeywordshelp',
                 )
             )
             ->add(
@@ -108,7 +105,7 @@ class PostAdmin extends BaseAdmin
                 'enabled',
                 'checkbox',
                 array(
-                    'label'    => 'backend.admin.enabled',
+                    'label' => 'backend.admin.enabled',
                     'required' => false,
                 )
             )
@@ -125,12 +122,13 @@ class PostAdmin extends BaseAdmin
                 'description',
                 'ckeditor',
                 array(
-                    'label'       => 'backend.admin.description',
+                    'label' => 'backend.admin.description',
                     'config_name' => 'my_config',
-                    'required'    => true,
+                    'required' => true,
                 )
             )
-            ->end();
+            ->end()
+        ;
     }
 
     /**
@@ -143,7 +141,7 @@ class PostAdmin extends BaseAdmin
                 'publishedAt',
                 'doctrine_orm_date',
                 array(
-                    'label'      => 'backend.admin.published_date',
+                    'label' => 'backend.admin.published_date',
                     'field_type' => 'sonata_type_date_picker',
                 )
             )
@@ -188,7 +186,8 @@ class PostAdmin extends BaseAdmin
                 array(
                     'label' => 'backend.admin.enabled',
                 )
-            );
+            )
+        ;
     }
 
     /**
@@ -202,16 +201,16 @@ class PostAdmin extends BaseAdmin
                 'image',
                 null,
                 array(
-                    'label'    => 'backend.admin.image',
-                    'template' => '::Admin/Cells/list__cell_image_field.html.twig'
+                    'label' => 'backend.admin.image',
+                    'template' => '::Admin/Cells/list__cell_image_field.html.twig',
                 )
             )
             ->add(
                 'publishedAt',
                 'date',
                 array(
-                    'label'    => 'backend.admin.published_date',
-                    'format'   => 'd/m/Y',
+                    'label' => 'backend.admin.published_date',
+                    'format' => 'd/m/Y',
                     'editable' => true,
                 )
             )
@@ -219,7 +218,7 @@ class PostAdmin extends BaseAdmin
                 'title',
                 null,
                 array(
-                    'label'    => 'backend.admin.title',
+                    'label' => 'backend.admin.title',
                     'editable' => true,
                 )
             )
@@ -227,7 +226,7 @@ class PostAdmin extends BaseAdmin
                 'categories',
                 null,
                 array(
-                    'label'    => 'backend.admin.categories',
+                    'label' => 'backend.admin.categories',
                     'editable' => true,
                 )
             )
@@ -235,7 +234,7 @@ class PostAdmin extends BaseAdmin
                 'enabled',
                 null,
                 array(
-                    'label'    => 'backend.admin.enabled',
+                    'label' => 'backend.admin.enabled',
                     'editable' => true,
                 )
             )
@@ -254,8 +253,9 @@ class PostAdmin extends BaseAdmin
                             'template' => '::Admin/Buttons/list__action_delete_button.html.twig',
                         ),
                     ),
-                    'label'   => 'backend.admin.actions',
+                    'label' => 'backend.admin.actions',
                 )
-            );
+            )
+        ;
     }
 }

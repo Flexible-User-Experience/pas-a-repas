@@ -2,19 +2,17 @@
 
 namespace AppBundle\Admin;
 
-use Sonata\AdminBundle\Admin\Admin;
+use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Route\RouteCollection;
 use Liip\ImagineBundle\Imagine\Cache\CacheManager;
 use Vich\UploaderBundle\Templating\Helper\UploaderHelper;
 
 /**
- * Class BaseAdmin
+ * Class BaseAdmin.
  *
  * @category Admin
- * @package  AppBundle\Admin
- * @author   David Romaní <david@flux.cat>
  */
-abstract class BaseAdmin extends Admin
+abstract class BaseAdmin extends AbstractAdmin
 {
     /**
      * @var UploaderHelper
@@ -32,7 +30,7 @@ abstract class BaseAdmin extends Admin
     protected $translationDomain = 'messages';
 
     /**
-     * Methods
+     * Methods.
      */
 
     /**
@@ -60,7 +58,7 @@ abstract class BaseAdmin extends Admin
     protected $maxPerPage = 25;
 
     /**
-     * Configure route collection
+     * Configure route collection.
      *
      * @param RouteCollection $collection
      */
@@ -72,7 +70,7 @@ abstract class BaseAdmin extends Admin
     }
 
     /**
-     * Remove batch action list view first column
+     * Remove batch action list view first column.
      *
      * @return array
      */
@@ -85,7 +83,7 @@ abstract class BaseAdmin extends Admin
     }
 
     /**
-     * Get export formats
+     * Get export formats.
      *
      * @return array
      */
@@ -107,8 +105,8 @@ abstract class BaseAdmin extends Admin
     protected function getDefaultFormBoxArray($bootstrapGrid = 'md', $bootstrapSize = '6', $boxClass = 'primary')
     {
         return array(
-            'class'     => 'col-' . $bootstrapGrid . '-' . $bootstrapSize,
-            'box_class' => 'box box-' . $boxClass,
+            'class' => 'col-'.$bootstrapGrid.'-'.$bootstrapSize,
+            'box_class' => 'box box-'.$boxClass,
         );
     }
 
@@ -123,15 +121,15 @@ abstract class BaseAdmin extends Admin
     }
 
     /**
-     * Get image helper form mapper with thumbnail
+     * Get image helper form mapper with thumbnail.
      *
      * @return string
      */
     protected function getImageHelperFormMapperWithThumbnail()
     {
-        return ($this->getSubject()->getImageName() ? '<img src="' . $this->lis->getBrowserPath(
+        return ($this->getSubject()->getImageName() ? '<img src="'.$this->lis->getBrowserPath(
                 $this->vus->asset($this->getSubject(), 'imageFile'),
                 '480xY'
-            ) . '" class="img-responsive" alt="thumbnail"/>' : '') . '<span style="width:100%;display:block;">Màxim 10MB amb format PNG, JPG o GIF. Amplada mínima 1200px.</span>';
+            ).'" class="img-responsive" alt="thumbnail"/>' : '').'<span style="width:100%;display:block;">Màxim 10MB amb format PNG, JPG o GIF. Amplada mínima 1200px.</span>';
     }
 }

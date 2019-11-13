@@ -4,14 +4,14 @@
     <!--[if IE 8]><html lang="{{ app.request.locale }}" class="no-js lt-ie9"><![endif]-->
     <!--[if gt IE 8]><!--><html lang="{{ app.request.locale }}" class="no-js"><!--<![endif]-->
     <head>
-        <meta name="description" content="{{ 'frontend.layout.tags.description' | trans | title }}">
+        <meta name="description" content="{{ 'frontend.layout.tags.description' | trans }}">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <meta name="author" content="www.flux.cat">
         <meta charset="UTF-8">
         <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
         <title>{% block title %}{{ main_brand_title }}{% endblock %}</title>
         {% block stylesheets %}
-            {% stylesheets filter="cssrewrite,less" '@mycss' %}
+            {% stylesheets filter="cssrewrite,less" "@mycss" %}
                 <link rel="stylesheet" type="text/css" href="{{ asset_url }}"/>
             {% endstylesheets %}
         {% endblock %}
@@ -109,25 +109,48 @@
         {% endblock %}
         {#<!-- Javascripts -->#}
         {% block javascripts %}
-            {% javascripts '@myjs' %}
+            {% javascripts "@myjs" %}
                 <script type="text/javascript" src="{{ asset_url }}"></script>
             {% endjavascripts %}
-        {% endblock %}
-        {% block scroll_top %}
-            {#<!-- Scroll-Top effect JS -->#}
-            {% include 'Front/Fragments/scroll-to-top-js.html.twig' %}
-        {% endblock %}
-        {% block analytics %}
-            {#<!-- Google Analytics -->#}
-            {% if google_analytics_enabled %}
-                <script type="text/javascript">
+            <script type="text/javascript">
+                jQuery(document).ready(function() {
+                    {% block inside_on_ready_javascripts_node %}
+                        jQuery('div#navbar li a').click(function(event) {
+                            if (event.target.innerHTML != 'BLOG') {
+                                event.preventDefault();
+                                jQuery('html,body').animate({scrollTop: jQuery(event.target.hash).offset().top - 90}, "slow");
+                            }
+                        });
+                    {% endblock %}
+                    var errorNode = jQuery(".has-error");
+                    var envelopeNode = jQuery(".fa-paper-plane-o");
+                    if (errorNode.length > 0) {
+                        jQuery('html,body').animate({scrollTop: errorNode.offset().top - 200}, "slow");
+                    }
+                    if (envelopeNode.length > 0) {
+                        jQuery('html,body').animate({scrollTop: envelopeNode.offset().top - 200}, "slow");
+                    }
+                });
+                jQuery(document).on('scroll', function() {
+                    if (jQuery(window).scrollTop() > 100) {
+                        jQuery('.scroll-top-wrapper').addClass('show');
+                    } else {
+                        jQuery('.scroll-top-wrapper').removeClass('show');
+                    }
+                });
+                jQuery('.scroll-top-wrapper').on('click', scrollToTop);
+                function scrollToTop() {
+                    jQuery('html, body').animate({scrollTop: 0}, 1000, 'swing');
+                }
+                {#<!-- Google Analytics -->#}
+                {% if google_analytics_enabled %}
                     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-                            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
                     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
                     ga('create', '{{ google_analytics_account }}', 'auto'); ga('send', 'pageview');
-                </script>
-            {% endif %}
+                {% endif %}
+            </script>
         {% endblock %}
     </body>
 </html>

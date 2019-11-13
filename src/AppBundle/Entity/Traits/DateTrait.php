@@ -3,16 +3,13 @@
 namespace AppBundle\Entity\Traits;
 
 use Doctrine\ORM\Mapping as ORM;
-use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
- * Date trait
+ * Date trait.
  *
  * @category Trait
- * @package  AppBundle\Entity\Traits
- * @author   David Romaní <david@flux.cat>
  */
-Trait DateTrait
+trait DateTrait
 {
     /**
      * @var \DateTime
@@ -22,8 +19,10 @@ Trait DateTrait
     private $date;
 
     /**
-     * Set Date
-     *
+     * Methods.
+     */
+
+    /**
      * @param string $date
      *
      * @return $this
@@ -36,8 +35,6 @@ Trait DateTrait
     }
 
     /**
-     * Get Date
-     *
      * @return \DateTime
      */
     public function getDate()
@@ -46,8 +43,6 @@ Trait DateTrait
     }
 
     /**
-     * Get Date
-     *
      * @return string
      */
     public function getDateString()

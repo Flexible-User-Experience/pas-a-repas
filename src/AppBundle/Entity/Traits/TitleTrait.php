@@ -5,13 +5,11 @@ namespace AppBundle\Entity\Traits;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Title trait
+ * Title trait.
  *
  * @category Trait
- * @package  AppBundle\Entity\Traits
- * @author   David Romaní <david@flux.cat>
  */
-Trait TitleTrait
+trait TitleTrait
 {
     /**
      * @var string
@@ -21,8 +19,10 @@ Trait TitleTrait
     private $title;
 
     /**
-     * Set title
-     *
+     * Methods.
+     */
+
+    /**
      * @param string $title
      *
      * @return $this
@@ -35,8 +35,6 @@ Trait TitleTrait
     }
 
     /**
-     * Get title
-     *
      * @return string
      */
     public function getTitle()

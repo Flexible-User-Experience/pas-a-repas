@@ -3,26 +3,30 @@
 namespace AppBundle\Admin\Block;
 
 use Doctrine\ORM\EntityManager;
-use Sonata\BlockBundle\Block\BaseBlockService;
+use Sonata\BlockBundle\Block\Service\AbstractBlockService;
 use Sonata\BlockBundle\Block\BlockContextInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * Class PendingMessagesBlock
+ * Class PendingMessagesBlock.
  *
  * @category Block
- * @package  AppBundle\Admin\Block
- * @author   David Romaní <david@flux.cat>
  */
-class PendingMessagesBlock extends BaseBlockService
+class PendingMessagesBlock extends AbstractBlockService
 {
-    /** @var EntityManager */
+    /**
+     * @var EntityManager
+     */
     private $em;
 
     /**
-     * Constructor
+     * Methods.
+     */
+
+    /**
+     * Constructor.
      *
      * @param string          $name
      * @param EngineInterface $templating
@@ -35,7 +39,7 @@ class PendingMessagesBlock extends BaseBlockService
     }
 
     /**
-     * Execute
+     * Execute.
      *
      * @param BlockContextInterface $blockContext
      * @param Response              $response
@@ -47,9 +51,9 @@ class PendingMessagesBlock extends BaseBlockService
         return $this->renderResponse(
             $blockContext->getTemplate(),
             array(
-                'block'           => $blockContext->getBlock(),
-                'settings'        => $blockContext->getSettings(),
-                'title'           => 'backend.admin.block.title',
+                'block' => $blockContext->getBlock(),
+                'settings' => $blockContext->getSettings(),
+                'title' => 'backend.admin.block.title',
                 'pendingMessages' => $this->em->getRepository('AppBundle:Contact')->getPendingMessagesAmount(),
             ),
             $response
@@ -57,7 +61,7 @@ class PendingMessagesBlock extends BaseBlockService
     }
 
     /**
-     * Get name
+     * Get name.
      *
      * @return string
      */
@@ -67,7 +71,7 @@ class PendingMessagesBlock extends BaseBlockService
     }
 
     /**
-     * Set defaultSettings
+     * Set defaultSettings.
      *
      * @param OptionsResolver $resolver
      */
@@ -75,8 +79,8 @@ class PendingMessagesBlock extends BaseBlockService
     {
         $resolver->setDefaults(
             array(
-                'title'    => 'Resume',
-                'content'  => 'Default content',
+                'title' => 'Resume',
+                'content' => 'Default content',
                 'template' => '::Admin/Blocks/block_messages.html.twig',
             )
         );
