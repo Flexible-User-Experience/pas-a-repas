@@ -7,9 +7,9 @@ use AppBundle\Enum\ReceiptTypeEnum;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
-use Sonata\CoreBundle\Form\Type\BooleanType;
-use Sonata\CoreBundle\Form\Type\DatePickerType;
-use Sonata\CoreBundle\Form\Type\EqualType;
+use Sonata\Form\Type\BooleanType;
+use Sonata\Form\Type\DatePickerType;
+use Sonata\Form\Type\EqualType;
 
 /**
  * Class ReceiptAdmin
