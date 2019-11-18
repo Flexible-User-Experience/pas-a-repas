@@ -68,6 +68,11 @@ class SpendingAdmin extends BaseAdmin
                     'label' => 'backend.admin.date',
                     'field_type' => DatePickerType::class,
                     'format' => 'd/M/y',
+                ),
+                null,
+                array(
+                    'widget' => 'single_text',
+                    'format' => 'dd/MM/yyyy',
                 )
             )
             ->add(

@@ -149,6 +149,11 @@ class PostAdmin extends BaseAdmin
                     'label' => 'backend.admin.published_date',
                     'field_type' => DatePickerType::class,
                     'format' => 'd/M/y',
+                ),
+                null,
+                array(
+                    'widget' => 'single_text',
+                    'format' => 'dd/MM/yyyy',
                 )
             )
             ->add(

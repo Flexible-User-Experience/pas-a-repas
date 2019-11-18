@@ -114,6 +114,11 @@ class ReceiptAdmin extends BaseAdmin
                     'label' => 'backend.admin.date',
                     'field_type' => DatePickerType::class,
                     'format' => 'd/M/y',
+                ),
+                null,
+                array(
+                    'widget' => 'single_text',
+                    'format' => 'dd/MM/yyyy',
                 )
             )
             ->add(
@@ -123,6 +128,11 @@ class ReceiptAdmin extends BaseAdmin
                     'label' => 'backend.admin.payDate',
                     'field_type' => DatePickerType::class,
                     'format' => 'd/M/y',
+                ),
+                null,
+                array(
+                    'widget' => 'single_text',
+                    'format' => 'dd/MM/yyyy',
                 )
             )
             ->add(

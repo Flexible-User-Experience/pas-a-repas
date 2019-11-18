@@ -56,6 +56,11 @@ class ContactAdmin extends BaseAdmin
                 array(
                     'label' => 'backend.admin.date',
                     'field_type' => DatePickerType::class,
+                ),
+                null,
+                array(
+                    'widget' => 'single_text',
+                    'format' => 'dd/MM/yyyy',
                 )
             )
             ->add(
