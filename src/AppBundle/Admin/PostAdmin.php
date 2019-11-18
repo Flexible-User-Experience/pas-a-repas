@@ -9,7 +9,7 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Route\RouteCollection;
-use Sonata\CoreBundle\Form\Type\DatePickerType;
+use Sonata\Form\Type\DatePickerType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 
@@ -67,6 +67,7 @@ class PostAdmin extends BaseAdmin
                 DatePickerType::class,
                 array(
                     'label' => 'backend.admin.published_date',
+                    'format' => 'd/M/y',
                 )
             )
             ->add(
@@ -147,6 +148,12 @@ class PostAdmin extends BaseAdmin
                 array(
                     'label' => 'backend.admin.published_date',
                     'field_type' => DatePickerType::class,
+                    'format' => 'd/M/y',
+                ),
+                null,
+                array(
+                    'widget' => 'single_text',
+                    'format' => 'dd/MM/yyyy',
                 )
             )
             ->add(

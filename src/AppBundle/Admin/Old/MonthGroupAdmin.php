@@ -6,7 +6,7 @@ use AppBundle\Admin\BaseAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
-use Sonata\CoreBundle\Form\Type\DatePickerType;
+use Sonata\Form\Type\DatePickerType;
 
 /**
  * Class MonthGroupAdmin
@@ -34,6 +34,7 @@ class MonthGroupAdmin extends BaseAdmin
                 DatePickerType::class,
                 array(
                     'label' => 'backend.admin.date',
+                    'format' => 'd/M/y',
                 )
             )
             ->add(
@@ -68,6 +69,12 @@ class MonthGroupAdmin extends BaseAdmin
                 array(
                     'label' => 'backend.admin.date',
                     'field_type' => DatePickerType::class,
+                    'format' => 'd/M/y',
+                ),
+                null,
+                array(
+                    'widget' => 'single_text',
+                    'format' => 'dd/MM/yyyy',
                 )
             )
             ->add(
