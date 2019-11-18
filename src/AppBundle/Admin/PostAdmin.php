@@ -67,6 +67,7 @@ class PostAdmin extends BaseAdmin
                 DatePickerType::class,
                 array(
                     'label' => 'backend.admin.published_date',
+                    'format' => 'd/M/y',
                 )
             )
             ->add(
@@ -147,6 +148,7 @@ class PostAdmin extends BaseAdmin
                 array(
                     'label' => 'backend.admin.published_date',
                     'field_type' => DatePickerType::class,
+                    'format' => 'd/M/y',
                 )
             )
             ->add(

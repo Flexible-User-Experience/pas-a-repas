@@ -34,6 +34,7 @@ class MonthGroupAdmin extends BaseAdmin
                 DatePickerType::class,
                 array(
                     'label' => 'backend.admin.date',
+                    'format' => 'd/M/y',
                 )
             )
             ->add(
@@ -68,6 +69,7 @@ class MonthGroupAdmin extends BaseAdmin
                 array(
                     'label' => 'backend.admin.date',
                     'field_type' => DatePickerType::class,
+                    'format' => 'd/M/y',
                 )
             )
             ->add(

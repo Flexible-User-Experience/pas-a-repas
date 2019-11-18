@@ -37,6 +37,7 @@ class HourSingleAdmin extends BaseAdmin
                 DatePickerType::class,
                 array(
                     'label' => 'backend.admin.date',
+                    'format' => 'd/M/y',
                 )
             )
             ->add(
@@ -95,6 +96,7 @@ class HourSingleAdmin extends BaseAdmin
                 array(
                     'label' => 'backend.admin.date',
                     'field_type' => DatePickerType::class,
+                    'format' => 'd/M/y',
                 )
             )
             ->add(
